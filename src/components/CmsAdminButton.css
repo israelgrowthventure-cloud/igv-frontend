@@ -1,0 +1,58 @@
+.cms-admin-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.cms-admin-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.cms-admin-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cms-admin-button.has-error {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.error-badge {
+  background: white;
+  color: #ef4444;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+@media (max-width: 768px) {
+  .cms-admin-button span:not(.error-badge) {
+    display: none;
+  }
+  
+  .cms-admin-button::after {
+    content: '⚙️';
+    font-size: 18px;
+  }
+}

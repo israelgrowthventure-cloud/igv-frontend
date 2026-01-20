@@ -1,0 +1,812 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "Qui sommes-nous",
+    "packs": "Nos Packs",
+    "businessPlan": "Business Plan",
+    "more": "En savoir plus",
+    "futureCommerce": "Le Commerce de Demain",
+    "contact": "Contact",
+    "terms": "CGUV",
+    "appointment": "Rendez-vous",
+    "cart": "Panier",
+    "miniAnalysis": "Mini-Analyse Gratuite",
+    "language": "Langue",
+    "contactExpert": "Consultation"
+  },
+  "crm": {
+    "nav": {
+      "dashboard": "Tableau de bord",
+      "leads": "Prospects",
+      "contacts": "Contacts",
+      "opportunities": "Opportunités",
+      "pipeline": "Pipeline",
+      "activities": "Activités",
+      "emails": "Emails",
+      "users": "Utilisateurs",
+      "settings": "Paramètres"
+    },
+    "breadcrumb": {
+      "home": "Accueil"
+    },
+    "sidebar": {
+      "collapse": "Réduire",
+      "expand": "Développer"
+    },
+    "common": {
+      "back_to_list": "← Retour à la liste",
+      "search": "Rechercher...",
+      "filter": "Filtrer",
+      "refresh": "Actualiser",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "delete": "Supprimer",
+      "edit": "Modifier"
+    },
+    "search": {
+      "placeholder": "Rechercher..."
+    },
+    "user": {
+      "admin": "Administrateur",
+      "logout": "Déconnexion",
+      "profile": "Profil"
+    },
+    "role": {
+      "admin": "Admin",
+      "commercial": "Commercial"
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "subtitle": "Vue d'ensemble de votre activité CRM",
+      "totalLeads": "Total Prospects",
+      "totalContacts": "Total Contacts",
+      "totalOpportunities": "Total Opportunités",
+      "pipelineValue": "Valeur Pipeline",
+      "recentActivity": "Activité récente",
+      "noActivity": "Aucune activité récente"
+    },
+    "leads": {
+      "subtitle": "Gérez vos prospects et convertissez-les en contacts"
+    },
+    "contacts": {
+      "subtitle": "Gérez vos contacts clients"
+    },
+    "users": {
+      "subtitle": "Gérez les utilisateurs et leurs permissions"
+    }
+  },
+  "hero": {
+    "title": "Israel Growth Venture",
+    "subtitle": "Votre partenaire stratégique pour une expansion réussie en Israël",
+    "description": "Nous sommes spécialisés dans l'accompagnement des marques pour leur expansion réussie sur le marché israélien. Avec notre expertise et notre réseau, nous proposons des solutions sur mesure pour aider les entreprises à s'implanter, se développer et prospérer dans l'un des marchés les plus dynamiques et innovants du monde.",
+    "cta": "En savoir plus",
+    "bookAppointment": "Réserver un rendez-vous"
+  },
+  "home": {
+    "howItWorks": {
+      "title": "Comment ça marche ?",
+      "subtitle": "Un processus simple et efficace en 3 étapes"
+    },
+    "aiInsight": {
+      "cta": "Prêt à explorer le marché israélien ?",
+      "description": "Commencez par une analyse préliminaire gratuite générée par IA pour comprendre si Israël pourrait être pertinent pour votre entreprise."
+    },
+    "cta": {
+      "title": "Prêt à commencer votre expansion ?",
+      "subtitle": "Contactez-nous aujourd'hui pour une consultation gratuite"
+    }
+  },
+  "about": {
+    "title": "Qui sommes-nous ?",
+    "description": "Nous sommes une entreprise spécialisée dans le conseil en expansion de marques et la recherche active de biens immobiliers commerciaux. Notre équipe de spécialistes en conseil à l'implantation de marques vous conseillera et cherchera les meilleurs emplacements pour développer votre marque en Israël.",
+    "collaboration": "Nous collaborons avec les municipalités et les principaux propriétaires immobiliers pour promouvoir activement et rechercher des clients pour divers projets de développement de zones commerciales.",
+    "support": "Le marché israélien étant très difficile d'accès, notre équipe peut guider les clients depuis la création d'un business plan jusqu'à la sélection de l'équipe d'employés. Nous offrons un soutien complet pour assurer le succès de votre expansion.",
+    "service": "Si vous cherchez à établir et développer votre marque ou à étendre votre concept par le biais de franchises ou de succursales, l'équipe Israel Growth Venture est à votre service."
+  },
+  "steps": {
+    "step1": {
+      "title": "Planifiez une réunion avec un expert",
+      "description": "Discutez de votre projet d'expansion en Israël avec nos spécialistes."
+    },
+    "step2": {
+      "title": "Obtenez une analyse préliminaire gratuite",
+      "description": "Nous évaluons votre potentiel et fournissons un premier aperçu des opportunités."
+    },
+    "step3": {
+      "title": "Nous gérons votre expansion",
+      "description": "De la recherche de propriété à l'établissement complet, nous vous soutenons à chaque étape."
+    }
+  },
+  "packs": {
+    "title": "Conseil High-Ticket",
+    "subtitle": "Stratégies d'expansion premium pour marques ambitieuses",
+    "analyse": {
+      "name": "Diagnostic Stratégique",
+      "description": "Analyse approfondie du potentiel de votre marque sur le marché israelien avec recommandations sur mesure",
+      "features": [
+        "Audit de positionnement concurrentiel",
+        "Cartographie des opportunités territoriales",
+        "Analyse des risques et facteurs clés de succès",
+        "Feuille de route stratégique personnalisée",
+        "Session de debriefing avec un expert"
+      ],
+      "note": "Pour des projets multi-localisations, nous consulter."
+    },
+    "succursales": {
+      "name": "Accompagnement Succursales",
+      "description": "Service premium de bout en bout pour l'ouverture et le développement de vos points de vente en Israël",
+      "features": [
+        "Diagnostic stratégique inclus",
+        "Recherche et sélection de locaux premium",
+        "Negociation de baux commerciaux",
+        "Coordination des travaux d'aménagement",
+        "Recrutement et formation des équipes",
+        "Support au lancement et premiers mois"
+      ]
+    },
+    "franchise": {
+      "name": "Développement Franchise",
+      "description": "Partenariat stratégique pour structurer et accélérer votre développement en franchise",
+      "features": [
+        "Diagnostic stratégique inclus",
+        "Structuration du dossier franchise (manuels, IP)",
+        "Stratégie de recrutement de franchisés",
+        "Formation des partenaires",
+        "Accompagnement au déploiement",
+        "Suivi qualité continu"
+      ]
+    },
+    "cta": "Démarrer mon projet",
+    "ctaTalk": "Parler de ce pack",
+    "popular": "LE PLUS DEMANDÉ",
+    "priceOnRequest": "Sur devis",
+    "customPack": {
+      "title": "Un projet unique mérite une approche unique",
+      "description": "Chaque marque a son propre potentiel et ses défis spécifiques. Parlons de votre vision pour construire ensemble une stratégie sur mesure.",
+      "cta": "Échanger avec un consultant"
+    },
+    "email": {
+      "subject": "Demande de consultation - Pack {packName}"
+    },
+    "ctaContactExpert": "Discuter avec un expert",
+    "ctaMiniAnalysis": "Obtenir ma mini-analyse gratuite"
+  },
+  "pricing": {
+    "region": "Prix selon votre région",
+    "detecting": "Détection en cours..."
+  },
+  "demandeRappel": {
+    "title": "Demande de rappel",
+    "subtitle": "Un expert IGV vous contactera sous 48h pour discuter de votre projet d'expansion en Israël",
+    "successTitle": "Demande enregistrée !",
+    "successMessage": "Merci pour votre intérêt. Un expert IGV vous contactera sous 48h pour discuter de votre projet.",
+    "packSelected": "Pack sélectionné",
+    "preferredDate": "Date souhaitée",
+    "submit": "Demander un rappel",
+    "fields": {
+      "nom": "Nom complet",
+      "email": "Email",
+      "telephone": "Téléphone",
+      "entreprise": "Entreprise",
+      "date": "Date souhaitée",
+      "heure": "Heure souhaitée",
+      "message": "Message (optionnel)"
+    },
+    "placeholders": {
+      "nom": "Jean Dupont",
+      "email": "jean@entreprise.com",
+      "telephone": "+33 6 12 34 56 78",
+      "entreprise": "Nom de l'entreprise",
+      "heure": "Sélectionner",
+      "message": "Parlez-nous de votre projet..."
+    },
+    "errors": {
+      "fieldsRequired": "Veuillez remplir tous les champs obligatoires",
+      "submitFailed": "Erreur lors de l'envoi. Veuillez réessayer."
+    },
+    "success": "Votre demande a été enregistrée avec succès"
+  },
+  "payment": {
+    "title": "Finaliser votre achat",
+    "subtitle": "Paiement sécurisé par carte bancaire",
+    "pageTitle": "Retour paiement",
+    "processing": "Traitement en cours...",
+    "pleaseWait": "Veuillez patienter pendant la vérification de votre paiement",
+    "cta": "Procéder au paiement",
+    "backToPacks": "Retour aux packs",
+    "redirectMessage": "Vous allez être redirigé vers notre plateforme de paiement sécurisée",
+    "security": {
+      "title": "Paiement 100% sécurisé",
+      "ssl": "Cryptage SSL/TLS",
+      "secure3d": "3D Secure activé",
+      "pciDss": "Conforme PCI-DSS"
+    },
+    "method": {
+      "title": "Mode de paiement",
+      "card": "Carte bancaire",
+      "cardSubtitle": "Visa, Mastercard, CB acceptées"
+    },
+    "support": {
+      "question": "Une question avant de payer ?"
+    },
+    "errors": {
+      "packNotSelected": "Aucun pack sélectionné",
+      "noPackSelected": "Aucun pack sélectionné",
+      "notConfigured": "Le paiement n'est pas encore configuré. Contactez-nous directement.",
+      "generic": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "successTitle": "Paiement réussi !",
+    "successMessage": "Votre paiement a été traité avec succès.",
+    "details": "Détails du paiement",
+    "reference": "Référence",
+    "amount": "Montant",
+    "confirmationEmail": "Vous recevrez un email de confirmation avec votre facture sous peu.",
+    "requestInvoice": "Demander une facture",
+    "failedTitle": "Échec du paiement",
+    "failedMessage": "Votre paiement n'a pas pu être traité.",
+    "tryAgainMessage": "Veuillez réessayer ou contacter notre équipe support pour assistance.",
+    "tryAgain": "Réessayer",
+    "invalidTitle": "Retour de paiement invalide",
+    "invalidMessage": "Les données de retour de paiement sont invalides ou manquantes.",
+    "invalidReturn": "Retour de paiement invalide",
+    "success": "Paiement réussi !",
+    "cancelled": "Paiement annulé par l'utilisateur",
+    "cancelledToast": "Paiement annulé",
+    "failed": "Échec du paiement",
+    "failedToast": "Échec du paiement"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "close": "Fermer",
+    "yes": "Oui",
+    "no": "Non",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "retry": "Réessayer",
+    "brandName": "Israel Growth Venture",
+    "emailCompose": {
+      "compose": "Nouveau message",
+      "to": "À",
+      "subject": "Objet",
+      "subject_placeholder": "Objet de votre email...",
+      "message": "Message",
+      "message_placeholder": "Rédigez votre message ici...",
+      "select_template": "Choisir un modèle",
+      "use": "Utiliser",
+      "send": "Envoyer",
+      "sending": "Envoi...",
+      "sent_success": "Email envoyé avec succès",
+      "send_failed": "Échec de l'envoi de l'email",
+      "error_empty": "Veuillez remplir l'objet et le message"
+    }
+  },
+  "errors": {
+    "pageNotFound": "Page non trouvée"
+  },
+  "futureCommerce": {
+    "title": "Le commerce tel que vous le pratiquez est mort.",
+    "subtitle": "Israël : là où le commerce du futur se crée avant les autres",
+    "hero": {
+      "line1": "Le commerce tel que vous le pratiquez est mort.",
+      "line2": "Pas dans 10 ans. Pas dans 5 ans.",
+      "line3": "Maintenant.",
+      "description": "Les marques qui continuent d'ouvrir des boutiques comme en 2010 s'accrochent à un modèle qui n'existe déjà plus. Les consommateurs ne veulent plus acheter : ils veulent vivre, ressentir, tester, participer."
+    },
+    "israel": {
+      "title": "Israël : là où le commerce du futur se crée avant les autres",
+      "subtitle": "Israël n'est pas un marché. C'est un laboratoire.",
+      "points": [
+        "Le consommateur adopte en 3 mois ce que l'Europe met 3 ans à comprendre.",
+        "Les usages changent plus vite que les business plans.",
+        "Les concepts survivent uniquement s'ils sont réellement bons.",
+        "Le digital et le physique ne sont plus séparés : tout est hybride, tout est instantané."
+      ],
+      "conclusion": "Si votre concept tient en Israël, il est prêt pour le futur."
+    },
+    "realities": {
+      "title": "3 Réalités que les marques doivent comprendre maintenant",
+      "reality1": {
+        "title": "Le client n'achète plus un produit, il achète une expérience",
+        "description": "Et cette expérience doit commencer avant qu'il entre en magasin, et continuer après qu'il soit sorti."
+      },
+      "reality2": {
+        "title": "Le retail n'est plus un lieu. C'est un média.",
+        "description": "Un magasin qui ne raconte rien ne vend rien."
+      },
+      "reality3": {
+        "title": "Le modèle économique doit intégrer :",
+        "points": [
+          "le coût du digital,",
+          "l'inflation immobilière,",
+          "les attentes émotionnelles,",
+          "la vitesse des tendances."
+        ],
+        "conclusion": "Beaucoup refusent de l'admettre. Mais ceux qui réussissent sont ceux qui regardent la réalité en face."
+      }
+    },
+    "what_we_do": {
+      "title": "Ce que nous faisons chez IGV",
+      "description": "Nous testons des concepts en conditions réelles, ici, dans le pays le plus rapide du monde pour valider une idée :",
+      "services": [
+        "Nous trouvons les bons emplacements",
+        "Nous montons les structures",
+        "Nous formons les équipes",
+        "Nous lançons",
+        "Et nous suivons"
+      ],
+      "conclusion": "IGV, ce n'est pas du conseil. C'est de l'exécution."
+    },
+    "why_series": {
+      "title": "Pourquoi une série \"Le Commerce de Demain\" ?",
+      "description": "Parce que les marques doivent comprendre où va le commerce, pour savoir où placer leurs pions.",
+      "content": "Chaque semaine, je partage :",
+      "items": [
+        "une observation terrain",
+        "un insight consommateur",
+        "une vérité que personne n'ose dire",
+        "une tendance que je vois arriver",
+        "ou un concept qui mérite d'être analysé"
+      ],
+      "conclusion": "Pas de théorie. Pas de buzzwords. Juste la réalité du terrain, maintenant."
+    },
+    "cta": "Réserver un appel de 30 minutes"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes là pour répondre à vos questions",
+    "form": {
+      "name": "Nom complet",
+      "email": "Email",
+      "company": "Société (optionnel)",
+      "phone": "Téléphone (optionnel)",
+      "message": "Message",
+      "submit": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur lors de l'envoi. Veuillez réessayer."
+    },
+    "info": {
+      "title": "Informations de contact",
+      "email": "Email",
+      "address": "Adresse",
+      "addressValue": "21 Rue Gefen, Harish, Israël"
+    }
+  },
+  "appointment": {
+    "title": "Réserver un rendez-vous",
+    "subtitle": "Discutons de votre projet d'expansion en Israël",
+    "description": "Réservez un créneau de 30 minutes avec notre équipe pour discuter de votre projet. Nous analyserons votre concept et définirons la meilleure stratégie pour votre expansion.",
+    "cta": "Ouvrir Google Calendar",
+    "or": "ou",
+    "contact": "Contactez-nous par email"
+  },
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "checkout": "Demander une facture",
+    "continueShopping": "Continuer vos achats",
+    "remove": "Retirer"
+  },
+  "footer": {
+    "company": "Israel Growth Venture",
+    "description": "Votre partenaire stratégique pour une expansion réussie en Israël",
+    "contact": "Contact",
+    "email": "Email",
+    "address": "Adresse",
+    "addressValue": "21 Rue Gefen, Harish, Israël",
+    "links": "Liens",
+    "about": "À propos",
+    "legal": "Mentions légales",
+    "rights": "Tous droits réservés."
+  },
+  "miniAnalysis": {
+    "hero": {
+      "title": "Mini-Analyse IA Gratuite",
+      "subtitle": "Découvrez le potentiel de votre marque sur le marché israélien en 2 minutes",
+      "description": "Notre IA analyse votre concept et vous fournit une évaluation préliminaire personnalisée de vos opportunités d'expansion en Israël."
+    },
+    "form": {
+      "title": "Parlez-nous de votre marque",
+      "email": "Email professionnel",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+33 6 XX XX XX XX",
+      "phoneRequired": "Le téléphone est obligatoire",
+      "brandName": "Nom de marque",
+      "brandNamePlaceholder": "Ex: Ma Boutique",
+      "sector": "Secteur d'activité",
+      "sectorPlaceholder": "Sélectionnez votre secteur",
+      "foodStatus": "Statut alimentaire",
+      "foodStatusPlaceholder": "Casher, Halal, Vegan...",
+      "seniority": "Ancienneté de la marque",
+      "seniorityPlaceholder": "Depuis combien de temps existez-vous ?",
+      "originCountry": "Pays d'origine",
+      "originCountryPlaceholder": "Ex: France",
+      "concept": "Concept de la marque",
+      "conceptPlaceholder": "Décrivez votre concept en quelques mots",
+      "positioning": "Positionnement",
+      "positioningPlaceholder": "Haut de gamme, accessible, premium...",
+      "currentModel": "Modèle actuel",
+      "currentModelPlaceholder": "Franchise, succursales, indépendant...",
+      "differentiation": "Différenciation concurrentielle",
+      "differentiationPlaceholder": "Qu'est-ce qui vous rend unique ?",
+      "israelObjective": "Objectif en Israël",
+      "israelObjectivePlaceholder": "Ouverture de boutiques, franchise, test marché...",
+      "constraints": "Contraintes et préoccupations",
+      "constraintsPlaceholder": "Budget, timing, exigences spécifiques...",
+      "submit": "Générer ma mini-analyse gratuite",
+      "submitting": "Génération en cours...",
+      "required": "Champ obligatoire",
+      "requiredForFood": "Obligatoire pour la restauration"
+    },
+    "sectors": [
+      "Restauration / Food",
+      "Retail (hors food)",
+      "Services",
+      "Paramédical / Santé"
+    ],
+    "foodStatuses": [
+      "Casher",
+      "Halal",
+      "Healthy",
+      "Vegan/Végétarien",
+      "Aucun",
+      "À définir"
+    ],
+    "seniorities": [
+      "Moins de 1 an",
+      "1-3 ans",
+      "3-5 ans",
+      "5-10 ans",
+      "Plus de 10 ans"
+    ],
+    "results": {
+      "title": "Votre Mini-Analyse IGV",
+      "subtitle": "Analyse IA personnalisée pour",
+      "copy": "Copier l'analyse",
+      "copied": "Analyse copiée dans le presse-papiers",
+      "download": "Télécharger en PDF",
+      "email": "Recevoir par email",
+      "contactExpert": "Prendre contact avec l'un de nos experts",
+      "nextSteps": "Étapes suivantes",
+      "nextStepsDescription": "Cette mini-analyse gratuite est une première évaluation. Pour un accompagnement complet et une analyse approfondie de votre projet, nos experts sont à votre disposition.",
+      "bookCall": "Réserver un appel de 30 minutes",
+      "viewPacks": "Découvrir nos packs d'accompagnement"
+    },
+    "toast": {
+      "fieldsRequired": "Veuillez remplir tous les champs obligatoires",
+      "foodStatusRequired": "Le statut alimentaire est obligatoire pour la restauration",
+      "success": "Votre mini-analyse IGV a été générée!",
+      "duplicate": "Une analyse a déjà été générée pour cette enseigne",
+      "error": "Erreur lors de la génération de l'analyse. Veuillez réessayer.",
+      "networkError": "Erreur réseau. Vérifiez votre connexion.",
+      "analyzing": "Analyse en cours, cela peut prendre quelques secondes...",
+      "contactExpertSuccess": "Merci. Nous vous contacterons dans les prochaines 48h.",
+      "pdfDownloading": "Téléchargement du PDF...",
+      "pdfDownloaded": "PDF téléchargé avec succès!",
+      "emailSending": "Envoi par email...",
+      "emailSent": "Le PDF a été envoyé à votre email!"
+    }
+  },
+  "admin": {
+    "media": {
+      "title": "Médiathèque",
+      "subtitle": "Gérez les images et fichiers de votre site",
+      "upload": "Ajouter des fichiers",
+      "uploading": "Upload...",
+      "searchPlaceholder": "Rechercher des fichiers...",
+      "resultsCount": "{count} fichier(s) sur {total} au total",
+      "noResults": "Aucun fichier trouvé",
+      "emptyLibrary": "Votre médiathèque est vide",
+      "noSearchResults": "Aucun résultat pour cette recherche",
+      "tryDifferentSearch": "Essayez une recherche différente ou téléchargez de nouveaux fichiers",
+      "uploadFirstImage": " Téléchargez votre première image pour commencer",
+      "fetchError": "Erreur lors du chargement des fichiers",
+      "uploadSuccess": "{count} fichier(s) téléchargé(s) avec succès",
+      "invalidType": "Type de fichier non autorisé",
+      "fileTooLarge": "Fichier trop volumineux (max 10 Mo)",
+      "uploadFailed": "Échec du téléchargement",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
+      "deleteSuccess": "Fichier supprimé avec succès",
+      "deleteError": "Erreur lors de la suppression",
+      "copiedToClipboard": "URL copiée dans le presse-papiers",
+      "copyFailed": "Échec de la copie",
+      "copyUrl": "Copier l'URL",
+      "delete": "Supprimer",
+      "url": "URL du fichier",
+      "th": {
+        "thumbnail": "Aperçu",
+        "name": "Nom",
+        "size": "Taille",
+        "date": "Date",
+        "type": "Type",
+        "actions": "Actions"
+      },
+      "pageOf": "Page {current} sur {total}"
+    },
+    "welcome": "Bienvenue",
+    "crm": {
+      "emails": {
+        "title": "Historique des Emails",
+        "history_title": "Historique des Emails",
+        "compose": "Composer un email",
+        "to": "À",
+        "sent_count": "emails envoyés",
+        "empty_title": "Aucun email envoyé",
+        "empty_description": "Les emails envoyés aux prospects apparaîtront ici",
+        "detail_title": "Détails de l'Email",
+        "select_template": "Choisir un modèle",
+        "use": "Utiliser",
+        "subject": "Objet",
+        "subject_placeholder": "Objet de votre email...",
+        "message": "Message",
+        "message_placeholder": "Rédigez votre message ici...",
+        "sending": "Envoi...",
+        "send": "Envoyer",
+        "sent_success": "Email envoyé avec succès",
+        "send_failed": "Échec de l'envoi de l'email",
+        "error_empty": "Veuillez remplir l'objet et le message",
+        "columns": {
+          "recipient": "Destinataire",
+          "subject": "Sujet",
+          "date": "Date",
+          "status": "Statut",
+          "sent_by": "Envoyé Par",
+          "from": "De",
+          "to": "À"
+        },
+        "status": {
+          "sent": "Envoyé",
+          "delivered": "Distribué",
+          "opened": "Ouvert",
+          "clicked": "Cliqué",
+          "failed": "Échoué",
+          "bounced": "Rejeté"
+        },
+        "refreshed": "Historique des emails mis à jour",
+        "deleted": "Enregistrement d'email supprimé",
+        "tabs": {
+          "sent": "Envoyés",
+          "received": "Reçus",
+          "templates": "Modèles"
+        },
+        "received_title": "Emails Reçus",
+        "received_description": "La réception d'emails n'est pas encore implémentée dans ce CRM",
+        "received_tab": "Boîte de réception",
+        "templates_count": "modèles disponibles",
+        "templates_info": "Ces modèles sont disponibles en anglais, français et hébreu. Ils peuvent être utilisés lors de la rédaction de nouveaux emails.",
+        "no_templates": "Aucun modèle disponible",
+        "no_templates_description": "Les modèles d'emails apparaîtront ici",
+        "template_detail": "Détails du Modèle",
+        "errors": {
+          "load_failed": "Échec du chargement de l'historique des emails",
+          "templates_load_failed": "Échec du chargement des modèles",
+          "delete_failed": "Échec de la suppression de l'enregistrement"
+        },
+        "delete_confirm": "Voulez-vous vraiment supprimer cet enregistrement ?"
+      }
+    }
+  },
+  "gdpr": {
+    "cookie_banner": {
+      "title": "Gestion des cookies",
+      "description": "Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez choisir les types de cookies que vous acceptez.",
+      "essential": "Cookies essentiels",
+      "essential_desc": "Nécessaires au fonctionnement du site. Toujours activés.",
+      "analytics": "Cookies analytiques",
+      "analytics_desc": "Nous permettent de comprendre comment les visiteurs utilisent notre site.",
+      "marketing": "Cookies marketing",
+      "marketing_desc": "Utilisés pour vous envoyer des communications personnalisées.",
+      "accept_all": "Tout accepter",
+      "save_preferences": "Enregistrer mes préférences",
+      "refuse_all": "Tout refuser",
+      "learn_more": "En savoir plus"
+    },
+    "privacy": {
+      "page_title": "Politique de confidentialité - IGV",
+      "title": "Politique de confidentialité",
+      "intro": "Dernière mise à jour : Décembre 2024. Cette politique décrit comment Israel Growth Venture collecte, utilise et protège vos données personnelles.",
+      "section1": {
+        "title": "1. Données collectées",
+        "p1": "Nous collectons uniquement les données nécessaires pour vous fournir nos services :",
+        "data1": "Informations de contact : nom, email, téléphone, entreprise",
+        "data2": "Données de navigation : adresse IP (anonymisée), pages visitées, durée",
+        "data3": "Préférences : langue, consentement cookies",
+        "important": "Important : Aucune donnée de navigation n'est collectée sans votre consentement explicite."
+      },
+      "section2": {
+        "title": "2. Utilisation des données",
+        "p1": "Vos données sont utilisées pour :",
+        "use1": "Répondre à vos demandes de renseignements",
+        "use2": "Générer des analyses personnalisées (mini-analyses)",
+        "use3": "Améliorer nos services (avec consentement analytique)",
+        "use4": "Vous envoyer notre newsletter (opt-in explicite uniquement)",
+        "important": "Nous ne vendons jamais vos données à des tiers."
+      },
+      "section3": {
+        "title": "3. Protection des données",
+        "p1": "Nous prenons la sécurité de vos données très au sérieux :",
+        "security1": "Chiffrement SSL/TLS pour toutes les communications",
+        "security2": "Stockage sécurisé sur serveurs conformes RGPD",
+        "security3": "Accès restreint aux données (équipe autorisée uniquement)",
+        "security4": "Anonymisation des adresses IP"
+      },
+      "section4": {
+        "title": "4. Newsletter et marketing",
+        "p1": "Nous n'envoyons la newsletter qu'aux personnes ayant explicitement accepté de la recevoir via une case à cocher dédiée.",
+        "p2": "Vous pouvez vous désinscrire à tout moment en cliquant sur le lien de désinscription dans chaque email ou en nous contactant."
+      },
+      "section5": {
+        "title": "5. Vos droits",
+        "p1": "Conformément au RGPD, vous avez le droit de :",
+        "right1": "Accéder à vos données personnelles",
+        "right2": "Rectifier des données inexactes",
+        "right3": "Demander l'effacement de vos données",
+        "right4": "Limiter le traitement de vos données",
+        "right5": "Porter réclamation auprès de la CNIL",
+        "contact": "Pour exercer ces droits, contactez-nous à :"
+      },
+      "section6": {
+        "title": "Contact",
+        "p1": "Pour toute question sur cette politique ou vos données personnelles :"
+      }
+    },
+    "cookies": {
+      "page_title": "Politique des cookies - IGV",
+      "title": "Politique des cookies",
+      "intro": "Cette page explique quels cookies nous utilisons, pourquoi, et comment vous pouvez les gérer.",
+      "section1": {
+        "title": "1. Qu'est-ce qu'un cookie ?",
+        "p1": "Un cookie est un petit fichier texte déposé sur votre ordinateur ou appareil mobile lors de votre visite sur un site web. Les cookies permettent au site de mémoriser vos actions et préférences."
+      },
+      "section2": {
+        "title": "2. Types de cookies utilisés"
+      },
+      "essential": {
+        "title": "Cookies essentiels",
+        "desc": "Ces cookies sont nécessaires au fonctionnement du site. Ils ne peuvent pas être désactivés.",
+        "cookie1": "Session utilisateur (authentification admin)",
+        "cookie2": "Préférences de langue",
+        "cookie3": "Consentement cookies",
+        "status": "✓ Toujours activés"
+      },
+      "analytics": {
+        "title": "Cookies analytiques",
+        "desc": "Ces cookies nous aident à comprendre comment les visiteurs utilisent notre site.",
+        "cookie1": "Suivi des pages visitées",
+        "cookie2": "Durée de visite",
+        "cookie3": "Source de trafic",
+        "status": "⚠ Nécessite votre consentement",
+        "note": "Note : Les adresses IP sont anonymisées. Aucune donnée personnellement identifiable n'est collectée."
+      },
+      "marketing": {
+        "title": "Cookies marketing",
+        "desc": "Ces cookies permettent de personnaliser les communications que vous recevez.",
+        "cookie1": "Préférences de newsletter",
+        "cookie2": "Historique d'interaction avec emails",
+        "status": "⚠ Nécessite votre consentement explicite"
+      },
+      "section3": {
+        "title": "3. Comment gérer vos cookies ?",
+        "p1": "Vous pouvez gérer vos préférences de cookies de plusieurs manières :",
+        "method1": {
+          "title": "Via notre bannière de consentement",
+          "desc": "Lors de votre première visite, vous pouvez choisir les types de cookies à accepter."
+        },
+        "method2": {
+          "title": "Via les paramètres de votre navigateur",
+          "desc": "Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies. Attention : certaines fonctionnalités du site pourraient ne plus fonctionner."
+        }
+      },
+      "section4": {
+        "title": "4. Durée de conservation",
+        "essential": "Cookies essentiels :",
+        "essential_duration": "Session + 30 jours",
+        "analytics": "Cookies analytiques :",
+        "analytics_duration": "13 mois maximum",
+        "marketing": "Cookies marketing :",
+        "marketing_duration": "13 mois maximum"
+      },
+      "section5": {
+        "title": "Questions ?",
+        "p1": "Pour toute question sur notre utilisation des cookies, contactez-nous à :"
+      }
+    }
+  },
+  "contactExpert": {
+    "title": "Consultation Personnalisée",
+    "subtitle": "Parlons de votre projet d'expansion en Israël",
+    "hero": {
+      "title": "Transformez votre ambition en réalité",
+      "description": "Vous avez sélectionné le pack {packName}. Nos experts sont prêts à analyser votre projet et à vous guider vers le succès."
+    },
+    "form": {
+      "name": "Nom complet",
+      "email": "Email professionnel",
+      "company": "Entreprise",
+      "phone": "Téléphone",
+      "message": "Présentation de votre projet",
+      "submit": "Demander une consultation",
+      "sending": "Envoi en cours...",
+      "success": "Votre demande a été transmise ! Un expert vous contactera sous 48h.",
+      "error": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "packInfo": {
+      "label": "Pack sélectionné",
+      "change": "Changer de pack"
+    },
+    "whyIGV": {
+      "title": "Pourquoi choisir IGV ?",
+      "items": [
+        "10+ années d'expérience sur le marché israelien",
+        " Réseau exclusif de partenaires et d'emplacements",
+        "Accompagnement de A à Z, du diagnostic à l'ouverture",
+        "Taux de succès supérieur à 90%"
+      ]
+    },
+    "nextSteps": "Prochaines étapes",
+    "nextStepsDescription": "Après réception de votre demande, nous programmerons un appel de 30 minutes pour comprendre votre projet en profondeur et vous présenter notre approche."
+  },
+  "auth": {
+    "forgotPassword": {
+      "title": "Mot de passe oublié",
+      "subtitle": "Nous vous enverrons un lien pour réinitialiser votre mot de passe",
+      "emailLabel": "Adresse email",
+      "emailPlaceholder": "postmaster@israelgrowthventure.com",
+      "submit": "Envoyer le lien",
+      "sending": "Envoi en cours...",
+      "checkEmail": "Vérifiez votre email",
+      "emailSent": "Si un compte existe avec cette adresse, vous recevrez un lien de réinitialisation.",
+      "sentTo": "Lien envoyé à",
+      "instructions": "Cliquez sur le lien dans l'email pour réinitialiser votre mot de passe. Le lien expire dans 1 heure.",
+      "backToLogin": "Retour à la connexion",
+      "allRightsReserved": "Tous droits réservés.",
+      "success": "Si un compte existe, un email de réinitialisation a été envoyé.",
+      "errors": {
+        "emailRequired": "Veuillez entrer votre adresse email",
+        "invalidEmail": "Adresse email invalide",
+        "genericError": "Une erreur est survenue. Veuillez réessayer.",
+        "serviceUnavailable": "Service temporairement indisponible"
+      }
+    },
+    "resetPassword": {
+      "title": "Réinitialiser le mot de passe",
+      "subtitle": "Créez un nouveau mot de passe pour votre compte",
+      "validating": "Validation en cours...",
+      "pleaseWait": "Veuillez patienter pendant que nous vérifions le lien",
+      "newPasswordLabel": "Nouveau mot de passe",
+      "passwordPlaceholder": "Minimum 8 caractères",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Répétez votre mot de passe",
+      "passwordRequirements": "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre",
+      "passwordStrength": "Force du mot de passe :",
+      "atLeast8Chars": "✓ Au moins 8 caractères",
+      "oneUppercase": "✓ Une majuscule",
+      "oneNumber": "✓ Un chiffre",
+      "submit": "Réinitialiser le mot de passe",
+      "resetting": "Réinitialisation...",
+      "success": "Votre mot de passe a été réinitialisé avec succès. Redirection vers la connexion...",
+      "allRightsReserved": "Tous droits réservés.",
+      "errors": {
+        "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordsNotMatch": "Les mots de passe ne correspondent pas",
+        "passwordTooCommon": "Ce mot de passe est trop courant",
+        "invalidToken": "Lien de réinitialisation invalide ou expiré",
+        "expiredLink": "Ce lien de réinitialisation a expiré. Veuillez demander un nouveau lien.",
+        "invalidLink": "Lien invalide",
+        "genericError": "Une erreur est survenue. Veuillez réessayer.",
+        "serviceUnavailable": "Service temporairement indisponible",
+        "validationError": "Erreur lors de la validation du lien"
+      },
+      "requestNewLink": "Demander un nouveau lien"
+    }
+  }
+}

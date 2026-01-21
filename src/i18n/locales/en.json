@@ -639,7 +639,50 @@
           "won": "Won"
         }
       },
-      "emails": {
+            "activities": {
+        "title": "Activities",
+        "count": "activities",
+        "add": "Add Activity",
+        "created": "Activity created successfully",
+        "completed": "Activity completed",
+        "deleted": "Activity deleted",
+        "delete_confirm": "Delete this activity?",
+        "empty": "No activities yet",
+        "complete": "Complete",
+        "tabs": {
+          "all": "All",
+          "calls": "Calls",
+          "meetings": "Meetings",
+          "tasks": "Tasks"
+        },
+        "columns": {
+          "type": "Type",
+          "subject": "Subject",
+          "related": "Related To",
+          "due_date": "Due Date",
+          "status": "Status",
+          "notes": "Notes"
+        },
+        "types": {
+          "call": "Call",
+          "meeting": "Meeting",
+          "email": "Email",
+          "task": "Task"
+        },
+        "status": {
+          "pending": "Pending",
+          "completed": "Completed",
+          "cancelled": "Cancelled",
+          "overdue": "Overdue"
+        },
+        "errors": {
+          "load_failed": "Failed to load activities",
+          "create_failed": "Failed to create activity",
+          "update_failed": "Failed to update activity",
+          "delete_failed": "Failed to delete activity"
+        }
+      },
+"emails": {
         "title": "Email History",
         "history_title": "Email History",
         "compose": "Compose Email",
@@ -741,7 +784,18 @@
         "add": "Add",
         "create": "Create",
         "update": "Update",
-        "view": "View Details"
+        "view": "View Details",
+        "refresh": "Refresh",
+        "refreshed": "Data refreshed",
+        "no_notes": "No notes yet",
+        "no_opportunities": "No opportunities yet",
+        "no_activities": "No activities yet",
+        "created": "Created",
+        "updated": "Updated",
+        "language": "Language",
+        "confirm_delete": "Are you sure you want to delete?",
+        "reference": "Reference",
+        "back_to_list": "← Back to list"
       },
       "errors": {
         "load_failed": "Failed to load data",

@@ -661,7 +661,50 @@
           "stages": "שלבי הצינור"
         }
       },
-      "emails": {
+            "activities": {
+        "title": "פעילויות",
+        "count": "פעילויות",
+        "add": "הוסף פעילות",
+        "created": "הפעילות נוצרה בהצלחה",
+        "completed": "הפעילות הושלמה",
+        "deleted": "הפעילות נמחקה",
+        "delete_confirm": "למחוק פעילות זו?",
+        "empty": "אין פעילויות עדיין",
+        "complete": "סיים",
+        "tabs": {
+          "all": "הכל",
+          "calls": "שיחות",
+          "meetings": "פגישות",
+          "tasks": "משימות"
+        },
+        "columns": {
+          "type": "סוג",
+          "subject": "נושא",
+          "related": "קשור ל",
+          "due_date": "תאריך יעד",
+          "status": "סטטוס",
+          "notes": "הערות"
+        },
+        "types": {
+          "call": "שיחה",
+          "meeting": "פגישה",
+          "email": "אימייל",
+          "task": "משימה"
+        },
+        "status": {
+          "pending": "ממתין",
+          "completed": "הושלם",
+          "cancelled": "בוטל",
+          "overdue": "באיחור"
+        },
+        "errors": {
+          "load_failed": "טעינת הפעילויות נכשלה",
+          "create_failed": "יצירת הפעילות נכשלה",
+          "update_failed": "עדכון הפעילות נכשל",
+          "delete_failed": "מחיקת הפעילות נכשלה"
+        }
+      },
+"emails": {
         "title": "היסטוריית מיילים",
         "history_title": "היסטוריית מיילים",
         "compose": "כתיבת מייל",
@@ -741,7 +784,18 @@
         "add": "הוספה",
         "create": "יצירה",
         "update": "עדכון",
-        "view": "צפייה בפרטים"
+        "view": "צפייה בפרטים",
+        "refresh": "רענון",
+        "refreshed": "הנתונים רועננו",
+        "no_notes": "אין הערות עדיין",
+        "no_opportunities": "אין הזדמנויות עדיין",
+        "no_activities": "אין פעילויות עדיין",
+        "created": "נוצר",
+        "updated": "עודכן",
+        "language": "שפה",
+        "confirm_delete": "האם אתה בטוח שברצונך למחוק?",
+        "reference": "הפניה",
+        "back_to_list": "→ חזרה לרשימה"
       },
       "errors": {
         "load_failed": "נכשל בטעינת הנתונים",

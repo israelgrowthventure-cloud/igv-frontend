@@ -668,7 +668,50 @@
           "won": "Gagné"
         }
       },
-      "emails": {
+            "activities": {
+        "title": "Activit?s",
+        "count": "activit?s",
+        "add": "Ajouter une activit?",
+        "created": "Activit? cr??e avec succ?s",
+        "completed": "Activit? termin?e",
+        "deleted": "Activit? supprim?e",
+        "delete_confirm": "Supprimer cette activit? ?",
+        "empty": "Aucune activit?",
+        "complete": "Terminer",
+        "tabs": {
+          "all": "Toutes",
+          "calls": "Appels",
+          "meetings": "R?unions",
+          "tasks": "T?ches"
+        },
+        "columns": {
+          "type": "Type",
+          "subject": "Sujet",
+          "related": "Li? ?",
+          "due_date": "Date limite",
+          "status": "Statut",
+          "notes": "Notes"
+        },
+        "types": {
+          "call": "Appel",
+          "meeting": "R?union",
+          "email": "Email",
+          "task": "T?che"
+        },
+        "status": {
+          "pending": "En attente",
+          "completed": "Termin?e",
+          "cancelled": "Annul?e",
+          "overdue": "En retard"
+        },
+        "errors": {
+          "load_failed": "?chec du chargement des activit?s",
+          "create_failed": "?chec de la cr?ation de l'activit?",
+          "update_failed": "?chec de la mise ? jour de l'activit?",
+          "delete_failed": "?chec de la suppression de l'activit?"
+        }
+      },
+"emails": {
         "title": "Historique des Emails",
         "history_title": "Historique des Emails",
         "compose": "Composer un email",
@@ -770,7 +813,18 @@
         "add": "Ajouter",
         "create": "Créer",
         "update": "Mettre à jour",
-        "view": "Voir les Détails"
+        "view": "Voir les Détails",
+        "refresh": "Actualiser",
+        "refreshed": "Données actualisées",
+        "no_notes": "Aucune note",
+        "no_opportunities": "Aucune opportunité",
+        "no_activities": "Aucune activité",
+        "created": "Créé le",
+        "updated": "Modifié le",
+        "language": "Langue",
+        "confirm_delete": "Êtes-vous sûr de vouloir supprimer ?",
+        "reference": "Référence",
+        "back_to_list": "← Retour à la liste"
       },
       "errors": {
         "load_failed": "Échec du chargement des données",

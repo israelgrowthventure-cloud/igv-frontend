@@ -135,7 +135,7 @@ const Packs = () => {
                     {loading ? (
                       <div className="text-xl font-bold">{t('pricing.detecting')}</div>
                     ) : packPrice ? (
-                      <div>
+                      <div dir="ltr" style={{ unicodeBidi: 'isolate' }}>
                         <div className={`text-4xl font-bold ${
                           pack.highlighted ? 'text-white' : 'text-gray-900'
                         }`}>

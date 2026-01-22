@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Filter, Download, Plus, Eye, X, Save, Loader2, Mail, Phone, Building, MapPin, ExternalLink, Users, Trash2, ArrowLeft } from 'lucide-react';
 import { toast } from 'sonner';
@@ -22,6 +22,8 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   const [loadingAction, setLoadingAction] = useState(false);
   const [showNewLeadForm, setShowNewLeadForm] = useState(false);
   const [showEmailModal, setShowEmailModal] = useState(false);
+  const [notes, setNotes] = useState([]);
+  const [loadingNotes, setLoadingNotes] = useState(false);
   const [newLeadData, setNewLeadData] = useState({
     email: '',
     contact_name: '',
@@ -32,7 +34,35 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
     priority: 'C'
   });
 
-  const handleCreateLead = async (e) => {
+  
+  // Load notes when a lead is selected
+  useEffect(() => {
+    const loadNotes = async () => {
+      if (selectedItem && selectedItem.lead_id) {
+        setLoadingNotes(true);
+        try {
+          const response = await api.get(`/api/crm/leads/${selectedItem.lead_id}/notes`);
+          setNotes(Array.isArray(response) ? response : (response.notes || []));
+        } catch (error) {
+          console.error('Error loading notes:', error);
+          // Try alternative endpoint
+          try {
+            const altResponse = await api.get(`/leads/${selectedItem.lead_id}/notes`);
+            setNotes(Array.isArray(altResponse) ? altResponse : (altResponse.notes || []));
+          } catch (e) {
+            setNotes([]);
+          }
+        } finally {
+          setLoadingNotes(false);
+        }
+      } else {
+        setNotes([]);
+      }
+    };
+    loadNotes();
+  }, [selectedItem]);
+
+const handleCreateLead = async (e) => {
     e.preventDefault();
     try {
       setLoadingAction(true);
@@ -79,9 +109,16 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
     if (!noteText.trim()) return;
     try {
       setLoadingAction(true);
-      await api.post(`/api/crm/leads/${leadId}/notes`, { note_text: noteText });
+      await api.post(`/api/crm/leads/${leadId}/notes`, { note_text: noteText, content: noteText });
       setNoteText('');
       toast.success(t('admin.crm.leads.note_added'));
+      // Reload notes immediately
+      try {
+        const response = await api.get(`/api/crm/leads/${leadId}/notes`);
+        setNotes(Array.isArray(response) ? response : (response.notes || []));
+      } catch (e) {
+        console.error('Error reloading notes:', e);
+      }
       await onRefresh();
     } catch (error) {
       console.error('Add note error:', error);
@@ -504,10 +541,14 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
           )}
 
           <div className="mt-6 border-t pt-6">
-            <h3 className="font-semibold mb-4">{t('admin.crm.leads.details.notes')}</h3>
-            <div className="space-y-3 mb-4">
-              {selectedItem.notes && selectedItem.notes.length > 0 ? (
-                selectedItem.notes.map((note, idx) => (
+            <h3 className="font-semibold mb-4 flex items-center gap-2">
+              {t('admin.crm.leads.details.notes')}
+              {loadingNotes && <Loader2 className="w-4 h-4 animate-spin text-blue-500" />}
+              <span className="text-sm font-normal text-gray-500">({notes.length})</span>
+            </h3>
+            <div className="space-y-3 mb-4 max-h-80 overflow-y-auto">
+              {notes.length > 0 ? (
+                notes.map((note, idx) => (
                   <div key={note.id || idx} className="p-3 bg-gray-50 rounded-lg">
                     <p className="text-sm">{note.content || note.note_text || note.details || ''}</p>
                     <p className="text-xs text-gray-500 mt-1">
@@ -517,7 +558,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                   </div>
                 ))
               ) : (
-                <p className="text-gray-500 text-sm">{t('admin.crm.common.no_notes')}</p>
+                !loadingNotes && <p className="text-gray-500 text-sm">{t('admin.crm.common.no_notes')}</p>
               )}
             </div>
             <div className="flex gap-2">

@@ -1,4 +1,60 @@
-import React, { useState } from 'react';
+#!/usr/bin/env python3
+"""Update i18n config and Login page with proper translations"""
+
+# Update i18n config
+i18n_config = '''import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import fr from './locales/fr.json';
+import en from './locales/en.json';
+import he from './locales/he.json';
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: {
+      fr: { translation: fr },
+      en: { translation: en },
+      he: { translation: he }
+    },
+    fallbackLng: 'fr',
+    supportedLngs: ['fr', 'en', 'he'],
+    detection: {
+      // Order: URL param first, then localStorage, then browser
+      order: ['querystring', 'localStorage', 'navigator'],
+      lookupQuerystring: 'lang',
+      caches: ['localStorage']
+    },
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+// Update HTML lang and dir attributes on language change
+i18n.on('languageChanged', (lng) => {
+  const html = document.documentElement;
+  html.setAttribute('lang', lng);
+  html.setAttribute('dir', lng === 'he' ? 'rtl' : 'ltr');
+  // Also store in localStorage so it persists
+  localStorage.setItem('i18nextLng', lng);
+});
+
+// Set initial lang and dir
+const currentLang = i18n.language || 'fr';
+document.documentElement.setAttribute('lang', currentLang);
+document.documentElement.setAttribute('dir', currentLang === 'he' ? 'rtl' : 'ltr');
+
+export default i18n;
+'''
+
+with open(r'C:\Users\PC\Desktop\IGV\igv-frontend\src\i18n\config.js', 'w', encoding='utf-8') as f:
+    f.write(i18n_config)
+
+print("✅ i18n config updated with querystring detection")
+
+# Update Login page with i18n
+login_page = '''import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { Lock, Mail, Loader2, Shield, AlertCircle } from 'lucide-react';
@@ -178,3 +234,10 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+'''
+
+with open(r'C:\Users\PC\Desktop\IGV\igv-frontend\src\pages\admin\Login.js', 'w', encoding='utf-8') as f:
+    f.write(login_page)
+
+print("✅ Login page updated with i18n")
+print("Done!")

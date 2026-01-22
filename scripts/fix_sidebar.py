@@ -1,4 +1,10 @@
-import React from 'react';
+#!/usr/bin/env python3
+"""Fix Sidebar navigation and add CRM translations at correct path"""
+
+import json
+
+# Fix Sidebar.js - remove French fallbacks and use correct keys
+sidebar_content = '''import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -141,3 +147,92 @@ const Sidebar = ({ collapsed, onToggle }) => {
 };
 
 export default Sidebar;
+'''
+
+with open(r'C:\Users\PC\Desktop\IGV\igv-frontend\src\components\common\Sidebar.js', 'w', encoding='utf-8') as f:
+    f.write(sidebar_content)
+
+print("✅ Sidebar.js fixed with proper i18n keys and RTL support")
+
+# Add sidebar translations
+sidebar_translations = {
+    "en": {
+        "expand": "Expand",
+        "collapse": "Collapse"
+    },
+    "fr": {
+        "expand": "Développer",
+        "collapse": "Réduire"
+    },
+    "he": {
+        "expand": "הרחב",
+        "collapse": "צמצם"
+    }
+}
+
+# Also add nav translations at root level for legacy support
+crm_nav_root = {
+    "en": {
+        "dashboard": "Dashboard",
+        "leads": "Leads",
+        "contacts": "Contacts",
+        "pipeline": "Pipeline",
+        "opportunities": "Opportunities",
+        "activities": "Activities",
+        "emails": "Emails",
+        "users": "Users",
+        "settings": "Settings"
+    },
+    "fr": {
+        "dashboard": "Tableau de bord",
+        "leads": "Prospects",
+        "contacts": "Contacts",
+        "pipeline": "Pipeline",
+        "opportunities": "Opportunités",
+        "activities": "Activités",
+        "emails": "Emails",
+        "users": "Utilisateurs",
+        "settings": "Paramètres"
+    },
+    "he": {
+        "dashboard": "לוח בקרה",
+        "leads": "לידים",
+        "contacts": "אנשי קשר",
+        "pipeline": "צינור מכירות",
+        "opportunities": "הזדמנויות",
+        "activities": "פעילויות",
+        "emails": "אימיילים",
+        "users": "משתמשים",
+        "settings": "הגדרות"
+    }
+}
+
+def update_locale_sidebar(lang):
+    filepath = rf'C:\Users\PC\Desktop\IGV\igv-frontend\src\i18n\locales\{lang}.json'
+    
+    with open(filepath, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    # Ensure structure
+    if 'admin' not in data:
+        data['admin'] = {}
+    if 'crm' not in data['admin']:
+        data['admin']['crm'] = {}
+    
+    # Add sidebar translations
+    data['admin']['crm']['sidebar'] = sidebar_translations[lang]
+    
+    # Also add at root crm.nav for legacy compatibility
+    if 'crm' not in data:
+        data['crm'] = {}
+    data['crm']['nav'] = crm_nav_root[lang]
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    print(f"✅ Updated {lang}.json with sidebar translations")
+
+for lang in ['en', 'fr', 'he']:
+    update_locale_sidebar(lang)
+
+print("\n✅ All sidebar translations added!")

@@ -19,8 +19,8 @@
       "dashboard": "לוח בקרה",
       "leads": "לידים",
       "contacts": "אנשי קשר",
-      "opportunities": "הזדמנויות",
       "pipeline": "צינור מכירות",
+      "opportunities": "הזדמנויות",
       "activities": "פעילויות",
       "emails": "אימיילים",
       "users": "משתמשים",
@@ -506,54 +506,47 @@
     "welcome": "ברוך הבא",
     "crm": {
       "leads": {
-        "details": {
-          "focus_notes": "הערות מיקוד",
-          "contact_info": "פרטי יצירת קשר",
-          "additional": "מידע נוסף",
-          "notes": "הערות",
-          "status_priority": "סטטוס ועדיפות",
-          "email": "אימייל",
-          "phone": "טלפון",
-          "sector": "תחום",
-          "city": "עיר",
-          "status": "סטטוס",
-          "priority": "עדיפות"
-        },
-        "convert_to_contact": "המרה לאיש קשר",
-        "create_opportunity": "יצירת הזדמנות",
-        "already_converted": "ליד כבר הומר",
-        "view_contact": "צפייה באיש קשר",
-        "converting": "ממיר...",
-        "add_note_placeholder": "הוסף הערה...",
-        "phone": "טלפון",
-        "target_city": "עיר יעד",
-        "mini_analysis": "מיני-ניתוח שוק IGV",
-        "generated_on": "נוצר ב",
-        "language": "שפה",
-        "actions": "פעולות",
-        "delete_confirm_title": "למחוק ליד?",
-        "delete_confirm_message": "פעולה זו אינה הפיכה. האם אתה בטוח שברצונך למחוק ליד זה?",
+        "title": "לידים",
+        "subtitle": "נהל את הלידים שלך והמר אותם לאנשי קשר",
+        "new_lead": "ליד חדש",
+        "export": "ייצוא CSV",
+        "search": "חיפוש לידים...",
+        "filter_sector": "סינון לפי תחום",
+        "created": "הליד נוצר בהצלחה",
+        "deleted": "הליד נמחק בהצלחה",
+        "status_updated": "הסטטוס עודכן",
+        "note_added": "הערה נוספה בהצלחה",
+        "export_success": "הלידים יוצאו בהצלחה",
         "empty_title": "אין לידים עדיין",
-        "empty_subtitle": "צור את הליד הראשון שלך כדי להתחיל",
+        "empty_description": "צור את הליד הראשון שלך כדי להתחיל",
         "columns": {
-          "name": "שם איש קשר",
-          "email": "אימייל",
-          "brand": "מותג",
-          "sector": "תחום",
-          "status": "סטטוס",
+          "created": "נוצר",
           "priority": "עדיפות",
-          "created": "נוצר"
+          "status": "סטטוס",
+          "sector": "תחום",
+          "brand": "מותג",
+          "email": "אימייל",
+          "contact": "שם איש קשר",
+          "name": "שם",
+          "phone": "טלפון"
         },
         "toast": {
-          "opportunity_created": "הזדמנות נוצרה בהצלחה!",
-          "view_opportunity": "צפה בהזדמנות",
-          "convert_success": "ליד הומר לאיש קשר בהצלחה",
-          "contact_created": "איש קשר נוצר בהצלחה!",
+          "convert_success": "הליד הומר לאיש קשר בהצלחה",
+          "contact_created": "איש קשר נוצר",
           "view_contact": "צפה באיש קשר",
+          "opportunity_created": "הזדמנות נוצרה",
+          "view_opportunity": "צפה בהזדמנות",
           "already_converted": "ליד זה כבר הומר",
-          "lead_not_found": "ליד לא נמצא",
-          "missing_info": "מידע נדרש חסר להמרה",
+          "lead_not_found": "הליד לא נמצא",
+          "missing_info": "הליד חייב להכיל לפחות אימייל או שם כדי להמיר",
           "convert_error": "שגיאה בהמרת הליד"
+        },
+        "details": {
+          "back": "חזרה ללידים",
+          "info": "מידע על הליד",
+          "notes": "הערות",
+          "add_note": "הוסף הערה...",
+          "activities": "פעילויות"
         }
       },
       "users": {
@@ -609,8 +602,12 @@
       },
       "common": {
         "back_to_list": "חזרה לרשימה",
-        "confirm_delete": "האם אתה בטוח שברצונך למחוק?",
-        "send_email": "שלח אימייל"
+        "confirm_delete": "האם אתה בטוח שברצונך למחוק פריט זה?",
+        "send_email": "שלח אימייל",
+        "filters": "מסננים",
+        "all_statuses": "כל הסטטוסים",
+        "all_priorities": "כל העדיפויות",
+        "reset": "איפוס"
       },
       "statuses": {
         "NEW": "חדש",
@@ -618,12 +615,64 @@
         "QUALIFIED": "מוכשר",
         "CONVERTED": "הומר",
         "LOST": "אבוד",
-        "PENDING_QUOTA": "ממתין"
+        "PENDING_QUOTA": "ממתין למכסה"
       },
       "priorities": {
-        "A": "עדיפות גבוהה",
-        "B": "עדיפות בינונית",
-        "C": "עדיפות נמוכה"
+        "A": "גבוהה (A)",
+        "B": "בינונית (B)",
+        "C": "נמוכה (C)"
+      },
+      "nav": {
+        "dashboard": "לוח בקרה",
+        "leads": "לידים",
+        "contacts": "אנשי קשר",
+        "pipeline": "צינור מכירות",
+        "opportunities": "הזדמנויות",
+        "activities": "פעילויות",
+        "emails": "אימיילים",
+        "users": "משתמשים",
+        "settings": "הגדרות"
+      },
+      "tabs": {
+        "dashboard": "לוח בקרה",
+        "leads": "לידים",
+        "pipeline": "צינור מכירות",
+        "contacts": "אנשי קשר",
+        "settings": "הגדרות"
+      },
+      "errors": {
+        "load_failed": "טעינה נכשלה",
+        "create_failed": "יצירה נכשלה",
+        "update_failed": "עדכון נכשל",
+        "delete_failed": "מחיקה נכשלה",
+        "export_failed": "ייצוא נכשל",
+        "note_failed": "הוספת הערה נכשלה",
+        "status_failed": "עדכון סטטוס נכשל"
+      },
+      "opportunities": {
+        "title": "הזדמנות",
+        "created": "נוצרה מליד"
+      },
+      "sidebar": {
+        "expand": "הרחב",
+        "collapse": "צמצם"
+      }
+    },
+    "login": {
+      "page_title": "כניסת מנהל",
+      "title": "כניסת מנהל",
+      "email": "כתובת אימייל",
+      "password": "סיסמה",
+      "submit": "התחבר",
+      "logging_in": "מתחבר...",
+      "success": "התחברות הצליחה",
+      "security_notice": "גישה מאובטחת למנהלים מורשים בלבד",
+      "rights_reserved": "כל הזכויות שמורות.",
+      "errors": {
+        "required": "נדרשים אימייל וסיסמה",
+        "invalid": "פרטי התחברות שגויים",
+        "wrong_credentials": "אימייל או סיסמה שגויים",
+        "server": "שגיאת שרת. אנא נסה שוב."
       }
     }
   },

@@ -19,8 +19,8 @@
       "dashboard": "Dashboard",
       "leads": "Leads",
       "contacts": "Contacts",
-      "opportunities": "Opportunities",
       "pipeline": "Pipeline",
+      "opportunities": "Opportunities",
       "activities": "Activities",
       "emails": "Emails",
       "users": "Users",
@@ -484,7 +484,6 @@
         "leads": "Leads",
         "pipeline": "Pipeline",
         "contacts": "Contacts",
-        "opportunities": "Opportunities",
         "settings": "Settings"
       },
       "dashboard": {
@@ -527,70 +526,46 @@
       "conversionFailed": "Conversion failed",
       "leads": {
         "title": "Leads",
-        "created": "Lead created successfully",
-        "updated": "Lead updated successfully",
-        "deleted": "Lead deleted successfully",
-        "converted": "Lead converted to contact",
-        "note_added": "Note added successfully",
-        "status_updated": "Status updated successfully",
-        "export_success": "Leads exported successfully",
+        "subtitle": "Manage your leads and convert them to contacts",
         "new_lead": "New Lead",
-        "search": "Search leads...",
         "export": "Export CSV",
-        "not_found": "Lead not found",
-        "no_brand": "No brand name",
+        "search": "Search leads...",
         "filter_sector": "Filter by sector",
-        "details": {
-          "status_priority": "Status & Priority",
-          "focus_notes": "Focus Notes",
-          "contact_info": "Contact Information",
-          "additional": "Additional Information",
-          "notes": "Notes",
-          "email": "Email",
-          "phone": "Phone",
-          "sector": "Sector",
-          "city": "City",
-          "status": "Status",
-          "priority": "Priority"
-        },
-        "columns": {
-          "name": "Contact Name",
-          "company": "Company",
-          "email": "Email",
-          "phone": "Phone",
-          "status": "Status",
-          "priority": "Priority",
-          "sector": "Sector",
-          "created": "Created",
-          "source": "Source",
-          "brand": "Brand"
-        },
-        "convert_to_contact": "Convert to Contact",
-        "create_opportunity": "Create Opportunity",
-        "already_converted": "Lead already converted",
-        "view_contact": "View Contact",
-        "converting": "Converting...",
-        "add_note_placeholder": "Add a note...",
-        "phone": "Phone",
-        "target_city": "Target City",
-        "mini_analysis": "IGV Market Mini-Analysis",
-        "generated_on": "Generated on",
-        "language": "Language",
-        "actions": "Actions",
-        "delete_confirm_title": "Delete Lead?",
-        "delete_confirm_message": "This action cannot be undone. Are you sure you want to delete this lead?",
+        "created": "Lead created successfully",
+        "deleted": "Lead deleted successfully",
+        "status_updated": "Status updated",
+        "note_added": "Note added successfully",
+        "export_success": "Leads exported successfully",
         "empty_title": "No leads yet",
-        "empty_subtitle": "Create your first lead to get started",
+        "empty_description": "Create your first lead to get started",
+        "columns": {
+          "created": "Created",
+          "priority": "Priority",
+          "status": "Status",
+          "sector": "Sector",
+          "brand": "Brand",
+          "email": "Email",
+          "contact": "Contact Name",
+          "name": "Name",
+          "phone": "Phone"
+        },
         "toast": {
-          "opportunity_created": "Opportunity created successfully!",
-          "view_opportunity": "View opportunity",
           "convert_success": "Lead converted to contact successfully",
-          "contact_created": "Contact created successfully!",
-          "view_contact": "View contact",
+          "contact_created": "Contact created",
+          "view_contact": "View Contact",
+          "opportunity_created": "Opportunity created",
+          "view_opportunity": "View Opportunity",
           "already_converted": "This lead has already been converted",
           "lead_not_found": "Lead not found",
-          "missing_info": "Missing required information to convert",
+          "missing_info": "Lead must have at least email or name to convert",
           "convert_error": "Error converting lead"
+        },
+        "details": {
+          "back": "Back to leads",
+          "info": "Lead Information",
+          "notes": "Notes",
+          "add_note": "Add a note...",
+          "activities": "Activities"
         }
       },
       "contacts": {
@@ -616,36 +591,8 @@
         }
       },
       "opportunities": {
-        "title": "Opportunities",
-        "created": "Opportunity created successfully",
-        "updated": "Opportunity updated successfully",
-        "deleted": "Opportunity deleted successfully",
-        "closed": "Opportunity closed",
-        "moved": "Opportunity moved successfully",
-        "new_opportunity": "New Opportunity",
-        "search": "Search opportunities...",
-        "export": "Export CSV",
-        "not_found": "Opportunity not found",
-        "no_opportunities": "No opportunities found",
-        "create_opportunity": "Create Opportunity",
-        "columns": {
-          "title": "Title",
-          "contact": "Contact",
-          "value": "Value",
-          "stage": "Stage",
-          "probability": "Probability",
-          "expected_close": "Expected Close",
-          "created": "Created"
-        },
-        "form": {
-          "title": "Opportunity Title",
-          "description": "Description",
-          "value": "Estimated Value",
-          "stage": "Stage",
-          "probability": "Probability (%)",
-          "expected_close_date": "Expected Close Date",
-          "contact_id": "Related Contact"
-        }
+        "title": "Opportunity",
+        "created": "Created from lead"
       },
       "pipeline": {
         "title": "Sales Pipeline",
@@ -831,28 +778,19 @@
         "created": "Created",
         "updated": "Updated",
         "language": "Language",
-        "confirm_delete": "Are you sure you want to delete?",
+        "confirm_delete": "Are you sure you want to delete this item?",
         "reference": "Reference",
         "back_to_list": "Back to list",
         "send_email": "Send Email"
       },
       "errors": {
         "load_failed": "Failed to load data",
-        "create_failed": "Failed to create item",
-        "update_failed": "Failed to update item",
-        "delete_failed": "Failed to delete item",
-        "export_failed": "Failed to export data",
+        "create_failed": "Failed to create",
+        "update_failed": "Failed to update",
+        "delete_failed": "Failed to delete",
+        "export_failed": "Failed to export",
         "note_failed": "Failed to add note",
-        "status_failed": "Failed to update status",
-        "stage_failed": "Failed to update stage",
-        "convert_failed": "Failed to convert lead",
-        "user_create_failed": "Failed to create user",
-        "user_delete_failed": "Failed to delete user",
-        "password_change_failed": "Failed to change password",
-        "tag_add_failed": "Failed to add tag",
-        "network_error": "Network error occurred",
-        "unauthorized": "Unauthorized access",
-        "validation_error": "Validation error"
+        "status_failed": "Failed to update status"
       },
       "statuses": {
         "NEW": "New",
@@ -863,9 +801,9 @@
         "PENDING_QUOTA": "Pending Quota"
       },
       "priorities": {
-        "A": "High Priority",
-        "B": "Medium Priority",
-        "C": "Low Priority"
+        "A": "High (A)",
+        "B": "Medium (B)",
+        "C": "Low (C)"
       },
       "users": {
         "title": "Users",
@@ -917,6 +855,21 @@
           "create": "Create",
           "modify": "Modify"
         }
+      },
+      "nav": {
+        "dashboard": "Dashboard",
+        "leads": "Leads",
+        "contacts": "Contacts",
+        "pipeline": "Pipeline",
+        "opportunities": "Opportunities",
+        "activities": "Activities",
+        "emails": "Emails",
+        "users": "Users",
+        "settings": "Settings"
+      },
+      "sidebar": {
+        "expand": "Expand",
+        "collapse": "Collapse"
       }
     },
     "media": {
@@ -953,6 +906,23 @@
         "actions": "Actions"
       },
       "pageOf": "Page {current} of {total}"
+    },
+    "login": {
+      "page_title": "Admin Login",
+      "title": "Admin Login",
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Sign In",
+      "logging_in": "Signing in...",
+      "success": "Login successful",
+      "security_notice": "Secure access reserved for authorized administrators",
+      "rights_reserved": "All rights reserved.",
+      "errors": {
+        "required": "Email and password required",
+        "invalid": "Invalid credentials",
+        "wrong_credentials": "Wrong email or password",
+        "server": "Server error. Please try again."
+      }
     }
   },
   "gdpr": {

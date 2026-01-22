@@ -19,8 +19,8 @@
       "dashboard": "Tableau de bord",
       "leads": "Prospects",
       "contacts": "Contacts",
-      "opportunities": "Opportunités",
       "pipeline": "Pipeline",
+      "opportunities": "Opportunités",
       "activities": "Activités",
       "emails": "Emails",
       "users": "Utilisateurs",
@@ -513,7 +513,6 @@
         "leads": "Prospects",
         "pipeline": "Pipeline",
         "contacts": "Contacts",
-        "opportunities": "Opportunités",
         "settings": "Paramètres"
       },
       "dashboard": {
@@ -556,70 +555,46 @@
       "conversionFailed": "Échec de la conversion",
       "leads": {
         "title": "Prospects",
-        "created": "Prospect créé avec succès",
-        "updated": "Prospect mis à jour avec succès",
-        "deleted": "Prospect supprimé avec succès",
-        "converted": "Prospect converti en contact",
-        "note_added": "Note ajoutée avec succès",
-        "status_updated": "Statut mis à jour avec succès",
-        "export_success": "Prospects exportés avec succès",
+        "subtitle": "Gérez vos prospects et convertissez-les en contacts",
         "new_lead": "Nouveau Prospect",
-        "search": "Rechercher des prospects...",
         "export": "Exporter CSV",
-        "not_found": "Prospect non trouvé",
-        "no_brand": "Pas de marque",
+        "search": "Rechercher des prospects...",
         "filter_sector": "Filtrer par secteur",
-        "details": {
-          "status_priority": "Statut & Priorité",
-          "focus_notes": "Notes Focus",
-          "contact_info": "Informations de Contact",
-          "additional": "Informations Supplémentaires",
-          "notes": "Notes",
-          "email": "Email",
-          "phone": "Téléphone",
-          "sector": "Secteur",
-          "city": "Ville",
-          "status": "Statut",
-          "priority": "Priorité"
-        },
-        "columns": {
-          "name": "Nom du Contact",
-          "company": "Entreprise",
-          "email": "Email",
-          "phone": "Téléphone",
-          "status": "Statut",
-          "priority": "Priorité",
-          "sector": "Secteur",
-          "created": "Créé le",
-          "source": "Source",
-          "brand": "Marque"
-        },
-        "convert_to_contact": "Convertir en Contact",
-        "create_opportunity": "Créer une Opportunité",
-        "already_converted": "Lead déjà converti",
-        "view_contact": "Voir le Contact",
-        "converting": "Conversion...",
-        "add_note_placeholder": "Ajouter une note...",
-        "phone": "Téléphone",
-        "target_city": "Ville Cible",
-        "mini_analysis": "Mini-Analyse de Marché IGV",
-        "generated_on": "Généré le",
-        "language": "Langue",
-        "actions": "Actions",
-        "delete_confirm_title": "Supprimer le Lead ?",
-        "delete_confirm_message": "Cette action est irréversible. Êtes-vous sûr de vouloir supprimer ce lead ?",
+        "created": "Prospect créé avec succès",
+        "deleted": "Prospect supprimé avec succès",
+        "status_updated": "Statut mis à jour",
+        "note_added": "Note ajoutée avec succès",
+        "export_success": "Prospects exportés avec succès",
         "empty_title": "Aucun prospect",
-        "empty_subtitle": "Créez votre premier prospect pour commencer",
+        "empty_description": "Créez votre premier prospect pour commencer",
+        "columns": {
+          "created": "Créé le",
+          "priority": "Priorité",
+          "status": "Statut",
+          "sector": "Secteur",
+          "brand": "Marque",
+          "email": "Email",
+          "contact": "Nom du Contact",
+          "name": "Nom",
+          "phone": "Téléphone"
+        },
         "toast": {
-          "opportunity_created": "Opportunité créée avec succès !",
-          "view_opportunity": "Voir l'opportunité",
-          "convert_success": "Lead converti en contact avec succès",
-          "contact_created": "Contact créé avec succès !",
-          "view_contact": "Voir le contact",
-          "already_converted": "Ce lead a déjà été converti",
-          "lead_not_found": "Lead introuvable",
-          "missing_info": "Informations requises manquantes pour la conversion",
-          "convert_error": "Erreur lors de la conversion"
+          "convert_success": "Prospect converti en contact avec succès",
+          "contact_created": "Contact créé",
+          "view_contact": "Voir le Contact",
+          "opportunity_created": "Opportunité créée",
+          "view_opportunity": "Voir l'Opportunité",
+          "already_converted": "Ce prospect a déjà été converti",
+          "lead_not_found": "Prospect introuvable",
+          "missing_info": "Le prospect doit avoir au moins un email ou un nom pour être converti",
+          "convert_error": "Erreur lors de la conversion du prospect"
+        },
+        "details": {
+          "back": "Retour aux prospects",
+          "info": "Informations du Prospect",
+          "notes": "Notes",
+          "add_note": "Ajouter une note...",
+          "activities": "Activités"
         }
       },
       "contacts": {
@@ -645,36 +620,8 @@
         }
       },
       "opportunities": {
-        "title": "Opportunités",
-        "created": "Opportunité créée avec succès",
-        "updated": "Opportunité mise à jour avec succès",
-        "deleted": "Opportunité supprimée avec succès",
-        "closed": "Opportunité clôturée",
-        "moved": "Opportunité déplacée avec succès",
-        "new_opportunity": "Nouvelle Opportunité",
-        "search": "Rechercher des opportunités...",
-        "export": "Exporter CSV",
-        "not_found": "Opportunité non trouvée",
-        "no_opportunities": "Aucune opportunité trouvée",
-        "create_opportunity": "Créer une Opportunité",
-        "columns": {
-          "title": "Titre",
-          "contact": "Contact",
-          "value": "Valeur",
-          "stage": "Étape",
-          "probability": "Probabilité",
-          "expected_close": "Clôture Prévue",
-          "created": "Créé le"
-        },
-        "form": {
-          "title": "Titre de l'Opportunité",
-          "description": "Description",
-          "value": "Valeur Estimée",
-          "stage": "Étape",
-          "probability": "Probabilité (%)",
-          "expected_close_date": "Date de Clôture Prévue",
-          "contact_id": "Contact Associé"
-        }
+        "title": "Opportunité",
+        "created": "Créée depuis prospect"
       },
       "pipeline": {
         "title": "Pipeline Commercial",
@@ -832,8 +779,8 @@
       },
       "common": {
         "filters": "Filtres",
-        "all_statuses": "Tous les Statuts",
-        "all_priorities": "Toutes les Priorités",
+        "all_statuses": "Tous les statuts",
+        "all_priorities": "Toutes les priorités",
         "reset": "Réinitialiser",
         "edit": "Modifier",
         "delete": "Supprimer",
@@ -860,28 +807,19 @@
         "created": "Créé le",
         "updated": "Modifié le",
         "language": "Langue",
-        "confirm_delete": "Êtes-vous sûr de vouloir supprimer ?",
+        "confirm_delete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
         "reference": "Référence",
         "back_to_list": "Retour à la liste",
-        "send_email": "Envoyer Email"
+        "send_email": "Envoyer un email"
       },
       "errors": {
-        "load_failed": "Échec du chargement des données",
+        "load_failed": "Échec du chargement",
         "create_failed": "Échec de la création",
         "update_failed": "Échec de la mise à jour",
         "delete_failed": "Échec de la suppression",
         "export_failed": "Échec de l'export",
-        "note_failed": "Échec de l'ajout de la note",
-        "status_failed": "Échec de la mise à jour du statut",
-        "stage_failed": "Échec de la mise à jour de l'étape",
-        "convert_failed": "Échec de la conversion du prospect",
-        "user_create_failed": "Échec de la création de l'utilisateur",
-        "user_delete_failed": "Échec de la suppression de l'utilisateur",
-        "password_change_failed": "Échec du changement de mot de passe",
-        "tag_add_failed": "Échec de l'ajout du tag",
-        "network_error": "Erreur réseau",
-        "unauthorized": "Accès non autorisé",
-        "validation_error": "Erreur de validation"
+        "note_failed": "Échec de l'ajout de note",
+        "status_failed": "Échec de la mise à jour du statut"
       },
       "statuses": {
         "NEW": "Nouveau",
@@ -889,12 +827,12 @@
         "QUALIFIED": "Qualifié",
         "CONVERTED": "Converti",
         "LOST": "Perdu",
-        "PENDING_QUOTA": "En Attente"
+        "PENDING_QUOTA": "En attente quota"
       },
       "priorities": {
-        "A": "Priorité Haute",
-        "B": "Priorité Moyenne",
-        "C": "Priorité Basse"
+        "A": "Haute (A)",
+        "B": "Moyenne (B)",
+        "C": "Basse (C)"
       },
       "users": {
         "title": "Utilisateurs",
@@ -946,6 +884,21 @@
           "create": "Créer",
           "modify": "Modifier"
         }
+      },
+      "nav": {
+        "dashboard": "Tableau de bord",
+        "leads": "Prospects",
+        "contacts": "Contacts",
+        "pipeline": "Pipeline",
+        "opportunities": "Opportunités",
+        "activities": "Activités",
+        "emails": "Emails",
+        "users": "Utilisateurs",
+        "settings": "Paramètres"
+      },
+      "sidebar": {
+        "expand": "Développer",
+        "collapse": "Réduire"
       }
     },
     "media": {
@@ -982,6 +935,23 @@
         "actions": "Actions"
       },
       "pageOf": "Page {current} sur {total}"
+    },
+    "login": {
+      "page_title": "Connexion Admin",
+      "title": "Connexion Admin",
+      "email": "Adresse email",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "logging_in": "Connexion en cours...",
+      "success": "Connexion réussie",
+      "security_notice": "Accès sécurisé réservé aux administrateurs autorisés",
+      "rights_reserved": "Tous droits réservés.",
+      "errors": {
+        "required": "Email et mot de passe requis",
+        "invalid": "Identifiants invalides",
+        "wrong_credentials": "Email ou mot de passe incorrect",
+        "server": "Erreur serveur. Veuillez réessayer."
+      }
     }
   },
   "gdpr": {

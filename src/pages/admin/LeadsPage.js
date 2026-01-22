@@ -7,12 +7,14 @@ import api from '../../utils/api';
 import { toast } from 'sonner';
 
 /**
- * LeadsPage - Page dédiée à la gestion des prospects
- * Charge ses propres données et les passe à LeadsTab
+ * LeadsPage - Page for lead/prospect management
+ * Loads its own data and passes it to LeadsTab
  */
 const LeadsPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
+  const isRTL = i18n.language === 'he';
+  
   const [data, setData] = useState({ leads: [], total: 0 });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,10 +33,10 @@ const LeadsPage = () => {
     const handleResetView = () => {
       setSelectedItem(null);
     };
-    
+
     window.addEventListener('resetLeadView', handleResetView);
     window.addEventListener('popstate', handleResetView);
-    
+
     return () => {
       window.removeEventListener('resetLeadView', handleResetView);
       window.removeEventListener('popstate', handleResetView);
@@ -57,7 +59,7 @@ const LeadsPage = () => {
       });
     } catch (error) {
       console.error('Error loading leads:', error);
-      toast.error(t('admin.crm.errors.load_failed', 'Erreur de chargement'));
+      toast.error(t('admin.crm.errors.load_failed'));
     } finally {
       setLoading(false);
     }
@@ -72,18 +74,18 @@ const LeadsPage = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className={`space-y-6 ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       <div>
         <h1 className="text-3xl font-bold text-gray-900">
-          {t('crm.nav.leads', 'Prospects')}
+          {t('admin.crm.leads.title')}
         </h1>
         <p className="mt-2 text-sm text-gray-600">
-          {t('crm.leads.subtitle', 'Gérez vos prospects et convertissez-les en contacts')}
+          {t('admin.crm.leads.subtitle')}
         </p>
       </div>
 
-      <LeadsTab 
-        data={data} 
+      <LeadsTab
+        data={data}
         loading={loading}
         selectedItem={selectedItem}
         setSelectedItem={setSelectedItem}
@@ -92,7 +94,7 @@ const LeadsPage = () => {
         setSearchTerm={setSearchTerm}
         filters={filters}
         setFilters={setFilters}
-        t={t} 
+        t={t}
       />
     </div>
   );

@@ -17,7 +17,9 @@ i18n
     fallbackLng: 'fr',
     supportedLngs: ['fr', 'en', 'he'],
     detection: {
-      order: ['localStorage', 'navigator'],
+      // Order: URL param first, then localStorage, then browser
+      order: ['querystring', 'localStorage', 'navigator'],
+      lookupQuerystring: 'lang',
       caches: ['localStorage']
     },
     interpolation: {
@@ -30,6 +32,8 @@ i18n.on('languageChanged', (lng) => {
   const html = document.documentElement;
   html.setAttribute('lang', lng);
   html.setAttribute('dir', lng === 'he' ? 'rtl' : 'ltr');
+  // Also store in localStorage so it persists
+  localStorage.setItem('i18nextLng', lng);
 });
 
 // Set initial lang and dir

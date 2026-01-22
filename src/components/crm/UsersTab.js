@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Users, Plus, Edit, Trash2, X, Save, Loader2, Shield, UserCheck, UserX, Search, Mail, Phone } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '../../utils/api';
 import { SkeletonTable } from './Skeleton';
 
 const UsersTab = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingAction, setLoadingAction] = useState(false);
@@ -34,7 +36,7 @@ const UsersTab = () => {
       setUsers(response.users || response.data?.users || response.data || []);
     } catch (error) {
       console.error('Erreur chargement users:', error);
-      toast.error('Erreur lors du chargement des utilisateurs');
+      toast.error(t('admin.crm.users.errors.load_failed'));
     } finally {
       setLoading(false);
     }
@@ -44,12 +46,12 @@ const UsersTab = () => {
     e.preventDefault();
     
     if (!formData.email || !formData.first_name || !formData.last_name) {
-      toast.error('Email, prénom et nom sont requis');
+      toast.error(t('admin.crm.users.errors.email_required'));
       return;
     }
 
     if (!editingUser && !formData.password) {
-      toast.error('Le mot de passe est requis pour un nouvel utilisateur');
+      toast.error(t('admin.crm.users.errors.password_required'));
       return;
     }
 
@@ -67,7 +69,7 @@ const UsersTab = () => {
           updateData.password = formData.password;
         }
         await api.put(`/api/crm/settings/users/${editingUser._id || editingUser.id}`, updateData);
-        toast.success('Utilisateur modifié avec succès');
+        toast.success(t('admin.crm.users.updated'));
       } else {
         // Create new user - use correct format for backend
         const userData = {
@@ -77,7 +79,7 @@ const UsersTab = () => {
           role: formData.role
         };
         await api.post('/api/crm/settings/users', userData);
-        toast.success('Utilisateur créé avec succès');
+        toast.success(t('admin.crm.users.created'));
       }
       
       setShowModal(false);
@@ -86,7 +88,7 @@ const UsersTab = () => {
       await loadUsers();
     } catch (error) {
       console.error('Erreur lors de la sauvegarde:', error);
-      const errorMsg = error.response?.data?.detail || 'Erreur lors de la sauvegarde';
+      const errorMsg = error.response?.data?.detail || t('admin.crm.users.errors.update_failed');
       toast.error(errorMsg);
     } finally {
       setLoadingAction(false);
@@ -94,18 +96,18 @@ const UsersTab = () => {
   };
 
   const handleDelete = async (userId) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+    if (!window.confirm(t('admin.crm.users.delete_confirm'))) {
       return;
     }
 
     try {
       setLoadingAction(true);
       await api.delete(`/api/crm/settings/users/${userId}`);
-      toast.success('Utilisateur supprimé avec succès');
+      toast.success(t('admin.crm.users.deleted'));
       await loadUsers();
     } catch (error) {
       console.error('Erreur lors de la suppression:', error);
-      const errorMsg = error.response?.data?.detail || 'Erreur lors de la suppression';
+      const errorMsg = error.response?.data?.detail || t('admin.crm.users.errors.delete_failed');
       toast.error(errorMsg);
     } finally {
       setLoadingAction(false);
@@ -209,7 +211,7 @@ const UsersTab = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Users className="w-6 h-6 text-blue-600" />
-          <h2 className="text-2xl font-bold text-gray-800">Utilisateurs</h2>
+          <h2 className="text-2xl font-bold text-gray-800">{t("admin.crm.users.title")}</h2>
           <span className="ml-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
             {filteredUsers.length}
           </span>
@@ -231,7 +233,7 @@ const UsersTab = () => {
             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Rechercher par email, prénom, nom..."
+              placeholder={t("admin.crm.users.search_placeholder")}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -243,7 +245,7 @@ const UsersTab = () => {
             onChange={(e) => setFilterRole(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="all">Tous les rôles</option>
+            <option value="all">{t("admin.crm.users.all_roles")}</option>
             <option value="admin">Admin</option>
             <option value="commercial">Commercial</option>
             <option value="support">Support</option>
@@ -254,9 +256,9 @@ const UsersTab = () => {
             onChange={(e) => setFilterStatus(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="all">Tous les statuts</option>
-            <option value="active">Actifs</option>
-            <option value="inactive">Inactifs</option>
+            <option value="all">{t("admin.crm.users.all_statuses")}</option>
+            <option value="active">{t("admin.crm.users.active")}</option>
+            <option value="inactive">{t("admin.crm.users.inactive")}</option>
           </select>
         </div>
       </div>
@@ -375,7 +377,7 @@ const UsersTab = () => {
           <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">
-                {editingUser ? 'Modifier l\'utilisateur' : 'Nouvel utilisateur'}
+                {editingUser ? 'Modifier l\'utilisateur' : t('admin.crm.users.new')}
               </h3>
               <button 
                 onClick={handleCloseModal} 

@@ -541,7 +541,11 @@
         "no_brand": "No brand name",
         "filter_sector": "Filter by sector",
         "details": {
-          "status_priority": "Status & Priority"
+          "status_priority": "Status & Priority",
+          "focus_notes": "Focus Notes",
+          "contact_info": "Contact Information",
+          "additional": "Additional Information",
+          "notes": "Notes"
         },
         "columns": {
           "name": "Contact Name",
@@ -639,7 +643,7 @@
           "won": "Won"
         }
       },
-            "activities": {
+      "activities": {
         "title": "Activities",
         "count": "activities",
         "add": "Add Activity",
@@ -682,7 +686,7 @@
           "delete_failed": "Failed to delete activity"
         }
       },
-"emails": {
+      "emails": {
         "title": "Email History",
         "history_title": "Email History",
         "compose": "Compose Email",
@@ -840,6 +844,37 @@
         "A": "Priority A",
         "B": "Priority B",
         "C": "Priority C"
+      },
+      "users": {
+        "title": "Users",
+        "new": "New user",
+        "edit": "Edit user",
+        "search_placeholder": "Search by email, first name, last name...",
+        "all_roles": "All roles",
+        "all_statuses": "All statuses",
+        "active": "Active",
+        "inactive": "Inactive",
+        "columns": {
+          "user": "User",
+          "email": "Email",
+          "role": "Role",
+          "status": "Status",
+          "assigned_leads": "Assigned leads",
+          "actions": "Actions"
+        },
+        "empty": "No users found",
+        "created": "User created successfully",
+        "updated": "User updated successfully",
+        "deleted": "User deleted successfully",
+        "delete_confirm": "Are you sure you want to delete this user?",
+        "errors": {
+          "load_failed": "Error loading users",
+          "create_failed": "Error creating user",
+          "update_failed": "Error updating user",
+          "delete_failed": "Error deleting user",
+          "email_required": "Email, first name and last name are required",
+          "password_required": "Password is required for new users"
+        }
       }
     },
     "media": {

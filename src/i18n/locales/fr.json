@@ -570,7 +570,11 @@
         "no_brand": "Pas de marque",
         "filter_sector": "Filtrer par secteur",
         "details": {
-          "status_priority": "Statut et Priorité"
+          "status_priority": "Statut et Priorité",
+          "focus_notes": "Notes Focus",
+          "contact_info": "Informations de contact",
+          "additional": "Informations supplementaires",
+          "notes": "Notes"
         },
         "columns": {
           "name": "Nom du Contact",
@@ -668,7 +672,7 @@
           "won": "Gagné"
         }
       },
-            "activities": {
+      "activities": {
         "title": "Activit?s",
         "count": "activit?s",
         "add": "Ajouter une activit?",
@@ -711,7 +715,7 @@
           "delete_failed": "?chec de la suppression de l'activit?"
         }
       },
-"emails": {
+      "emails": {
         "title": "Historique des Emails",
         "history_title": "Historique des Emails",
         "compose": "Composer un email",
@@ -869,6 +873,37 @@
         "A": "Priorité A",
         "B": "Priorité B",
         "C": "Priorité C"
+      },
+      "users": {
+        "title": "Utilisateurs",
+        "new": "Nouvel utilisateur",
+        "edit": "Modifier l utilisateur",
+        "search_placeholder": "Rechercher par email, prenom, nom...",
+        "all_roles": "Tous les roles",
+        "all_statuses": "Tous les statuts",
+        "active": "Actifs",
+        "inactive": "Inactifs",
+        "columns": {
+          "user": "Utilisateur",
+          "email": "Email",
+          "role": "Role",
+          "status": "Statut",
+          "assigned_leads": "Leads assignes",
+          "actions": "Actions"
+        },
+        "empty": "Aucun utilisateur trouve",
+        "created": "Utilisateur cree avec succes",
+        "updated": "Utilisateur modifie avec succes",
+        "deleted": "Utilisateur supprime avec succes",
+        "delete_confirm": "Etes-vous sur de vouloir supprimer cet utilisateur ?",
+        "errors": {
+          "load_failed": "Erreur lors du chargement des utilisateurs",
+          "create_failed": "Erreur lors de la creation",
+          "update_failed": "Erreur lors de la modification",
+          "delete_failed": "Erreur lors de la suppression",
+          "email_required": "Email, prenom et nom sont requis",
+          "password_required": "Le mot de passe est requis pour un nouvel utilisateur"
+        }
       }
     },
     "media": {

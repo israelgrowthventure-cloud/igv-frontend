@@ -570,11 +570,17 @@
         "no_brand": "Pas de marque",
         "filter_sector": "Filtrer par secteur",
         "details": {
-          "status_priority": "Statut et Priorité",
+          "status_priority": "Statut & Priorité",
           "focus_notes": "Notes Focus",
-          "contact_info": "Informations de contact",
-          "additional": "Informations supplementaires",
-          "notes": "Notes"
+          "contact_info": "Informations de Contact",
+          "additional": "Informations Supplémentaires",
+          "notes": "Notes",
+          "email": "Email",
+          "phone": "Téléphone",
+          "sector": "Secteur",
+          "city": "Ville",
+          "status": "Statut",
+          "priority": "Priorité"
         },
         "columns": {
           "name": "Nom du Contact",
@@ -585,7 +591,35 @@
           "priority": "Priorité",
           "sector": "Secteur",
           "created": "Créé le",
-          "source": "Source"
+          "source": "Source",
+          "brand": "Marque"
+        },
+        "convert_to_contact": "Convertir en Contact",
+        "create_opportunity": "Créer une Opportunité",
+        "already_converted": "Lead déjà converti",
+        "view_contact": "Voir le Contact",
+        "converting": "Conversion...",
+        "add_note_placeholder": "Ajouter une note...",
+        "phone": "Téléphone",
+        "target_city": "Ville Cible",
+        "mini_analysis": "Mini-Analyse de Marché IGV",
+        "generated_on": "Généré le",
+        "language": "Langue",
+        "actions": "Actions",
+        "delete_confirm_title": "Supprimer le Lead ?",
+        "delete_confirm_message": "Cette action est irréversible. Êtes-vous sûr de vouloir supprimer ce lead ?",
+        "empty_title": "Aucun prospect",
+        "empty_subtitle": "Créez votre premier prospect pour commencer",
+        "toast": {
+          "opportunity_created": "Opportunité créée avec succès !",
+          "view_opportunity": "Voir l'opportunité",
+          "convert_success": "Lead converti en contact avec succès",
+          "contact_created": "Contact créé avec succès !",
+          "view_contact": "Voir le contact",
+          "already_converted": "Ce lead a déjà été converti",
+          "lead_not_found": "Lead introuvable",
+          "missing_info": "Informations requises manquantes pour la conversion",
+          "convert_error": "Erreur lors de la conversion"
         }
       },
       "contacts": {
@@ -828,7 +862,8 @@
         "language": "Langue",
         "confirm_delete": "Êtes-vous sûr de vouloir supprimer ?",
         "reference": "Référence",
-        "back_to_list": "← Retour à la liste"
+        "back_to_list": "Retour à la liste",
+        "send_email": "Envoyer Email"
       },
       "errors": {
         "load_failed": "Échec du chargement des données",
@@ -849,60 +884,67 @@
         "validation_error": "Erreur de validation"
       },
       "statuses": {
-        "new": "Nouveau",
         "NEW": "Nouveau",
-        "contacted": "Contacté",
         "CONTACTED": "Contacté",
-        "qualified": "Qualifié",
         "QUALIFIED": "Qualifié",
-        "proposal": "Proposition",
-        "negotiation": "Négociation",
-        "closed": "Clôturé",
-        "lost": "Perdu",
-        "LOST": "Perdu",
         "CONVERTED": "Converti",
-        "PENDING_QUOTA": "Quota en Attente",
-        "active": "Actif",
-        "inactive": "Inactif"
+        "LOST": "Perdu",
+        "PENDING_QUOTA": "En Attente"
       },
       "priorities": {
-        "low": "Basse",
-        "medium": "Moyenne",
-        "high": "Haute",
-        "urgent": "Urgente",
-        "A": "Priorité A",
-        "B": "Priorité B",
-        "C": "Priorité C"
+        "A": "Priorité Haute",
+        "B": "Priorité Moyenne",
+        "C": "Priorité Basse"
       },
       "users": {
         "title": "Utilisateurs",
-        "new": "Nouvel utilisateur",
-        "edit": "Modifier l utilisateur",
-        "search_placeholder": "Rechercher par email, prenom, nom...",
-        "all_roles": "Tous les roles",
-        "all_statuses": "Tous les statuts",
-        "active": "Actifs",
-        "inactive": "Inactifs",
+        "new": "Nouvel Utilisateur",
+        "edit": "Modifier l'Utilisateur",
+        "search_placeholder": "Rechercher des utilisateurs...",
+        "all_roles": "Tous les Rôles",
+        "all_statuses": "Tous les Statuts",
+        "active": "Actif",
+        "inactive": "Inactif",
         "columns": {
           "user": "Utilisateur",
           "email": "Email",
-          "role": "Role",
+          "role": "Rôle",
           "status": "Statut",
-          "assigned_leads": "Leads assignes",
+          "assigned_leads": "Leads Assignés",
           "actions": "Actions"
         },
-        "empty": "Aucun utilisateur trouve",
-        "created": "Utilisateur cree avec succes",
-        "updated": "Utilisateur modifie avec succes",
-        "deleted": "Utilisateur supprime avec succes",
-        "delete_confirm": "Etes-vous sur de vouloir supprimer cet utilisateur ?",
+        "empty": "Aucun utilisateur trouvé",
+        "no_name": "Sans nom",
+        "created": "Utilisateur créé avec succès",
+        "updated": "Utilisateur mis à jour avec succès",
+        "deleted": "Utilisateur supprimé avec succès",
+        "delete_confirm": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+        "form": {
+          "email": "Email",
+          "first_name": "Prénom",
+          "last_name": "Nom",
+          "password": "Mot de passe",
+          "password_edit": "Nouveau mot de passe (laisser vide pour ne pas changer)",
+          "role": "Rôle",
+          "active_account": "Compte actif"
+        },
+        "roles": {
+          "admin": "Admin",
+          "commercial": "Commercial",
+          "support": "Support"
+        },
         "errors": {
           "load_failed": "Erreur lors du chargement des utilisateurs",
-          "create_failed": "Erreur lors de la creation",
-          "update_failed": "Erreur lors de la modification",
-          "delete_failed": "Erreur lors de la suppression",
-          "email_required": "Email, prenom et nom sont requis",
-          "password_required": "Le mot de passe est requis pour un nouvel utilisateur"
+          "email_required": "L'email est requis",
+          "password_required": "Le mot de passe est requis",
+          "update_failed": "Erreur lors de la mise à jour",
+          "delete_failed": "Erreur lors de la suppression"
+        },
+        "buttons": {
+          "save": "Enregistrer",
+          "cancel": "Annuler",
+          "create": "Créer",
+          "modify": "Modifier"
         }
       }
     },

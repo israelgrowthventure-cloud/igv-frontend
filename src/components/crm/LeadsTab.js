@@ -7,9 +7,15 @@ import { SkeletonTable } from './Skeleton';
 import EmailModal from './EmailModal';
 import { useTranslation } from 'react-i18next';
 
+/**
+ * LeadsTab - CRM Leads Management Component
+ * Fully internationalized - no hardcoded text
+ */
 const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, searchTerm, setSearchTerm, filters, setFilters, t }) => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
+  const isRTL = i18n.language === 'he';
+  
   const [showFilters, setShowFilters] = useState(false);
   const [noteText, setNoteText] = useState('');
   const [editingLead, setEditingLead] = useState(null);
@@ -70,23 +76,15 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   };
 
   const handleAddNote = async (leadId) => {
-    console.log('[DEBUG handleAddNote] Called with leadId:', leadId);
-    console.log('[DEBUG handleAddNote] selectedItem:', JSON.stringify(selectedItem));
-    console.log('[DEBUG handleAddNote] noteText:', noteText);
-    if (!noteText.trim()) {
-      console.log('[DEBUG handleAddNote] Empty noteText, returning early');
-      return;
-    }
+    if (!noteText.trim()) return;
     try {
-      console.log('[DEBUG handleAddNote] Calling API POST /notes with leadId:', leadId);
       setLoadingAction(true);
       await api.post(`/api/crm/leads/${leadId}/notes`, { note_text: noteText });
-      console.log('[DEBUG handleAddNote] API call successful');
       setNoteText('');
       toast.success(t('admin.crm.leads.note_added'));
       await onRefresh();
     } catch (error) {
-      console.error('[DEBUG handleAddNote] API call failed:', error);
+      console.error('Add note error:', error);
       toast.error(t('admin.crm.errors.note_failed'));
     } finally {
       setLoadingAction(false);
@@ -110,31 +108,28 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   const handleCreateOpportunity = async (leadId) => {
     try {
       setLoadingAction(true);
-      const response = await api.post('/api/crm/opportunities', {
+      await api.post('/api/crm/opportunities', {
         lead_id: leadId,
-        name: `Opportunité - ${selectedItem.brand_name || selectedItem.contact_name}`,
+        name: `${t('admin.crm.opportunities.title')} - ${selectedItem.brand_name || selectedItem.contact_name}`,
         stage: 'qualification',
         estimated_value: 0,
         probability: 25,
-        description: `Opportunité créée depuis le lead ${leadId}`,
-        expected_close_date: new Date(Date.now() + 30*24*60*60*1000).toISOString().split('T')[0] // +30 jours
+        description: `${t('admin.crm.opportunities.created')} - ${leadId}`,
+        expected_close_date: new Date(Date.now() + 30*24*60*60*1000).toISOString().split('T')[0]
       });
-      
-      toast.success('Opportunité créée avec succès !', {
+
+      toast.success(t('admin.crm.leads.toast.opportunity_created'), {
         duration: 5000,
         action: {
-          label: "Voir l'opportunité",
-          onClick: () => {
-            // Use navigate for proper routing instead of window.location.hash
-            navigate('/admin/crm?tab=opportunities');
-          }
+          label: t('admin.crm.leads.toast.view_opportunity'),
+          onClick: () => navigate('/admin/crm/opportunities')
         }
       });
-      
+
       await onRefresh();
     } catch (error) {
       console.error('Create opportunity error:', error);
-      toast.error('Erreur lors de la création de l\'opportunité');
+      toast.error(t('admin.crm.errors.create_failed'));
     } finally {
       setLoadingAction(false);
     }
@@ -147,55 +142,49 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
     try {
       setLoadingAction(true);
       await api.delete(`/api/crm/leads/${leadId}`);
-      toast.success(t('admin.crm.leads.deleted') || 'Prospect supprimé');
+      toast.success(t('admin.crm.leads.deleted'));
       setSelectedItem(null);
       await onRefresh();
     } catch (error) {
       console.error('Delete lead error:', error);
-      toast.error(t('admin.crm.errors.delete_failed') || 'Erreur lors de la suppression');
+      toast.error(t('admin.crm.errors.delete_failed'));
     } finally {
       setLoadingAction(false);
     }
   };
 
   const handleConvertToContact = async (leadId) => {
-    // Demander confirmation avant conversion
-    if (!window.confirm('Êtes-vous sûr de vouloir convertir ce prospect en contact ? Cette action est irréversible.')) {
+    if (!window.confirm(t('admin.crm.common.confirm_delete'))) {
       return;
     }
     try {
       setLoadingAction(true);
       const response = await api.post(`/api/crm/leads/${leadId}/convert-to-contact`);
-      toast.success('Prospect converti en contact avec succès');
-      
-      // Afficher le contact créé avec un lien direct
+      toast.success(t('admin.crm.leads.toast.convert_success'));
+
       if (response.contact_id) {
-        toast.success(`Contact créé avec succès !`, {
+        toast.success(t('admin.crm.leads.toast.contact_created'), {
           duration: 5000,
           action: {
-            label: "Voir le contact",
-            onClick: () => {
-              // Use navigate for proper routing instead of window.location.hash
-              navigate(`/admin/crm/contacts/${response.contact_id}`);
-            }
+            label: t('admin.crm.leads.toast.view_contact'),
+            onClick: () => navigate(`/admin/crm/contacts/${response.contact_id}`)
           }
         });
       }
-      
+
       await onRefresh();
       setSelectedItem(null);
     } catch (error) {
       console.error('Convert error:', error);
-      // Message d'erreur plus détaillé
       const errorMsg = error?.response?.data?.detail || error?.message || '';
       if (errorMsg.includes('already converted')) {
-        toast.error('Ce prospect a déjà été converti en contact');
+        toast.error(t('admin.crm.leads.toast.already_converted'));
       } else if (errorMsg.includes('not found')) {
-        toast.error('Prospect introuvable');
+        toast.error(t('admin.crm.leads.toast.lead_not_found'));
       } else if (errorMsg.includes('at least email, name')) {
-        toast.error('Ce prospect manque d\'informations obligatoires (email ou nom) pour être converti');
+        toast.error(t('admin.crm.leads.toast.missing_info'));
       } else {
-        toast.error('Erreur lors de la conversion du prospect');
+        toast.error(t('admin.crm.leads.toast.convert_error'));
       }
     } finally {
       setLoadingAction(false);
@@ -205,12 +194,11 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   const statuses = ['NEW', 'CONTACTED', 'QUALIFIED', 'CONVERTED', 'LOST', 'PENDING_QUOTA'];
   const priorities = ['A', 'B', 'C'];
 
-  // Defensive: ensure data exists
   const leads = data?.leads || [];
   const total = data?.total || 0;
 
   return (
-    <div className="space-y-4">
+    <div className={`space-y-4 ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Search & Filters */}
       <div className="bg-white p-4 rounded-lg shadow border">
         <div className="flex gap-4 items-center flex-wrap">
@@ -323,9 +311,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                   onChange={(e) => setNewLeadData({...newLeadData, priority: e.target.value})}
                   className="w-full px-3 py-2 border rounded-lg"
                 >
-                  <option value="A">{t('admin.crm.priorities.A')}</option>
-                  <option value="B">{t('admin.crm.priorities.B')}</option>
-                  <option value="C">{t('admin.crm.priorities.C')}</option>
+                  {priorities.map(p => <option key={p} value={p}>{t(`admin.crm.priorities.${p}`)}</option>)}
                 </select>
               </div>
             </div>
@@ -374,15 +360,15 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                     <div className="flex items-center gap-2">
                       {lead.contact_name || '-'}
                       {lead.status === 'CONVERTED' && (
-                        <Users className="w-4 h-4 text-green-600" title="Converti en contact" />
+                        <Users className="w-4 h-4 text-green-600" title={t('admin.crm.leads.converted')} />
                       )}
                     </div>
                   </td>
                   <td className="px-4 py-3" data-testid="prospect-email">{lead.email}</td>
                   <td className="px-4 py-3">{lead.brand_name || '-'}</td>
                   <td className="px-4 py-3">{lead.sector || '-'}</td>
-                  <td className="px-4 py-3"><StatusBadge status={lead.status} /></td>
-                  <td className="px-4 py-3"><span className={`px-2 py-1 rounded text-xs font-semibold ${lead.priority === 'A' ? 'bg-red-100 text-red-800' : lead.priority === 'B' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'}`}>{lead.priority || 'C'}</span></td>
+                  <td className="px-4 py-3"><StatusBadge status={lead.status} t={t} /></td>
+                  <td className="px-4 py-3"><PriorityBadge priority={lead.priority} t={t} /></td>
                   <td className="px-4 py-3 text-sm text-gray-600">{new Date(lead.created_at).toLocaleDateString()}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -391,11 +377,10 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            // Use navigate for proper routing instead of window.location.hash
                             navigate(`/admin/crm/contacts/${lead.converted_to_contact_id}`);
                           }}
                           className="text-green-600 hover:text-green-800"
-                          title="Voir le contact créé"
+                          title={t('admin.crm.leads.view_contact')}
                         >
                           <Users className="w-4 h-4" />
                         </button>
@@ -423,12 +408,12 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
         <div className="bg-white rounded-lg shadow border p-6">
           <div className="flex justify-between items-start mb-6">
             <div>
-              <button 
-                onClick={() => setSelectedItem(null)} 
+              <button
+                onClick={() => setSelectedItem(null)}
                 className="flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-2 text-sm"
               >
                 <ArrowLeft className="w-4 h-4" />
-                {t('admin.crm.common.back_to_list', 'Retour à la liste')}
+                {t('admin.crm.common.back_to_list')}
               </button>
               <h2 className="text-2xl font-bold">
                 {selectedItem.contact_name || selectedItem.name || selectedItem.brand_name || selectedItem.email}
@@ -441,7 +426,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                 <p className="text-sm text-gray-500">{selectedItem.phone}</p>
               )}
             </div>
-            <button onClick={() => setSelectedItem(null)} className="p-2 hover:bg-gray-100 rounded-lg" title="Fermer">
+            <button onClick={() => setSelectedItem(null)} className="p-2 hover:bg-gray-100 rounded-lg" title={t('admin.crm.common.close')}>
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -476,13 +461,13 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
               <div>
                 <label className="text-sm text-gray-600">{t('admin.crm.leads.details.status')}</label>
                 <select value={selectedItem.status} onChange={(e) => handleUpdateStatus(selectedItem.lead_id, e.target.value)} disabled={loadingAction} className="w-full mt-1 px-3 py-2 border rounded-lg">
-                  {statuses.map(s => <option key={s} value={s}>{t(`admin.crm.statuses.${s}`) || s}</option>)}
+                  {statuses.map(s => <option key={s} value={s}>{t(`admin.crm.statuses.${s}`)}</option>)}
                 </select>
               </div>
               <div>
                 <label className="text-sm text-gray-600">{t('admin.crm.leads.details.priority')}</label>
                 <select value={selectedItem.priority || 'C'} className="w-full mt-1 px-3 py-2 border rounded-lg">
-                  {priorities.map(p => <option key={p} value={p}>{t(`admin.crm.priorities.${p}`) || `Priority ${p}`}</option>)}
+                  {priorities.map(p => <option key={p} value={p}>{t(`admin.crm.priorities.${p}`)}</option>)}
                 </select>
               </div>
             </div>
@@ -500,19 +485,19 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
             <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
               <div className="flex items-center gap-2 mb-3">
                 <Eye className="w-5 h-5 text-blue-600" />
-                <h3 className="font-semibold text-blue-900">{t('admin.crm.leads.mini_analysis', 'Mini-Analyse de Marché')}</h3>
+                <h3 className="font-semibold text-blue-900">{t('admin.crm.leads.mini_analysis')}</h3>
               </div>
               <div className="text-sm text-gray-700 whitespace-pre-wrap bg-white p-3 rounded border">
                 {selectedItem.analysis}
               </div>
               {selectedItem.analysis_language && (
                 <p className="text-xs text-blue-600 mt-2">
-                  {t('admin.crm.leads.analysis_language', 'Langue')}: {selectedItem.analysis_language.toUpperCase()}
+                  {t('admin.crm.leads.language')}: {selectedItem.analysis_language.toUpperCase()}
                 </p>
               )}
               {selectedItem.analysis_date && (
                 <p className="text-xs text-gray-500 mt-1">
-                  {t('admin.crm.leads.analysis_date', 'Généré le')}: {new Date(selectedItem.analysis_date).toLocaleString()}
+                  {t('admin.crm.leads.generated_on')}: {new Date(selectedItem.analysis_date).toLocaleString()}
                 </p>
               )}
             </div>
@@ -532,7 +517,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                   </div>
                 ))
               ) : (
-                <p className="text-gray-500 text-sm">{t('admin.crm.common.no_notes', 'Aucune note')}</p>
+                <p className="text-gray-500 text-sm">{t('admin.crm.common.no_notes')}</p>
               )}
             </div>
             <div className="flex gap-2">
@@ -541,33 +526,30 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
             </div>
           </div>
 
-          <div className="mt-6 flex gap-3">
+          <div className="mt-6 flex gap-3 flex-wrap">
             {selectedItem.status === 'CONVERTED' ? (
               <div className="flex items-center gap-2 px-6 py-2 bg-green-100 text-green-800 rounded-lg">
                 <Users className="w-4 h-4" />
-                <span className="font-medium">Lead déjà converti en contact</span>
+                <span className="font-medium">{t('admin.crm.leads.already_converted')}</span>
                 {selectedItem.converted_to_contact_id && (
                   <button
-                    onClick={() => {
-                      // Use navigate for proper routing instead of window.location.hash
-                      navigate(`/admin/crm/contacts/${selectedItem.converted_to_contact_id}`);
-                    }}
+                    onClick={() => navigate(`/admin/crm/contacts/${selectedItem.converted_to_contact_id}`)}
                     className="ml-2 text-green-700 hover:text-green-900 underline text-sm"
                   >
-                    Voir le contact
+                    {t('admin.crm.leads.view_contact')}
                   </button>
                 )}
               </div>
             ) : (
-              <button 
-                onClick={() => handleConvertToContact(selectedItem.lead_id)} 
-                disabled={loadingAction} 
+              <button
+                onClick={() => handleConvertToContact(selectedItem.lead_id)}
+                disabled={loadingAction}
                 className="flex items-center gap-2 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
               >
                 {loadingAction ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Conversion...</span>
+                    <span>{t('admin.crm.leads.converting')}</span>
                   </>
                 ) : (
                   <>
@@ -577,7 +559,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                 )}
               </button>
             )}
-            
+
             <button
               onClick={() => handleCreateOpportunity(selectedItem.lead_id)}
               disabled={loadingAction}
@@ -586,36 +568,36 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
               <ExternalLink className="w-4 h-4" />
               <span>{t('admin.crm.leads.create_opportunity')}</span>
             </button>
-            
+
             <button
               onClick={() => setShowEmailModal(true)}
               disabled={!selectedItem.email}
               className="flex items-center gap-2 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>{t('admin.crm.emails.compose', 'Envoyer Email')}</span>
+              <span>{t('admin.crm.common.send_email')}</span>
             </button>
-            
+
             <button
               onClick={() => handleDeleteLead(selectedItem.lead_id)}
               disabled={loadingAction}
               className="flex items-center gap-2 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 transition-colors ml-auto"
             >
               <Trash2 className="w-4 h-4" />
-              <span>{t('admin.crm.common.delete', 'Supprimer')}</span>
+              <span>{t('admin.crm.common.delete')}</span>
             </button>
           </div>
         </div>
       )}
-      
+
       {showEmailModal && selectedItem && (
-        <EmailModal 
-          contact={{ 
-            _id: selectedItem.lead_id, 
-            name: selectedItem.contact_name, 
-            email: selectedItem.email 
-          }} 
-          onClose={() => setShowEmailModal(false)} 
+        <EmailModal
+          contact={{
+            _id: selectedItem.lead_id,
+            name: selectedItem.contact_name,
+            email: selectedItem.email
+          }}
+          onClose={() => setShowEmailModal(false)}
           t={t}
           language={i18n.language}
         />
@@ -624,7 +606,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   );
 };
 
-const StatusBadge = ({ status }) => {
+const StatusBadge = ({ status, t }) => {
   const colors = {
     NEW: 'bg-blue-100 text-blue-800',
     CONTACTED: 'bg-yellow-100 text-yellow-800',
@@ -633,7 +615,16 @@ const StatusBadge = ({ status }) => {
     LOST: 'bg-gray-100 text-gray-800',
     PENDING_QUOTA: 'bg-orange-100 text-orange-800'
   };
-  return <span className={`px-2 py-1 rounded text-xs font-semibold ${colors[status] || 'bg-gray-100 text-gray-800'}`}>{status}</span>;
+  return <span className={`px-2 py-1 rounded text-xs font-semibold ${colors[status] || 'bg-gray-100 text-gray-800'}`}>{t(`admin.crm.statuses.${status}`, status)}</span>;
+};
+
+const PriorityBadge = ({ priority, t }) => {
+  const colors = {
+    A: 'bg-red-100 text-red-800',
+    B: 'bg-yellow-100 text-yellow-800',
+    C: 'bg-green-100 text-green-800'
+  };
+  return <span className={`px-2 py-1 rounded text-xs font-semibold ${colors[priority] || 'bg-gray-100 text-gray-800'}`}>{t(`admin.crm.priorities.${priority}`, priority)}</span>;
 };
 
 export default LeadsTab;

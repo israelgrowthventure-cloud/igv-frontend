@@ -5,8 +5,14 @@ import { toast } from 'sonner';
 import api from '../../utils/api';
 import { SkeletonTable } from './Skeleton';
 
+/**
+ * UsersTab - CRM User Management Component
+ * Fully internationalized - no hardcoded text
+ */
 const UsersTab = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'he';
+  
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingAction, setLoadingAction] = useState(false);
@@ -35,7 +41,7 @@ const UsersTab = () => {
       const response = await api.get('/api/crm/settings/users');
       setUsers(response.users || response.data?.users || response.data || []);
     } catch (error) {
-      console.error('Erreur chargement users:', error);
+      console.error('Error loading users:', error);
       toast.error(t('admin.crm.users.errors.load_failed'));
     } finally {
       setLoading(false);
@@ -44,7 +50,7 @@ const UsersTab = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.email || !formData.first_name || !formData.last_name) {
       toast.error(t('admin.crm.users.errors.email_required'));
       return;
@@ -57,21 +63,19 @@ const UsersTab = () => {
 
     try {
       setLoadingAction(true);
-      
+
       if (editingUser) {
-        // Update existing user
-        const updateData = { 
+        const updateData = {
           name: `${formData.first_name} ${formData.last_name}`.trim(),
           role: formData.role,
           is_active: formData.is_active
         };
-        if (updateData.password) {
+        if (formData.password) {
           updateData.password = formData.password;
         }
         await api.put(`/api/crm/settings/users/${editingUser._id || editingUser.id}`, updateData);
         toast.success(t('admin.crm.users.updated'));
       } else {
-        // Create new user - use correct format for backend
         const userData = {
           email: formData.email,
           name: `${formData.first_name} ${formData.last_name}`.trim(),
@@ -81,13 +85,13 @@ const UsersTab = () => {
         await api.post('/api/crm/settings/users', userData);
         toast.success(t('admin.crm.users.created'));
       }
-      
+
       setShowModal(false);
       setEditingUser(null);
       resetForm();
       await loadUsers();
     } catch (error) {
-      console.error('Erreur lors de la sauvegarde:', error);
+      console.error('Error saving user:', error);
       const errorMsg = error.response?.data?.detail || t('admin.crm.users.errors.update_failed');
       toast.error(errorMsg);
     } finally {
@@ -106,7 +110,7 @@ const UsersTab = () => {
       toast.success(t('admin.crm.users.deleted'));
       await loadUsers();
     } catch (error) {
-      console.error('Erreur lors de la suppression:', error);
+      console.error('Error deleting user:', error);
       const errorMsg = error.response?.data?.detail || t('admin.crm.users.errors.delete_failed');
       toast.error(errorMsg);
     } finally {
@@ -118,9 +122,9 @@ const UsersTab = () => {
     setEditingUser(user);
     setFormData({
       email: user.email,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      password: '', // Empty for edit mode
+      first_name: user.first_name || (user.name ? user.name.split(' ')[0] : ''),
+      last_name: user.last_name || (user.name ? user.name.split(' ').slice(1).join(' ') : ''),
+      password: '',
       role: user.role,
       is_active: user.is_active,
       assigned_leads: user.assigned_leads || []
@@ -158,25 +162,23 @@ const UsersTab = () => {
 
   // Filter users
   const filteredUsers = users.filter(user => {
-    // Handle both first_name/last_name and name (full name) formats
-    const displayName = user.first_name && user.last_name 
-      ? `${user.first_name} ${user.last_name}` 
+    const displayName = user.first_name && user.last_name
+      ? `${user.first_name} ${user.last_name}`
       : user.name || '';
-    
-    const matchesSearch = 
+
+    const matchesSearch =
       user.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       displayName.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     const matchesRole = filterRole === 'all' || user.role?.toLowerCase() === filterRole.toLowerCase();
-    const matchesStatus = filterStatus === 'all' || 
+    const matchesStatus = filterStatus === 'all' ||
       (filterStatus === 'active' && user.is_active) ||
       (filterStatus === 'inactive' && !user.is_active);
-    
+
     return matchesSearch && matchesRole && matchesStatus;
   });
 
   const getRoleBadgeColor = (role) => {
-    // Handle case-insensitive role matching
     const normalizedRole = role?.toLowerCase() || '';
     const colors = {
       'admin': 'bg-red-100 text-red-800',
@@ -188,17 +190,9 @@ const UsersTab = () => {
     return colors[normalizedRole] || 'bg-gray-100 text-gray-800';
   };
 
-  // Get role display name
   const getRoleDisplayName = (role) => {
     const normalizedRole = role?.toLowerCase() || '';
-    const displayNames = {
-      'admin': 'Admin',
-      'commercial': 'Commercial',
-      'support': 'Support',
-      'viewer': 'Consultation',
-      'sales': 'Commercial'
-    };
-    return displayNames[normalizedRole] || role || 'Consultation';
+    return t(`admin.crm.users.roles.${normalizedRole}`, role || 'User');
   };
 
   if (loading) {
@@ -206,12 +200,12 @@ const UsersTab = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className={`space-y-6 ${isRTL ? 'rtl' : 'ltr'}`}>
       {/* Header */}
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Users className="w-6 h-6 text-blue-600" />
-          <h2 className="text-2xl font-bold text-gray-800">{t("admin.crm.users.title")}</h2>
+          <h2 className="text-2xl font-bold text-gray-800">{t('admin.crm.users.title')}</h2>
           <span className="ml-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
             {filteredUsers.length}
           </span>
@@ -222,7 +216,7 @@ const UsersTab = () => {
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
           <Plus className="w-5 h-5" />
-          Nouvel utilisateur
+          {t('admin.crm.users.new')}
         </button>
       </div>
 
@@ -233,22 +227,22 @@ const UsersTab = () => {
             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder={t("admin.crm.users.search_placeholder")}
+              placeholder={t('admin.crm.users.search_placeholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
-          
+
           <select
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="all">{t("admin.crm.users.all_roles")}</option>
-            <option value="admin">Admin</option>
-            <option value="commercial">Commercial</option>
-            <option value="support">Support</option>
+            <option value="all">{t('admin.crm.users.all_roles')}</option>
+            <option value="admin">{t('admin.crm.users.roles.admin')}</option>
+            <option value="commercial">{t('admin.crm.users.roles.commercial')}</option>
+            <option value="support">{t('admin.crm.users.roles.support')}</option>
           </select>
 
           <select
@@ -256,9 +250,9 @@ const UsersTab = () => {
             onChange={(e) => setFilterStatus(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
-            <option value="all">{t("admin.crm.users.all_statuses")}</option>
-            <option value="active">{t("admin.crm.users.active")}</option>
-            <option value="inactive">{t("admin.crm.users.inactive")}</option>
+            <option value="all">{t('admin.crm.users.all_statuses')}</option>
+            <option value="active">{t('admin.crm.users.active')}</option>
+            <option value="inactive">{t('admin.crm.users.inactive')}</option>
           </select>
         </div>
       </div>
@@ -270,22 +264,22 @@ const UsersTab = () => {
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Utilisateur
+                  {t('admin.crm.users.columns.user')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Email
+                  {t('admin.crm.users.columns.email')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Rôle
+                  {t('admin.crm.users.columns.role')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Statut
+                  {t('admin.crm.users.columns.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Leads assignés
+                  {t('admin.crm.users.columns.assigned_leads')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
+                  {t('admin.crm.users.columns.actions')}
                 </th>
               </tr>
             </thead>
@@ -293,27 +287,25 @@ const UsersTab = () => {
               {filteredUsers.length === 0 ? (
                 <tr>
                   <td colSpan="6" className="px-6 py-12 text-center text-gray-500">
-                    Aucun utilisateur trouvé
+                    {t('admin.crm.users.empty')}
                   </td>
                 </tr>
               ) : (
                 filteredUsers.map((user) => (
-                  <tr key={user.id} className="hover:bg-gray-50">
+                  <tr key={user.id || user._id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
                           <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-semibold">
-                            {/* Get initials from first_name/last_name or full name */}
                             {(user.first_name?.charAt(0) || user.name?.charAt(0) || '?')}
                             {(user.last_name?.charAt(0) || '')}
                           </div>
                         </div>
                         <div className="ml-4">
                           <div className="text-sm font-medium text-gray-900">
-                            {/* Handle both first_name/last_name and name (full name) formats */}
-                            {user.first_name && user.last_name 
+                            {user.first_name && user.last_name
                               ? `${user.first_name} ${user.last_name}`
-                              : user.name || 'Sans nom'}
+                              : user.name || t('admin.crm.users.no_name')}
                           </div>
                         </div>
                       </div>
@@ -333,12 +325,12 @@ const UsersTab = () => {
                       {user.is_active ? (
                         <span className="flex items-center text-green-600 text-sm">
                           <UserCheck className="w-4 h-4 mr-1" />
-                          Actif
+                          {t('admin.crm.users.active')}
                         </span>
                       ) : (
                         <span className="flex items-center text-red-600 text-sm">
                           <UserX className="w-4 h-4 mr-1" />
-                          Inactif
+                          {t('admin.crm.users.inactive')}
                         </span>
                       )}
                     </td>
@@ -350,14 +342,14 @@ const UsersTab = () => {
                         <button
                           onClick={() => handleEdit(user)}
                           className="text-blue-600 hover:text-blue-900 p-1 hover:bg-blue-50 rounded"
-                          title="Modifier"
+                          title={t('admin.crm.common.edit')}
                         >
                           <Edit className="w-5 h-5" />
                         </button>
                         <button
                           onClick={() => handleDelete(user._id || user.id)}
                           className="text-red-600 hover:text-red-900 p-1 hover:bg-red-50 rounded"
-                          title="Supprimer"
+                          title={t('admin.crm.common.delete')}
                         >
                           <Trash2 className="w-5 h-5" />
                         </button>
@@ -377,21 +369,21 @@ const UsersTab = () => {
           <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">
-                {editingUser ? 'Modifier l\'utilisateur' : t('admin.crm.users.new')}
+                {editingUser ? t('admin.crm.users.edit') : t('admin.crm.users.new')}
               </h3>
-              <button 
-                onClick={handleCloseModal} 
-                className="p-1 hover:bg-gray-100 rounded" 
+              <button
+                onClick={handleCloseModal}
+                className="p-1 hover:bg-gray-100 rounded"
                 type="button"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Email *
+                  {t('admin.crm.users.form.email')} *
                 </label>
                 <input
                   type="email"
@@ -405,7 +397,7 @@ const UsersTab = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Prénom *
+                  {t('admin.crm.users.form.first_name')} *
                 </label>
                 <input
                   type="text"
@@ -418,7 +410,7 @@ const UsersTab = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom *
+                  {t('admin.crm.users.form.last_name')} *
                 </label>
                 <input
                   type="text"
@@ -431,7 +423,7 @@ const UsersTab = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {editingUser ? 'Nouveau mot de passe (laisser vide pour ne pas changer)' : 'Mot de passe *'}
+                  {editingUser ? t('admin.crm.users.form.password_edit') : t('admin.crm.users.form.password')} {!editingUser && '*'}
                 </label>
                 <input
                   type="password"
@@ -444,7 +436,7 @@ const UsersTab = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Rôle *
+                  {t('admin.crm.users.form.role')} *
                 </label>
                 <select
                   value={formData.role}
@@ -452,9 +444,9 @@ const UsersTab = () => {
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="commercial">Commercial</option>
-                  <option value="support">Support</option>
-                  <option value="admin">Admin</option>
+                  <option value="commercial">{t('admin.crm.users.roles.commercial')}</option>
+                  <option value="support">{t('admin.crm.users.roles.support')}</option>
+                  <option value="admin">{t('admin.crm.users.roles.admin')}</option>
                 </select>
               </div>
 
@@ -467,7 +459,7 @@ const UsersTab = () => {
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
                 <label htmlFor="is_active" className="ml-2 block text-sm text-gray-900">
-                  Compte actif
+                  {t('admin.crm.users.form.active_account')}
                 </label>
               </div>
 
@@ -478,7 +470,7 @@ const UsersTab = () => {
                   className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                   disabled={loadingAction}
                 >
-                  Annuler
+                  {t('admin.crm.users.buttons.cancel')}
                 </button>
                 <button
                   type="submit"
@@ -490,7 +482,7 @@ const UsersTab = () => {
                   ) : (
                     <Save className="w-5 h-5" />
                   )}
-                  {editingUser ? 'Modifier' : 'Créer'}
+                  {editingUser ? t('admin.crm.users.buttons.modify') : t('admin.crm.users.buttons.create')}
                 </button>
               </div>
             </form>

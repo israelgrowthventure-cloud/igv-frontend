@@ -508,41 +508,122 @@
       "leads": {
         "details": {
           "focus_notes": "הערות מיקוד",
-          "contact_info": "פרטי קשר",
+          "contact_info": "פרטי יצירת קשר",
           "additional": "מידע נוסף",
-          "notes": "הערות"
+          "notes": "הערות",
+          "status_priority": "סטטוס ועדיפות",
+          "email": "אימייל",
+          "phone": "טלפון",
+          "sector": "תחום",
+          "city": "עיר",
+          "status": "סטטוס",
+          "priority": "עדיפות"
+        },
+        "convert_to_contact": "המרה לאיש קשר",
+        "create_opportunity": "יצירת הזדמנות",
+        "already_converted": "ליד כבר הומר",
+        "view_contact": "צפייה באיש קשר",
+        "converting": "ממיר...",
+        "add_note_placeholder": "הוסף הערה...",
+        "phone": "טלפון",
+        "target_city": "עיר יעד",
+        "mini_analysis": "מיני-ניתוח שוק IGV",
+        "generated_on": "נוצר ב",
+        "language": "שפה",
+        "actions": "פעולות",
+        "delete_confirm_title": "למחוק ליד?",
+        "delete_confirm_message": "פעולה זו אינה הפיכה. האם אתה בטוח שברצונך למחוק ליד זה?",
+        "empty_title": "אין לידים עדיין",
+        "empty_subtitle": "צור את הליד הראשון שלך כדי להתחיל",
+        "columns": {
+          "name": "שם איש קשר",
+          "email": "אימייל",
+          "brand": "מותג",
+          "sector": "תחום",
+          "status": "סטטוס",
+          "priority": "עדיפות",
+          "created": "נוצר"
+        },
+        "toast": {
+          "opportunity_created": "הזדמנות נוצרה בהצלחה!",
+          "view_opportunity": "צפה בהזדמנות",
+          "convert_success": "ליד הומר לאיש קשר בהצלחה",
+          "contact_created": "איש קשר נוצר בהצלחה!",
+          "view_contact": "צפה באיש קשר",
+          "already_converted": "ליד זה כבר הומר",
+          "lead_not_found": "ליד לא נמצא",
+          "missing_info": "מידע נדרש חסר להמרה",
+          "convert_error": "שגיאה בהמרת הליד"
         }
       },
       "users": {
         "title": "משתמשים",
         "new": "משתמש חדש",
         "edit": "עריכת משתמש",
-        "search_placeholder": "חיפוש לפי אימייל, שם פרטי, שם משפחה...",
+        "search_placeholder": "חיפוש משתמשים...",
         "all_roles": "כל התפקידים",
         "all_statuses": "כל הסטטוסים",
-        "active": "פעילים",
-        "inactive": "לא פעילים",
+        "active": "פעיל",
+        "inactive": "לא פעיל",
         "columns": {
           "user": "משתמש",
           "email": "אימייל",
           "role": "תפקיד",
           "status": "סטטוס",
-          "assigned_leads": "לידים משויכים",
+          "assigned_leads": "לידים מוקצים",
           "actions": "פעולות"
         },
         "empty": "לא נמצאו משתמשים",
-        "created": "המשתמש נוצר בהצלחה",
-        "updated": "המשתמש עודכן בהצלחה",
-        "deleted": "המשתמש נמחק בהצלחה",
+        "no_name": "ללא שם",
+        "created": "משתמש נוצר בהצלחה",
+        "updated": "משתמש עודכן בהצלחה",
+        "deleted": "משתמש נמחק בהצלחה",
         "delete_confirm": "האם אתה בטוח שברצונך למחוק משתמש זה?",
+        "form": {
+          "email": "אימייל",
+          "first_name": "שם פרטי",
+          "last_name": "שם משפחה",
+          "password": "סיסמה",
+          "password_edit": "סיסמה חדשה (השאר ריק לשמור על הנוכחית)",
+          "role": "תפקיד",
+          "active_account": "חשבון פעיל"
+        },
+        "roles": {
+          "admin": "מנהל",
+          "commercial": "מכירות",
+          "support": "תמיכה"
+        },
         "errors": {
           "load_failed": "שגיאה בטעינת משתמשים",
-          "create_failed": "שגיאה ביצירת משתמש",
-          "update_failed": "שגיאה בעדכון משתמש",
-          "delete_failed": "שגיאה במחיקת משתמש",
-          "email_required": "נדרשים אימייל, שם פרטי ושם משפחה",
-          "password_required": "נדרשת סיסמה למשתמשים חדשים"
+          "email_required": "אימייל נדרש",
+          "password_required": "סיסמה נדרשת",
+          "update_failed": "שגיאה בעדכון",
+          "delete_failed": "שגיאה במחיקה"
+        },
+        "buttons": {
+          "save": "שמור",
+          "cancel": "ביטול",
+          "create": "צור",
+          "modify": "שנה"
         }
+      },
+      "common": {
+        "back_to_list": "חזרה לרשימה",
+        "confirm_delete": "האם אתה בטוח שברצונך למחוק?",
+        "send_email": "שלח אימייל"
+      },
+      "statuses": {
+        "NEW": "חדש",
+        "CONTACTED": "נוצר קשר",
+        "QUALIFIED": "מוכשר",
+        "CONVERTED": "הומר",
+        "LOST": "אבוד",
+        "PENDING_QUOTA": "ממתין"
+      },
+      "priorities": {
+        "A": "עדיפות גבוהה",
+        "B": "עדיפות בינונית",
+        "C": "עדיפות נמוכה"
       }
     }
   },

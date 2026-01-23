@@ -141,7 +141,7 @@
       "search": "חיפוש...",
       "filter": "סינון",
       "filters": "מסננים",
-      "refresh": "רענון",
+      "refresh": "רענן",
       "refreshed": "הנתונים עודכנו",
       "save": "שמור",
       "cancel": "בטל",
@@ -167,7 +167,9 @@
       "export": "ייצוא",
       "all_statuses": "כל הסטטוסים",
       "all_priorities": "כל העדיפויות",
-      "reset": "איפוס"
+      "reset": "איפוס",
+      "retry": "נסה שוב",
+      "no_name": "ללא שם"
     },
     "title": "CRM",
     "tabs": {
@@ -425,6 +427,12 @@
       "estimated_value": "ערך משוער",
       "description": "תיאור",
       "stage_history": "היסטוריית שלבים",
+      "title": "צינור מכירות",
+      "subtitle": "תצוגת קנבן של הזדמנויות",
+      "won_count": "זכיות",
+      "in_progress": "בתהליך",
+      "no_opportunity": "אין הזדמנות",
+      "view_lead": "צפה בליד",
       "stages": {
         "initial_interest": "עניין ראשוני",
         "info_requested": "נדרש מידע",
@@ -433,7 +441,15 @@
         "proposal_sent": "הצעה נשלחה",
         "negotiation": "משא ומתן",
         "verbal_commitment": "התחייבות בע\"פ",
-        "won": "זכייה"
+        "won": "זכייה",
+        "lost": "הפסד",
+        "analysis_requested": "נדרשה אנליזה",
+        "analysis_sent": "אנליזה נשלחה",
+        "call_scheduled": "שיחה תוזמנה",
+        "qualification": "הכשרה"
+      },
+      "errors": {
+        "load_failed": "שגיאה בטעינת צינור המכירות"
       }
     }
   },

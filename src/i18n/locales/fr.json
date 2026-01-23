@@ -64,7 +64,9 @@
       "export": "Exporter",
       "all_statuses": "Tous les statuts",
       "all_priorities": "Toutes les priorités",
-      "reset": "Réinitialiser"
+      "reset": "Réinitialiser",
+      "retry": "Réessayer",
+      "no_name": "Sans nom"
     },
     "search": {
       "placeholder": "Rechercher..."
@@ -447,14 +449,20 @@
     "pipeline": {
       "opportunities": "opportunités",
       "stage_updated": "Étape mise à jour",
-      "total_opps": "Total opportunités",
-      "total_value": "Valeur totale",
+      "total_opps": "Total Opportunités",
+      "total_value": "Valeur Totale",
       "avg_deal": "Deal moyen",
       "close_rate": "Taux de clôture",
       "current_stage": "Étape actuelle",
       "estimated_value": "Valeur estimée",
       "description": "Description",
       "stage_history": "Historique des étapes",
+      "title": "Pipeline",
+      "subtitle": "Vue Kanban des opportunités",
+      "won_count": "Gagnés",
+      "in_progress": "En cours",
+      "no_opportunity": "Aucune opportunité",
+      "view_lead": "Voir le lead",
       "stages": {
         "initial_interest": "Intérêt initial",
         "info_requested": "Info demandée",
@@ -463,7 +471,15 @@
         "proposal_sent": "Proposition envoyée",
         "negotiation": "Négociation",
         "verbal_commitment": "Engagement verbal",
-        "won": "Gagné"
+        "won": "Gagné",
+        "lost": "Perdu",
+        "analysis_requested": "Analyse demandée",
+        "analysis_sent": "Analyse envoyée",
+        "call_scheduled": "Appel planifié",
+        "qualification": "Qualification"
+      },
+      "errors": {
+        "load_failed": "Erreur lors du chargement du pipeline"
       }
     }
   },

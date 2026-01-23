@@ -19,14 +19,14 @@ const Pipeline = () => {
   const isRTL = i18n.language === 'he';
 
   const stages = [
-    { key: 'analysis_requested', label: 'Analyse demandée', color: 'bg-blue-100 border-blue-300' },
-    { key: 'analysis_sent', label: 'Analyse envoyée', color: 'bg-indigo-100 border-indigo-300' },
-    { key: 'call_scheduled', label: 'Appel planifié', color: 'bg-purple-100 border-purple-300' },
-    { key: 'qualification', label: 'Qualification', color: 'bg-yellow-100 border-yellow-300' },
-    { key: 'proposal_sent', label: 'Proposition envoyée', color: 'bg-orange-100 border-orange-300' },
-    { key: 'negotiation', label: 'Négociation', color: 'bg-pink-100 border-pink-300' },
-    { key: 'won', label: 'Gagné', color: 'bg-green-100 border-green-300' },
-    { key: 'lost', label: 'Perdu', color: 'bg-red-100 border-red-300' }
+    { key: 'analysis_requested', label: t('crm.pipeline.stages.analysis_requested'), color: 'bg-blue-100 border-blue-300' },
+    { key: 'analysis_sent', label: t('crm.pipeline.stages.analysis_sent'), color: 'bg-indigo-100 border-indigo-300' },
+    { key: 'call_scheduled', label: t('crm.pipeline.stages.call_scheduled'), color: 'bg-purple-100 border-purple-300' },
+    { key: 'qualification', label: t('crm.pipeline.stages.qualification'), color: 'bg-yellow-100 border-yellow-300' },
+    { key: 'proposal_sent', label: t('crm.pipeline.stages.proposal_sent'), color: 'bg-orange-100 border-orange-300' },
+    { key: 'negotiation', label: t('crm.pipeline.stages.negotiation'), color: 'bg-pink-100 border-pink-300' },
+    { key: 'won', label: t('crm.pipeline.stages.won'), color: 'bg-green-100 border-green-300' },
+    { key: 'lost', label: t('crm.pipeline.stages.lost'), color: 'bg-red-100 border-red-300' }
   ];
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const Pipeline = () => {
       setPipeline(response.pipeline || {});
     } catch (err) {
       console.error('Error fetching pipeline:', err);
-      setError('Erreur lors du chargement du pipeline');
-      toast.error('Erreur lors du chargement du pipeline');
+      setError(t('crm.pipeline.errors.load_failed'));
+      toast.error(t('crm.pipeline.errors.load_failed'));
     } finally {
       setLoading(false);
     }
@@ -90,14 +90,14 @@ const Pipeline = () => {
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div className="flex-1">
-                <h1 className="text-xl font-bold">Pipeline</h1>
-                <p className="text-sm text-gray-600">Vue Kanban des opportunités</p>
+                <h1 className="text-xl font-bold">{t('crm.pipeline.title')}</h1>
+                <p className="text-sm text-gray-600">{t('crm.pipeline.subtitle')}</p>
               </div>
               <button
                 onClick={fetchPipeline}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
-                Actualiser
+                {t('crm.common.refresh')}
               </button>
             </div>
           </div>
@@ -112,7 +112,7 @@ const Pipeline = () => {
                   <Target className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Total Opportunités</p>
+                  <p className="text-sm text-gray-600">{t('crm.pipeline.total_opps')}</p>
                   <p className="text-xl font-bold">{getTotalOpportunities()}</p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ const Pipeline = () => {
                   <DollarSign className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Valeur Totale</p>
+                  <p className="text-sm text-gray-600">{t('crm.pipeline.total_value')}</p>
                   <p className="text-xl font-bold">{getTotalValue().toLocaleString()} €</p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const Pipeline = () => {
                   <Users className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">Gagnés</p>
+                  <p className="text-sm text-gray-600">{t('crm.pipeline.won_count')}</p>
                   <p className="text-xl font-bold">{pipeline.won?.length || 0}</p>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const Pipeline = () => {
                   <TrendingUp className="w-5 h-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600">En cours</p>
+                  <p className="text-sm text-gray-600">{t('crm.pipeline.in_progress')}</p>
                   <p className="text-xl font-bold">
                     {getTotalOpportunities() - (pipeline.won?.length || 0) - (pipeline.lost?.length || 0)}
                   </p>
@@ -162,7 +162,7 @@ const Pipeline = () => {
                 onClick={fetchPipeline}
                 className="mt-2 text-red-600 hover:underline"
               >
-                Réessayer
+                {t('crm.common.retry')}
               </button>
             </div>
           )}
@@ -193,7 +193,7 @@ const Pipeline = () => {
                           }}
                         >
                           <p className="font-medium text-gray-900 truncate">
-                            {item.name || 'Sans nom'}
+                            {item.name || t('crm.common.no_name')}
                           </p>
                           {item.value > 0 && (
                             <p className="text-sm text-green-600 font-semibold mt-1">
@@ -203,14 +203,14 @@ const Pipeline = () => {
                           {item.lead_id && (
                             <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
                               <ChevronRight className="w-3 h-3" />
-                              Voir le lead
+                              {t('crm.pipeline.view_lead')}
                             </p>
                           )}
                         </div>
                       ))
                     ) : (
                       <div className="text-center py-8 text-gray-400 text-sm">
-                        Aucune opportunité
+                        {t('crm.pipeline.no_opportunity')}
                       </div>
                     )}
                   </div>

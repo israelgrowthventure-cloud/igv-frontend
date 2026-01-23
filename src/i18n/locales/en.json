@@ -174,7 +174,9 @@
       "export": "Export",
       "all_statuses": "All statuses",
       "all_priorities": "All priorities",
-      "reset": "Reset"
+      "reset": "Reset",
+      "retry": "Retry",
+      "no_name": "No name"
     },
     "title": "IGV CRM",
     "tabs": {
@@ -463,7 +465,21 @@
         "proposal_sent": "Proposal Sent",
         "negotiation": "Negotiation",
         "verbal_commitment": "Verbal Commitment",
-        "won": "Won"
+        "won": "Won",
+        "analysis_requested": "Analysis Requested",
+        "analysis_sent": "Analysis Sent",
+        "call_scheduled": "Call Scheduled",
+        "qualification": "Qualification",
+        "lost": "Lost"
+      },
+      "title": "Pipeline",
+      "subtitle": "Kanban View of Opportunities",
+      "won_count": "Won",
+      "in_progress": "In Progress",
+      "no_opportunity": "No opportunity",
+      "view_lead": "View lead",
+      "errors": {
+        "load_failed": "Failed to load pipeline"
       }
     }
   },

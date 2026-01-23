@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import LeadsTab from '../../components/crm/LeadsTab';
 import api from '../../utils/api';
@@ -9,29 +9,36 @@ import { toast } from 'sonner';
 /**
  * LeadsPage - Page for lead/prospect management
  * Loads its own data and passes it to LeadsTab
+ * Supports ?selected=leadId to auto-open a specific lead
  */
 const LeadsPage = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isRTL = i18n.language === 'he';
-  
+
   const [data, setData] = useState({ leads: [], total: 0 });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({});
   const [selectedItem, setSelectedItem] = useState(null);
+  const [pendingSelection, setPendingSelection] = useState(null);
 
-  // Reset selectedItem when navigating back to leads list via menu
+  // Check for ?selected= parameter and set pending selection
   useEffect(() => {
-    if (location.pathname === '/admin/crm/leads') {
-      setSelectedItem(null);
+    const selectedId = searchParams.get('selected');
+    if (selectedId) {
+      setPendingSelection(selectedId);
+      navigate('/admin/crm/leads', { replace: true });
     }
-  }, [location.pathname]);
+  }, [searchParams, navigate]);
 
   // Listen for custom event from Sidebar when clicking on Leads menu
   useEffect(() => {
     const handleResetView = () => {
       setSelectedItem(null);
+      setPendingSelection(null);
     };
 
     window.addEventListener('resetLeadView', handleResetView);
@@ -42,6 +49,40 @@ const LeadsPage = () => {
       window.removeEventListener('popstate', handleResetView);
     };
   }, []);
+
+  // Apply pending selection once data is loaded
+  useEffect(() => {
+    if (pendingSelection && data.leads.length > 0) {
+      const leadToSelect = data.leads.find(lead => 
+        lead._id === pendingSelection || 
+        lead.id === pendingSelection ||
+        (lead._id && lead._id.includes(pendingSelection)) ||
+        (lead._id && pendingSelection.includes(lead._id.slice(-8)))
+      );
+      
+      if (leadToSelect) {
+        setSelectedItem(leadToSelect);
+        setPendingSelection(null);
+      } else {
+        fetchSingleLead(pendingSelection);
+      }
+    }
+  }, [pendingSelection, data.leads]);
+
+  // Fetch a single lead by ID if not in list
+  const fetchSingleLead = async (leadId) => {
+    try {
+      const response = await api.get('/api/crm/leads/' + leadId);
+      if (response && response._id) {
+        setSelectedItem(response);
+        setPendingSelection(null);
+      }
+    } catch (error) {
+      console.error('Error fetching lead:', error);
+      toast.error(t('admin.crm.errors.lead_not_found') || 'Lead not found');
+      setPendingSelection(null);
+    }
+  };
 
   useEffect(() => {
     loadLeads();
@@ -65,7 +106,7 @@ const LeadsPage = () => {
     }
   };
 
-  if (loading) {
+  if (loading && !pendingSelection) {
     return (
       <div className="flex items-center justify-center h-64">
         <Loader2 className="w-8 h-8 animate-spin text-blue-600" />

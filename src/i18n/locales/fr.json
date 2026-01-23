@@ -434,7 +434,6 @@
       "received_description": "La réception d'emails n'est pas encore implémentée",
       "received_tab": "Boîte de réception",
       "templates_count": "modèles disponibles",
-      "templates_info": "Ces modèles sont disponibles en anglais, français et hébreu",
       "no_templates": "Aucun modèle disponible",
       "no_templates_description": "Les modèles d'email apparaîtront ici",
       "template_detail": "Détails du modèle",

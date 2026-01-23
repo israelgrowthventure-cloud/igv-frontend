@@ -435,7 +435,6 @@
       "received_description": "Email reception is not yet implemented",
       "received_tab": "Inbox",
       "templates_count": "templates available",
-      "templates_info": "These templates are available in English, French, and Hebrew",
       "no_templates": "No templates available",
       "no_templates_description": "Email templates will appear here",
       "template_detail": "Template Details",

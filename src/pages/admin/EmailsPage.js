@@ -289,13 +289,6 @@ const EmailsPage = () => {
 
   const renderTemplatesTab = () => (
     <>
-      {/* Templates Info */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-        <p className="text-sm text-blue-800">
-          {t('crm.emails.templates_info') || 'These templates are available in English, French, and Hebrew. They can be used when composing new emails.'}
-        </p>
-      </div>
-
       {loading ? (
         <div className="flex items-center justify-center py-12">
           <div className="text-center">

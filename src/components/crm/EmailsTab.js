@@ -7,9 +7,12 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Plus, Eye, Edit, Trash2, Copy, Send, X, Save, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import api from '../../utils/api';
 
-const EmailsTab = ({ t }) => {
+const EmailsTab = ({ t: tProp }) => {
+  const { i18n } = useTranslation();
+  const t = tProp; // Use passed t function
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingAction, setLoadingAction] = useState(false);
@@ -20,18 +23,21 @@ const EmailsTab = ({ t }) => {
     name: '',
     subject: '',
     body: '',
-    language: 'fr'
+    language: i18n.language || 'fr'
   });
 
   useEffect(() => {
     loadTemplates();
-  }, []);
+  }, [i18n.language]); // Re-fetch when language changes
 
   const loadTemplates = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/crm/emails/templates');
-      setTemplates(response.templates || response.data.templates || []);
+      // Filter templates by current UI language
+      const response = await api.get('/api/crm/emails/templates', {
+        params: { language: i18n.language }
+      });
+      setTemplates(response.templates || response.data?.templates || []);
     } catch (error) {
       console.error('Erreur chargement templates:', error);
       toast.error('Erreur lors du chargement des templates');

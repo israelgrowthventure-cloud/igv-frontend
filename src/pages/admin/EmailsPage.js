@@ -27,7 +27,7 @@ const EmailsPage = () => {
     } else {
       setLoading(false);
     }
-  }, [activeTab, searchTerm]);
+  }, [activeTab, searchTerm, i18n.language]); // Re-fetch when language changes
 
   const fetchEmailHistory = async () => {
     try {
@@ -58,7 +58,10 @@ const EmailsPage = () => {
   const fetchTemplates = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/crm/emails/templates');
+      // Fetch templates filtered by current UI language
+      const response = await api.get('/api/crm/emails/templates', {
+        params: { language: i18n.language }
+      });
       
       // Handle different response formats
       let templatesData = [];

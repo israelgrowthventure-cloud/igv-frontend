@@ -504,7 +504,13 @@
           "contacts": "Recent Contacts",
           "opportunities": "Recent Opportunities",
           "activities": "Recent Activities"
-        }
+        },
+        "direct": "Direct",
+        "leads_today": "Leads today",
+        "pipeline_value": "Pipeline value",
+        "stage_distribution": "Stage distribution",
+        "tasks_overdue": "Overdue tasks",
+        "top_sources": "Top sources"
       },
       "stages": {
         "prospecting": "Prospecting",
@@ -565,8 +571,57 @@
           "info": "Lead Information",
           "notes": "Notes",
           "add_note": "Add a note...",
-          "activities": "Activities"
-        }
+          "activities": "Activities",
+          "email": "Email",
+          "phone": "Phone",
+          "sector": "Sector",
+          "city": "Target city",
+          "status": "Status",
+          "priority": "Priority",
+          "focus_notes": "Important notes"
+        },
+        "search_placeholder": "Search leads...",
+        "filter_stage": "Filter by stage",
+        "filter_status": "Filter by status",
+        "filters": "Filters",
+        "all_stages": "All stages",
+        "all_statuses": "All statuses",
+        "apply_filters": "Apply filters",
+        "note_error": "Error adding note",
+        "note_placeholder": "Add a note...",
+        "add_note": "Add a note",
+        "save_note": "Save note",
+        "export_error": "Error exporting leads",
+        "empty_subtitle": "Create your first lead to get started",
+        "no_leads": "No leads found",
+        "no_activities": "No activities",
+        "activities": "Activities",
+        "convert_to_contact": "Convert to Contact",
+        "create_opportunity": "Create Opportunity",
+        "converting": "Converting...",
+        "convert_success": "Lead converted successfully",
+        "convert_error": "Error converting lead",
+        "confirm_convert": "Confirm conversion",
+        "update_success": "Lead updated successfully",
+        "update_error": "Error updating lead",
+        "already_converted": "Already converted",
+        "view_contact": "View contact",
+        "converted": "Converted",
+        "info": "Information",
+        "email": "Email",
+        "phone": "Phone",
+        "sector": "Sector",
+        "status": "Status",
+        "language": "Language",
+        "mini_analysis": "AI Mini-Analysis",
+        "generated_on": "Generated on",
+        "add_note_placeholder": "Add a note...",
+        "col_actions": "Actions",
+        "col_brand": "Brand",
+        "col_created": "Created",
+        "col_email": "Email",
+        "col_sector": "Sector",
+        "col_status": "Status"
       },
       "contacts": {
         "title": "Contacts",
@@ -658,14 +713,16 @@
           "pending": "Pending",
           "completed": "Completed",
           "cancelled": "Cancelled",
-          "overdue": "Overdue"
+          "overdue": "Overdue",
+          "undefined": "Completed"
         },
         "errors": {
           "load_failed": "Failed to load activities",
           "create_failed": "Failed to create activity",
           "update_failed": "Failed to update activity",
           "delete_failed": "Failed to delete activity"
-        }
+        },
+        "subtitle": "Manage activities and lead follow-up"
       },
       "emails": {
         "title": "Email History",
@@ -746,7 +803,8 @@
           "users": "User Management",
           "tags": "Tags Management",
           "stages": "Pipeline Stages"
-        }
+        },
+        "subtitle": "Manage your CRM settings"
       },
       "common": {
         "filters": "Filters",
@@ -790,7 +848,8 @@
         "delete_failed": "Failed to delete",
         "export_failed": "Failed to export",
         "note_failed": "Failed to add note",
-        "status_failed": "Failed to update status"
+        "status_failed": "Failed to update status",
+        "lead_not_found": "Lead not found"
       },
       "statuses": {
         "NEW": "New",
@@ -798,12 +857,15 @@
         "QUALIFIED": "Qualified",
         "CONVERTED": "Converted",
         "LOST": "Lost",
-        "PENDING_QUOTA": "Pending Quota"
+        "PENDING_QUOTA": "Pending Quota",
+        "undefined": "Undefined",
+        "completed": "Completed"
       },
       "priorities": {
         "A": "High (A)",
         "B": "Medium (B)",
-        "C": "Low (C)"
+        "C": "Low (C)",
+        "undefined": "Undefined"
       },
       "users": {
         "title": "Users",

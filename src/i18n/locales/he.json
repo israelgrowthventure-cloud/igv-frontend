@@ -546,8 +546,57 @@
           "info": "מידע על הליד",
           "notes": "הערות",
           "add_note": "הוסף הערה...",
-          "activities": "פעילויות"
-        }
+          "activities": "פעילויות",
+          "email": "אימייל",
+          "phone": "טלפון",
+          "sector": "ענף",
+          "city": "עיר יעד",
+          "status": "סטטוס",
+          "priority": "עדיפות",
+          "focus_notes": "הערות חשובות"
+        },
+        "search_placeholder": "חפש לידים...",
+        "filter_stage": "סנן לפי שלב",
+        "filter_status": "סנן לפי סטטוס",
+        "filters": "מסננים",
+        "all_stages": "כל השלבים",
+        "all_statuses": "כל הסטטוסים",
+        "apply_filters": "החל מסננים",
+        "note_error": "שגיאה בהוספת הערה",
+        "note_placeholder": "הוסף הערה...",
+        "add_note": "הוסף הערה",
+        "save_note": "שמור הערה",
+        "export_error": "שגיאה בייצוא",
+        "empty_subtitle": "צור את הליד הראשון שלך כדי להתחיל",
+        "no_leads": "לא נמצאו לידים",
+        "no_activities": "אין פעילויות",
+        "activities": "פעילויות",
+        "convert_to_contact": "המר לאיש קשר",
+        "create_opportunity": "צור הזדמנות",
+        "converting": "ממיר...",
+        "convert_success": "ליד הומר בהצלחה",
+        "convert_error": "שגיאה בהמרת הליד",
+        "confirm_convert": "אשר המרה",
+        "update_success": "ליד עודכן בהצלחה",
+        "update_error": "שגיאה בעדכון הליד",
+        "already_converted": "כבר הומר",
+        "view_contact": "צפה באיש קשר",
+        "converted": "הומר",
+        "info": "מידע",
+        "email": "אימייל",
+        "phone": "טלפון",
+        "sector": "ענף",
+        "status": "סטטוס",
+        "language": "שפה",
+        "mini_analysis": "מיני-אנליזה AI",
+        "generated_on": "נוצר ב",
+        "add_note_placeholder": "הוסף הערה...",
+        "col_actions": "פעולות",
+        "col_brand": "מותג",
+        "col_created": "נוצר",
+        "col_email": "אימייל",
+        "col_sector": "ענף",
+        "col_status": "סטטוס"
       },
       "users": {
         "title": "משתמשים",
@@ -615,12 +664,15 @@
         "QUALIFIED": "מוכשר",
         "CONVERTED": "הומר",
         "LOST": "אבוד",
-        "PENDING_QUOTA": "ממתין למכסה"
+        "PENDING_QUOTA": "ממתין למכסה",
+        "undefined": "לא מוגדר",
+        "completed": "הושלם"
       },
       "priorities": {
         "A": "גבוהה (A)",
         "B": "בינונית (B)",
-        "C": "נמוכה (C)"
+        "C": "נמוכה (C)",
+        "undefined": "לא מוגדר"
       },
       "nav": {
         "dashboard": "לוח בקרה",
@@ -647,7 +699,8 @@
         "delete_failed": "מחיקה נכשלה",
         "export_failed": "ייצוא נכשל",
         "note_failed": "הוספת הערה נכשלה",
-        "status_failed": "עדכון סטטוס נכשל"
+        "status_failed": "עדכון סטטוס נכשל",
+        "lead_not_found": "ליד לא נמצא"
       },
       "opportunities": {
         "title": "הזדמנות",
@@ -656,6 +709,30 @@
       "sidebar": {
         "expand": "הרחב",
         "collapse": "צמצם"
+      },
+      "title": "ניהול CRM",
+      "dashboard": {
+        "direct": "ישיר",
+        "leads_today": "לידים היום",
+        "pipeline_value": "ערך הצינור",
+        "stage_distribution": "התפלגות לפי שלב",
+        "tasks_overdue": "משימות באיחור",
+        "top_sources": "מקורות מובילים"
+      },
+      "activities": {
+        "title": "פעילויות",
+        "subtitle": "נהל פעילויות ומעקב לידים",
+        "status": {
+          "pending": "ממתין",
+          "completed": "הושלם",
+          "cancelled": "בוטל",
+          "overdue": "באיחור",
+          "undefined": "הושלם"
+        }
+      },
+      "settings": {
+        "title": "הגדרות CRM",
+        "subtitle": "נהל את הגדרות ה-CRM שלך"
       }
     },
     "login": {

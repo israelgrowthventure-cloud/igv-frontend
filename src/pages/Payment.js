@@ -148,7 +148,7 @@ const Payment = () => {
               
               {packPrice ? (
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold">{packPrice.label}</span>
+                  <span className="text-5xl font-bold" dir="ltr" style={{ unicodeBidi: 'isolate' }}>{packPrice.label}</span>
                   {location?.country && (
                     <span className="text-blue-200 text-sm">({location.country})</span>
                   )}

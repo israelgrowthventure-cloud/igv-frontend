@@ -138,7 +138,7 @@ const Packs = () => {
                       <div>
                         <div className={`text-4xl font-bold ${
                           pack.highlighted ? 'text-white' : 'text-gray-900'
-                        }`}>
+                        }`} dir="ltr" style={{ unicodeBidi: 'isolate' }}>
                           {packPrice.label}
                         </div>
                         <div className={`text-xs mt-1 ${

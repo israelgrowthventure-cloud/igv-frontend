@@ -27,8 +27,13 @@ const AdminLogin = () => {
       const data = await api.adminLogin({ email, password });
       
       if (data.access_token) {
+        // Store in BOTH formats for compatibility (AuthContext uses 'token', PrivateRoute uses 'admin_token')
+        localStorage.setItem('token', data.access_token);
         localStorage.setItem('admin_token', data.access_token);
-        localStorage.setItem('admin_role', data.role);
+        localStorage.setItem('userRole', data.role || 'admin');
+        localStorage.setItem('admin_role', data.role || 'admin');
+        localStorage.setItem('userEmail', data.email || email);
+        localStorage.setItem('userName', data.name || email.split('@')[0]);
         toast.success(t('admin.login.success'));
         navigate('/admin/dashboard');
       } else {

@@ -64,8 +64,8 @@
     },
     "leads": {
       "subtitle": "Manage your leads and convert them to contacts",
-      "updated": "Lead updated successfully",
-      "deleted": "Lead deleted successfully",
+      "updated": "Lead updated",
+      "deleted": "Lead deleted",
       "note_added": "Note added",
       "converted": "Lead converted to contact",
       "not_found": "Lead not found",
@@ -79,30 +79,66 @@
       "convert_to_contact": "Convert to Contact",
       "create_opportunity": "Create Opportunity",
       "add_note_placeholder": "Add a note...",
-      "delete_confirm_title": "Delete this lead?",
-      "delete_confirm_message": "This action cannot be undone. Are you sure you want to delete this lead?",
+      "delete_confirm_title": "Delete Lead?",
+      "delete_confirm_message": "This action cannot be undone. Are you sure?",
       "columns": {
-        "name": "Contact Name",
+        "name": "Name",
         "email": "Email",
         "status": "Status",
         "priority": "Priority",
         "brand": "Brand",
-        "sector": "Sector"
+        "sector": "Sector",
+        "created": "Created"
       },
       "details": {
         "status_priority": "Status & Priority",
         "contact_info": "Contact Information",
         "additional": "Additional Information",
         "focus_notes": "Focus Notes",
-        "notes": "Notes"
-      }
+        "notes": "Notes",
+        "email": "Email",
+        "phone": "Phone",
+        "sector": "Sector",
+        "city": "City",
+        "status": "Status",
+        "priority": "Priority"
+      },
+      "created": "Lead created successfully",
+      "status_updated": "Status updated",
+      "export_success": "Export successful",
+      "search": "Search leads...",
+      "export": "Export",
+      "new_lead": "New Lead",
+      "filter_sector": "Filter by sector",
+      "analysis_language": "Language",
+      "analysis_date": "Generated on",
+      "empty_title": "No Leads",
+      "empty_subtitle": "Create your first lead"
     },
     "contacts": {
       "subtitle": "Manage your customer contacts",
-      "updated": "Contact updated successfully",
-      "deleted": "Contact deleted successfully",
+      "updated": "Contact updated",
+      "deleted": "Contact deleted",
       "not_found": "Contact not found",
-      "no_company": "No company"
+      "no_company": "No company",
+      "opportunities": "Opportunities",
+      "recent_activities": "Recent Activities",
+      "converted_from_lead": "Converted from Lead",
+      "lead_id": "Lead ID",
+      "delete_confirm_title": "Delete Contact?",
+      "delete_confirm_message": "This action cannot be undone. Are you sure?",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company"
+      },
+      "details": {
+        "contact_info": "Contact Information",
+        "position": "Position",
+        "location": "Location",
+        "tags": "Tags"
+      }
     },
     "users": {
       "subtitle": "Manage users and their permissions"
@@ -169,7 +205,11 @@
       "converted": "Converted",
       "lost": "Lost",
       "active": "Active",
-      "inactive": "Inactive"
+      "inactive": "Inactive",
+      "proposal_sent": "Proposal Sent",
+      "negotiation": "Negotiation",
+      "won": "Won",
+      "archived": "Archived"
     },
     "priorities": {
       "1": "Low",
@@ -180,20 +220,28 @@
       "low": "Low",
       "normal": "Normal",
       "high": "High",
-      "urgent": "Urgent"
+      "urgent": "Urgent",
+      "A": "Priority A - High",
+      "B": "Priority B - Medium",
+      "C": "Priority C - Low"
     },
     "errors": {
-      "load_failed": "Load failed",
-      "update_failed": "Update failed",
-      "delete_failed": "Delete failed",
-      "create_failed": "Create failed",
+      "load_failed": "Failed to load data",
+      "update_failed": "Failed to update",
+      "delete_failed": "Failed to delete",
+      "create_failed": "Failed to create",
       "note_failed": "Failed to add note",
-      "convert_failed": "Conversion failed"
+      "convert_failed": "Failed to convert",
+      "stage_failed": "Failed to update stage",
+      "status_failed": "Failed to update status",
+      "export_failed": "Failed to export",
+      "lead_not_found": "Lead not found",
+      "contact_not_found": "Contact not found"
     },
     "opportunities": {
       "title": "Opportunities",
       "count": "opportunities",
-      "empty": "No opportunities",
+      "empty": "No opportunities yet",
       "edit": "Edit Opportunity",
       "new": "New Opportunity",
       "created": "Opportunity created",
@@ -201,8 +249,8 @@
       "deleted": "Opportunity deleted",
       "delete_confirm": "Delete this opportunity?",
       "name": "Name",
-      "value": "Value (€)",
-      "probability": "Probability (%)",
+      "value": "Value",
+      "probability": "Probability",
       "stage": "Stage",
       "columns": {
         "name": "Name",
@@ -220,9 +268,18 @@
       },
       "errors": {
         "load_failed": "Failed to load opportunities",
-        "update_failed": "Failed to update",
-        "delete_failed": "Failed to delete"
-      }
+        "update_failed": "Failed to update opportunity",
+        "delete_failed": "Failed to delete opportunity"
+      },
+      "expected_close": "Expected Close",
+      "notes": "Notes",
+      "exported": "Opportunities exported",
+      "search": "Search opportunities...",
+      "total_count": "Total Opportunities",
+      "total_value": "Total Value",
+      "weighted_value": "Weighted Value",
+      "empty_title": "No Opportunities",
+      "empty_subtitle": "Create your first opportunity"
     },
     "settings": {
       "title": "Settings",
@@ -267,7 +324,9 @@
         "deleted": "Stage deleted",
         "delete_confirm": "Delete this stage?",
         "columns": {
-          "name": "Name"
+          "name": "Name",
+          "order": "Order",
+          "color": "Color"
         },
         "errors": {
           "create_failed": "Failed to create stage",
@@ -281,7 +340,7 @@
     },
     "activities": {
       "title": "Activities",
-      "empty": "No activities",
+      "empty": "No activities yet",
       "new": "New Activity",
       "created": "Activity created",
       "updated": "Activity updated",
@@ -295,24 +354,51 @@
         "note": "Note"
       },
       "errors": {
-        "load_failed": "Failed to load activities"
+        "load_failed": "Failed to load activities",
+        "create_failed": "Failed to create activity",
+        "update_failed": "Failed to update activity",
+        "delete_failed": "Failed to delete activity"
+      },
+      "count": "activities",
+      "add": "Add Activity",
+      "complete": "Complete",
+      "delete_confirm": "Delete this activity?",
+      "tabs": {
+        "all": "All",
+        "calls": "Calls",
+        "meetings": "Meetings",
+        "tasks": "Tasks"
+      },
+      "columns": {
+        "type": "Type",
+        "subject": "Subject",
+        "related": "Related To",
+        "due_date": "Due Date",
+        "status": "Status",
+        "notes": "Notes"
+      },
+      "status": {
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "undefined": "Undefined"
       }
     },
     "emails": {
-      "title": "Email History",
+      "title": "Emails",
       "history_title": "Email History",
       "compose": "Compose Email",
       "to": "To",
       "sent_count": "emails sent",
-      "empty_title": "No emails sent",
+      "empty_title": "No emails sent yet",
       "empty_description": "Emails sent to leads will appear here",
       "detail_title": "Email Details",
       "select_template": "Select Template",
       "use": "Use",
       "subject": "Subject",
-      "subject_placeholder": "Email subject...",
+      "subject_placeholder": "Enter subject...",
       "message": "Message",
-      "message_placeholder": "Write your message here...",
+      "message_placeholder": "Write your message...",
       "sending": "Sending...",
       "send": "Send",
       "sent_success": "Email sent successfully",
@@ -337,26 +423,48 @@
         "bounced": "Bounced"
       },
       "refreshed": "Email history refreshed",
-      "deleted": "Email record deleted",
+      "deleted": "Email deleted",
       "tabs": {
         "sent": "Sent",
         "received": "Received",
         "templates": "Templates"
       },
       "received_title": "Received Emails",
-      "received_description": "Email reception is not yet implemented in this CRM",
+      "received_description": "Email reception is not yet implemented",
       "received_tab": "Inbox",
       "templates_count": "templates available",
-      "templates_info": "These templates are available in English, French, and Hebrew. They can be used when composing new emails.",
+      "templates_info": "These templates are available in English, French, and Hebrew",
       "no_templates": "No templates available",
       "no_templates_description": "Email templates will appear here",
       "template_detail": "Template Details",
       "errors": {
         "load_failed": "Failed to load email history",
         "templates_load_failed": "Failed to load templates",
-        "delete_failed": "Failed to delete record"
+        "delete_failed": "Failed to delete email"
       },
       "delete_confirm": "Delete this email record?"
+    },
+    "pipeline": {
+      "opportunities": "opportunities",
+      "stage_updated": "Stage updated",
+      "total_opps": "Total Opportunities",
+      "total_value": "Total Value",
+      "avg_deal": "Average Deal",
+      "close_rate": "Close Rate",
+      "current_stage": "Current Stage",
+      "estimated_value": "Estimated Value",
+      "description": "Description",
+      "stage_history": "Stage History",
+      "stages": {
+        "initial_interest": "Initial Interest",
+        "info_requested": "Info Requested",
+        "first_call": "First Call",
+        "pitch_delivered": "Pitch Delivered",
+        "proposal_sent": "Proposal Sent",
+        "negotiation": "Negotiation",
+        "verbal_commitment": "Verbal Commitment",
+        "won": "Won"
+      }
     }
   },
   "hero": {

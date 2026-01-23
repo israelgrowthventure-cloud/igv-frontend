@@ -97,45 +97,81 @@
     },
     "leads": {
       "subtitle": "Gérez vos prospects et convertissez-les en contacts",
-      "updated": "Prospect mis à jour avec succès",
-      "deleted": "Prospect supprimé avec succès",
+      "updated": "Lead mis à jour",
+      "deleted": "Lead supprimé",
       "note_added": "Note ajoutée",
-      "converted": "Prospect converti en contact",
-      "not_found": "Prospect introuvable",
+      "converted": "Lead converti en contact",
+      "not_found": "Lead non trouvé",
       "no_brand": "Pas de marque",
       "phone": "Téléphone",
       "mini_analysis": "Mini-Analyse IGV",
-      "generated_on": "Générée le",
+      "generated_on": "Généré le",
       "language": "Langue",
       "target_city": "Ville cible",
       "actions": "Actions",
       "convert_to_contact": "Convertir en contact",
       "create_opportunity": "Créer une opportunité",
       "add_note_placeholder": "Ajouter une note...",
-      "delete_confirm_title": "Supprimer ce prospect ?",
-      "delete_confirm_message": "Cette action est irréversible. Êtes-vous sûr de vouloir supprimer ce prospect ?",
+      "delete_confirm_title": "Supprimer le lead ?",
+      "delete_confirm_message": "Cette action est irréversible. Êtes-vous sûr ?",
       "columns": {
-        "name": "Nom du contact",
+        "name": "Nom",
         "email": "Email",
         "status": "Statut",
         "priority": "Priorité",
         "brand": "Marque",
-        "sector": "Secteur"
+        "sector": "Secteur",
+        "created": "Créé"
       },
       "details": {
-        "status_priority": "Statut & Priorité",
+        "status_priority": "Statut et Priorité",
         "contact_info": "Informations de contact",
         "additional": "Informations supplémentaires",
-        "focus_notes": "Notes Focus",
-        "notes": "Notes"
-      }
+        "focus_notes": "Notes focus",
+        "notes": "Notes",
+        "email": "Email",
+        "phone": "Téléphone",
+        "sector": "Secteur",
+        "city": "Ville",
+        "status": "Statut",
+        "priority": "Priorité"
+      },
+      "created": "Lead créé avec succès",
+      "status_updated": "Statut mis à jour",
+      "export_success": "Export réussi",
+      "search": "Rechercher des leads...",
+      "export": "Exporter",
+      "new_lead": "Nouveau lead",
+      "filter_sector": "Filtrer par secteur",
+      "analysis_language": "Langue",
+      "analysis_date": "Généré le",
+      "empty_title": "Aucun lead",
+      "empty_subtitle": "Créez votre premier lead"
     },
     "contacts": {
       "subtitle": "Gérez vos contacts clients",
-      "updated": "Contact mis à jour avec succès",
-      "deleted": "Contact supprimé avec succès",
-      "not_found": "Contact introuvable",
-      "no_company": "Pas d'entreprise"
+      "updated": "Contact mis à jour",
+      "deleted": "Contact supprimé",
+      "not_found": "Contact non trouvé",
+      "no_company": "Pas d'entreprise",
+      "opportunities": "Opportunités",
+      "recent_activities": "Activités récentes",
+      "converted_from_lead": "Converti depuis un lead",
+      "lead_id": "ID du lead",
+      "delete_confirm_title": "Supprimer le contact ?",
+      "delete_confirm_message": "Cette action est irréversible. Êtes-vous sûr ?",
+      "columns": {
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "company": "Entreprise"
+      },
+      "details": {
+        "contact_info": "Informations de contact",
+        "position": "Poste",
+        "location": "Localisation",
+        "tags": "Tags"
+      }
     },
     "users": {
       "subtitle": "Gérez les utilisateurs et leurs permissions"
@@ -169,7 +205,11 @@
       "converted": "Converti",
       "lost": "Perdu",
       "active": "Actif",
-      "inactive": "Inactif"
+      "inactive": "Inactif",
+      "proposal_sent": "Proposition envoyée",
+      "negotiation": "Négociation",
+      "won": "Gagné",
+      "archived": "Archivé"
     },
     "priorities": {
       "1": "Basse",
@@ -180,15 +220,23 @@
       "low": "Basse",
       "normal": "Normale",
       "high": "Haute",
-      "urgent": "Urgente"
+      "urgent": "Urgente",
+      "A": "Priorité A - Haute",
+      "B": "Priorité B - Moyenne",
+      "C": "Priorité C - Basse"
     },
     "errors": {
       "load_failed": "Échec du chargement",
       "update_failed": "Échec de la mise à jour",
       "delete_failed": "Échec de la suppression",
       "create_failed": "Échec de la création",
-      "note_failed": "Échec de l'ajout de la note",
-      "convert_failed": "Échec de la conversion"
+      "note_failed": "Échec de l'ajout de note",
+      "convert_failed": "Échec de la conversion",
+      "stage_failed": "Échec de la mise à jour de l'étape",
+      "status_failed": "Échec de la mise à jour du statut",
+      "export_failed": "Échec de l'export",
+      "lead_not_found": "Lead non trouvé",
+      "contact_not_found": "Contact non trouvé"
     },
     "opportunities": {
       "title": "Opportunités",
@@ -201,8 +249,8 @@
       "deleted": "Opportunité supprimée",
       "delete_confirm": "Supprimer cette opportunité ?",
       "name": "Nom",
-      "value": "Valeur (€)",
-      "probability": "Probabilité (%)",
+      "value": "Valeur",
+      "probability": "Probabilité",
       "stage": "Étape",
       "columns": {
         "name": "Nom",
@@ -219,10 +267,19 @@
         "closed_lost": "Perdu"
       },
       "errors": {
-        "load_failed": "Échec du chargement des opportunités",
+        "load_failed": "Échec du chargement",
         "update_failed": "Échec de la mise à jour",
         "delete_failed": "Échec de la suppression"
-      }
+      },
+      "expected_close": "Clôture prévue",
+      "notes": "Notes",
+      "exported": "Opportunités exportées",
+      "search": "Rechercher des opportunités...",
+      "total_count": "Total opportunités",
+      "total_value": "Valeur totale",
+      "weighted_value": "Valeur pondérée",
+      "empty_title": "Aucune opportunité",
+      "empty_subtitle": "Créez votre première opportunité"
     },
     "settings": {
       "title": "Paramètres",
@@ -230,7 +287,7 @@
       "tabs": {
         "users": "Utilisateurs",
         "tags": "Tags",
-        "stages": "Étapes Pipeline"
+        "stages": "Étapes du pipeline"
       },
       "users": {
         "updated": "Utilisateur mis à jour",
@@ -242,7 +299,7 @@
           "created": "Créé"
         },
         "errors": {
-          "update_failed": "Échec de la mise à jour de l'utilisateur"
+          "update_failed": "Échec de la mise à jour"
         }
       },
       "tags": {
@@ -256,8 +313,8 @@
           "count": "Utilisation"
         },
         "errors": {
-          "create_failed": "Échec de la création du tag",
-          "delete_failed": "Échec de la suppression du tag"
+          "create_failed": "Échec de la création",
+          "delete_failed": "Échec de la suppression"
         }
       },
       "stages": {
@@ -267,12 +324,14 @@
         "deleted": "Étape supprimée",
         "delete_confirm": "Supprimer cette étape ?",
         "columns": {
-          "name": "Nom"
+          "name": "Nom",
+          "order": "Ordre",
+          "color": "Couleur"
         },
         "errors": {
-          "create_failed": "Échec de la création de l'étape",
-          "update_failed": "Échec de la mise à jour de l'étape",
-          "delete_failed": "Échec de la suppression de l'étape"
+          "create_failed": "Échec de la création",
+          "update_failed": "Échec de la mise à jour",
+          "delete_failed": "Échec de la suppression"
         }
       },
       "errors": {
@@ -295,67 +354,117 @@
         "note": "Note"
       },
       "errors": {
-        "load_failed": "Échec du chargement des activités"
+        "load_failed": "Échec du chargement des activités",
+        "create_failed": "Échec de la création",
+        "update_failed": "Échec de la mise à jour",
+        "delete_failed": "Échec de la suppression"
+      },
+      "count": "activités",
+      "add": "Ajouter une activité",
+      "complete": "Terminer",
+      "delete_confirm": "Supprimer cette activité ?",
+      "tabs": {
+        "all": "Tout",
+        "calls": "Appels",
+        "meetings": "Réunions",
+        "tasks": "Tâches"
+      },
+      "columns": {
+        "type": "Type",
+        "subject": "Sujet",
+        "related": "Lié à",
+        "due_date": "Date d'échéance",
+        "status": "Statut",
+        "notes": "Notes"
+      },
+      "status": {
+        "pending": "En attente",
+        "completed": "Terminé",
+        "cancelled": "Annulé",
+        "undefined": "Non défini"
       }
     },
     "emails": {
-      "title": "Historique des Emails",
+      "title": "Emails",
       "history_title": "Historique des Emails",
       "compose": "Composer un email",
       "to": "À",
       "sent_count": "emails envoyés",
       "empty_title": "Aucun email envoyé",
-      "empty_description": "Les emails envoyés aux prospects apparaîtront ici",
-      "detail_title": "Détails de l'Email",
-      "select_template": "Choisir un modèle",
+      "empty_description": "Les emails envoyés aux leads apparaîtront ici",
+      "detail_title": "Détails de l'email",
+      "select_template": "Sélectionner un modèle",
       "use": "Utiliser",
-      "subject": "Objet",
-      "subject_placeholder": "Objet de votre email...",
+      "subject": "Sujet",
+      "subject_placeholder": "Entrez le sujet...",
       "message": "Message",
-      "message_placeholder": "Rédigez votre message ici...",
-      "sending": "Envoi...",
+      "message_placeholder": "Écrivez votre message...",
+      "sending": "Envoi en cours...",
       "send": "Envoyer",
       "sent_success": "Email envoyé avec succès",
-      "send_failed": "Échec de l'envoi de l'email",
-      "error_empty": "Veuillez remplir l'objet et le message",
+      "send_failed": "Échec de l'envoi",
+      "error_empty": "Veuillez remplir le sujet et le message",
       "columns": {
         "recipient": "Destinataire",
         "subject": "Sujet",
         "date": "Date",
         "status": "Statut",
-        "sent_by": "Envoyé Par",
+        "sent_by": "Envoyé par",
         "from": "De",
         "to": "À"
       },
       "status": {
         "sent": "Envoyé",
-        "delivered": "Distribué",
+        "delivered": "Livré",
         "opened": "Ouvert",
         "clicked": "Cliqué",
         "failed": "Échoué",
         "bounced": "Rejeté"
       },
       "refreshed": "Historique des emails mis à jour",
-      "deleted": "Enregistrement d'email supprimé",
+      "deleted": "Email supprimé",
       "tabs": {
         "sent": "Envoyés",
         "received": "Reçus",
         "templates": "Modèles"
       },
-      "received_title": "Emails Reçus",
-      "received_description": "La réception d'emails n'est pas encore implémentée dans ce CRM",
+      "received_title": "Emails reçus",
+      "received_description": "La réception d'emails n'est pas encore implémentée",
       "received_tab": "Boîte de réception",
       "templates_count": "modèles disponibles",
-      "templates_info": "Ces modèles sont disponibles en anglais, français et hébreu. Ils peuvent être utilisés lors de la rédaction de nouveaux emails.",
+      "templates_info": "Ces modèles sont disponibles en anglais, français et hébreu",
       "no_templates": "Aucun modèle disponible",
-      "no_templates_description": "Les modèles d'emails apparaîtront ici",
-      "template_detail": "Détails du Modèle",
+      "no_templates_description": "Les modèles d'email apparaîtront ici",
+      "template_detail": "Détails du modèle",
       "errors": {
-        "load_failed": "Échec du chargement de l'historique des emails",
+        "load_failed": "Échec du chargement de l'historique",
         "templates_load_failed": "Échec du chargement des modèles",
-        "delete_failed": "Échec de la suppression de l'enregistrement"
+        "delete_failed": "Échec de la suppression"
       },
-      "delete_confirm": "Voulez-vous vraiment supprimer cet enregistrement ?"
+      "delete_confirm": "Supprimer cet email ?",
+      "available_languages": "Disponible en :"
+    },
+    "pipeline": {
+      "opportunities": "opportunités",
+      "stage_updated": "Étape mise à jour",
+      "total_opps": "Total opportunités",
+      "total_value": "Valeur totale",
+      "avg_deal": "Deal moyen",
+      "close_rate": "Taux de clôture",
+      "current_stage": "Étape actuelle",
+      "estimated_value": "Valeur estimée",
+      "description": "Description",
+      "stage_history": "Historique des étapes",
+      "stages": {
+        "initial_interest": "Intérêt initial",
+        "info_requested": "Info demandée",
+        "first_call": "Premier appel",
+        "pitch_delivered": "Pitch présenté",
+        "proposal_sent": "Proposition envoyée",
+        "negotiation": "Négociation",
+        "verbal_commitment": "Engagement verbal",
+        "won": "Gagné"
+      }
     }
   },
   "hero": {

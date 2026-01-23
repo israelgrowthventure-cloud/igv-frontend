@@ -58,8 +58,8 @@
     "leads": {
       "subtitle": "נהל את הלידים שלך והמר אותם לאנשי קשר",
       "created": "ליד נוצר בהצלחה",
-      "updated": "ליד עודכן בהצלחה",
-      "deleted": "ליד נמחק בהצלחה",
+      "updated": "ליד עודכן",
+      "deleted": "ליד נמחק",
       "note_added": "הערה נוספה",
       "status_updated": "סטטוס עודכן",
       "converted": "ליד הומר לאיש קשר",
@@ -110,8 +110,8 @@
     },
     "contacts": {
       "subtitle": "נהל את אנשי הקשר שלך",
-      "updated": "איש קשר עודכן בהצלחה",
-      "deleted": "איש קשר נמחק בהצלחה",
+      "updated": "איש קשר עודכן",
+      "deleted": "איש קשר נמחק",
       "not_found": "איש קשר לא נמצא",
       "no_company": "ללא חברה",
       "opportunities": "הזדמנויות",
@@ -226,10 +226,10 @@
       "stage": "שלב",
       "expected_close": "סגירה צפויה",
       "notes": "הערות",
-      "created": "נוצרה בהצלחה",
-      "updated": "עודכנה בהצלחה",
-      "deleted": "נמחקה בהצלחה",
-      "exported": "יוצאה בהצלחה",
+      "created": "הזדמנות נוצרה",
+      "updated": "הזדמנות עודכנה",
+      "deleted": "הזדמנות נמחקה",
+      "exported": "הזדמנויות יוצאו",
       "delete_confirm": "למחוק הזדמנות זו?",
       "search": "חיפוש הזדמנויות...",
       "total_count": "סה\"כ הזדמנויות",
@@ -342,19 +342,23 @@
         "call": "שיחה",
         "meeting": "פגישה",
         "email": "אימייל",
-        "task": "משימה"
+        "task": "משימה",
+        "note": "הערה"
       },
       "status": {
         "pending": "ממתין",
         "completed": "הושלם",
-        "cancelled": "בוטל"
+        "cancelled": "בוטל",
+        "undefined": "לא מוגדר"
       },
       "errors": {
         "load_failed": "שגיאה בטעינת פעילויות",
         "create_failed": "שגיאה ביצירת פעילות",
         "update_failed": "שגיאה בעדכון פעילות",
         "delete_failed": "שגיאה במחיקת פעילות"
-      }
+      },
+      "new": "פעילות חדשה",
+      "updated": "פעילות עודכנה"
     },
     "emails": {
       "title": "אימיילים",

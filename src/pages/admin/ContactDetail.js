@@ -45,8 +45,8 @@ const ContactDetail = () => {
       }
     } catch (error) {
       console.error('Error fetching contact:', error);
-      toast.error(t('admin.crm.errors.load_failed') || 'Failed to load contact');
-      navigate('/admin/crm');
+      toast.error(t('crm.errors.load_failed') || 'Failed to load contact');
+      navigate('/admin/crm/contacts');
     } finally {
       setLoading(false);
     }
@@ -56,11 +56,11 @@ const ContactDetail = () => {
     try {
       setSaving(true);
       await api.put(`/api/crm/contacts/${id}`, editData);
-      toast.success(t('admin.crm.contacts.updated') || 'Contact updated successfully');
+      toast.success(t('crm.contacts.updated') || 'Contact updated successfully');
       setContact(editData);
       setEditing(false);
     } catch (error) {
-      toast.error(t('admin.crm.errors.update_failed') || 'Failed to update contact');
+      toast.error(t('crm.errors.update_failed') || 'Failed to update contact');
     } finally {
       setSaving(false);
     }
@@ -70,10 +70,10 @@ const ContactDetail = () => {
     try {
       setSaving(true);
       await api.delete(`/api/crm/contacts/${id}`);
-      toast.success(t('admin.crm.contacts.deleted') || 'Contact deleted successfully');
-      navigate('/admin/crm');
+      toast.success(t('crm.contacts.deleted') || 'Contact deleted successfully');
+      navigate('/admin/crm/contacts');
     } catch (error) {
-      toast.error(t('admin.crm.errors.delete_failed') || 'Failed to delete contact');
+      toast.error(t('crm.errors.delete_failed') || 'Failed to delete contact');
     } finally {
       setSaving(false);
       setShowDeleteConfirm(false);
@@ -91,12 +91,12 @@ const ContactDetail = () => {
         probability: parseInt(oppForm.probability) || 50,
         stage: oppForm.stage || 'qualification'
       });
-      toast.success(t('admin.crm.opportunities.created') || 'Opportunity created');
+      toast.success(t('crm.opportunities.created') || 'Opportunity created');
       setShowOppModal(false);
       setOppForm({ name: '', value: '', probability: 50, stage: 'qualification' });
       fetchContact(); // Reload to get updated opportunities
     } catch (error) {
-      toast.error(t('admin.crm.errors.create_failed') || 'Failed to create opportunity');
+      toast.error(t('crm.errors.create_failed') || 'Failed to create opportunity');
     } finally {
       setSaving(false);
     }
@@ -114,9 +114,9 @@ const ContactDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">{t('admin.crm.contacts.not_found') || 'Contact not found'}</p>
-          <button onClick={() => navigate('/admin/crm')} className="text-blue-600 hover:underline">
-            {t('admin.crm.common.back') || 'Back to CRM'}
+          <p className="text-gray-600 mb-4">{t('crm.contacts.not_found') || 'Contact not found'}</p>
+          <button onClick={() => navigate('/admin/crm/contacts')} className="text-blue-600 hover:underline">
+            {t('crm.common.back') || 'Back to CRM'}
           </button>
         </div>
       </div>
@@ -136,14 +136,14 @@ const ContactDetail = () => {
           <div className="max-w-4xl mx-auto px-4 py-4">
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => navigate('/admin/crm')} 
+                onClick={() => navigate('/admin/crm/contacts')} 
                 className="p-2 hover:bg-gray-100 rounded-lg"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div className="flex-1">
                 <h1 className="text-xl font-bold">{contact.name || contact.email}</h1>
-                <p className="text-sm text-gray-600">{contact.company_name || t('admin.crm.contacts.no_company') || 'No company'}</p>
+                <p className="text-sm text-gray-600">{contact.company_name || t('crm.contacts.no_company') || 'No company'}</p>
               </div>
               <div className="flex items-center gap-2">
                 {!editing ? (
@@ -153,14 +153,14 @@ const ContactDetail = () => {
                       className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                     >
                       <Edit2 className="w-4 h-4" />
-                      {t('admin.crm.common.edit') || 'Edit'}
+                      {t('crm.common.edit') || 'Edit'}
                     </button>
                     <button 
                       onClick={() => setShowDeleteConfirm(true)} 
                       className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
                     >
                       <Trash2 className="w-4 h-4" />
-                      {t('admin.crm.common.delete') || 'Delete'}
+                      {t('crm.common.delete') || 'Delete'}
                     </button>
                   </>
                 ) : (
@@ -171,14 +171,14 @@ const ContactDetail = () => {
                       className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
                     >
                       {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                      {t('admin.crm.common.save') || 'Save'}
+                      {t('crm.common.save') || 'Save'}
                     </button>
                     <button 
                       onClick={() => { setEditing(false); setEditData(contact); }} 
                       className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50"
                     >
                       <X className="w-4 h-4" />
-                      {t('admin.crm.common.cancel') || 'Cancel'}
+                      {t('crm.common.cancel') || 'Cancel'}
                     </button>
                   </>
                 )}
@@ -191,13 +191,13 @@ const ContactDetail = () => {
         <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
           {/* Contact Info */}
           <div className="bg-white rounded-lg shadow border p-6">
-            <h2 className="font-semibold mb-4">{t('admin.crm.contacts.details.contact_info') || 'Contact Information'}</h2>
+            <h2 className="font-semibold mb-4">{t('crm.contacts.details.contact_info') || 'Contact Information'}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <User className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.contacts.columns.name') || 'Name'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.contacts.columns.name') || 'Name'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -213,7 +213,7 @@ const ContactDetail = () => {
                 <div className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.contacts.columns.email') || 'Email'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.contacts.columns.email') || 'Email'}</p>
                     {editing ? (
                       <input 
                         type="email" 
@@ -229,7 +229,7 @@ const ContactDetail = () => {
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.contacts.columns.phone') || 'Phone'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.contacts.columns.phone') || 'Phone'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -247,7 +247,7 @@ const ContactDetail = () => {
                 <div className="flex items-start gap-3">
                   <Building className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.contacts.columns.company') || 'Company'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.contacts.columns.company') || 'Company'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -263,7 +263,7 @@ const ContactDetail = () => {
                 <div className="flex items-start gap-3">
                   <Tag className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.contacts.details.position') || 'Position'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.contacts.details.position') || 'Position'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -279,7 +279,7 @@ const ContactDetail = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.contacts.details.location') || 'Location'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.contacts.details.location') || 'Location'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -301,7 +301,7 @@ const ContactDetail = () => {
             <div className="bg-white rounded-lg shadow border p-6">
               <h2 className="font-semibold mb-4 flex items-center gap-2">
                 <Tag className="w-5 h-5" />
-                {t('admin.crm.contacts.details.tags') || 'Tags'}
+                {t('crm.contacts.details.tags') || 'Tags'}
               </h2>
               {editing ? (
                 <input 
@@ -324,8 +324,8 @@ const ContactDetail = () => {
           {/* Converted from Lead */}
           {contact.converted_from_lead_id && (
             <div className="bg-green-50 rounded-lg border border-green-200 p-6">
-              <h2 className="font-semibold text-green-900 mb-2">{t('admin.crm.contacts.converted_from_lead') || 'Converted from Lead'}</h2>
-              <p className="text-green-800">{t('admin.crm.contacts.lead_id') || 'Lead ID'}: {contact.converted_from_lead_id}</p>
+              <h2 className="font-semibold text-green-900 mb-2">{t('crm.contacts.converted_from_lead') || 'Converted from Lead'}</h2>
+              <p className="text-green-800">{t('crm.contacts.lead_id') || 'Lead ID'}: {contact.converted_from_lead_id}</p>
             </div>
           )}
 
@@ -334,14 +334,14 @@ const ContactDetail = () => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-semibold flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
-                {t('admin.crm.contacts.opportunities') || 'Opportunities'} ({opportunities.length})
+                {t('crm.contacts.opportunities') || 'Opportunities'} ({opportunities.length})
               </h2>
               <button 
                 onClick={() => setShowOppModal(true)}
                 className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
                 <Plus className="w-4 h-4" />
-                {t('admin.crm.opportunities.new') || 'New Opportunity'}
+                {t('crm.opportunities.new') || 'New Opportunity'}
               </button>
             </div>
             <div className="space-y-3">
@@ -357,7 +357,7 @@ const ContactDetail = () => {
                   </div>
                 </div>
               )) : (
-                <p className="text-gray-500 text-sm text-center py-4">{t('admin.crm.common.no_opportunities') || 'No opportunities yet'}</p>
+                <p className="text-gray-500 text-sm text-center py-4">{t('crm.common.no_opportunities') || 'No opportunities yet'}</p>
               )}
             </div>
           </div>
@@ -366,7 +366,7 @@ const ContactDetail = () => {
           <div className="bg-white rounded-lg shadow border p-6">
             <h2 className="font-semibold mb-4 flex items-center gap-2">
               <Calendar className="w-5 h-5" />
-              {t('admin.crm.contacts.recent_activities') || 'Recent Activities'}
+              {t('crm.contacts.recent_activities') || 'Recent Activities'}
             </h2>
             <div className="space-y-3">
               {contact.activities && contact.activities.length > 0 ? contact.activities.slice(0, 10).map((activity, idx) => (
@@ -376,7 +376,7 @@ const ContactDetail = () => {
                   <p className="text-xs text-gray-500 mt-1">{new Date(activity.created_at).toLocaleString()}</p>
                 </div>
               )) : (
-                <p className="text-gray-500 text-sm">{t('admin.crm.common.no_activities') || 'No activities yet'}</p>
+                <p className="text-gray-500 text-sm">{t('crm.common.no_activities') || 'No activities yet'}</p>
               )}
             </div>
           </div>
@@ -385,12 +385,12 @@ const ContactDetail = () => {
           <div className="bg-gray-100 rounded-lg p-4 text-sm text-gray-600">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <p className="font-medium">{t('admin.crm.common.created') || 'Created'}</p>
+                <p className="font-medium">{t('crm.common.created') || 'Created'}</p>
                 <p>{new Date(contact.created_at).toLocaleString()}</p>
               </div>
               {contact.updated_at && (
                 <div>
-                  <p className="font-medium">{t('admin.crm.common.updated') || 'Updated'}</p>
+                  <p className="font-medium">{t('crm.common.updated') || 'Updated'}</p>
                   <p>{new Date(contact.updated_at).toLocaleString()}</p>
                 </div>
               )}
@@ -407,23 +407,23 @@ const ContactDetail = () => {
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-bold mb-2">{t('admin.crm.contacts.delete_confirm_title') || 'Delete Contact?'}</h3>
+            <h3 className="text-lg font-bold mb-2">{t('crm.contacts.delete_confirm_title') || 'Delete Contact?'}</h3>
             <p className="text-gray-600 mb-4">
-              {t('admin.crm.contacts.delete_confirm_message') || 'This action cannot be undone. Are you sure you want to delete this contact?'}
+              {t('crm.contacts.delete_confirm_message') || 'This action cannot be undone. Are you sure you want to delete this contact?'}
             </p>
             <div className="flex gap-3 justify-end">
               <button 
                 onClick={() => setShowDeleteConfirm(false)} 
                 className="px-4 py-2 border rounded-lg hover:bg-gray-50"
               >
-                {t('admin.crm.common.cancel') || 'Cancel'}
+                {t('crm.common.cancel') || 'Cancel'}
               </button>
               <button 
                 onClick={handleDelete} 
                 disabled={saving}
                 className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50"
               >
-                {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('admin.crm.common.delete') || 'Delete'}
+                {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.delete') || 'Delete'}
               </button>
             </div>
           </div>
@@ -434,10 +434,10 @@ const ContactDetail = () => {
       {showOppModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-bold mb-4">{t('admin.crm.opportunities.new') || 'New Opportunity'}</h3>
+            <h3 className="text-lg font-bold mb-4">{t('crm.opportunities.new') || 'New Opportunity'}</h3>
             <form onSubmit={handleCreateOpportunity} className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.name') || 'Name'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.name') || 'Name'}</label>
                 <input 
                   type="text" 
                   value={oppForm.name} 
@@ -447,7 +447,7 @@ const ContactDetail = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.value') || 'Value (€)'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.value') || 'Value (€)'}</label>
                 <input 
                   type="number" 
                   value={oppForm.value} 
@@ -458,7 +458,7 @@ const ContactDetail = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.probability') || 'Probability (%)'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.probability') || 'Probability (%)'}</label>
                 <input 
                   type="number" 
                   value={oppForm.probability} 
@@ -468,15 +468,15 @@ const ContactDetail = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.stage') || 'Stage'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.stage') || 'Stage'}</label>
                 <select 
                   value={oppForm.stage} 
                   onChange={(e) => setOppForm({...oppForm, stage: e.target.value})}
                   className="w-full px-3 py-2 border rounded-lg"
                 >
-                  <option value="qualification">{t('admin.crm.opportunities.stages.qualification') || 'Qualification'}</option>
-                  <option value="proposal">{t('admin.crm.opportunities.stages.proposal') || 'Proposal'}</option>
-                  <option value="negotiation">{t('admin.crm.opportunities.stages.negotiation') || 'Negotiation'}</option>
+                  <option value="qualification">{t('crm.opportunities.stages.qualification') || 'Qualification'}</option>
+                  <option value="proposal">{t('crm.opportunities.stages.proposal') || 'Proposal'}</option>
+                  <option value="negotiation">{t('crm.opportunities.stages.negotiation') || 'Negotiation'}</option>
                 </select>
               </div>
               <div className="flex gap-3 justify-end pt-2">
@@ -485,14 +485,14 @@ const ContactDetail = () => {
                   onClick={() => setShowOppModal(false)} 
                   className="px-4 py-2 border rounded-lg hover:bg-gray-50"
                 >
-                  {t('admin.crm.common.cancel') || 'Cancel'}
+                  {t('crm.common.cancel') || 'Cancel'}
                 </button>
                 <button 
                   type="submit"
                   disabled={saving}
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
                 >
-                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('admin.crm.common.create') || 'Create'}
+                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.create') || 'Create'}
                 </button>
               </div>
             </form>

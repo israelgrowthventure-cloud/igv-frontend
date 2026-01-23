@@ -4,15 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { Lock, Mail, Loader2, Shield, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '../../contexts/AuthContext';
-import { useTranslation } from 'react-i18next';
 import api from '../../utils/api';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === 'he';
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -21,9 +17,9 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
+    
     if (!email || !password) {
-      setError(t('admin.login.errors.required'));
+      setError('Email et mot de passe requis');
       return;
     }
 
@@ -31,34 +27,36 @@ const AdminLogin = () => {
 
     try {
       const data = await api.adminLogin({ email, password });
-
+      
       if (data.access_token) {
+        // Use AuthContext login (stores token + user data)
         login(
           data.access_token,
           data.email || email,
           data.name || email.split('@')[0],
           data.role || 'admin'
         );
-
+        
+        // Also store in legacy keys for compatibility
         localStorage.setItem('token', data.access_token);
         localStorage.setItem('admin_token', data.access_token);
         localStorage.setItem('admin_role', data.role || 'admin');
-
-        toast.success(t('admin.login.success'));
+        
+        toast.success('Connexion réussie');
         navigate('/admin/crm/dashboard');
       } else {
-        setError(t('admin.login.errors.invalid'));
-        toast.error(t('admin.login.errors.invalid'));
+        setError('Identifiants invalides');
+        toast.error('Identifiants invalides');
       }
     } catch (error) {
       console.error('Login error:', error);
-
+      
       if (error.response && error.response.status === 401) {
-        setError(t('admin.login.errors.wrong_credentials'));
-        toast.error(t('admin.login.errors.invalid'));
+        setError('Email ou mot de passe incorrect');
+        toast.error('Identifiants invalides');
       } else {
-        setError(t('admin.login.errors.server'));
-        toast.error(t('admin.login.errors.server'));
+        setError('Erreur serveur. Veuillez réessayer.');
+        toast.error('Erreur serveur');
       }
     } finally {
       setLoading(false);
@@ -68,10 +66,10 @@ const AdminLogin = () => {
   return (
     <>
       <Helmet>
-        <title>{t('admin.login.page_title')} | IGV</title>
+        <title>Admin Login | IGV</title>
       </Helmet>
 
-      <div className={`min-h-screen bg-gray-50 flex items-center justify-center px-4 ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="max-w-md w-full">
           {/* Header */}
           <div className="text-center mb-8">
@@ -79,7 +77,7 @@ const AdminLogin = () => {
               <Shield className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              {t('admin.login.title')}
+              Connexion Admin
             </h1>
             <p className="text-sm text-gray-600">
               Israel Growth Venture CRM
@@ -100,16 +98,16 @@ const AdminLogin = () => {
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('admin.login.email')}
+                  Adresse email
                 </label>
                 <div className="relative">
-                  <Mail className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400`} />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="email"
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition`}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                     placeholder="postmaster@israelgrowthventure.com"
                     required
                     disabled={loading}
@@ -121,16 +119,16 @@ const AdminLogin = () => {
               {/* Password Field */}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('admin.login.password')}
+                  Mot de passe
                 </label>
                 <div className="relative">
-                  <Lock className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400`} />
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
                     type="password"
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition`}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                     placeholder="••••••••"
                     required
                     disabled={loading}
@@ -148,12 +146,12 @@ const AdminLogin = () => {
                 {loading ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    {t('admin.login.logging_in')}
+                    Connexion en cours...
                   </>
                 ) : (
                   <>
                     <Shield className="w-5 h-5" />
-                    {t('admin.login.submit')}
+                    Se connecter
                   </>
                 )}
               </button>
@@ -162,14 +160,14 @@ const AdminLogin = () => {
             {/* Security Notice */}
             <div className="mt-6 pt-6 border-t border-gray-200">
               <p className="text-xs text-center text-gray-500">
-                🔒 {t('admin.login.security_notice')}
+                🔒 Accès sécurisé réservé aux administrateurs autorisés
               </p>
             </div>
           </div>
 
           {/* Footer */}
           <p className="mt-8 text-center text-sm text-gray-600">
-            © 2025 Israel Growth Venture. {t('admin.login.rights_reserved')}
+            © 2025 Israel Growth Venture. Tous droits réservés.
           </p>
         </div>
       </div>

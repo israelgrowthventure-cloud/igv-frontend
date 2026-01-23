@@ -297,7 +297,7 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
 
   const handleSend = async () => {
     if (!subject.trim() || !body.trim()) {
-      toast.error(t('admin.crm.emails.error_empty'));
+      toast.error(t('crm.emails.error_empty'));
       return;
     }
 
@@ -310,11 +310,11 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
         message: body,  // Backend expects 'message' not 'body'
         template_id: selectedTemplate?.id
       });
-      toast.success(t('admin.crm.emails.sent_success'));
+      toast.success(t('crm.emails.sent_success'));
       onClose();
     } catch (error) {
       console.error('Email send error:', error);
-      toast.error(t('admin.crm.emails.send_failed'));
+      toast.error(t('crm.emails.send_failed'));
     } finally {
       setSending(false);
     }
@@ -326,8 +326,8 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <div>
-            <h3 className="text-lg font-semibold">{t('admin.crm.emails.compose')}</h3>
-            <p className="text-sm text-gray-600">{t('admin.crm.emails.to')}: {contact.name} &lt;{contact.email}&gt;</p>
+            <h3 className="text-lg font-semibold">{t('crm.emails.compose')}</h3>
+            <p className="text-sm text-gray-600">{t('crm.emails.to')}: {contact.name} &lt;{contact.email}&gt;</p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg">
             <X className="w-5 h-5" />
@@ -343,7 +343,7 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
             >
               <div className="flex items-center gap-2">
                 <FileText className="w-4 h-4 text-gray-500" />
-                <span>{selectedTemplate ? selectedTemplate.name : t('admin.crm.emails.select_template')}</span>
+                <span>{selectedTemplate ? selectedTemplate.name : t('crm.emails.select_template')}</span>
               </div>
               <ChevronDown className={`w-4 h-4 transition-transform ${showTemplateSelector ? 'rotate-180' : ''}`} />
             </button>
@@ -360,7 +360,7 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
                       <p className="font-medium">{template.name}</p>
                       <p className="text-sm text-gray-500 truncate">{template.subject}</p>
                     </div>
-                    <span className="text-blue-600 opacity-0 group-hover:opacity-100 text-sm">{t('admin.crm.emails.use')}</span>
+                    <span className="text-blue-600 opacity-0 group-hover:opacity-100 text-sm">{t('crm.emails.use')}</span>
                   </button>
                 ))}
               </div>
@@ -371,23 +371,23 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
         {/* Email Form */}
         <div className="p-4 space-y-4 overflow-y-auto" style={{ maxHeight: 'calc(90vh - 280px)' }}>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t('admin.crm.emails.subject')}</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">{t('crm.emails.subject')}</label>
             <input
               type="text"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              placeholder={t('admin.crm.emails.subject_placeholder')}
+              placeholder={t('crm.emails.subject_placeholder')}
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t('admin.crm.emails.message')}</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">{t('crm.emails.message')}</label>
             <textarea
               value={body}
               onChange={(e) => setBody(e.target.value)}
               rows={12}
-              placeholder={t('admin.crm.emails.message_placeholder')}
+              placeholder={t('crm.emails.message_placeholder')}
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
             />
           </div>
@@ -409,12 +409,12 @@ const EmailModal = ({ contact, onClose, t, language = 'fr' }) => {
             {sending ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                {t('admin.crm.emails.sending')}
+                {t('crm.emails.sending')}
               </>
             ) : (
               <>
                 <Send className="w-4 h-4" />
-                {t('admin.crm.emails.send')}
+                {t('crm.emails.send')}
               </>
             )}
           </button>

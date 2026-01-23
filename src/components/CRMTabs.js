@@ -33,9 +33,9 @@ export const LeadsTab = ({
       a.href = url;
       a.download = `igv_leads_${new Date().toISOString().split('T')[0]}.csv`;
       a.click();
-      toast.success(t('admin.crm.leads.export_success'));
+      toast.success(t('crm.leads.export_success'));
     } catch (error) {
-      toast.error(t('admin.crm.leads.export_error'));
+      toast.error(t('crm.leads.export_error'));
     } finally {
       setIsExporting(false);
     }
@@ -44,33 +44,33 @@ export const LeadsTab = ({
   const handleUpdateLead = async (leadId, updates) => {
     try {
       await api.put(`/crm/leads/${leadId}`, updates);
-      toast.success(t('admin.crm.leads.update_success'));
+      toast.success(t('crm.leads.update_success'));
       onRefresh();
     } catch (error) {
-      toast.error(t('admin.crm.leads.update_error'));
+      toast.error(t('crm.leads.update_error'));
     }
   };
 
   const handleAddNote = async (leadId, content) => {
     try {
       await api.post(`/crm/leads/${leadId}/notes`, { content });
-      toast.success(t('admin.crm.leads.note_added'));
+      toast.success(t('crm.leads.note_added'));
       onRefresh();
     } catch (error) {
-      toast.error(t('admin.crm.leads.note_error'));
+      toast.error(t('crm.leads.note_error'));
     }
   };
 
   const handleConvertToContact = async (leadId) => {
-    if (!window.confirm(t('admin.crm.leads.confirm_convert'))) return;
+    if (!window.confirm(t('crm.leads.confirm_convert'))) return;
 
     try {
       await api.post(`/crm/leads/${leadId}/convert-to-contact`);
-      toast.success(t('admin.crm.leads.convert_success'));
+      toast.success(t('crm.leads.convert_success'));
       onRefresh();
       setSelectedLead(null);
     } catch (error) {
-      toast.error(t('admin.crm.leads.convert_error'));
+      toast.error(t('crm.leads.convert_error'));
     }
   };
 
@@ -85,7 +85,7 @@ export const LeadsTab = ({
     };
     return (
       <span className={`px-2 py-1 rounded-full text-xs font-medium ${colors[status] || colors.NEW}`}>
-        {t(`admin.crm.status.${status.toLowerCase()}`)}
+        {t(`crm.status.${status.toLowerCase()}`)}
       </span>
     );
   };
@@ -111,7 +111,7 @@ export const LeadsTab = ({
             <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
             <input
               type="text"
-              placeholder={t('admin.crm.leads.search_placeholder')}
+              placeholder={t('crm.leads.search_placeholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && onRefresh()}
@@ -126,7 +126,7 @@ export const LeadsTab = ({
             className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
           >
             <Filter className="w-4 h-4" />
-            {t('admin.crm.leads.filters')}
+            {t('crm.leads.filters')}
           </button>
 
           <button
@@ -135,7 +135,7 @@ export const LeadsTab = ({
             className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
           >
             {isExporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
-            {t('admin.crm.leads.export')}
+            {t('crm.leads.export')}
           </button>
         </div>
       </div>
@@ -145,13 +145,13 @@ export const LeadsTab = ({
         <div className="bg-white p-4 rounded-lg border border-gray-200 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-2">{t('admin.crm.leads.filter_status')}</label>
+              <label className="block text-sm font-medium mb-2">{t('crm.leads.filter_status')}</label>
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg"
               >
-                <option value="">{t('admin.crm.leads.all_statuses')}</option>
+                <option value="">{t('crm.leads.all_statuses')}</option>
                 <option value="NEW">NEW</option>
                 <option value="CONTACTED">CONTACTED</option>
                 <option value="QUALIFIED">QUALIFIED</option>
@@ -162,13 +162,13 @@ export const LeadsTab = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">{t('admin.crm.leads.filter_stage')}</label>
+              <label className="block text-sm font-medium mb-2">{t('crm.leads.filter_stage')}</label>
               <select
                 value={stageFilter}
                 onChange={(e) => setStageFilter(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg"
               >
-                <option value="">{t('admin.crm.leads.all_stages')}</option>
+                <option value="">{t('crm.leads.all_stages')}</option>
                 <option value="analysis_requested">Analysis Requested</option>
                 <option value="analysis_sent">Analysis Sent</option>
                 <option value="call_scheduled">Call Scheduled</option>
@@ -185,7 +185,7 @@ export const LeadsTab = ({
                 onClick={onRefresh}
                 className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
-                {t('admin.crm.leads.apply_filters')}
+                {t('crm.leads.apply_filters')}
               </button>
             </div>
           </div>
@@ -198,19 +198,19 @@ export const LeadsTab = ({
           <table className="w-full">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('admin.crm.leads.col_brand')}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('admin.crm.leads.col_email')}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('admin.crm.leads.col_sector')}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('admin.crm.leads.col_status')}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('admin.crm.leads.col_created')}</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('admin.crm.leads.col_actions')}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('crm.leads.col_brand')}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('crm.leads.col_email')}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('crm.leads.col_sector')}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('crm.leads.col_status')}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('crm.leads.col_created')}</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{t('crm.leads.col_actions')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {leads.length === 0 ? (
                 <tr>
                   <td colSpan="6" className="px-6 py-8 text-center text-gray-500">
-                    {t('admin.crm.leads.no_leads')}
+                    {t('crm.leads.no_leads')}
                   </td>
                 </tr>
               ) : (
@@ -265,16 +265,16 @@ const LeadDetails = ({ lead, onClose, onUpdate, onAddNote, onConvert, t, isRTL }
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-lg shadow space-y-4">
-          <h3 className="font-semibold text-lg">{t('admin.crm.leads.info')}</h3>
+          <h3 className="font-semibold text-lg">{t('crm.leads.info')}</h3>
           <div className="space-y-2">
-            <p><strong>{t('admin.crm.leads.email')}:</strong> {lead.email}</p>
-            <p><strong>{t('admin.crm.leads.phone')}:</strong> {lead.phone || '-'}</p>
-            <p><strong>{t('admin.crm.leads.sector')}:</strong> {lead.sector || '-'}</p>
-            <p><strong>{t('admin.crm.leads.language')}:</strong> {lead.language?.toUpperCase()}</p>
-            <p><strong>{t('admin.crm.leads.created')}:</strong> {new Date(lead.created_at).toLocaleString()}</p>
+            <p><strong>{t('crm.leads.email')}:</strong> {lead.email}</p>
+            <p><strong>{t('crm.leads.phone')}:</strong> {lead.phone || '-'}</p>
+            <p><strong>{t('crm.leads.sector')}:</strong> {lead.sector || '-'}</p>
+            <p><strong>{t('crm.leads.language')}:</strong> {lead.language?.toUpperCase()}</p>
+            <p><strong>{t('crm.leads.created')}:</strong> {new Date(lead.created_at).toLocaleString()}</p>
 
             <div className="pt-4">
-              <label className="block text-sm font-medium mb-2">{t('admin.crm.leads.status')}</label>
+              <label className="block text-sm font-medium mb-2">{t('crm.leads.status')}</label>
               {isEditingStatus ? (
                 <div className="flex gap-2">
                   <select
@@ -305,16 +305,16 @@ const LeadDetails = ({ lead, onClose, onUpdate, onAddNote, onConvert, t, isRTL }
             onClick={() => onConvert(lead._id)}
             className="w-full mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
           >
-            {t('admin.crm.leads.convert_to_contact')}
+            {t('crm.leads.convert_to_contact')}
           </button>
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow space-y-4">
-          <h3 className="font-semibold text-lg">{t('admin.crm.leads.add_note')}</h3>
+          <h3 className="font-semibold text-lg">{t('crm.leads.add_note')}</h3>
           <textarea
             value={noteContent}
             onChange={(e) => setNoteContent(e.target.value)}
-            placeholder={t('admin.crm.leads.note_placeholder')}
+            placeholder={t('crm.leads.note_placeholder')}
             className="w-full px-3 py-2 border rounded-lg"
             rows="4"
           />
@@ -327,11 +327,11 @@ const LeadDetails = ({ lead, onClose, onUpdate, onAddNote, onConvert, t, isRTL }
             }}
             className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
           >
-            {t('admin.crm.leads.save_note')}
+            {t('crm.leads.save_note')}
           </button>
 
           <div className="pt-4">
-            <h4 className="font-semibold mb-2">{t('admin.crm.leads.activities')}</h4>
+            <h4 className="font-semibold mb-2">{t('crm.leads.activities')}</h4>
             <div className="space-y-2">
               {lead.activities?.map((activity, idx) => (
                 <div key={idx} className="p-3 bg-gray-50 rounded text-sm">
@@ -339,7 +339,7 @@ const LeadDetails = ({ lead, onClose, onUpdate, onAddNote, onConvert, t, isRTL }
                   <p className="text-gray-600">{activity.description}</p>
                   <p className="text-xs text-gray-500 mt-1">{new Date(activity.created_at).toLocaleString()}</p>
                 </div>
-              )) || <p className="text-gray-500">{t('admin.crm.leads.no_activities')}</p>}
+              )) || <p className="text-gray-500">{t('crm.leads.no_activities')}</p>}
             </div>
           </div>
         </div>

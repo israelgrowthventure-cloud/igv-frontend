@@ -24,7 +24,7 @@ const DashboardPage = () => {
       setStats(data);
     } catch (error) {
       console.error('Error loading dashboard stats:', error);
-      toast.error(t('admin.crm.errors.load_failed', 'Erreur de chargement'));
+      toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
     } finally {
       setLoading(false);
     }

@@ -18,26 +18,30 @@ import {
 import CmsAdminButton from '../CmsAdminButton';
 
 /**
- * Sidebar - CRM Main Navigation
+ * Sidebar - Navigation principale du CRM
  * Design: HubSpot/Salesforce style
- * Full i18n - no hardcoded text
+ * 
+ * Features:
+ * - Navigation avec icônes + labels
+ * - Active state highlighting
+ * - Collapse/expand
+ * - Responsive (auto-collapse sur mobile)
  */
 const Sidebar = ({ collapsed, onToggle }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const isRTL = i18n.language === 'he';
 
   const navigationItems = [
-    { id: 'dashboard', path: '/admin/crm/dashboard', icon: LayoutDashboard, label: t('admin.crm.nav.dashboard') },
-    { id: 'leads', path: '/admin/crm/leads', icon: Users, label: t('admin.crm.nav.leads') },
-    { id: 'contacts', path: '/admin/crm/contacts', icon: UserCheck, label: t('admin.crm.nav.contacts') },
-    { id: 'opportunities', path: '/admin/crm/opportunities', icon: Target, label: t('admin.crm.nav.opportunities') },
-    { id: 'pipeline', path: '/admin/crm/pipeline', icon: BarChart3, label: t('admin.crm.nav.pipeline') },
-    { id: 'activities', path: '/admin/crm/activities', icon: Activity, label: t('admin.crm.nav.activities') },
-    { id: 'emails', path: '/admin/crm/emails', icon: Mail, label: t('admin.crm.nav.emails') },
-    { id: 'users', path: '/admin/crm/users', icon: UserCog, label: t('admin.crm.nav.users'), adminOnly: true },
-    { id: 'settings', path: '/admin/crm/settings', icon: Settings, label: t('admin.crm.nav.settings') }
+    { id: 'dashboard', path: '/admin/crm/dashboard', icon: LayoutDashboard, label: t('crm.nav.dashboard', 'Tableau de bord') },
+    { id: 'leads', path: '/admin/crm/leads', icon: Users, label: t('crm.nav.leads', 'Prospects') },
+    { id: 'contacts', path: '/admin/crm/contacts', icon: UserCheck, label: t('crm.nav.contacts', 'Contacts') },
+    { id: 'opportunities', path: '/admin/crm/opportunities', icon: Target, label: t('crm.nav.opportunities', 'Opportunités') },
+    { id: 'pipeline', path: '/admin/crm/pipeline', icon: BarChart3, label: t('crm.nav.pipeline', 'Pipeline') },
+    { id: 'activities', path: '/admin/crm/activities', icon: Activity, label: t('crm.nav.activities', 'Activités') },
+    { id: 'emails', path: '/admin/crm/emails', icon: Mail, label: t('crm.nav.emails', 'Emails') },
+    { id: 'users', path: '/admin/crm/users', icon: UserCog, label: t('crm.nav.users', 'Utilisateurs'), adminOnly: true },
+    { id: 'settings', path: '/admin/crm/settings', icon: Settings, label: t('crm.nav.settings', 'Paramètres') }
   ];
 
   const isActive = (path) => {
@@ -45,28 +49,27 @@ const Sidebar = ({ collapsed, onToggle }) => {
   };
 
   return (
-    <div
+    <div 
       className={`bg-gray-900 text-white flex flex-col transition-all duration-300 ${
         collapsed ? 'w-16' : 'w-64'
       }`}
-      dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Logo + Company Name */}
       <div className="h-16 flex items-center justify-between px-4 border-b border-gray-800">
         {!collapsed && (
-          <div className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
-            <img
-              src="/igv-logo.png"
-              alt="IGV Logo"
+          <div className="flex items-center space-x-2">
+            <img 
+              src="/igv-logo.png" 
+              alt="IGV Logo" 
               className="w-10 h-10 object-contain"
             />
             <span className="font-semibold text-sm">Israel Growth Venture</span>
           </div>
         )}
         {collapsed && (
-          <img
-            src="/igv-logo.png"
-            alt="IGV"
+          <img 
+            src="/igv-logo.png" 
+            alt="IGV" 
             className="w-10 h-10 object-contain mx-auto"
           />
         )}
@@ -78,14 +81,17 @@ const Sidebar = ({ collapsed, onToggle }) => {
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.path);
-
+            
             return (
               <li key={item.id}>
                 <button
                   data-testid={`nav-${item.id}`}
                   data-nav-item={item.id}
                   onClick={() => {
+                    // Force navigation even if already on the same path
+                    // This triggers useEffect in LeadsPage to reset selectedItem
                     if (location.pathname === item.path) {
+                      // Dispatch custom event for pages to listen
                       window.dispatchEvent(new CustomEvent('resetLeadView'));
                       navigate(item.path, { replace: true });
                     } else {
@@ -93,9 +99,9 @@ const Sidebar = ({ collapsed, onToggle }) => {
                     }
                   }}
                   className={`
-                    w-full flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-3 px-3 py-2.5 rounded-lg transition-colors
-                    ${active
-                      ? `bg-blue-600 text-white ${isRTL ? 'border-r-4 border-blue-400' : 'border-l-4 border-blue-400'}`
+                    w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-colors
+                    ${active 
+                      ? 'bg-blue-600 text-white border-l-4 border-blue-400' 
                       : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                     }
                     ${collapsed ? 'justify-center' : ''}
@@ -114,7 +120,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
         </ul>
       </nav>
 
-      {/* CMS Admin Button */}
+      {/* CMS Admin Button - Wix-style embeddable */}
       <div className="px-2 pb-2">
         <CmsAdminButton collapsed={collapsed} />
       </div>
@@ -124,14 +130,14 @@ const Sidebar = ({ collapsed, onToggle }) => {
         <button
           onClick={onToggle}
           className="w-full flex items-center justify-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-800 transition-colors text-gray-300 hover:text-white"
-          title={collapsed ? t('admin.crm.sidebar.expand') : t('admin.crm.sidebar.collapse')}
+          title={collapsed ? t('crm.sidebar.expand', 'Développer') : t('crm.sidebar.collapse', 'Réduire')}
         >
           {collapsed ? (
-            isRTL ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-5 h-5" />
           ) : (
             <>
-              {isRTL ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
-              <span className="text-sm">{t('admin.crm.sidebar.collapse')}</span>
+              <ChevronLeft className="w-5 h-5" />
+              <span className="text-sm">{t('crm.sidebar.collapse', 'Réduire')}</span>
             </>
           )}
         </button>

@@ -66,7 +66,7 @@ const DroppableStage = ({ stage, children, stageNames, opps, t }) => {
         <div className="flex justify-between items-center">
           <h3 className="font-semibold">{stageNames[stage]}</h3>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600">{opps.length} {t('admin.crm.pipeline.opportunities')}</span>
+            <span className="text-sm text-gray-600">{opps.length} {t('crm.pipeline.opportunities')}</span>
             <span className="font-semibold text-green-600">${stageValue.toLocaleString()}</span>
           </div>
         </div>
@@ -106,11 +106,11 @@ const PipelineTab = ({ data, onRefresh, t }) => {
     try {
       setLoadingAction(true);
       await api.put(`/api/crm/pipeline/opportunities/${oppId}`, { stage: newStage });
-      toast.success(t('admin.crm.pipeline.stage_updated'));
+      toast.success(t('crm.pipeline.stage_updated'));
       await onRefresh();
       setSelectedOpp(null);
     } catch (error) {
-      toast.error(t('admin.crm.errors.stage_failed'));
+      toast.error(t('crm.errors.stage_failed'));
     } finally {
       setLoadingAction(false);
     }
@@ -147,14 +147,14 @@ const PipelineTab = ({ data, onRefresh, t }) => {
   };
 
   const stageNames = {
-    INITIAL_INTEREST: t('admin.crm.pipeline.stages.initial_interest'),
-    INFO_REQUESTED: t('admin.crm.pipeline.stages.info_requested'),
-    FIRST_CALL_SCHEDULED: t('admin.crm.pipeline.stages.first_call'),
-    PITCH_DELIVERED: t('admin.crm.pipeline.stages.pitch_delivered'),
-    PROPOSAL_SENT: t('admin.crm.pipeline.stages.proposal_sent'),
-    NEGOTIATION: t('admin.crm.pipeline.stages.negotiation'),
-    VERBAL_COMMITMENT: t('admin.crm.pipeline.stages.verbal_commitment'),
-    WON: t('admin.crm.pipeline.stages.won')
+    INITIAL_INTEREST: t('crm.pipeline.stages.initial_interest'),
+    INFO_REQUESTED: t('crm.pipeline.stages.info_requested'),
+    FIRST_CALL_SCHEDULED: t('crm.pipeline.stages.first_call'),
+    PITCH_DELIVERED: t('crm.pipeline.stages.pitch_delivered'),
+    PROPOSAL_SENT: t('crm.pipeline.stages.proposal_sent'),
+    NEGOTIATION: t('crm.pipeline.stages.negotiation'),
+    VERBAL_COMMITMENT: t('crm.pipeline.stages.verbal_commitment'),
+    WON: t('crm.pipeline.stages.won')
   };
 
   // Use default empty data instead of showing spinner
@@ -175,19 +175,19 @@ const PipelineTab = ({ data, onRefresh, t }) => {
         <>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div className="bg-white p-4 rounded-lg shadow border">
-              <p className="text-sm text-gray-600">{t('admin.crm.pipeline.total_opps')}</p>
+              <p className="text-sm text-gray-600">{t('crm.pipeline.total_opps')}</p>
               <p className="text-2xl font-bold mt-1">{pipelineData.summary?.total_opportunities || 0}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow border">
-              <p className="text-sm text-gray-600">{t('admin.crm.pipeline.total_value')}</p>
+              <p className="text-sm text-gray-600">{t('crm.pipeline.total_value')}</p>
               <p className="text-2xl font-bold mt-1">${(pipelineData.summary?.total_value || 0).toLocaleString()}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow border">
-              <p className="text-sm text-gray-600">{t('admin.crm.pipeline.avg_deal')}</p>
+              <p className="text-sm text-gray-600">{t('crm.pipeline.avg_deal')}</p>
               <p className="text-2xl font-bold mt-1">${(pipelineData.summary?.average_deal_size || 0).toLocaleString()}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow border">
-              <p className="text-sm text-gray-600">{t('admin.crm.pipeline.close_rate')}</p>
+              <p className="text-sm text-gray-600">{t('crm.pipeline.close_rate')}</p>
               <p className="text-2xl font-bold mt-1">{pipelineData.summary?.win_rate || 0}%</p>
             </div>
           </div>
@@ -198,7 +198,7 @@ const PipelineTab = ({ data, onRefresh, t }) => {
               return (
                 <DroppableStage key={stage} stage={stage} stageNames={stageNames} opps={opps} t={t}>
                   {opps.length === 0 ? (
-                    <p className="text-center text-gray-500 py-4">{t('admin.crm.common.no_data')}</p>
+                    <p className="text-center text-gray-500 py-4">{t('crm.common.no_data')}</p>
                   ) : (
                     <div className="space-y-2">
                       {opps.map(opp => (
@@ -248,13 +248,13 @@ const PipelineTab = ({ data, onRefresh, t }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="text-sm text-gray-600">{t('admin.crm.pipeline.current_stage')}</label>
+              <label className="text-sm text-gray-600">{t('crm.pipeline.current_stage')}</label>
               <select value={selectedOpp.stage} onChange={(e) => handleStageChange(selectedOpp.opportunity_id, e.target.value)} disabled={loadingAction} className="w-full mt-1 px-3 py-2 border rounded-lg">
                 {stages.map(s => <option key={s} value={s}>{stageNames[s]}</option>)}
               </select>
             </div>
             <div>
-              <label className="text-sm text-gray-600">{t('admin.crm.pipeline.estimated_value')}</label>
+              <label className="text-sm text-gray-600">{t('crm.pipeline.estimated_value')}</label>
               <div className="flex items-center gap-2 mt-1">
                 <DollarSign className="w-5 h-5 text-gray-400" />
                 <span className="text-xl font-bold">{(selectedOpp.estimated_value || 0).toLocaleString()}</span>
@@ -264,13 +264,13 @@ const PipelineTab = ({ data, onRefresh, t }) => {
 
           {selectedOpp.description && (
             <div className="mt-6">
-              <label className="text-sm text-gray-600">{t('admin.crm.pipeline.description')}</label>
+              <label className="text-sm text-gray-600">{t('crm.pipeline.description')}</label>
               <p className="mt-2 p-4 bg-gray-50 rounded-lg">{selectedOpp.description}</p>
             </div>
           )}
 
           <div className="mt-6 border-t pt-6">
-            <h3 className="font-semibold mb-4">{t('admin.crm.pipeline.stage_history')}</h3>
+            <h3 className="font-semibold mb-4">{t('crm.pipeline.stage_history')}</h3>
             <div className="space-y-2">
               {selectedOpp.stage_history?.map((entry, idx) => (
                 <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
@@ -280,7 +280,7 @@ const PipelineTab = ({ data, onRefresh, t }) => {
                     <p className="text-xs text-gray-500">{new Date(entry.changed_at).toLocaleString()} • {entry.changed_by}</p>
                   </div>
                 </div>
-              )) || <p className="text-gray-500 text-sm">{t('admin.crm.common.no_history')}</p>}
+              )) || <p className="text-gray-500 text-sm">{t('crm.common.no_history')}</p>}
             </div>
           </div>
         </div>

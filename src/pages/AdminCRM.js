@@ -165,7 +165,7 @@ const AdminCRMDashboard = () => {
   return (
     <>
       <Helmet>
-        <title>{t('admin.crm.title')} | IGV CRM</title>
+        <title>{t('crm.title')} | IGV CRM</title>
         <html lang={i18n.language} dir={isRTL ? 'rtl' : 'ltr'} />
       </Helmet>
 
@@ -213,12 +213,12 @@ const AdminCRMDashboard = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex gap-6 overflow-x-auto">
               {[
-                { id: 'dashboard', icon: TrendingUp, label: t('admin.crm.tabs.dashboard') },
-                { id: 'leads', icon: Users, label: t('admin.crm.tabs.leads') },
-                { id: 'pipeline', icon: Target, label: t('admin.crm.tabs.pipeline') },
-                { id: 'contacts', icon: Mail, label: t('admin.crm.tabs.contacts') },
+                { id: 'dashboard', icon: TrendingUp, label: t('crm.tabs.dashboard') },
+                { id: 'leads', icon: Users, label: t('crm.tabs.leads') },
+                { id: 'pipeline', icon: Target, label: t('crm.tabs.pipeline') },
+                { id: 'contacts', icon: Mail, label: t('crm.tabs.contacts') },
                 ...(user?.role === 'admin' ? [
-                  { id: 'settings', icon: Settings, label: t('admin.crm.tabs.settings') }
+                  { id: 'settings', icon: Settings, label: t('crm.tabs.settings') }
                 ] : [])
               ].map(tab => (
                 <button
@@ -338,25 +338,25 @@ const DashboardTab = ({ stats, t, isRTL }) => {
 
   const kpis = [
     {
-      label: t('admin.crm.dashboard.leads_today'),
+      label: t('crm.dashboard.leads_today'),
       value: stats.leads?.today || 0,
       icon: Users,
       color: 'blue'
     },
     {
-      label: t('admin.crm.dashboard.leads_7d'),
+      label: t('crm.dashboard.leads_7d'),
       value: stats.leads?.last_7_days || 0,
       icon: TrendingUp,
       color: 'green'
     },
     {
-      label: t('admin.crm.dashboard.pipeline_value'),
+      label: t('crm.dashboard.pipeline_value'),
       value: `$${(stats.opportunities?.pipeline_value || 0).toLocaleString()}`,
       icon: DollarSign,
       color: 'purple'
     },
     {
-      label: t('admin.crm.dashboard.tasks_overdue'),
+      label: t('crm.dashboard.tasks_overdue'),
       value: stats.tasks?.overdue || 0,
       icon: AlertCircle,
       color: 'red'
@@ -382,11 +382,11 @@ const DashboardTab = ({ stats, t, isRTL }) => {
 
       {/* Top Sources */}
       <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
-        <h3 className="text-lg font-semibold mb-4">{t('admin.crm.dashboard.top_sources')}</h3>
+        <h3 className="text-lg font-semibold mb-4">{t('crm.dashboard.top_sources')}</h3>
         <div className="space-y-2">
           {stats.top_sources?.map((source, idx) => (
             <div key={idx} className="flex justify-between items-center py-2 border-b">
-              <span className="text-gray-700">{source.source || t('admin.crm.dashboard.direct')}</span>
+              <span className="text-gray-700">{source.source || t('crm.dashboard.direct')}</span>
               <span className="font-semibold">{source.count}</span>
             </div>
           ))}
@@ -395,11 +395,11 @@ const DashboardTab = ({ stats, t, isRTL }) => {
 
       {/* Stage Distribution */}
       <div className="bg-white p-6 rounded-lg shadow border border-gray-200">
-        <h3 className="text-lg font-semibold mb-4">{t('admin.crm.dashboard.stage_distribution')}</h3>
+        <h3 className="text-lg font-semibold mb-4">{t('crm.dashboard.stage_distribution')}</h3>
         <div className="space-y-2">
           {stats.stage_distribution?.map((stage, idx) => (
             <div key={idx} className="flex justify-between items-center py-2 border-b">
-              <span className="text-gray-700">{t(`admin.crm.stages.${stage.stage}`)}</span>
+              <span className="text-gray-700">{t(`crm.stages.${stage.stage}`)}</span>
               <span className="font-semibold">{stage.count}</span>
             </div>
           ))}

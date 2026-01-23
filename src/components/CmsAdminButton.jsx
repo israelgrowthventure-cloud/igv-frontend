@@ -1,17 +1,17 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Palette } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import './CmsAdminButton.css';
 
 /**
- * CmsAdminButton - Bouton "Modifier le Site" protֳ©gֳ©
+ * CmsAdminButton - Bouton "Modifier le Site" protégé
  * 
  * Conditions d'affichage:
- * - Seulement visible pour les rֳ´les 'admin' ou 'technique'
- * - Protֳ©gֳ© par un mot de passe sֳ©parֳ© (CMS_PASSWORD via Render)
- * - Ouvre une page placeholder "CMS bientֳ´t disponible"
+ * - Seulement visible pour les rôles 'admin' ou 'technique'
+ * - Protégé par un mot de passe séparé (CMS_PASSWORD via Render)
+ * - Ouvre une page placeholder "CMS bientôt disponible"
  * 
- * Mission 2: Mise de cֳ´tֳ© temporaire du CMS
+ * Mission 2: Mise de côté temporaire du CMS
  */
 const CmsAdminButton = ({ collapsed = false }) => {
   const { user, isAdmin, hasRole } = useAuth();
@@ -38,7 +38,7 @@ const CmsAdminButton = ({ collapsed = false }) => {
     e.preventDefault();
     
     try {
-      // Vֳ©rifier le mot de passe via l'API backend
+      // Vérifier le mot de passe via l'API backend
       const response = await fetch(`${process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com'}/api/cms/verify-password`, {
         method: 'POST',
         headers: {
@@ -55,7 +55,7 @@ const CmsAdminButton = ({ collapsed = false }) => {
         setError('Mot de passe incorrect');
       }
     } catch (err) {
-      setError('Erreur de vֳ©rification');
+      setError('Erreur de vérification');
     }
   };
 
@@ -76,7 +76,7 @@ const CmsAdminButton = ({ collapsed = false }) => {
         data-testid="btn-cms-edit"
         aria-label="Modifier le Site"
         className="cms-admin-button"
-        title="Ouvrir l'ֳ©diteur de site (protֳ©gֳ©)"
+        title="Ouvrir l'éditeur de site (protégé)"
       >
         <Palette />
         {!collapsed && <span>Modifier le Site</span>}
@@ -85,10 +85,10 @@ const CmsAdminButton = ({ collapsed = false }) => {
       {/* Modal de mot de passe */}
       {showPasswordModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96 shadow-xl" style={{ backgroundColor: "#ffffff" }}>
-            <h3 className="text-lg font-semibold mb-4 text-gray-900">Accֳ¨s CMS protֳ©gֳ©</h3>
+          <div className="bg-white rounded-lg p-6 w-96 shadow-xl">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900">Accès CMS protégé</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Entrez le mot de passe CMS pour accֳ©der ֳ  l'ֳ©diteur.
+              Entrez le mot de passe CMS pour accéder à l'éditeur.
             </p>
             <form onSubmit={handlePasswordSubmit}>
               <input
@@ -96,7 +96,7 @@ const CmsAdminButton = ({ collapsed = false }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Mot de passe CMS"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900 placeholder-gray-400" style={{ color: "#111827", backgroundColor: "#ffffff", caretColor: "#111827" }}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900 placeholder-gray-400"
                 autoFocus
               />
               {error && (
@@ -122,17 +122,17 @@ const CmsAdminButton = ({ collapsed = false }) => {
         </div>
       )}
 
-      {/* Placeholder CMS bientֳ´t disponible */}
+      {/* Placeholder CMS bientôt disponible */}
       {showPlaceholder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 w-[500px] shadow-xl text-center" style={{ backgroundColor: "#ffffff" }}>
+          <div className="bg-white rounded-lg p-8 w-[500px] shadow-xl text-center">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Palette className="w-8 h-8 text-blue-600" />
             </div>
-            <h2 className="text-2xl font-bold mb-3 text-gray-900">CMS bientֳ´t disponible</h2>
+            <h2 className="text-2xl font-bold mb-3 text-gray-900">CMS bientôt disponible</h2>
             <p className="text-gray-600 mb-6">
-              L'ֳ©diteur de contenu est en cours de dֳ©veloppement.<br />
-              Cette fonctionnalitֳ© sera disponible prochainement.
+              L'éditeur de contenu est en cours de développement.<br />
+              Cette fonctionnalité sera disponible prochainement.
             </p>
             <button
               onClick={closePlaceholder}
@@ -148,6 +148,3 @@ const CmsAdminButton = ({ collapsed = false }) => {
 };
 
 export default CmsAdminButton;
-
-
-

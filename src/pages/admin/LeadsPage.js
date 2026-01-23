@@ -1,92 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import LeadsTab from '../../components/crm/LeadsTab';
 import api from '../../utils/api';
 import { toast } from 'sonner';
 
 /**
- * LeadsPage - Page for lead/prospect management
- * Loads its own data and passes it to LeadsTab
- * Supports ?selected=leadId to auto-open a specific lead
+ * LeadsPage - Page dédiée à la gestion des prospects
+ * Charge ses propres données et les passe à LeadsTab
  */
 const LeadsPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const isRTL = i18n.language === 'he';
-
   const [data, setData] = useState({ leads: [], total: 0 });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({});
   const [selectedItem, setSelectedItem] = useState(null);
-  const [pendingSelection, setPendingSelection] = useState(null);
+  const [pendingSelectedId, setPendingSelectedId] = useState(null);
 
-  // Check for ?selected= parameter and set pending selection
+  // Check for ?selected= URL parameter
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
     const selectedId = searchParams.get('selected');
     if (selectedId) {
-      setPendingSelection(selectedId);
+      setPendingSelectedId(parseInt(selectedId, 10));
+      // Clear URL parameter after reading
       navigate('/admin/crm/leads', { replace: true });
     }
-  }, [searchParams, navigate]);
+  }, [location.search, navigate]);
+
+  // Reset selectedItem when navigating back to leads list via menu
+  useEffect(() => {
+    if (location.pathname === '/admin/crm/leads' && !location.search) {
+      // Don't reset if we just set pendingSelectedId
+      if (!pendingSelectedId) {
+        setSelectedItem(null);
+      }
+    }
+  }, [location.pathname, location.search, pendingSelectedId]);
 
   // Listen for custom event from Sidebar when clicking on Leads menu
   useEffect(() => {
     const handleResetView = () => {
       setSelectedItem(null);
-      setPendingSelection(null);
     };
-
+    
     window.addEventListener('resetLeadView', handleResetView);
     window.addEventListener('popstate', handleResetView);
-
+    
     return () => {
       window.removeEventListener('resetLeadView', handleResetView);
       window.removeEventListener('popstate', handleResetView);
     };
   }, []);
 
-  // Apply pending selection once data is loaded
-  useEffect(() => {
-    if (pendingSelection && data.leads.length > 0) {
-      const leadToSelect = data.leads.find(lead => 
-        lead._id === pendingSelection || 
-        lead.id === pendingSelection ||
-        (lead._id && lead._id.includes(pendingSelection)) ||
-        (lead._id && pendingSelection.includes(lead._id.slice(-8)))
-      );
-      
-      if (leadToSelect) {
-        setSelectedItem(leadToSelect);
-        setPendingSelection(null);
-      } else {
-        fetchSingleLead(pendingSelection);
-      }
-    }
-  }, [pendingSelection, data.leads]);
-
-  // Fetch a single lead by ID if not in list
-  const fetchSingleLead = async (leadId) => {
-    try {
-      const response = await api.get('/api/crm/leads/' + leadId);
-      if (response && response._id) {
-        setSelectedItem(response);
-        setPendingSelection(null);
-      }
-    } catch (error) {
-      console.error('Error fetching lead:', error);
-      toast.error(t('admin.crm.errors.lead_not_found') || 'Lead not found');
-      setPendingSelection(null);
-    }
-  };
-
   useEffect(() => {
     loadLeads();
   }, [searchTerm, filters]);
+
+  // Auto-select lead when data is loaded and we have a pendingSelectedId
+  useEffect(() => {
+    if (pendingSelectedId && data.leads.length > 0 && !loading) {
+      const leadToSelect = data.leads.find(l => l.id === pendingSelectedId);
+      if (leadToSelect) {
+        setSelectedItem(leadToSelect);
+      } else {
+        // Lead not in current list, try to fetch it directly
+        api.get(`/api/crm/leads/${pendingSelectedId}`)
+          .then(response => {
+            if (response?.lead || response) {
+              setSelectedItem(response.lead || response);
+            }
+          })
+          .catch(err => {
+            console.error('Could not fetch selected lead:', err);
+            toast.error(t('crm.errors.lead_not_found', 'Prospect introuvable'));
+          });
+      }
+      setPendingSelectedId(null);
+    }
+  }, [pendingSelectedId, data.leads, loading, t]);
 
   const loadLeads = async () => {
     try {
@@ -100,13 +96,13 @@ const LeadsPage = () => {
       });
     } catch (error) {
       console.error('Error loading leads:', error);
-      toast.error(t('admin.crm.errors.load_failed'));
+      toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading && !pendingSelection) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
         <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
@@ -115,18 +111,18 @@ const LeadsPage = () => {
   }
 
   return (
-    <div className={`space-y-6 ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
+    <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-gray-900">
-          {t('admin.crm.leads.title')}
+          {t('crm.nav.leads', 'Prospects')}
         </h1>
         <p className="mt-2 text-sm text-gray-600">
-          {t('admin.crm.leads.subtitle')}
+          {t('crm.leads.subtitle', 'Gérez vos prospects et convertissez-les en contacts')}
         </p>
       </div>
 
-      <LeadsTab
-        data={data}
+      <LeadsTab 
+        data={data} 
         loading={loading}
         selectedItem={selectedItem}
         setSelectedItem={setSelectedItem}
@@ -135,7 +131,7 @@ const LeadsPage = () => {
         setSearchTerm={setSearchTerm}
         filters={filters}
         setFilters={setFilters}
-        t={t}
+        t={t} 
       />
     </div>
   );

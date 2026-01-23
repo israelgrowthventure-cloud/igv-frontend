@@ -21,11 +21,11 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
   });
 
   const stages = [
-    { id: 'qualification', label: t('admin.crm.opportunities.stages.qualification'), color: 'bg-gray-100 text-gray-800' },
-    { id: 'proposal', label: t('admin.crm.opportunities.stages.proposal'), color: 'bg-blue-100 text-blue-800' },
-    { id: 'negotiation', label: t('admin.crm.opportunities.stages.negotiation'), color: 'bg-yellow-100 text-yellow-800' },
-    { id: 'closed_won', label: t('admin.crm.opportunities.stages.closed_won'), color: 'bg-green-100 text-green-800' },
-    { id: 'closed_lost', label: t('admin.crm.opportunities.stages.closed_lost'), color: 'bg-red-100 text-red-800' }
+    { id: 'qualification', label: t('crm.opportunities.stages.qualification'), color: 'bg-gray-100 text-gray-800' },
+    { id: 'proposal', label: t('crm.opportunities.stages.proposal'), color: 'bg-blue-100 text-blue-800' },
+    { id: 'negotiation', label: t('crm.opportunities.stages.negotiation'), color: 'bg-yellow-100 text-yellow-800' },
+    { id: 'closed_won', label: t('crm.opportunities.stages.closed_won'), color: 'bg-green-100 text-green-800' },
+    { id: 'closed_lost', label: t('crm.opportunities.stages.closed_lost'), color: 'bg-red-100 text-red-800' }
   ];
 
   useEffect(() => {
@@ -55,12 +55,12 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
         value: parseFloat(formData.value) || 0,
         probability: parseInt(formData.probability) || 50
       });
-      toast.success(t('admin.crm.opportunities.created'));
+      toast.success(t('crm.opportunities.created'));
       setShowCreateModal(false);
       resetForm();
       loadOpportunities();
     } catch (error) {
-      toast.error(t('admin.crm.errors.create_failed'));
+      toast.error(t('crm.errors.create_failed'));
     } finally {
       setLoading(false);
     }
@@ -75,27 +75,27 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
         value: parseFloat(formData.value) || 0,
         probability: parseInt(formData.probability) || 50
       });
-      toast.success(t('admin.crm.opportunities.updated'));
+      toast.success(t('crm.opportunities.updated'));
       setShowEditModal(false);
       setEditingOpp(null);
       resetForm();
       loadOpportunities();
     } catch (error) {
-      toast.error(t('admin.crm.errors.update_failed'));
+      toast.error(t('crm.errors.update_failed'));
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (oppId) => {
-    if (!window.confirm(t('admin.crm.common.confirm_delete'))) return;
+    if (!window.confirm(t('crm.common.confirm_delete'))) return;
     try {
       setLoading(true);
       await api.delete(`/api/crm/opportunities/${oppId}`);
-      toast.success(t('admin.crm.opportunities.deleted'));
+      toast.success(t('crm.opportunities.deleted'));
       loadOpportunities();
     } catch (error) {
-      toast.error(t('admin.crm.errors.delete_failed'));
+      toast.error(t('crm.errors.delete_failed'));
     } finally {
       setLoading(false);
     }
@@ -143,7 +143,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
     link.href = URL.createObjectURL(blob);
     link.download = `opportunities_${new Date().toISOString().split('T')[0]}.csv`;
     link.click();
-    toast.success(t('admin.crm.opportunities.exported'));
+    toast.success(t('crm.opportunities.exported'));
   };
 
   const getStageColor = (stage) => stages.find(s => s.id === stage)?.color || 'bg-gray-100 text-gray-800';
@@ -161,7 +161,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
       <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">
-            {isEdit ? t('admin.crm.opportunities.edit') : t('admin.crm.opportunities.new')}
+            {isEdit ? t('crm.opportunities.edit') : t('crm.opportunities.new')}
           </h3>
           <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded">
             <X className="w-5 h-5" />
@@ -170,7 +170,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('admin.crm.opportunities.name')} *
+              {t('crm.opportunities.name')} *
             </label>
             <input
               type="text"
@@ -184,7 +184,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                {t('admin.crm.opportunities.value')} *
+                {t('crm.opportunities.value')} *
               </label>
               <input
                 type="number"
@@ -198,7 +198,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                {t('admin.crm.opportunities.probability')} *
+                {t('crm.opportunities.probability')} *
               </label>
               <input
                 type="number"
@@ -212,7 +212,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('admin.crm.opportunities.stage')}
+              {t('crm.opportunities.stage')}
             </label>
             <select
               value={formData.stage}
@@ -226,7 +226,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('admin.crm.opportunities.expected_close')}
+              {t('crm.opportunities.expected_close')}
             </label>
             <input
               type="date"
@@ -237,7 +237,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('admin.crm.opportunities.notes')}
+              {t('crm.opportunities.notes')}
             </label>
             <textarea
               value={formData.notes}
@@ -279,7 +279,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
               <Target className="w-5 h-5 text-blue-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">{t('admin.crm.opportunities.total_count')}</p>
+              <p className="text-sm text-gray-600">{t('crm.opportunities.total_count')}</p>
               <p className="text-xl font-bold">{filteredOpps.length}</p>
             </div>
           </div>
@@ -290,7 +290,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
               <DollarSign className="w-5 h-5 text-green-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">{t('admin.crm.opportunities.total_value')}</p>
+              <p className="text-sm text-gray-600">{t('crm.opportunities.total_value')}</p>
               <p className="text-xl font-bold">{totalValue.toLocaleString('fr-FR')} €</p>
             </div>
           </div>
@@ -301,7 +301,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
               <TrendingUp className="w-5 h-5 text-purple-600" />
             </div>
             <div>
-              <p className="text-sm text-gray-600">{t('admin.crm.opportunities.weighted_value')}</p>
+              <p className="text-sm text-gray-600">{t('crm.opportunities.weighted_value')}</p>
               <p className="text-xl font-bold">{weightedValue.toLocaleString('fr-FR')} €</p>
             </div>
           </div>
@@ -314,7 +314,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
           <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder={t('admin.crm.opportunities.search')}
+            placeholder={t('crm.opportunities.search')}
             value={searchTerm || ''}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border rounded-lg"
@@ -326,14 +326,14 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
             className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50"
           >
             <Download className="w-4 h-4" />
-            {t('admin.crm.common.export')}
+            {t('crm.common.export')}
           </button>
           <button
             onClick={() => { resetForm(); setShowCreateModal(true); }}
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
           >
             <Plus className="w-4 h-4" />
-            {t('admin.crm.opportunities.new')}
+            {t('crm.opportunities.new')}
           </button>
         </div>
       </div>
@@ -349,12 +349,12 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
           <table className="w-full">
             <thead className="bg-gray-50 border-b">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">{t('admin.crm.opportunities.name')}</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">{t('admin.crm.opportunities.value')}</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">{t('admin.crm.opportunities.probability')}</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">{t('admin.crm.opportunities.stage')}</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">{t('admin.crm.opportunities.expected_close')}</th>
-                <th className="px-4 py-3 text-right text-sm font-semibold">{t('admin.crm.common.actions')}</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">{t('crm.opportunities.name')}</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">{t('crm.opportunities.value')}</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">{t('crm.opportunities.probability')}</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">{t('crm.opportunities.stage')}</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">{t('crm.opportunities.expected_close')}</th>
+                <th className="px-4 py-3 text-right text-sm font-semibold">{t('crm.common.actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -413,14 +413,14 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
                   <td colSpan="6" className="px-4 py-12 text-center">
                     <div className="text-gray-500">
                       <Target className="w-12 h-12 mx-auto mb-3 text-gray-300" />
-                      <p className="font-medium">{t('admin.crm.opportunities.empty_title')}</p>
-                      <p className="text-sm mt-1">{t('admin.crm.opportunities.empty_subtitle')}</p>
+                      <p className="font-medium">{t('crm.opportunities.empty_title')}</p>
+                      <p className="text-sm mt-1">{t('crm.opportunities.empty_subtitle')}</p>
                       <button
                         onClick={() => { resetForm(); setShowCreateModal(true); }}
                         className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                       >
                         <Plus className="w-4 h-4" />
-                        {t('admin.crm.opportunities.new')}
+                        {t('crm.opportunities.new')}
                       </button>
                     </div>
                   </td>
@@ -449,11 +449,11 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
             
             <div className="grid grid-cols-2 gap-6 mb-6">
               <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.value')}</p>
+                <p className="text-sm text-gray-600 mb-1">{t('crm.opportunities.value')}</p>
                 <p className="text-2xl font-bold text-green-600">{(selectedOpp.value || 0).toLocaleString('fr-FR')} €</p>
               </div>
               <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.weighted_value')}</p>
+                <p className="text-sm text-gray-600 mb-1">{t('crm.opportunities.weighted_value')}</p>
                 <p className="text-2xl font-bold text-purple-600">
                   {((selectedOpp.value || 0) * (selectedOpp.probability || 0) / 100).toLocaleString('fr-FR')} €
                 </p>
@@ -464,7 +464,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
               <div className="flex items-center gap-3">
                 <TrendingUp className="w-5 h-5 text-gray-400" />
                 <div>
-                  <p className="text-sm text-gray-600">{t('admin.crm.opportunities.probability')}</p>
+                  <p className="text-sm text-gray-600">{t('crm.opportunities.probability')}</p>
                   <div className="flex items-center gap-3">
                     <div className="w-32 h-3 bg-gray-200 rounded-full overflow-hidden">
                       <div 
@@ -481,7 +481,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-gray-400" />
                   <div>
-                    <p className="text-sm text-gray-600">{t('admin.crm.opportunities.expected_close')}</p>
+                    <p className="text-sm text-gray-600">{t('crm.opportunities.expected_close')}</p>
                     <p className="font-medium">{new Date(selectedOpp.expected_close_date).toLocaleDateString('fr-FR')}</p>
                   </div>
                 </div>
@@ -489,7 +489,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
 
               {selectedOpp.notes && (
                 <div className="p-4 bg-gray-50 rounded-lg">
-                  <p className="text-sm text-gray-600 mb-2">{t('admin.crm.opportunities.notes')}</p>
+                  <p className="text-sm text-gray-600 mb-2">{t('crm.opportunities.notes')}</p>
                   <p className="text-gray-800">{selectedOpp.notes}</p>
                 </div>
               )}

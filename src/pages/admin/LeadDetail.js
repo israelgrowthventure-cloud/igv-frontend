@@ -48,8 +48,8 @@ const LeadDetail = () => {
       setEditData(response);
     } catch (error) {
       console.error('Error fetching lead:', error);
-      toast.error(t('admin.crm.errors.load_failed') || 'Failed to load lead');
-      navigate('/admin/crm');
+      toast.error(t('crm.errors.load_failed') || 'Failed to load lead');
+      navigate('/admin/crm/leads');
     } finally {
       setLoading(false);
     }
@@ -73,11 +73,11 @@ const LeadDetail = () => {
     try {
       setSaving(true);
       await api.put(`/api/crm/leads/${id}`, editData);
-      toast.success(t('admin.crm.leads.updated') || 'Lead updated successfully');
+      toast.success(t('crm.leads.updated') || 'Lead updated successfully');
       setLead(editData);
       setEditing(false);
     } catch (error) {
-      toast.error(t('admin.crm.errors.update_failed') || 'Failed to update lead');
+      toast.error(t('crm.errors.update_failed') || 'Failed to update lead');
     } finally {
       setSaving(false);
     }
@@ -87,10 +87,10 @@ const LeadDetail = () => {
     try {
       setSaving(true);
       await api.delete(`/api/crm/leads/${id}`);
-      toast.success(t('admin.crm.leads.deleted') || 'Lead deleted successfully');
-      navigate('/admin/crm');
+      toast.success(t('crm.leads.deleted') || 'Lead deleted successfully');
+      navigate('/admin/crm/leads');
     } catch (error) {
-      toast.error(t('admin.crm.errors.delete_failed') || 'Failed to delete lead');
+      toast.error(t('crm.errors.delete_failed') || 'Failed to delete lead');
     } finally {
       setSaving(false);
       setShowDeleteConfirm(false);
@@ -102,11 +102,11 @@ const LeadDetail = () => {
     try {
       setSaving(true);
       await api.post(`/api/crm/leads/${id}/notes`, { note_text: noteText });
-      toast.success(t('admin.crm.leads.note_added') || 'Note added');
+      toast.success(t('crm.leads.note_added') || 'Note added');
       setNoteText('');
       fetchLead();
     } catch (error) {
-      toast.error(t('admin.crm.errors.note_failed') || 'Failed to add note');
+      toast.error(t('crm.errors.note_failed') || 'Failed to add note');
     } finally {
       setSaving(false);
     }
@@ -116,10 +116,10 @@ const LeadDetail = () => {
     try {
       setSaving(true);
       await api.post(`/api/crm/leads/${id}/convert-to-contact`);
-      toast.success(t('admin.crm.leads.converted') || 'Lead converted to contact');
-      navigate('/admin/crm');
+      toast.success(t('crm.leads.converted') || 'Lead converted to contact');
+      navigate('/admin/crm/leads');
     } catch (error) {
-      toast.error(t('admin.crm.errors.convert_failed') || 'Failed to convert lead');
+      toast.error(t('crm.errors.convert_failed') || 'Failed to convert lead');
     } finally {
       setSaving(false);
     }
@@ -136,12 +136,12 @@ const LeadDetail = () => {
         probability: parseInt(oppForm.probability) || 50,
         stage: oppForm.stage || 'qualification'
       });
-      toast.success(t('admin.crm.opportunities.created') || 'Opportunity created');
+      toast.success(t('crm.opportunities.created') || 'Opportunity created');
       setShowOppModal(false);
       setOppForm({ name: '', value: '', probability: 50, stage: 'qualification' });
-      navigate('/admin/crm');
+      navigate('/admin/crm/leads');
     } catch (error) {
-      toast.error(t('admin.crm.errors.create_failed') || 'Failed to create opportunity');
+      toast.error(t('crm.errors.create_failed') || 'Failed to create opportunity');
     } finally {
       setSaving(false);
     }
@@ -159,9 +159,9 @@ const LeadDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">{t('admin.crm.leads.not_found') || 'Lead not found'}</p>
-          <button onClick={() => navigate('/admin/crm')} className="text-blue-600 hover:underline">
-            {t('admin.crm.common.back') || 'Back to CRM'}
+          <p className="text-gray-600 mb-4">{t('crm.leads.not_found') || 'Lead not found'}</p>
+          <button onClick={() => navigate('/admin/crm/leads')} className="text-blue-600 hover:underline">
+            {t('crm.common.back') || 'Back to CRM'}
           </button>
         </div>
       </div>
@@ -181,14 +181,14 @@ const LeadDetail = () => {
           <div className="max-w-4xl mx-auto px-4 py-4">
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => navigate('/admin/crm')} 
+                onClick={() => navigate('/admin/crm/leads')} 
                 className="p-2 hover:bg-gray-100 rounded-lg"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div className="flex-1">
                 <h1 className="text-xl font-bold">{lead.contact_name || lead.email}</h1>
-                <p className="text-sm text-gray-600">{lead.brand_name || t('admin.crm.leads.no_brand') || 'No brand'}</p>
+                <p className="text-sm text-gray-600">{lead.brand_name || t('crm.leads.no_brand') || 'No brand'}</p>
               </div>
               <div className="flex items-center gap-2">
                 {!editing ? (
@@ -198,14 +198,14 @@ const LeadDetail = () => {
                       className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                     >
                       <Edit2 className="w-4 h-4" />
-                      {t('admin.crm.common.edit') || 'Edit'}
+                      {t('crm.common.edit') || 'Edit'}
                     </button>
                     <button 
                       onClick={() => setShowDeleteConfirm(true)} 
                       className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
                     >
                       <Trash2 className="w-4 h-4" />
-                      {t('admin.crm.common.delete') || 'Delete'}
+                      {t('crm.common.delete') || 'Delete'}
                     </button>
                   </>
                 ) : (
@@ -216,14 +216,14 @@ const LeadDetail = () => {
                       className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
                     >
                       {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                      {t('admin.crm.common.save') || 'Save'}
+                      {t('crm.common.save') || 'Save'}
                     </button>
                     <button 
                       onClick={() => { setEditing(false); setEditData(lead); }} 
                       className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50"
                     >
                       <X className="w-4 h-4" />
-                      {t('admin.crm.common.cancel') || 'Cancel'}
+                      {t('crm.common.cancel') || 'Cancel'}
                     </button>
                   </>
                 )}
@@ -236,31 +236,31 @@ const LeadDetail = () => {
         <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
           {/* Status and Priority */}
           <div className="bg-white rounded-lg shadow border p-6">
-            <h2 className="font-semibold mb-4">{t('admin.crm.leads.details.status_priority') || 'Status & Priority'}</h2>
+            <h2 className="font-semibold mb-4">{t('crm.leads.details.status_priority') || 'Status & Priority'}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.leads.columns.status') || 'Status'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.leads.columns.status') || 'Status'}</label>
                 {editing ? (
                   <select 
                     value={editData.status} 
                     onChange={(e) => setEditData({...editData, status: e.target.value})}
                     className="w-full px-3 py-2 border rounded-lg"
                   >
-                    {statuses.map(s => <option key={s} value={s}>{t(`admin.crm.statuses.${s}`) || s}</option>)}
+                    {statuses.map(s => <option key={s} value={s}>{t(`crm.statuses.${s}`) || s}</option>)}
                   </select>
                 ) : (
                   <StatusBadge status={lead.status} />
                 )}
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.leads.columns.priority') || 'Priority'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.leads.columns.priority') || 'Priority'}</label>
                 {editing ? (
                   <select 
                     value={editData.priority || 'C'} 
                     onChange={(e) => setEditData({...editData, priority: e.target.value})}
                     className="w-full px-3 py-2 border rounded-lg"
                   >
-                    {priorities.map(p => <option key={p} value={p}>{t(`admin.crm.priorities.${p}`) || `Priority ${p}`}</option>)}
+                    {priorities.map(p => <option key={p} value={p}>{t(`crm.priorities.${p}`) || `Priority ${p}`}</option>)}
                   </select>
                 ) : (
                   <PriorityBadge priority={lead.priority} />
@@ -271,13 +271,13 @@ const LeadDetail = () => {
 
           {/* Contact Info */}
           <div className="bg-white rounded-lg shadow border p-6">
-            <h2 className="font-semibold mb-4">{t('admin.crm.leads.details.contact_info') || 'Contact Information'}</h2>
+            <h2 className="font-semibold mb-4">{t('crm.leads.details.contact_info') || 'Contact Information'}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.leads.columns.email') || 'Email'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.leads.columns.email') || 'Email'}</p>
                     {editing ? (
                       <input 
                         type="email" 
@@ -293,7 +293,7 @@ const LeadDetail = () => {
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.leads.phone') || 'Phone'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.leads.phone') || 'Phone'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -311,7 +311,7 @@ const LeadDetail = () => {
                 <div className="flex items-start gap-3">
                   <Building className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.leads.columns.brand') || 'Brand'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.leads.columns.brand') || 'Brand'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -327,7 +327,7 @@ const LeadDetail = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-gray-400 mt-1" />
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{t('admin.crm.leads.columns.sector') || 'Sector'}</p>
+                    <p className="text-sm text-gray-600">{t('crm.leads.columns.sector') || 'Sector'}</p>
                     {editing ? (
                       <input 
                         type="text" 
@@ -349,7 +349,7 @@ const LeadDetail = () => {
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-md border border-blue-200 p-6">
               <h2 className="font-semibold text-lg text-blue-900 mb-3 flex items-center gap-2">
                 <MessageSquare className="w-5 h-5" />
-                {t('admin.crm.leads.mini_analysis') || 'Mini-Analyse IGV'}
+                {t('crm.leads.mini_analysis') || 'Mini-Analyse IGV'}
               </h2>
               <div className="bg-white rounded-lg p-4 border border-blue-100">
                 <p className="text-gray-800 whitespace-pre-wrap leading-relaxed">{lead.analysis}</p>
@@ -357,12 +357,12 @@ const LeadDetail = () => {
               {lead.analysis_meta && (
                 <div className="mt-3 text-xs text-blue-700">
                   <p>
-                    <strong>{t('admin.crm.leads.generated_on') || 'Générée le'} :</strong>{' '}
+                    <strong>{t('crm.leads.generated_on') || 'Générée le'} :</strong>{' '}
                     {new Date(lead.analysis_meta.generated_at).toLocaleString()}
                   </p>
                   {lead.analysis_meta.language && (
                     <p>
-                      <strong>{t('admin.crm.leads.language') || 'Langue'} :</strong>{' '}
+                      <strong>{t('crm.leads.language') || 'Langue'} :</strong>{' '}
                       {lead.analysis_meta.language.toUpperCase()}
                     </p>
                   )}
@@ -374,10 +374,10 @@ const LeadDetail = () => {
           {/* Additional Info */}
           {editing && (
             <div className="bg-white rounded-lg shadow border p-6">
-              <h2 className="font-semibold mb-4">{t('admin.crm.leads.details.additional') || 'Additional Information'}</h2>
+              <h2 className="font-semibold mb-4">{t('crm.leads.details.additional') || 'Additional Information'}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.leads.columns.name') || 'Contact Name'}</label>
+                  <label className="block text-sm text-gray-600 mb-1">{t('crm.leads.columns.name') || 'Contact Name'}</label>
                   <input 
                     type="text" 
                     value={editData.contact_name || ''} 
@@ -386,7 +386,7 @@ const LeadDetail = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.leads.target_city') || 'Target City'}</label>
+                  <label className="block text-sm text-gray-600 mb-1">{t('crm.leads.target_city') || 'Target City'}</label>
                   <input 
                     type="text" 
                     value={editData.target_city || ''} 
@@ -401,7 +401,7 @@ const LeadDetail = () => {
           {/* Focus Notes */}
           {lead.focus_notes && (
             <div className="bg-blue-50 rounded-lg border border-blue-200 p-6">
-              <h2 className="font-semibold text-blue-900 mb-2">{t('admin.crm.leads.details.focus_notes') || 'Focus Notes'}</h2>
+              <h2 className="font-semibold text-blue-900 mb-2">{t('crm.leads.details.focus_notes') || 'Focus Notes'}</h2>
               <p className="text-blue-800">{lead.focus_notes}</p>
             </div>
           )}
@@ -410,12 +410,12 @@ const LeadDetail = () => {
           <div className="bg-white rounded-lg shadow border p-6">
             <h2 className="font-semibold mb-4 flex items-center gap-2">
               <MessageSquare className="w-5 h-5" />
-              {t('admin.crm.leads.details.notes') || 'Notes'}
+              {t('crm.leads.details.notes') || 'Notes'}
             </h2>
             {notesLoading ? (
               <div className="flex items-center gap-2 py-4">
                 <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
-                <span className="text-sm text-gray-500">{t('admin.crm.common.loading') || 'Loading...'}</span>
+                <span className="text-sm text-gray-500">{t('crm.common.loading') || 'Loading...'}</span>
               </div>
             ) : (
               <>
@@ -428,13 +428,13 @@ const LeadDetail = () => {
                       </p>
                     </div>
                   )) : (
-                    <p className="text-gray-500 text-sm">{t('admin.crm.common.no_notes') || 'No notes yet'}</p>
+                    <p className="text-gray-500 text-sm">{t('crm.common.no_notes') || 'No notes yet'}</p>
                   )}
                 </div>
                 <div className="flex gap-2">
                   <input 
                     type="text" 
-                    placeholder={t('admin.crm.leads.add_note_placeholder') || 'Add a note...'} 
+                    placeholder={t('crm.leads.add_note_placeholder') || 'Add a note...'} 
                     value={noteText} 
                     onChange={(e) => setNoteText(e.target.value)} 
                     className="flex-1 px-3 py-2 border rounded-lg" 
@@ -444,7 +444,7 @@ const LeadDetail = () => {
                     disabled={!noteText.trim() || saving} 
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
                   >
-                    {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('admin.crm.common.add') || 'Add'}
+                    {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.add') || 'Add'}
                   </button>
                 </div>
               </>
@@ -454,7 +454,7 @@ const LeadDetail = () => {
           {/* Actions */}
           {!editing && lead.status !== 'CONVERTED' && (
             <div className="bg-white rounded-lg shadow border p-6">
-              <h2 className="font-semibold mb-4">{t('admin.crm.leads.actions') || 'Actions'}</h2>
+              <h2 className="font-semibold mb-4">{t('crm.leads.actions') || 'Actions'}</h2>
               <div className="flex flex-wrap gap-3">
                 <button 
                   onClick={handleConvertToContact} 
@@ -462,7 +462,7 @@ const LeadDetail = () => {
                   className="flex items-center gap-2 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
                 >
                   <UserPlus className="w-4 h-4" />
-                  {t('admin.crm.leads.convert_to_contact') || 'Convert to Contact'}
+                  {t('crm.leads.convert_to_contact') || 'Convert to Contact'}
                 </button>
                 <button 
                   onClick={() => setShowOppModal(true)} 
@@ -470,7 +470,7 @@ const LeadDetail = () => {
                   className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
                 >
                   <TrendingUp className="w-4 h-4" />
-                  {t('admin.crm.leads.create_opportunity') || 'Create Opportunity'}
+                  {t('crm.leads.create_opportunity') || 'Create Opportunity'}
                 </button>
               </div>
             </div>
@@ -480,17 +480,17 @@ const LeadDetail = () => {
           <div className="bg-gray-100 rounded-lg p-4 text-sm text-gray-600">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <p className="font-medium">{t('admin.crm.common.created') || 'Created'}</p>
+                <p className="font-medium">{t('crm.common.created') || 'Created'}</p>
                 <p>{new Date(lead.created_at).toLocaleString()}</p>
               </div>
               {lead.updated_at && (
                 <div>
-                  <p className="font-medium">{t('admin.crm.common.updated') || 'Updated'}</p>
+                  <p className="font-medium">{t('crm.common.updated') || 'Updated'}</p>
                   <p>{new Date(lead.updated_at).toLocaleString()}</p>
                 </div>
               )}
               <div>
-                <p className="font-medium">{t('admin.crm.common.language') || 'Language'}</p>
+                <p className="font-medium">{t('crm.common.language') || 'Language'}</p>
                 <p>{lead.language || 'N/A'}</p>
               </div>
               <div>
@@ -506,23 +506,23 @@ const LeadDetail = () => {
       {showDeleteConfirm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-bold mb-2">{t('admin.crm.leads.delete_confirm_title') || 'Delete Lead?'}</h3>
+            <h3 className="text-lg font-bold mb-2">{t('crm.leads.delete_confirm_title') || 'Delete Lead?'}</h3>
             <p className="text-gray-600 mb-4">
-              {t('admin.crm.leads.delete_confirm_message') || 'This action cannot be undone. Are you sure you want to delete this lead?'}
+              {t('crm.leads.delete_confirm_message') || 'This action cannot be undone. Are you sure you want to delete this lead?'}
             </p>
             <div className="flex gap-3 justify-end">
               <button 
                 onClick={() => setShowDeleteConfirm(false)} 
                 className="px-4 py-2 border rounded-lg hover:bg-gray-50"
               >
-                {t('admin.crm.common.cancel') || 'Cancel'}
+                {t('crm.common.cancel') || 'Cancel'}
               </button>
               <button 
                 onClick={handleDelete} 
                 disabled={saving}
                 className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50"
               >
-                {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('admin.crm.common.delete') || 'Delete'}
+                {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.delete') || 'Delete'}
               </button>
             </div>
           </div>
@@ -533,10 +533,10 @@ const LeadDetail = () => {
       {showOppModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-lg font-bold mb-4">{t('admin.crm.opportunities.new') || 'New Opportunity'}</h3>
+            <h3 className="text-lg font-bold mb-4">{t('crm.opportunities.new') || 'New Opportunity'}</h3>
             <form onSubmit={handleCreateOpportunity} className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.name') || 'Name'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.name') || 'Name'}</label>
                 <input 
                   type="text" 
                   value={oppForm.name} 
@@ -546,7 +546,7 @@ const LeadDetail = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.value') || 'Value (€)'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.value') || 'Value (€)'}</label>
                 <input 
                   type="number" 
                   value={oppForm.value} 
@@ -557,7 +557,7 @@ const LeadDetail = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.probability') || 'Probability (%)'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.probability') || 'Probability (%)'}</label>
                 <input 
                   type="number" 
                   value={oppForm.probability} 
@@ -567,15 +567,15 @@ const LeadDetail = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">{t('admin.crm.opportunities.stage') || 'Stage'}</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.opportunities.stage') || 'Stage'}</label>
                 <select 
                   value={oppForm.stage} 
                   onChange={(e) => setOppForm({...oppForm, stage: e.target.value})}
                   className="w-full px-3 py-2 border rounded-lg"
                 >
-                  <option value="qualification">{t('admin.crm.opportunities.stages.qualification') || 'Qualification'}</option>
-                  <option value="proposal">{t('admin.crm.opportunities.stages.proposal') || 'Proposal'}</option>
-                  <option value="negotiation">{t('admin.crm.opportunities.stages.negotiation') || 'Negotiation'}</option>
+                  <option value="qualification">{t('crm.opportunities.stages.qualification') || 'Qualification'}</option>
+                  <option value="proposal">{t('crm.opportunities.stages.proposal') || 'Proposal'}</option>
+                  <option value="negotiation">{t('crm.opportunities.stages.negotiation') || 'Negotiation'}</option>
                 </select>
               </div>
               <div className="flex gap-3 justify-end pt-2">
@@ -584,14 +584,14 @@ const LeadDetail = () => {
                   onClick={() => setShowOppModal(false)} 
                   className="px-4 py-2 border rounded-lg hover:bg-gray-50"
                 >
-                  {t('admin.crm.common.cancel') || 'Cancel'}
+                  {t('crm.common.cancel') || 'Cancel'}
                 </button>
                 <button 
                   type="submit"
                   disabled={saving}
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
                 >
-                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('admin.crm.common.create') || 'Create'}
+                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.create') || 'Create'}
                 </button>
               </div>
             </form>

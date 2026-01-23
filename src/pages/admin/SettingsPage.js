@@ -48,7 +48,7 @@ const SettingsPage = () => {
       setStages(stagesRes?.stages || stagesRes?.data?.stages || []);
     } catch (error) {
       console.error('Error fetching settings:', error);
-      toast.error(t('admin.crm.settings.errors.load_failed') || 'Failed to load settings');
+      toast.error(t('crm.settings.errors.load_failed') || 'Failed to load settings');
     } finally {
       setLoading(false);
     }
@@ -60,10 +60,10 @@ const SettingsPage = () => {
       await api.put(`/api/crm/settings/users/${userId}`, { 
         active: currentStatus === 'active' ? false : true 
       });
-      toast.success(t('admin.crm.settings.users.updated') || 'User updated');
+      toast.success(t('crm.settings.users.updated') || 'User updated');
       fetchSettingsData();
     } catch (error) {
-      toast.error(t('admin.crm.settings.users.errors.update_failed') || 'Failed to update user');
+      toast.error(t('crm.settings.users.errors.update_failed') || 'Failed to update user');
     }
   };
 
@@ -72,22 +72,22 @@ const SettingsPage = () => {
     e.preventDefault();
     try {
       await api.post('/api/crm/settings/tags', newTag);
-      toast.success(t('admin.crm.settings.tags.created') || 'Tag created');
+      toast.success(t('crm.settings.tags.created') || 'Tag created');
       setNewTag({ name: '', color: '#3B82F6' });
       fetchSettingsData();
     } catch (error) {
-      toast.error(t('admin.crm.settings.tags.errors.create_failed') || 'Failed to create tag');
+      toast.error(t('crm.settings.tags.errors.create_failed') || 'Failed to create tag');
     }
   };
 
   const handleDeleteTag = async (tagId) => {
-    if (!window.confirm(t('admin.crm.settings.tags.delete_confirm') || 'Delete this tag?')) return;
+    if (!window.confirm(t('crm.settings.tags.delete_confirm') || 'Delete this tag?')) return;
     try {
       await api.delete(`/api/crm/settings/tags/${tagId}`);
-      toast.success(t('admin.crm.settings.tags.deleted') || 'Tag deleted');
+      toast.success(t('crm.settings.tags.deleted') || 'Tag deleted');
       fetchSettingsData();
     } catch (error) {
-      toast.error(t('admin.crm.settings.tags.errors.delete_failed') || 'Failed to delete tag');
+      toast.error(t('crm.settings.tags.errors.delete_failed') || 'Failed to delete tag');
     }
   };
 
@@ -96,33 +96,33 @@ const SettingsPage = () => {
     e.preventDefault();
     try {
       await api.post('/api/crm/settings/pipeline-stages', newStage);
-      toast.success(t('admin.crm.settings.stages.created') || 'Stage created');
+      toast.success(t('crm.settings.stages.created') || 'Stage created');
       setNewStage({ id: '', name: '', order: stages.length, color: '#3B82F6', probability: 0 });
       fetchSettingsData();
     } catch (error) {
-      toast.error(t('admin.crm.settings.stages.errors.create_failed') || 'Failed to create stage');
+      toast.error(t('crm.settings.stages.errors.create_failed') || 'Failed to create stage');
     }
   };
 
   const handleUpdateStage = async (stageId, data) => {
     try {
       await api.put(`/api/crm/settings/pipeline-stages/${stageId}`, data);
-      toast.success(t('admin.crm.settings.stages.updated') || 'Stage updated');
+      toast.success(t('crm.settings.stages.updated') || 'Stage updated');
       setEditingStage(null);
       fetchSettingsData();
     } catch (error) {
-      toast.error(t('admin.crm.settings.stages.errors.update_failed') || 'Failed to update stage');
+      toast.error(t('crm.settings.stages.errors.update_failed') || 'Failed to update stage');
     }
   };
 
   const handleDeleteStage = async (stageId) => {
-    if (!window.confirm(t('admin.crm.settings.stages.delete_confirm') || 'Delete this stage?')) return;
+    if (!window.confirm(t('crm.settings.stages.delete_confirm') || 'Delete this stage?')) return;
     try {
       await api.delete(`/api/crm/settings/pipeline-stages/${stageId}`);
-      toast.success(t('admin.crm.settings.stages.deleted') || 'Stage deleted');
+      toast.success(t('crm.settings.stages.deleted') || 'Stage deleted');
       fetchSettingsData();
     } catch (error) {
-      toast.error(t('admin.crm.settings.stages.errors.delete_failed') || 'Failed to delete stage');
+      toast.error(t('crm.settings.stages.errors.delete_failed') || 'Failed to delete stage');
     }
   };
 
@@ -137,7 +137,7 @@ const SettingsPage = () => {
   return (
     <>
       <Helmet>
-        <title>{t('admin.crm.settings.title') || 'Settings'} | IGV CRM</title>
+        <title>{t('crm.settings.title') || 'Settings'} | IGV CRM</title>
         <html lang={i18n.language} dir={isRTL ? 'rtl' : 'ltr'} />
       </Helmet>
 
@@ -148,10 +148,10 @@ const SettingsPage = () => {
             <div>
               <h1 className="text-2xl font-bold flex items-center gap-2">
                 <Settings className="w-6 h-6 text-gray-600" />
-                {t('admin.crm.settings.title') || 'Settings'}
+                {t('crm.settings.title') || 'Settings'}
               </h1>
               <p className="text-sm text-gray-600">
-                {t('admin.crm.settings.subtitle') || 'Manage users, tags, and pipeline stages'}
+                {t('crm.settings.subtitle') || 'Manage users, tags, and pipeline stages'}
               </p>
             </div>
           </div>
@@ -162,9 +162,9 @@ const SettingsPage = () => {
           <div className="max-w-7xl mx-auto px-4">
             <nav className="flex gap-4 overflow-x-auto">
               {[
-                { id: 'users', icon: Users, label: t('admin.crm.settings.tabs.users') || 'Users' },
-                { id: 'tags', icon: Tag, label: t('admin.crm.settings.tabs.tags') || 'Tags' },
-                { id: 'stages', icon: Layers, label: t('admin.crm.settings.tabs.stages') || 'Pipeline Stages' }
+                { id: 'users', icon: Users, label: t('crm.settings.tabs.users') || 'Users' },
+                { id: 'tags', icon: Tag, label: t('crm.settings.tabs.tags') || 'Tags' },
+                { id: 'stages', icon: Layers, label: t('crm.settings.tabs.stages') || 'Pipeline Stages' }
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -190,19 +190,19 @@ const SettingsPage = () => {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                      {t('admin.crm.settings.users.columns.name') || 'Name'}
+                      {t('crm.settings.users.columns.name') || 'Name'}
                     </th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                      {t('admin.crm.settings.users.columns.email') || 'Email'}
+                      {t('crm.settings.users.columns.email') || 'Email'}
                     </th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                      {t('admin.crm.settings.users.columns.role') || 'Role'}
+                      {t('crm.settings.users.columns.role') || 'Role'}
                     </th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                      {t('admin.crm.settings.users.columns.status') || 'Status'}
+                      {t('crm.settings.users.columns.status') || 'Status'}
                     </th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                      {t('admin.crm.settings.users.columns.created') || 'Created'}
+                      {t('crm.settings.users.columns.created') || 'Created'}
                     </th>
                   </tr>
                 </thead>
@@ -243,11 +243,11 @@ const SettingsPage = () => {
             <div className="space-y-6">
               {/* Add Tag Form */}
               <div className="bg-white rounded-lg shadow p-6">
-                <h3 className="font-semibold mb-4">{t('admin.crm.settings.tags.add') || 'Add Tag'}</h3>
+                <h3 className="font-semibold mb-4">{t('crm.settings.tags.add') || 'Add Tag'}</h3>
                 <form onSubmit={handleAddTag} className="flex gap-4 items-end">
                   <div className="flex-1">
                     <label className="block text-sm text-gray-600 mb-1">
-                      {t('admin.crm.settings.tags.columns.name') || 'Name'}
+                      {t('crm.settings.tags.columns.name') || 'Name'}
                     </label>
                     <input
                       type="text"
@@ -260,7 +260,7 @@ const SettingsPage = () => {
                   </div>
                   <div>
                     <label className="block text-sm text-gray-600 mb-1">
-                      {t('admin.crm.settings.tags.columns.color') || 'Color'}
+                      {t('crm.settings.tags.columns.color') || 'Color'}
                     </label>
                     <input
                       type="color"
@@ -274,7 +274,7 @@ const SettingsPage = () => {
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
                   >
                     <Plus className="w-4 h-4" />
-                    {t('admin.crm.common.add') || 'Add'}
+                    {t('crm.common.add') || 'Add'}
                   </button>
                 </form>
               </div>
@@ -285,16 +285,16 @@ const SettingsPage = () => {
                   <thead className="bg-gray-50">
                     <tr>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                        {t('admin.crm.settings.tags.columns.name') || 'Name'}
+                        {t('crm.settings.tags.columns.name') || 'Name'}
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                        {t('admin.crm.settings.tags.columns.color') || 'Color'}
+                        {t('crm.settings.tags.columns.color') || 'Color'}
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                        {t('admin.crm.settings.tags.columns.count') || 'Usage Count'}
+                        {t('crm.settings.tags.columns.count') || 'Usage Count'}
                       </th>
                       <th className="px-4 py-3 text-right text-sm font-medium text-gray-600">
-                        {t('admin.crm.common.actions') || 'Actions'}
+                        {t('crm.common.actions') || 'Actions'}
                       </th>
                     </tr>
                   </thead>
@@ -340,7 +340,7 @@ const SettingsPage = () => {
             <div className="space-y-6">
               {/* Add Stage Form */}
               <div className="bg-white rounded-lg shadow p-6">
-                <h3 className="font-semibold mb-4">{t('admin.crm.settings.stages.add') || 'Add Stage'}</h3>
+                <h3 className="font-semibold mb-4">{t('crm.settings.stages.add') || 'Add Stage'}</h3>
                 <form onSubmit={handleAddStage} className="flex gap-4 items-end flex-wrap">
                   <div className="w-32">
                     <label className="block text-sm text-gray-600 mb-1">ID</label>
@@ -355,7 +355,7 @@ const SettingsPage = () => {
                   </div>
                   <div className="flex-1 min-w-48">
                     <label className="block text-sm text-gray-600 mb-1">
-                      {t('admin.crm.settings.stages.columns.name') || 'Name'}
+                      {t('crm.settings.stages.columns.name') || 'Name'}
                     </label>
                     <input
                       type="text"
@@ -400,7 +400,7 @@ const SettingsPage = () => {
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
                   >
                     <Plus className="w-4 h-4" />
-                    {t('admin.crm.common.add') || 'Add'}
+                    {t('crm.common.add') || 'Add'}
                   </button>
                 </form>
               </div>
@@ -413,12 +413,12 @@ const SettingsPage = () => {
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Order</th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">ID</th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                        {t('admin.crm.settings.stages.columns.name') || 'Name'}
+                        {t('crm.settings.stages.columns.name') || 'Name'}
                       </th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Probability</th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Color</th>
                       <th className="px-4 py-3 text-right text-sm font-medium text-gray-600">
-                        {t('admin.crm.common.actions') || 'Actions'}
+                        {t('crm.common.actions') || 'Actions'}
                       </th>
                     </tr>
                   </thead>

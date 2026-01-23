@@ -49,7 +49,7 @@ const EmailsPage = () => {
       setEmails(emailsData);
     } catch (error) {
       console.error('Error fetching email history:', error);
-      toast.error(t('admin.crm.emails.errors.load_failed') || 'Failed to load email history');
+      toast.error(t('crm.emails.errors.load_failed') || 'Failed to load email history');
     } finally {
       setLoading(false);
     }
@@ -73,21 +73,21 @@ const EmailsPage = () => {
       setTemplates(templatesData);
     } catch (error) {
       console.error('Error fetching templates:', error);
-      toast.error(t('admin.crm.emails.errors.templates_load_failed') || 'Failed to load templates');
+      toast.error(t('crm.emails.errors.templates_load_failed') || 'Failed to load templates');
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (emailId) => {
-    if (!window.confirm(t('admin.crm.emails.delete_confirm') || 'Delete this email record?')) return;
+    if (!window.confirm(t('crm.emails.delete_confirm') || 'Delete this email record?')) return;
     try {
       await api.delete(`/api/crm/emails/${emailId}`);
-      toast.success(t('admin.crm.emails.deleted') || 'Email record deleted');
+      toast.success(t('crm.emails.deleted') || 'Email record deleted');
       fetchEmailHistory();
     } catch (error) {
       console.error('Error deleting email:', error);
-      toast.error(t('admin.crm.emails.errors.delete_failed') || 'Failed to delete email record');
+      toast.error(t('crm.emails.errors.delete_failed') || 'Failed to delete email record');
     }
   };
 
@@ -97,7 +97,7 @@ const EmailsPage = () => {
     } else if (activeTab === 'templates') {
       fetchTemplates();
     }
-    toast.success(t('admin.crm.common.refreshed') || 'Data refreshed');
+    toast.success(t('crm.common.refreshed') || 'Data refreshed');
   };
 
   const getStatusColor = (status) => {
@@ -154,7 +154,7 @@ const EmailsPage = () => {
           <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder={t('admin.crm.common.search') || 'Search emails...'}
+            placeholder={t('crm.common.search') || 'Search emails...'}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 border rounded-lg w-full max-w-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -167,17 +167,17 @@ const EmailsPage = () => {
         <div className="flex items-center justify-center py-12">
           <div className="text-center">
             <Loader2 className="w-8 h-8 animate-spin text-blue-600 mx-auto" />
-            <p className="mt-2 text-gray-600">{t('admin.crm.common.loading') || 'Loading...'}</p>
+            <p className="mt-2 text-gray-600">{t('crm.common.loading') || 'Loading...'}</p>
           </div>
         </div>
       ) : emails.length === 0 ? (
         <div className="bg-white rounded-lg shadow p-12 text-center">
           <Send className="w-12 h-12 text-gray-300 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">
-            {t('admin.crm.emails.empty_title') || 'No emails sent yet'}
+            {t('crm.emails.empty_title') || 'No emails sent yet'}
           </h3>
           <p className="text-gray-600">
-            {t('admin.crm.emails.empty_description') || 'Emails sent to leads will appear here'}
+            {t('crm.emails.empty_description') || 'Emails sent to leads will appear here'}
           </p>
         </div>
       ) : (
@@ -186,22 +186,22 @@ const EmailsPage = () => {
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                  {t('admin.crm.emails.columns.recipient') || 'Recipient'}
+                  {t('crm.emails.columns.recipient') || 'Recipient'}
                 </th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                  {t('admin.crm.emails.columns.subject') || 'Subject'}
+                  {t('crm.emails.columns.subject') || 'Subject'}
                 </th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                  {t('admin.crm.emails.columns.date') || 'Date'}
+                  {t('crm.emails.columns.date') || 'Date'}
                 </th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                  {t('admin.crm.emails.columns.status') || 'Status'}
+                  {t('crm.emails.columns.status') || 'Status'}
                 </th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">
-                  {t('admin.crm.emails.columns.sent_by') || 'Sent By'}
+                  {t('crm.emails.columns.sent_by') || 'Sent By'}
                 </th>
                 <th className="px-4 py-3 text-right text-sm font-medium text-gray-600">
-                  {t('admin.crm.common.actions') || 'Actions'}
+                  {t('crm.common.actions') || 'Actions'}
                 </th>
               </tr>
             </thead>
@@ -239,7 +239,7 @@ const EmailsPage = () => {
                   </td>
                   <td className="px-4 py-3">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(email.status)}`}>
-                      {t(`admin.crm.emails.status.${email.status}`) || email.status || 'sent'}
+                      {t(`crm.emails.status.${email.status}`) || email.status || 'sent'}
                     </span>
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-500">
@@ -250,14 +250,14 @@ const EmailsPage = () => {
                       <button
                         onClick={() => setSelectedEmail(email)}
                         className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                        title={t('admin.crm.common.view') || 'View'}
+                        title={t('crm.common.view') || 'View'}
                       >
                         <Eye className="w-4 h-4 text-gray-600" />
                       </button>
                       <button
                         onClick={() => handleDelete(email.id || email._id || email.email_id)}
                         className="p-2 hover:bg-red-50 rounded-lg transition-colors"
-                        title={t('admin.crm.common.delete') || 'Delete'}
+                        title={t('crm.common.delete') || 'Delete'}
                       >
                         <Trash2 className="w-4 h-4 text-red-600" />
                       </button>
@@ -276,10 +276,10 @@ const EmailsPage = () => {
     <div className="bg-white rounded-lg shadow p-12 text-center">
       <Inbox className="w-12 h-12 text-gray-300 mx-auto mb-4" />
       <h3 className="text-lg font-medium text-gray-900 mb-2">
-        {t('admin.crm.emails.received_title') || 'Received Emails'}
+        {t('crm.emails.received_title') || 'Received Emails'}
       </h3>
       <p className="text-gray-600">
-        {t('admin.crm.emails.received_description') || 'Email reception is not yet implemented in this CRM'}
+        {t('crm.emails.received_description') || 'Email reception is not yet implemented in this CRM'}
       </p>
     </div>
   );
@@ -289,7 +289,7 @@ const EmailsPage = () => {
       {/* Templates Info */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
         <p className="text-sm text-blue-800">
-          {t('admin.crm.emails.templates_info') || 'These templates are available in English, French, and Hebrew. They can be used when composing new emails.'}
+          {t('crm.emails.templates_info') || 'These templates are available in English, French, and Hebrew. They can be used when composing new emails.'}
         </p>
       </div>
 
@@ -297,17 +297,17 @@ const EmailsPage = () => {
         <div className="flex items-center justify-center py-12">
           <div className="text-center">
             <Loader2 className="w-8 h-8 animate-spin text-blue-600 mx-auto" />
-            <p className="mt-2 text-gray-600">{t('admin.crm.common.loading') || 'Loading...'}</p>
+            <p className="mt-2 text-gray-600">{t('crm.common.loading') || 'Loading...'}</p>
           </div>
         </div>
       ) : templates.length === 0 ? (
         <div className="bg-white rounded-lg shadow p-12 text-center">
           <FileText className="w-12 h-12 text-gray-300 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">
-            {t('admin.crm.emails.no_templates') || 'No templates available'}
+            {t('crm.emails.no_templates') || 'No templates available'}
           </h3>
           <p className="text-gray-600">
-            {t('admin.crm.emails.no_templates_description') || 'Email templates will appear here'}
+            {t('crm.emails.no_templates_description') || 'Email templates will appear here'}
           </p>
         </div>
       ) : (
@@ -329,7 +329,7 @@ const EmailsPage = () => {
                   {template.translations && Object.keys(template.translations).length > 0 && (
                     <div className="mt-3 space-y-2">
                       <p className="text-xs font-medium text-gray-500">
-                        {t('admin.crm.emails.available_languages') || 'Available in:'}
+                        {t('crm.emails.available_languages') || 'Available in:'}
                       </p>
                       <div className="grid gap-2">
                         {Object.entries(template.translations).map(([lang, trans]) => (
@@ -353,7 +353,7 @@ const EmailsPage = () => {
                   onClick={() => setSelectedEmail({ ...template, isTemplate: true })}
                   className="px-3 py-1 border rounded-lg hover:bg-gray-50 text-sm"
                 >
-                  {t('admin.crm.common.view') || 'View'}
+                  {t('crm.common.view') || 'View'}
                 </button>
               </div>
             </div>
@@ -366,7 +366,7 @@ const EmailsPage = () => {
   return (
     <>
       <Helmet>
-        <title>{t('admin.crm.emails.title') || 'Emails'} | IGV CRM</title>
+        <title>{t('crm.emails.title') || 'Emails'} | IGV CRM</title>
         <html lang={i18n.language} dir={isRTL ? 'rtl' : 'ltr'} />
       </Helmet>
 
@@ -380,12 +380,12 @@ const EmailsPage = () => {
                 <div>
                   <h1 className="text-2xl font-bold flex items-center gap-2">
                     <Mail className="w-6 h-6 text-blue-600" />
-                    {t('admin.crm.emails.title') || 'Emails'}
+                    {t('crm.emails.title') || 'Emails'}
                   </h1>
                   <p className="text-sm text-gray-600">
-                    {activeTab === 'sent' && `${emails.length} ${t('admin.crm.emails.sent_count') || 'emails sent'}`}
-                    {activeTab === 'received' && t('admin.crm.emails.received_tab') || 'Inbox'}
-                    {activeTab === 'templates' && `${templates.length} ${t('admin.crm.emails.templates_count') || 'templates available'}`}
+                    {activeTab === 'sent' && `${emails.length} ${t('crm.emails.sent_count') || 'emails sent'}`}
+                    {activeTab === 'received' && t('crm.emails.received_tab') || 'Inbox'}
+                    {activeTab === 'templates' && `${templates.length} ${t('crm.emails.templates_count') || 'templates available'}`}
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -394,16 +394,16 @@ const EmailsPage = () => {
                     className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <RefreshCw className="w-4 h-4" />
-                    {t('admin.crm.common.refresh') || 'Refresh'}
+                    {t('crm.common.refresh') || 'Refresh'}
                   </button>
                 </div>
               </div>
 
               {/* Tabs */}
               <div className="flex gap-2 overflow-x-auto">
-                {renderTabButton('sent', <Send className="w-4 h-4" />, 'admin.crm.emails.tabs.sent')}
-                {renderTabButton('received', <Inbox className="w-4 h-4" />, 'admin.crm.emails.tabs.received')}
-                {renderTabButton('templates', <FileText className="w-4 h-4" />, 'admin.crm.emails.tabs.templates')}
+                {renderTabButton('sent', <Send className="w-4 h-4" />, 'crm.emails.tabs.sent')}
+                {renderTabButton('received', <Inbox className="w-4 h-4" />, 'crm.emails.tabs.received')}
+                {renderTabButton('templates', <FileText className="w-4 h-4" />, 'crm.emails.tabs.templates')}
               </div>
             </div>
           </div>
@@ -424,8 +424,8 @@ const EmailsPage = () => {
               <div className="flex items-center justify-between p-4 border-b">
                 <h3 className="text-lg font-bold">
                   {selectedEmail.isTemplate 
-                    ? (t('admin.crm.emails.template_detail') || 'Template Details')
-                    : (t('admin.crm.emails.detail_title') || 'Email Details')}
+                    ? (t('crm.emails.template_detail') || 'Template Details')
+                    : (t('crm.emails.detail_title') || 'Email Details')}
                 </h3>
                 <button
                   onClick={() => setSelectedEmail(null)}
@@ -451,7 +451,7 @@ const EmailsPage = () => {
                   {/* Subject/Title */}
                   <div>
                     <span className="text-sm text-gray-600">
-                      {selectedEmail.isTemplate ? 'Name:' : t('admin.crm.emails.columns.subject') || 'Subject'}:
+                      {selectedEmail.isTemplate ? 'Name:' : t('crm.emails.columns.subject') || 'Subject'}:
                     </span>
                     <p className="font-medium text-lg">{selectedEmail.subject || selectedEmail.name || selectedEmail.title}</p>
                   </div>
@@ -461,23 +461,23 @@ const EmailsPage = () => {
                       {/* Recipient Info */}
                       <div className="grid grid-cols-2 gap-4 p-3 bg-gray-50 rounded-lg">
                         <div>
-                          <span className="text-sm text-gray-600">{t('admin.crm.emails.columns.recipient') || 'To'}:</span>
+                          <span className="text-sm text-gray-600">{t('crm.emails.columns.recipient') || 'To'}:</span>
                           <p className="font-medium">{selectedEmail.to_name || selectedEmail.to}</p>
                           {selectedEmail.to_email && <p className="text-sm text-gray-500">{selectedEmail.to_email}</p>}
                         </div>
                         <div>
-                          <span className="text-sm text-gray-600">{t('admin.crm.emails.columns.date') || 'Date'}:</span>
+                          <span className="text-sm text-gray-600">{t('crm.emails.columns.date') || 'Date'}:</span>
                           <p className="font-medium">{formatDate(selectedEmail.created_at || selectedEmail.sent_at)}</p>
                         </div>
                         <div>
-                          <span className="text-sm text-gray-600">{t('admin.crm.emails.columns.status') || 'Status'}:</span>
+                          <span className="text-sm text-gray-600">{t('crm.emails.columns.status') || 'Status'}:</span>
                           <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(selectedEmail.status)}`}>
-                            {t(`admin.crm.emails.status.${selectedEmail.status}`) || selectedEmail.status || 'sent'}
+                            {t(`crm.emails.status.${selectedEmail.status}`) || selectedEmail.status || 'sent'}
                           </span>
                         </div>
                         {selectedEmail.sent_by && (
                           <div>
-                            <span className="text-sm text-gray-600">{t('admin.crm.emails.columns.sent_by') || 'Sent By'}:</span>
+                            <span className="text-sm text-gray-600">{t('crm.emails.columns.sent_by') || 'Sent By'}:</span>
                             <p className="font-medium">{selectedEmail.sent_by}</p>
                           </div>
                         )}
@@ -516,7 +516,7 @@ const EmailsPage = () => {
                   {/* Reference */}
                   {selectedEmail.request_id && (
                     <div className="text-sm text-gray-500">
-                      <span>{t('admin.crm.common.reference') || 'Reference'}:</span> {selectedEmail.request_id}
+                      <span>{t('crm.common.reference') || 'Reference'}:</span> {selectedEmail.request_id}
                     </div>
                   )}
                 </div>
@@ -528,7 +528,7 @@ const EmailsPage = () => {
                   onClick={() => setSelectedEmail(null)}
                   className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition-colors"
                 >
-                  {t('admin.crm.common.close') || 'Close'}
+                  {t('crm.common.close') || 'Close'}
                 </button>
               </div>
             </div>

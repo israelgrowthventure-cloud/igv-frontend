@@ -34,6 +34,12 @@ const AdminLogin = () => {
         localStorage.setItem('admin_role', data.role || 'admin');
         localStorage.setItem('userEmail', data.email || email);
         localStorage.setItem('userName', data.name || email.split('@')[0]);
+        // Store complete user object for Topbar/Sidebar compatibility
+        localStorage.setItem('admin_user', JSON.stringify({
+          name: data.name || email.split('@')[0],
+          email: data.email || email,
+          role: data.role || 'admin'
+        }));
         toast.success(t('admin.login.success'));
         navigate('/admin/dashboard');
       } else {

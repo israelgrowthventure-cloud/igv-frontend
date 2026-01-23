@@ -27,10 +27,10 @@
       "settings": "הגדרות"
     },
     "breadcrumb": {
-      "home": "בית"
+      "home": "דף הבית"
     },
     "sidebar": {
-      "collapse": "כווץ",
+      "collapse": "צמצם",
       "expand": "הרחב"
     },
     "search": {
@@ -53,16 +53,528 @@
       "totalOpportunities": "סה״כ הזדמנויות",
       "pipelineValue": "ערך צינור",
       "recentActivity": "פעילות אחרונה",
-      "noActivity": "אין פעילות אחרונה"
+      "noActivity": "אין פעילות אחרונה",
+      "direct": "ישיר",
+      "leads_today": "לידים היום",
+      "leads_7d": "לידים (7 ימים)",
+      "pipeline_value": "ערך הצינור",
+      "stage_distribution": "התפלגות לפי שלב",
+      "tasks_overdue": "משימות באיחור",
+      "top_sources": "מקורות מובילים"
     },
     "leads": {
-      "subtitle": "נהל את הלידים שלך והמר אותם לאנשי קשר"
+      "subtitle": "נהל את הלידים שלך והמר אותם",
+      "title": "לידים",
+      "new_lead": "ליד חדש",
+      "export": "ייצוא CSV",
+      "search": "חפש לידים...",
+      "search_placeholder": "חפש לידים...",
+      "filter_sector": "סנן לפי ענף",
+      "filter_stage": "סנן לפי שלב",
+      "filter_status": "סנן לפי סטטוס",
+      "filters": "מסננים",
+      "all_stages": "כל השלבים",
+      "all_statuses": "כל הסטטוסים",
+      "apply_filters": "החל מסננים",
+      "created": "ליד נוצר בהצלחה",
+      "updated": "ליד עודכן בהצלחה",
+      "deleted": "ליד נמחק בהצלחה",
+      "status_updated": "סטטוס עודכן",
+      "note_added": "הערה נוספה בהצלחה",
+      "note_error": "שגיאה בהוספת הערה",
+      "note_placeholder": "הוסף הערה...",
+      "add_note": "הוסף הערה",
+      "add_note_placeholder": "הוסף הערה...",
+      "save_note": "שמור הערה",
+      "export_success": "לידים יוצאו בהצלחה",
+      "export_error": "שגיאה בייצוא",
+      "empty_title": "אין לידים",
+      "empty_subtitle": "צור את הליד הראשון שלך",
+      "empty_description": "צור את הליד הראשון שלך",
+      "no_leads": "לא נמצאו לידים",
+      "no_activities": "אין פעילויות",
+      "no_brand": "אין מותג",
+      "not_found": "ליד לא נמצא",
+      "activities": "פעילויות",
+      "actions": "פעולות",
+      "convert_to_contact": "המר לאיש קשר",
+      "create_opportunity": "צור הזדמנות",
+      "converting": "ממיר...",
+      "convert_success": "ליד הומר בהצלחה",
+      "convert_error": "שגיאה בהמרת הליד",
+      "confirm_convert": "אשר המרה",
+      "update_success": "ליד עודכן בהצלחה",
+      "update_error": "שגיאה בעדכון הליד",
+      "already_converted": "כבר הומר",
+      "view_contact": "צפה באיש קשר",
+      "converted": "הומר",
+      "info": "מידע",
+      "email": "אימייל",
+      "phone": "טלפון",
+      "sector": "ענף",
+      "status": "סטטוס",
+      "language": "שפה",
+      "target_city": "עיר יעד",
+      "mini_analysis": "מיני-אנליזה AI",
+      "generated_on": "נוצר ב",
+      "delete_confirm_title": "למחוק את הליד?",
+      "delete_confirm_message": "פעולה זו לא ניתנת לביטול.",
+      "columns": {
+        "name": "שם",
+        "email": "אימייל",
+        "brand": "מותג",
+        "sector": "ענף",
+        "status": "סטטוס",
+        "priority": "עדיפות",
+        "created": "נוצר",
+        "phone": "טלפון",
+        "contact": "שם איש קשר"
+      },
+      "col_actions": "פעולות",
+      "col_brand": "מותג",
+      "col_created": "נוצר",
+      "col_email": "אימייל",
+      "col_sector": "ענף",
+      "col_status": "סטטוס",
+      "toast": {
+        "convert_success": "ליד הומר בהצלחה",
+        "contact_created": "איש קשר נוצר",
+        "view_contact": "צפה באיש קשר",
+        "opportunity_created": "הזדמנות נוצרה",
+        "view_opportunity": "צפה בהזדמנות",
+        "already_converted": "ליד זה כבר הומר",
+        "lead_not_found": "ליד לא נמצא",
+        "missing_info": "לליד חייב להיות אימייל או שם",
+        "convert_error": "שגיאה בהמרת הליד"
+      },
+      "details": {
+        "back": "חזרה ללידים",
+        "info": "מידע על הליד",
+        "notes": "הערות",
+        "add_note": "הוסף הערה...",
+        "activities": "פעילויות",
+        "email": "אימייל",
+        "phone": "טלפון",
+        "sector": "ענף",
+        "city": "עיר יעד",
+        "status": "סטטוס",
+        "priority": "עדיפות",
+        "focus_notes": "הערות חשובות",
+        "status_priority": "סטטוס ועדיפות",
+        "contact_info": "פרטי קשר",
+        "additional": "מידע נוסף"
+      }
     },
     "contacts": {
-      "subtitle": "נהל את אנשי הקשר שלך"
+      "subtitle": "נהל את אנשי הקשר שלך",
+      "title": "אנשי קשר",
+      "new_contact": "איש קשר חדש",
+      "search": "חפש אנשי קשר...",
+      "export": "ייצוא CSV",
+      "created": "איש קשר נוצר בהצלחה",
+      "updated": "איש קשר עודכן בהצלחה",
+      "deleted": "איש קשר נמחק בהצלחה",
+      "not_found": "איש קשר לא נמצא",
+      "no_company": "אין חברה",
+      "converted_from_lead": "הומר מליד",
+      "lead_id": "מזהה ליד",
+      "opportunities": "הזדמנויות",
+      "recent_activities": "פעילויות אחרונות",
+      "delete_confirm_title": "למחוק את איש הקשר?",
+      "delete_confirm_message": "פעולה זו לא ניתנת לביטול.",
+      "columns": {
+        "name": "שם",
+        "company": "חברה",
+        "email": "אימייל",
+        "phone": "טלפון",
+        "status": "סטטוס",
+        "sector": "ענף",
+        "created": "נוצר",
+        "last_contact": "קשר אחרון"
+      },
+      "details": {
+        "contact_info": "פרטי קשר",
+        "position": "תפקיד",
+        "location": "מיקום",
+        "tags": "תגיות"
+      }
     },
     "users": {
-      "subtitle": "נהל משתמשים והרשאות"
+      "subtitle": "נהל משתמשים והרשאות",
+      "title": "משתמשים",
+      "new": "משתמש חדש",
+      "edit": "ערוך משתמש",
+      "search_placeholder": "חפש משתמשים...",
+      "all_roles": "כל התפקידים",
+      "all_statuses": "כל הסטטוסים",
+      "active": "פעיל",
+      "inactive": "לא פעיל",
+      "empty": "לא נמצאו משתמשים",
+      "no_name": "ללא שם",
+      "created": "משתמש נוצר בהצלחה",
+      "updated": "משתמש עודכן בהצלחה",
+      "deleted": "משתמש נמחק בהצלחה",
+      "delete_confirm": "האם אתה בטוח?",
+      "columns": {
+        "user": "משתמש",
+        "email": "אימייל",
+        "role": "תפקיד",
+        "status": "סטטוס",
+        "assigned_leads": "לידים מוקצים",
+        "actions": "פעולות"
+      },
+      "form": {
+        "email": "אימייל",
+        "first_name": "שם פרטי",
+        "last_name": "שם משפחה",
+        "password": "סיסמה",
+        "password_edit": "סיסמה חדשה (השאר ריק)",
+        "role": "תפקיד",
+        "active_account": "חשבון פעיל"
+      },
+      "roles": {
+        "admin": "מנהל",
+        "commercial": "מסחרי",
+        "support": "תמיכה"
+      },
+      "buttons": {
+        "save": "שמור",
+        "cancel": "ביטול",
+        "create": "צור",
+        "modify": "ערוך"
+      },
+      "errors": {
+        "load_failed": "שגיאה בטעינה",
+        "email_required": "אימייל נדרש",
+        "password_required": "סיסמה נדרשת",
+        "update_failed": "שגיאה בעדכון",
+        "delete_failed": "שגיאה במחיקה"
+      }
+    },
+    "title": "ניהול CRM",
+    "tabs": {
+      "dashboard": "לוח בקרה",
+      "leads": "לידים",
+      "contacts": "אנשי קשר",
+      "pipeline": "צינור מכירות",
+      "settings": "הגדרות"
+    },
+    "stages": {
+      "prospecting": "חיפוש",
+      "qualification": "הכשרה",
+      "proposal": "הצעה",
+      "negotiation": "משא ומתן",
+      "closed_won": "נסגר בהצלחה",
+      "closed_lost": "אבוד",
+      "new": "חדש",
+      "contacted": "יצרנו קשר",
+      "qualified": "מתאים"
+    },
+    "status": {
+      "new": "חדש",
+      "contacted": "יצרנו קשר",
+      "qualified": "מתאים",
+      "converted": "הומר",
+      "lost": "אבוד"
+    },
+    "opportunities": {
+      "title": "הזדמנויות",
+      "subtitle": "נהל את ההזדמנויות שלך",
+      "new": "הזדמנות חדשה",
+      "edit": "ערוך הזדמנות",
+      "created": "הזדמנות נוצרה בהצלחה",
+      "updated": "הזדמנות עודכנה בהצלחה",
+      "deleted": "הזדמנות נמחקה בהצלחה",
+      "exported": "הזדמנויות יוצאו",
+      "count": "הזדמנויות",
+      "empty": "אין הזדמנויות",
+      "empty_title": "אין הזדמנויות",
+      "empty_subtitle": "צור את ההזדמנות הראשונה שלך",
+      "delete_confirm": "למחוק את ההזדמנות?",
+      "search": "חיפוש...",
+      "name": "שם",
+      "value": "ערך (€)",
+      "probability": "הסתברות (%)",
+      "stage": "שלב",
+      "expected_close": "תאריך סגירה צפוי",
+      "notes": "הערות",
+      "total_count": "סה\"כ",
+      "total_value": "ערך כולל",
+      "weighted_value": "ערך משוקלל",
+      "columns": {
+        "name": "שם",
+        "value": "ערך",
+        "stage": "שלב",
+        "probability": "הסתברות",
+        "created": "נוצר"
+      },
+      "stages": {
+        "qualification": "הכשרה",
+        "proposal": "הצעה",
+        "negotiation": "משא ומתן",
+        "closed_won": "נסגר בהצלחה",
+        "closed_lost": "אבוד"
+      },
+      "errors": {
+        "load_failed": "שגיאה בטעינה",
+        "create_failed": "שגיאה ביצירה",
+        "update_failed": "שגיאה בעדכון",
+        "delete_failed": "שגיאה במחיקה"
+      }
+    },
+    "pipeline": {
+      "title": "צינור מכירות",
+      "total_value": "ערך צינור כולל",
+      "weighted_value": "ערך משוקלל",
+      "move_to": "העבר ל",
+      "opportunities": "הזדמנויות",
+      "stage_updated": "שלב עודכן בהצלחה",
+      "total_opps": "סה\"כ הזדמנויות",
+      "avg_deal": "עסקה ממוצעת",
+      "close_rate": "אחוז סגירה",
+      "current_stage": "שלב נוכחי",
+      "estimated_value": "ערך משוער",
+      "description": "תיאור",
+      "stage_history": "היסטוריית שלבים",
+      "stages": {
+        "prospecting": "חיפוש",
+        "qualification": "הכשרה",
+        "proposal": "הצעה",
+        "negotiation": "משא ומתן",
+        "closed_won": "נסגר בהצלחה",
+        "closed_lost": "אבוד",
+        "initial_interest": "עניין ראשוני",
+        "info_requested": "מידע התבקש",
+        "first_call": "שיחה ראשונה",
+        "pitch_delivered": "מצגת הוצגה",
+        "proposal_sent": "הצעה נשלחה",
+        "verbal_commitment": "התחייבות מילולית",
+        "won": "זכייה"
+      }
+    },
+    "activities": {
+      "title": "פעילויות",
+      "subtitle": "נהל פעילויות ומעקב",
+      "count": "פעילויות",
+      "add": "הוסף פעילות",
+      "created": "פעילות נוצרה בהצלחה",
+      "completed": "פעילות הושלמה",
+      "deleted": "פעילות נמחקה",
+      "delete_confirm": "למחוק את הפעילות?",
+      "empty": "אין פעילויות",
+      "complete": "סיים",
+      "tabs": {
+        "all": "הכל",
+        "calls": "שיחות",
+        "meetings": "פגישות",
+        "tasks": "משימות",
+        "notes": "הערות"
+      },
+      "columns": {
+        "type": "סוג",
+        "subject": "נושא",
+        "related": "קשור ל",
+        "due_date": "תאריך יעד",
+        "status": "סטטוס",
+        "notes": "הערות"
+      },
+      "types": {
+        "call": "שיחה",
+        "meeting": "פגישה",
+        "email": "אימייל",
+        "task": "משימה",
+        "note": "הערה"
+      },
+      "status": {
+        "pending": "ממתין",
+        "completed": "הושלם",
+        "cancelled": "בוטל",
+        "overdue": "באיחור",
+        "undefined": "הושלם"
+      },
+      "errors": {
+        "load_failed": "שגיאה בטעינה",
+        "create_failed": "שגיאה ביצירה",
+        "update_failed": "שגיאה בעדכון",
+        "delete_failed": "שגיאה במחיקה"
+      }
+    },
+    "emails": {
+      "title": "היסטוריית אימיילים",
+      "history_title": "היסטוריית אימיילים",
+      "compose": "כתוב אימייל",
+      "to": "אל",
+      "sent_count": "אימיילים נשלחו",
+      "empty_title": "אין אימיילים",
+      "empty_description": "אימיילים שנשלחו יופיעו כאן",
+      "detail_title": "פרטי אימייל",
+      "template_detail": "פרטי תבנית",
+      "select_template": "בחר תבנית",
+      "use": "השתמש",
+      "subject": "נושא",
+      "subject_placeholder": "נושא האימייל...",
+      "message": "הודעה",
+      "message_placeholder": "כתוב את ההודעה שלך...",
+      "sending": "שולח...",
+      "send": "שלח",
+      "sent_success": "אימייל נשלח בהצלחה",
+      "send_failed": "שליחה נכשלה",
+      "error_empty": "אנא מלא נושא והודעה",
+      "deleted": "רשומה נמחקה",
+      "delete_confirm": "למחוק את הרשומה?",
+      "received_title": "אימיילים שהתקבלו",
+      "received_description": "לא מיושם",
+      "received_tab": "תיבת דואר",
+      "templates_count": "תבניות זמינות",
+      "templates_info": "זמין באנגלית, צרפתית ועברית.",
+      "no_templates": "אין תבניות זמינות",
+      "no_templates_description": "תבניות יופיעו כאן",
+      "available_languages": "זמין ב:",
+      "columns": {
+        "recipient": "נמען",
+        "subject": "נושא",
+        "date": "תאריך",
+        "status": "סטטוס",
+        "sent_by": "נשלח ע\"י",
+        "from": "מאת",
+        "to": "אל"
+      },
+      "status": {
+        "sent": "נשלח",
+        "delivered": "הועבר",
+        "opened": "נפתח",
+        "clicked": "נלחץ",
+        "failed": "נכשל",
+        "bounced": "חזר"
+      },
+      "tabs": {
+        "sent": "נשלחו",
+        "received": "התקבלו",
+        "templates": "תבניות"
+      },
+      "errors": {
+        "load_failed": "שגיאה בטעינה",
+        "templates_load_failed": "שגיאה בטעינת תבניות",
+        "delete_failed": "שגיאה במחיקה"
+      }
+    },
+    "settings": {
+      "title": "הגדרות CRM",
+      "subtitle": "נהל משתמשים, תגיות ושלבים",
+      "tabs": {
+        "users": "משתמשים",
+        "tags": "תגיות",
+        "stages": "שלבי צינור"
+      },
+      "users": {
+        "updated": "משתמש עודכן",
+        "columns": {
+          "name": "שם",
+          "email": "אימייל",
+          "role": "תפקיד",
+          "status": "סטטוס",
+          "created": "נוצר"
+        },
+        "errors": {
+          "update_failed": "שגיאה בעדכון"
+        }
+      },
+      "tags": {
+        "add": "הוסף תגית",
+        "created": "תגית נוצרה",
+        "deleted": "תגית נמחקה",
+        "delete_confirm": "למחוק את התגית?",
+        "columns": {
+          "name": "שם",
+          "color": "צבע",
+          "count": "מספר שימושים"
+        },
+        "errors": {
+          "create_failed": "שגיאה ביצירה",
+          "delete_failed": "שגיאה במחיקה"
+        }
+      },
+      "stages": {
+        "add": "הוסף שלב",
+        "created": "שלב נוצר",
+        "updated": "שלב עודכן",
+        "deleted": "שלב נמחק",
+        "delete_confirm": "למחוק את השלב?",
+        "columns": {
+          "name": "שם"
+        },
+        "errors": {
+          "create_failed": "שגיאה ביצירה",
+          "update_failed": "שגיאה בעדכון",
+          "delete_failed": "שגיאה במחיקה"
+        }
+      },
+      "errors": {
+        "load_failed": "שגיאה בטעינה"
+      }
+    },
+    "common": {
+      "filters": "מסננים",
+      "all_statuses": "כל הסטטוסים",
+      "all_priorities": "כל העדיפויות",
+      "reset": "אפס",
+      "edit": "ערוך",
+      "delete": "מחק",
+      "save": "שמור",
+      "cancel": "ביטול",
+      "back": "חזרה ל-CRM",
+      "back_to_list": "חזרה לרשימה",
+      "actions": "פעולות",
+      "export": "ייצוא",
+      "search": "חיפוש...",
+      "loading": "טוען...",
+      "no_data": "אין נתונים",
+      "no_history": "אין היסטוריה",
+      "confirm": "אישור",
+      "confirm_delete": "האם אתה בטוח?",
+      "close": "סגור",
+      "add": "הוסף",
+      "create": "צור",
+      "update": "עדכן",
+      "view": "צפה בפרטים",
+      "refresh": "רענן",
+      "refreshed": "הנתונים רועננו",
+      "no_notes": "אין הערות",
+      "no_opportunities": "אין הזדמנויות",
+      "no_activities": "אין פעילויות",
+      "created": "נוצר",
+      "updated": "עודכן",
+      "language": "שפה",
+      "reference": "מזהה",
+      "send_email": "שלח אימייל"
+    },
+    "errors": {
+      "load_failed": "טעינה נכשלה",
+      "create_failed": "יצירה נכשלה",
+      "update_failed": "עדכון נכשל",
+      "delete_failed": "מחיקה נכשלה",
+      "export_failed": "ייצוא נכשל",
+      "note_failed": "הוספת הערה נכשלה",
+      "status_failed": "עדכון סטטוס נכשל",
+      "stage_failed": "עדכון שלב נכשל",
+      "convert_failed": "המרה נכשלה",
+      "lead_not_found": "ליד לא נמצא"
+    },
+    "statuses": {
+      "NEW": "חדש",
+      "CONTACTED": "יצרנו קשר",
+      "QUALIFIED": "מתאים",
+      "CONVERTED": "הומר",
+      "LOST": "אבוד",
+      "PENDING_QUOTA": "ממתין למכסה",
+      "undefined": "לא מוגדר",
+      "completed": "הושלם"
+    },
+    "priorities": {
+      "A": "גבוהה (A)",
+      "B": "בינונית (B)",
+      "C": "נמוכה (C)",
+      "undefined": "לא מוגדר"
     }
   },
   "hero": {
@@ -507,7 +1019,7 @@
     "crm": {
       "leads": {
         "title": "לידים",
-        "subtitle": "נהל את הלידים שלך והמר אותם לאנשי קשר",
+        "subtitle": "נהל את הלידים שלך",
         "new_lead": "ליד חדש",
         "export": "ייצוא CSV",
         "search": "חיפוש לידים...",
@@ -523,7 +1035,7 @@
           "created": "נוצר",
           "priority": "עדיפות",
           "status": "סטטוס",
-          "sector": "תחום",
+          "sector": "ענף",
           "brand": "מותג",
           "email": "אימייל",
           "contact": "שם איש קשר",
@@ -531,7 +1043,7 @@
           "phone": "טלפון"
         },
         "toast": {
-          "convert_success": "הליד הומר לאיש קשר בהצלחה",
+          "convert_success": "ליד הומר",
           "contact_created": "איש קשר נוצר",
           "view_contact": "צפה באיש קשר",
           "opportunity_created": "הזדמנות נוצרה",
@@ -553,7 +1065,10 @@
           "city": "עיר יעד",
           "status": "סטטוס",
           "priority": "עדיפות",
-          "focus_notes": "הערות חשובות"
+          "focus_notes": "הערות חשובות",
+          "status_priority": "סטטוס ועדיפות",
+          "contact_info": "פרטי קשר",
+          "additional": "מידע נוסף"
         },
         "search_placeholder": "חפש לידים...",
         "filter_stage": "סנן לפי שלב",
@@ -596,7 +1111,17 @@
         "col_created": "נוצר",
         "col_email": "אימייל",
         "col_sector": "ענף",
-        "col_status": "סטטוס"
+        "col_status": "סטטוס",
+        "updated": "ליד עודכן בהצלחה",
+        "no_brand": "אין מותג",
+        "not_found": "ליד לא נמצא",
+        "actions": "פעולות",
+        "target_city": "עיר יעד",
+        "delete_confirm_title": "למחוק את הליד?",
+        "delete_confirm_message": "פעולה זו לא ניתנת לביטול. האם אתה בטוח?",
+        "errors": {
+          "load_failed": "שגיאה בטעינה"
+        }
       },
       "users": {
         "title": "משתמשים",
@@ -632,7 +1157,7 @@
         },
         "roles": {
           "admin": "מנהל",
-          "commercial": "מכירות",
+          "commercial": "מסחרי",
           "support": "תמיכה"
         },
         "errors": {
@@ -656,12 +1181,38 @@
         "filters": "מסננים",
         "all_statuses": "כל הסטטוסים",
         "all_priorities": "כל העדיפויות",
-        "reset": "איפוס"
+        "reset": "איפוס",
+        "edit": "ערוך",
+        "delete": "מחק",
+        "save": "שמור",
+        "cancel": "ביטול",
+        "back": "חזרה ל-CRM",
+        "actions": "פעולות",
+        "export": "ייצוא",
+        "search": "חיפוש...",
+        "loading": "טוען...",
+        "no_data": "אין נתונים זמינים",
+        "no_history": "אין היסטוריה זמינה",
+        "confirm": "אישור",
+        "close": "סגור",
+        "add": "הוסף",
+        "create": "צור",
+        "update": "עדכן",
+        "view": "צפה בפרטים",
+        "refresh": "רענן",
+        "refreshed": "הנתונים רועננו",
+        "no_notes": "אין הערות",
+        "no_opportunities": "אין הזדמנויות",
+        "no_activities": "אין פעילויות",
+        "created": "נוצר",
+        "updated": "עודכן",
+        "language": "שפה",
+        "reference": "מזהה"
       },
       "statuses": {
         "NEW": "חדש",
-        "CONTACTED": "נוצר קשר",
-        "QUALIFIED": "מוכשר",
+        "CONTACTED": "יצרנו קשר",
+        "QUALIFIED": "מתאים",
         "CONVERTED": "הומר",
         "LOST": "אבוד",
         "PENDING_QUOTA": "ממתין למכסה",
@@ -700,11 +1251,54 @@
         "export_failed": "ייצוא נכשל",
         "note_failed": "הוספת הערה נכשלה",
         "status_failed": "עדכון סטטוס נכשל",
-        "lead_not_found": "ליד לא נמצא"
+        "lead_not_found": "ליד לא נמצא",
+        "stage_failed": "עדכון שלב נכשל",
+        "convert_failed": "המרה נכשלה"
       },
       "opportunities": {
-        "title": "הזדמנות",
-        "created": "נוצרה מליד"
+        "title": "הזדמנויות",
+        "created": "נוצרה מליד",
+        "subtitle": "נהל את ההזדמנויות העסקיות שלך",
+        "new": "הזדמנות חדשה",
+        "edit": "ערוך הזדמנות",
+        "updated": "הזדמנות עודכנה בהצלחה",
+        "deleted": "הזדמנות נמחקה בהצלחה",
+        "exported": "הזדמנויות יוצאו",
+        "count": "הזדמנויות",
+        "empty": "אין הזדמנויות",
+        "empty_title": "אין הזדמנויות",
+        "empty_subtitle": "צור את ההזדמנות הראשונה שלך",
+        "delete_confirm": "למחוק את ההזדמנות?",
+        "search": "חיפוש...",
+        "name": "שם",
+        "value": "ערך (€)",
+        "probability": "הסתברות (%)",
+        "stage": "שלב",
+        "expected_close": "תאריך סגירה צפוי",
+        "notes": "הערות",
+        "total_count": "סה\"כ",
+        "total_value": "ערך כולל",
+        "weighted_value": "ערך משוקלל",
+        "columns": {
+          "name": "שם",
+          "value": "ערך",
+          "stage": "שלב",
+          "probability": "הסתברות",
+          "created": "נוצר"
+        },
+        "stages": {
+          "qualification": "הכשרה",
+          "proposal": "הצעה",
+          "negotiation": "משא ומתן",
+          "closed_won": "נסגר בהצלחה",
+          "closed_lost": "אבוד"
+        },
+        "errors": {
+          "load_failed": "שגיאה בטעינת הזדמנויות",
+          "create_failed": "שגיאה ביצירת הזדמנות",
+          "update_failed": "שגיאה בעדכון הזדמנות",
+          "delete_failed": "שגיאה במחיקת הזדמנות"
+        }
       },
       "sidebar": {
         "expand": "הרחב",
@@ -717,7 +1311,9 @@
         "pipeline_value": "ערך הצינור",
         "stage_distribution": "התפלגות לפי שלב",
         "tasks_overdue": "משימות באיחור",
-        "top_sources": "מקורות מובילים"
+        "top_sources": "מקורות מובילים",
+        "title": "לוח בקרה",
+        "leads_7d": "לידים (7 ימים)"
       },
       "activities": {
         "title": "פעילויות",
@@ -728,11 +1324,239 @@
           "cancelled": "בוטל",
           "overdue": "באיחור",
           "undefined": "הושלם"
+        },
+        "count": "פעילויות",
+        "add": "הוסף פעילות",
+        "created": "פעילות נוצרה",
+        "completed": "פעילות הושלמה",
+        "deleted": "פעילות נמחקה",
+        "delete_confirm": "למחוק את הפעילות?",
+        "empty": "אין פעילויות",
+        "complete": "סיים",
+        "tabs": {
+          "all": "הכל",
+          "calls": "שיחות",
+          "meetings": "פגישות",
+          "tasks": "משימות",
+          "notes": "הערות"
+        },
+        "columns": {
+          "type": "סוג",
+          "subject": "נושא",
+          "related": "קשור ל",
+          "due_date": "תאריך יעד",
+          "status": "סטטוס",
+          "notes": "הערות"
+        },
+        "types": {
+          "call": "שיחה",
+          "meeting": "פגישה",
+          "email": "אימייל",
+          "task": "משימה",
+          "note": "הערה"
+        },
+        "errors": {
+          "load_failed": "שגיאה בטעינה",
+          "create_failed": "שגיאה ביצירה",
+          "update_failed": "שגיאה בעדכון",
+          "delete_failed": "שגיאה במחיקה"
         }
       },
       "settings": {
         "title": "הגדרות CRM",
-        "subtitle": "נהל את הגדרות ה-CRM שלך"
+        "subtitle": "נהל את הגדרות ה-CRM שלך",
+        "tabs": {
+          "users": "משתמשים",
+          "tags": "תגיות",
+          "stages": "שלבי צינור"
+        },
+        "users": {
+          "updated": "משתמש עודכן",
+          "columns": {
+            "name": "שם",
+            "email": "אימייל",
+            "role": "תפקיד",
+            "status": "סטטוס",
+            "created": "נוצר"
+          },
+          "errors": {
+            "update_failed": "שגיאה בעדכון"
+          }
+        },
+        "tags": {
+          "add": "הוסף תגית",
+          "created": "תגית נוצרה",
+          "deleted": "תגית נמחקה",
+          "delete_confirm": "למחוק את התגית?",
+          "columns": {
+            "name": "שם",
+            "color": "צבע",
+            "count": "מספר שימושים"
+          },
+          "errors": {
+            "create_failed": "שגיאה ביצירה",
+            "delete_failed": "שגיאה במחיקה"
+          }
+        },
+        "stages": {
+          "add": "הוסף שלב",
+          "created": "שלב נוצר",
+          "updated": "שלב עודכן",
+          "deleted": "שלב נמחק",
+          "delete_confirm": "למחוק את השלב?",
+          "columns": {
+            "name": "שם"
+          },
+          "errors": {
+            "create_failed": "שגיאה ביצירה",
+            "update_failed": "שגיאה בעדכון",
+            "delete_failed": "שגיאה במחיקה"
+          }
+        },
+        "errors": {
+          "load_failed": "שגיאה בטעינה"
+        }
+      },
+      "stages": {
+        "prospecting": "חיפוש",
+        "qualification": "הכשרה",
+        "proposal": "הצעה",
+        "negotiation": "משא ומתן",
+        "closed_won": "נסגר בהצלחה",
+        "closed_lost": "אבוד",
+        "new": "חדש",
+        "contacted": "יצרנו קשר",
+        "qualified": "מתאים"
+      },
+      "status": {
+        "new": "חדש",
+        "contacted": "יצרנו קשר",
+        "qualified": "מתאים",
+        "converted": "הומר",
+        "lost": "אבוד"
+      },
+      "contacts": {
+        "title": "אנשי קשר",
+        "subtitle": "נהל את אנשי הקשר שלך",
+        "new_contact": "איש קשר חדש",
+        "search": "חפש אנשי קשר...",
+        "export": "ייצוא CSV",
+        "created": "איש קשר נוצר בהצלחה",
+        "updated": "איש קשר עודכן בהצלחה",
+        "deleted": "איש קשר נמחק בהצלחה",
+        "not_found": "איש קשר לא נמצא",
+        "no_company": "אין חברה",
+        "converted_from_lead": "הומר מליד",
+        "lead_id": "מזהה ליד",
+        "opportunities": "הזדמנויות",
+        "recent_activities": "פעילויות אחרונות",
+        "delete_confirm_title": "למחוק את איש הקשר?",
+        "delete_confirm_message": "פעולה זו לא ניתנת לביטול. האם אתה בטוח?",
+        "columns": {
+          "name": "שם",
+          "company": "חברה",
+          "email": "אימייל",
+          "phone": "טלפון",
+          "status": "סטטוס",
+          "sector": "ענף",
+          "created": "נוצר",
+          "last_contact": "קשר אחרון"
+        },
+        "details": {
+          "contact_info": "פרטי קשר",
+          "position": "תפקיד",
+          "location": "מיקום",
+          "tags": "תגיות"
+        }
+      },
+      "pipeline": {
+        "title": "צינור מכירות",
+        "total_value": "ערך צינור כולל",
+        "weighted_value": "ערך משוקלל",
+        "move_to": "העבר ל",
+        "opportunities": "הזדמנויות",
+        "stage_updated": "שלב עודכן בהצלחה",
+        "total_opps": "סה\"כ הזדמנויות",
+        "avg_deal": "עסקה ממוצעת",
+        "close_rate": "אחוז סגירה",
+        "current_stage": "שלב נוכחי",
+        "estimated_value": "ערך משוער",
+        "description": "תיאור",
+        "stage_history": "היסטוריית שלבים",
+        "stages": {
+          "prospecting": "חיפוש",
+          "qualification": "הכשרה",
+          "proposal": "הצעה",
+          "negotiation": "משא ומתן",
+          "closed_won": "נסגר בהצלחה",
+          "closed_lost": "אבוד",
+          "initial_interest": "עניין ראשוני",
+          "info_requested": "מידע התבקש",
+          "first_call": "שיחה ראשונה",
+          "pitch_delivered": "מצגת הוצגה",
+          "proposal_sent": "הצעה נשלחה",
+          "verbal_commitment": "התחייבות מילולית",
+          "won": "זכייה"
+        }
+      },
+      "emails": {
+        "title": "היסטוריית אימיילים",
+        "history_title": "היסטוריית אימיילים",
+        "compose": "כתוב אימייל",
+        "to": "אל",
+        "sent_count": "אימיילים נשלחו",
+        "empty_title": "אין אימיילים",
+        "empty_description": "אימיילים שנשלחו ללידים יופיעו כאן",
+        "detail_title": "פרטי אימייל",
+        "template_detail": "פרטי תבנית",
+        "select_template": "בחר תבנית",
+        "use": "השתמש",
+        "subject": "נושא",
+        "subject_placeholder": "נושא האימייל...",
+        "message": "הודעה",
+        "message_placeholder": "כתוב את ההודעה שלך כאן...",
+        "sending": "שולח...",
+        "send": "שלח",
+        "sent_success": "אימייל נשלח בהצלחה",
+        "send_failed": "שליחת אימייל נכשלה",
+        "error_empty": "אנא מלא נושא והודעה",
+        "deleted": "רשומת אימייל נמחקה",
+        "delete_confirm": "האם למחוק את רשומת האימייל?",
+        "received_title": "אימיילים שהתקבלו",
+        "received_description": "קבלת אימיילים עדיין לא מיושמת ב-CRM זה",
+        "received_tab": "תיבת דואר",
+        "templates_count": "תבניות זמינות",
+        "templates_info": "תבניות אלו זמינות באנגלית, צרפתית ועברית.",
+        "no_templates": "אין תבניות זמינות",
+        "no_templates_description": "תבניות אימייל יופיעו כאן",
+        "available_languages": "זמין ב:",
+        "columns": {
+          "recipient": "נמען",
+          "subject": "נושא",
+          "date": "תאריך",
+          "status": "סטטוס",
+          "sent_by": "נשלח ע\"י",
+          "from": "מאת",
+          "to": "אל"
+        },
+        "status": {
+          "sent": "נשלח",
+          "delivered": "הועבר",
+          "opened": "נפתח",
+          "clicked": "נלחץ",
+          "failed": "נכשל",
+          "bounced": "חזר"
+        },
+        "tabs": {
+          "sent": "נשלחו",
+          "received": "התקבלו",
+          "templates": "תבניות"
+        },
+        "errors": {
+          "load_failed": "שגיאה בטעינת היסטוריית אימיילים",
+          "templates_load_failed": "שגיאה בטעינת תבניות",
+          "delete_failed": "שגיאה במחיקת רשומה"
+        }
       }
     },
     "login": {

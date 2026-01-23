@@ -53,16 +53,528 @@
       "totalOpportunities": "Total Opportunities",
       "pipelineValue": "Pipeline Value",
       "recentActivity": "Recent Activity",
-      "noActivity": "No recent activity"
+      "noActivity": "No recent activity",
+      "direct": "Direct",
+      "leads_today": "Leads today",
+      "leads_7d": "Leads (7 days)",
+      "pipeline_value": "Pipeline value",
+      "stage_distribution": "Stage distribution",
+      "tasks_overdue": "Overdue tasks",
+      "top_sources": "Top sources"
     },
     "leads": {
-      "subtitle": "Manage your leads and convert them to contacts"
+      "subtitle": "Manage your leads and convert them to contacts",
+      "title": "Leads",
+      "new_lead": "New Lead",
+      "export": "Export CSV",
+      "search": "Search leads...",
+      "search_placeholder": "Search leads...",
+      "filter_sector": "Filter by sector",
+      "filter_stage": "Filter by stage",
+      "filter_status": "Filter by status",
+      "filters": "Filters",
+      "all_stages": "All stages",
+      "all_statuses": "All statuses",
+      "apply_filters": "Apply filters",
+      "created": "Lead created successfully",
+      "updated": "Lead updated successfully",
+      "deleted": "Lead deleted successfully",
+      "status_updated": "Status updated",
+      "note_added": "Note added successfully",
+      "note_error": "Error adding note",
+      "note_placeholder": "Add a note...",
+      "add_note": "Add a note",
+      "add_note_placeholder": "Add a note...",
+      "save_note": "Save note",
+      "export_success": "Leads exported successfully",
+      "export_error": "Error exporting leads",
+      "empty_title": "No leads",
+      "empty_subtitle": "Create your first lead to get started",
+      "empty_description": "Create your first lead to get started",
+      "no_leads": "No leads found",
+      "no_activities": "No activities",
+      "no_brand": "No brand",
+      "not_found": "Lead not found",
+      "activities": "Activities",
+      "actions": "Actions",
+      "convert_to_contact": "Convert to Contact",
+      "create_opportunity": "Create Opportunity",
+      "converting": "Converting...",
+      "convert_success": "Lead converted successfully",
+      "convert_error": "Error converting lead",
+      "confirm_convert": "Confirm conversion",
+      "update_success": "Lead updated successfully",
+      "update_error": "Error updating lead",
+      "already_converted": "Already converted",
+      "view_contact": "View contact",
+      "converted": "Converted",
+      "info": "Information",
+      "email": "Email",
+      "phone": "Phone",
+      "sector": "Sector",
+      "status": "Status",
+      "language": "Language",
+      "target_city": "Target City",
+      "mini_analysis": "AI Mini-Analysis",
+      "generated_on": "Generated on",
+      "delete_confirm_title": "Delete this lead?",
+      "delete_confirm_message": "This action cannot be undone.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "brand": "Brand",
+        "sector": "Sector",
+        "status": "Status",
+        "priority": "Priority",
+        "created": "Created",
+        "phone": "Phone",
+        "contact": "Contact Name"
+      },
+      "col_actions": "Actions",
+      "col_brand": "Brand",
+      "col_created": "Created",
+      "col_email": "Email",
+      "col_sector": "Sector",
+      "col_status": "Status",
+      "toast": {
+        "convert_success": "Lead converted to contact successfully",
+        "contact_created": "Contact created",
+        "view_contact": "View Contact",
+        "opportunity_created": "Opportunity created",
+        "view_opportunity": "View Opportunity",
+        "already_converted": "This lead has already been converted",
+        "lead_not_found": "Lead not found",
+        "missing_info": "Lead must have at least an email or name",
+        "convert_error": "Error converting lead"
+      },
+      "details": {
+        "back": "Back to leads",
+        "info": "Lead Information",
+        "notes": "Notes",
+        "add_note": "Add a note...",
+        "activities": "Activities",
+        "email": "Email",
+        "phone": "Phone",
+        "sector": "Sector",
+        "city": "Target city",
+        "status": "Status",
+        "priority": "Priority",
+        "focus_notes": "Important notes",
+        "status_priority": "Status & Priority",
+        "contact_info": "Contact Information",
+        "additional": "Additional Information"
+      }
     },
     "contacts": {
-      "subtitle": "Manage your customer contacts"
+      "subtitle": "Manage your client contacts",
+      "title": "Contacts",
+      "new_contact": "New Contact",
+      "search": "Search contacts...",
+      "export": "Export CSV",
+      "created": "Contact created successfully",
+      "updated": "Contact updated successfully",
+      "deleted": "Contact deleted successfully",
+      "not_found": "Contact not found",
+      "no_company": "No company",
+      "converted_from_lead": "Converted from Lead",
+      "lead_id": "Lead ID",
+      "opportunities": "Opportunities",
+      "recent_activities": "Recent Activities",
+      "delete_confirm_title": "Delete this contact?",
+      "delete_confirm_message": "This action cannot be undone.",
+      "columns": {
+        "name": "Name",
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone",
+        "status": "Status",
+        "sector": "Sector",
+        "created": "Created",
+        "last_contact": "Last Contact"
+      },
+      "details": {
+        "contact_info": "Contact Information",
+        "position": "Position",
+        "location": "Location",
+        "tags": "Tags"
+      }
     },
     "users": {
-      "subtitle": "Manage users and their permissions"
+      "subtitle": "Manage users and their permissions",
+      "title": "Users",
+      "new": "New User",
+      "edit": "Edit User",
+      "search_placeholder": "Search users...",
+      "all_roles": "All Roles",
+      "all_statuses": "All Statuses",
+      "active": "Active",
+      "inactive": "Inactive",
+      "empty": "No users found",
+      "no_name": "No name",
+      "created": "User created successfully",
+      "updated": "User updated successfully",
+      "deleted": "User deleted successfully",
+      "delete_confirm": "Are you sure you want to delete?",
+      "columns": {
+        "user": "User",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status",
+        "assigned_leads": "Assigned Leads",
+        "actions": "Actions"
+      },
+      "form": {
+        "email": "Email",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "password": "Password",
+        "password_edit": "New password (leave blank)",
+        "role": "Role",
+        "active_account": "Active account"
+      },
+      "roles": {
+        "admin": "Admin",
+        "commercial": "Commercial",
+        "support": "Support"
+      },
+      "buttons": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "create": "Create",
+        "modify": "Modify"
+      },
+      "errors": {
+        "load_failed": "Error loading",
+        "email_required": "Email is required",
+        "password_required": "Password is required",
+        "update_failed": "Error updating",
+        "delete_failed": "Error deleting"
+      }
+    },
+    "title": "CRM Management",
+    "tabs": {
+      "dashboard": "Dashboard",
+      "leads": "Leads",
+      "contacts": "Contacts",
+      "pipeline": "Pipeline",
+      "settings": "Settings"
+    },
+    "stages": {
+      "prospecting": "Prospecting",
+      "qualification": "Qualification",
+      "proposal": "Proposal",
+      "negotiation": "Negotiation",
+      "closed_won": "Closed Won",
+      "closed_lost": "Closed Lost",
+      "new": "New",
+      "contacted": "Contacted",
+      "qualified": "Qualified"
+    },
+    "status": {
+      "new": "New",
+      "contacted": "Contacted",
+      "qualified": "Qualified",
+      "converted": "Converted",
+      "lost": "Lost"
+    },
+    "opportunities": {
+      "title": "Opportunities",
+      "subtitle": "Manage your business opportunities",
+      "new": "New Opportunity",
+      "edit": "Edit Opportunity",
+      "created": "Opportunity created successfully",
+      "updated": "Opportunity updated successfully",
+      "deleted": "Opportunity deleted successfully",
+      "exported": "Opportunities exported",
+      "count": "opportunities",
+      "empty": "No opportunities",
+      "empty_title": "No opportunities",
+      "empty_subtitle": "Create your first opportunity",
+      "delete_confirm": "Delete this opportunity?",
+      "search": "Search...",
+      "name": "Name",
+      "value": "Value (€)",
+      "probability": "Probability (%)",
+      "stage": "Stage",
+      "expected_close": "Expected Close Date",
+      "notes": "Notes",
+      "total_count": "Total Count",
+      "total_value": "Total Value",
+      "weighted_value": "Weighted Value",
+      "columns": {
+        "name": "Name",
+        "value": "Value",
+        "stage": "Stage",
+        "probability": "Probability",
+        "created": "Created"
+      },
+      "stages": {
+        "qualification": "Qualification",
+        "proposal": "Proposal",
+        "negotiation": "Negotiation",
+        "closed_won": "Closed Won",
+        "closed_lost": "Closed Lost"
+      },
+      "errors": {
+        "load_failed": "Failed to load",
+        "create_failed": "Failed to create",
+        "update_failed": "Failed to update",
+        "delete_failed": "Failed to delete"
+      }
+    },
+    "pipeline": {
+      "title": "Sales Pipeline",
+      "total_value": "Total Pipeline Value",
+      "weighted_value": "Weighted Value",
+      "move_to": "Move to",
+      "opportunities": "opportunities",
+      "stage_updated": "Stage updated",
+      "total_opps": "Total Opportunities",
+      "avg_deal": "Average Deal",
+      "close_rate": "Close Rate",
+      "current_stage": "Current Stage",
+      "estimated_value": "Estimated Value",
+      "description": "Description",
+      "stage_history": "Stage History",
+      "stages": {
+        "prospecting": "Prospecting",
+        "qualification": "Qualification",
+        "proposal": "Proposal",
+        "negotiation": "Negotiation",
+        "closed_won": "Closed Won",
+        "closed_lost": "Closed Lost",
+        "initial_interest": "Initial Interest",
+        "info_requested": "Info Requested",
+        "first_call": "First Call",
+        "pitch_delivered": "Pitch Delivered",
+        "proposal_sent": "Proposal Sent",
+        "verbal_commitment": "Verbal Commitment",
+        "won": "Won"
+      }
+    },
+    "activities": {
+      "title": "Activities",
+      "subtitle": "Manage activities and follow-up",
+      "count": "activities",
+      "add": "Add activity",
+      "created": "Activity created successfully",
+      "completed": "Activity completed",
+      "deleted": "Activity deleted",
+      "delete_confirm": "Delete this activity?",
+      "empty": "No activities",
+      "complete": "Complete",
+      "tabs": {
+        "all": "All",
+        "calls": "Calls",
+        "meetings": "Meetings",
+        "tasks": "Tasks",
+        "notes": "Notes"
+      },
+      "columns": {
+        "type": "Type",
+        "subject": "Subject",
+        "related": "Related to",
+        "due_date": "Due date",
+        "status": "Status",
+        "notes": "Notes"
+      },
+      "types": {
+        "call": "Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "task": "Task",
+        "note": "Note"
+      },
+      "status": {
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "overdue": "Overdue",
+        "undefined": "Completed"
+      },
+      "errors": {
+        "load_failed": "Failed to load",
+        "create_failed": "Failed to create",
+        "update_failed": "Failed to update",
+        "delete_failed": "Failed to delete"
+      }
+    },
+    "emails": {
+      "title": "Email History",
+      "history_title": "Email History",
+      "compose": "Compose email",
+      "to": "To",
+      "sent_count": "emails sent",
+      "empty_title": "No emails sent",
+      "empty_description": "Emails sent will appear here",
+      "detail_title": "Email Details",
+      "template_detail": "Template Details",
+      "select_template": "Select a template",
+      "use": "Use",
+      "subject": "Subject",
+      "subject_placeholder": "Email subject...",
+      "message": "Message",
+      "message_placeholder": "Write your message here...",
+      "sending": "Sending...",
+      "send": "Send",
+      "sent_success": "Email sent successfully",
+      "send_failed": "Failed to send",
+      "error_empty": "Please fill in subject and message",
+      "deleted": "Record deleted",
+      "delete_confirm": "Delete this record?",
+      "received_title": "Received Emails",
+      "received_description": "Not implemented",
+      "received_tab": "Inbox",
+      "templates_count": "templates available",
+      "templates_info": "Available in English, French, and Hebrew.",
+      "no_templates": "No templates available",
+      "no_templates_description": "Templates will appear here",
+      "available_languages": "Available in:",
+      "columns": {
+        "recipient": "Recipient",
+        "subject": "Subject",
+        "date": "Date",
+        "status": "Status",
+        "sent_by": "Sent By",
+        "from": "From",
+        "to": "To"
+      },
+      "status": {
+        "sent": "Sent",
+        "delivered": "Delivered",
+        "opened": "Opened",
+        "clicked": "Clicked",
+        "failed": "Failed",
+        "bounced": "Bounced"
+      },
+      "tabs": {
+        "sent": "Sent",
+        "received": "Received",
+        "templates": "Templates"
+      },
+      "errors": {
+        "load_failed": "Failed to load",
+        "templates_load_failed": "Failed to load templates",
+        "delete_failed": "Failed to delete"
+      }
+    },
+    "settings": {
+      "title": "CRM Settings",
+      "subtitle": "Manage users, tags, and stages",
+      "tabs": {
+        "users": "Users",
+        "tags": "Tags",
+        "stages": "Pipeline Stages"
+      },
+      "users": {
+        "updated": "User updated",
+        "columns": {
+          "name": "Name",
+          "email": "Email",
+          "role": "Role",
+          "status": "Status",
+          "created": "Created"
+        },
+        "errors": {
+          "update_failed": "Error updating"
+        }
+      },
+      "tags": {
+        "add": "Add Tag",
+        "created": "Tag created",
+        "deleted": "Tag deleted",
+        "delete_confirm": "Delete this tag?",
+        "columns": {
+          "name": "Name",
+          "color": "Color",
+          "count": "Usage Count"
+        },
+        "errors": {
+          "create_failed": "Error creating",
+          "delete_failed": "Error deleting"
+        }
+      },
+      "stages": {
+        "add": "Add Stage",
+        "created": "Stage created",
+        "updated": "Stage updated",
+        "deleted": "Stage deleted",
+        "delete_confirm": "Delete this stage?",
+        "columns": {
+          "name": "Name"
+        },
+        "errors": {
+          "create_failed": "Error creating",
+          "update_failed": "Error updating",
+          "delete_failed": "Error deleting"
+        }
+      },
+      "errors": {
+        "load_failed": "Error loading"
+      }
+    },
+    "common": {
+      "filters": "Filters",
+      "all_statuses": "All statuses",
+      "all_priorities": "All priorities",
+      "reset": "Reset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "back": "Back to CRM",
+      "back_to_list": "Back to list",
+      "actions": "Actions",
+      "export": "Export",
+      "search": "Search...",
+      "loading": "Loading...",
+      "no_data": "No data available",
+      "no_history": "No history available",
+      "confirm": "Confirm",
+      "confirm_delete": "Are you sure you want to delete?",
+      "close": "Close",
+      "add": "Add",
+      "create": "Create",
+      "update": "Update",
+      "view": "View Details",
+      "refresh": "Refresh",
+      "refreshed": "Data refreshed",
+      "no_notes": "No notes",
+      "no_opportunities": "No opportunities",
+      "no_activities": "No activities",
+      "created": "Created",
+      "updated": "Updated",
+      "language": "Language",
+      "reference": "Reference",
+      "send_email": "Send email"
+    },
+    "errors": {
+      "load_failed": "Failed to load",
+      "create_failed": "Failed to create",
+      "update_failed": "Failed to update",
+      "delete_failed": "Failed to delete",
+      "export_failed": "Failed to export",
+      "note_failed": "Failed to add note",
+      "status_failed": "Failed to update status",
+      "stage_failed": "Failed to update stage",
+      "convert_failed": "Failed to convert",
+      "lead_not_found": "Lead not found"
+    },
+    "statuses": {
+      "NEW": "New",
+      "CONTACTED": "Contacted",
+      "QUALIFIED": "Qualified",
+      "CONVERTED": "Converted",
+      "LOST": "Lost",
+      "PENDING_QUOTA": "Pending quota",
+      "undefined": "Undefined",
+      "completed": "Completed"
+    },
+    "priorities": {
+      "A": "High (A)",
+      "B": "Medium (B)",
+      "C": "Low (C)",
+      "undefined": "Undefined"
     }
   },
   "hero": {
@@ -510,7 +1022,8 @@
         "pipeline_value": "Pipeline value",
         "stage_distribution": "Stage distribution",
         "tasks_overdue": "Overdue tasks",
-        "top_sources": "Top sources"
+        "top_sources": "Top sources",
+        "leads_7d": "Leads (7 days)"
       },
       "stages": {
         "prospecting": "Prospecting",
@@ -532,7 +1045,7 @@
       "conversionFailed": "Conversion failed",
       "leads": {
         "title": "Leads",
-        "subtitle": "Manage your leads and convert them to contacts",
+        "subtitle": "Manage your leads",
         "new_lead": "New Lead",
         "export": "Export CSV",
         "search": "Search leads...",
@@ -556,7 +1069,7 @@
           "phone": "Phone"
         },
         "toast": {
-          "convert_success": "Lead converted to contact successfully",
+          "convert_success": "Lead converted",
           "contact_created": "Contact created",
           "view_contact": "View Contact",
           "opportunity_created": "Opportunity created",
@@ -578,7 +1091,10 @@
           "city": "Target city",
           "status": "Status",
           "priority": "Priority",
-          "focus_notes": "Important notes"
+          "focus_notes": "Important notes",
+          "status_priority": "Status & Priority",
+          "contact_info": "Contact Information",
+          "additional": "Additional Information"
         },
         "search_placeholder": "Search leads...",
         "filter_stage": "Filter by stage",
@@ -621,7 +1137,18 @@
         "col_created": "Created",
         "col_email": "Email",
         "col_sector": "Sector",
-        "col_status": "Status"
+        "col_status": "Status",
+        "updated": "Lead updated successfully",
+        "no_brand": "No brand",
+        "not_found": "Lead not found",
+        "actions": "Actions",
+        "target_city": "Target City",
+        "delete_confirm_title": "Delete this lead?",
+        "delete_confirm_message": "This action cannot be undone. Are you sure you want to delete this lead?",
+        "errors": {
+          "load_failed": "Failed to load",
+          "create_failed": "Failed to create"
+        }
       },
       "contacts": {
         "title": "Contacts",
@@ -643,14 +1170,69 @@
           "sector": "Sector",
           "created": "Created",
           "last_contact": "Last Contact"
+        },
+        "subtitle": "Manage contacts",
+        "no_company": "No company",
+        "converted_from_lead": "Converted from Lead",
+        "lead_id": "Lead ID",
+        "opportunities": "Opportunities",
+        "recent_activities": "Recent Activities",
+        "delete_confirm_title": "Delete this contact?",
+        "delete_confirm_message": "This action cannot be undone. Are you sure you want to delete this contact?",
+        "details": {
+          "contact_info": "Contact Information",
+          "position": "Position",
+          "location": "Location",
+          "tags": "Tags"
         }
       },
       "opportunities": {
-        "title": "Opportunity",
-        "created": "Created from lead"
+        "title": "Opportunities",
+        "created": "Created from lead",
+        "subtitle": "Manage your business opportunities",
+        "new": "New Opportunity",
+        "edit": "Edit Opportunity",
+        "updated": "Opportunity updated successfully",
+        "deleted": "Opportunity deleted successfully",
+        "exported": "Opportunities exported",
+        "count": "opportunities",
+        "empty": "No opportunities",
+        "empty_title": "No opportunities",
+        "empty_subtitle": "Create your first opportunity",
+        "delete_confirm": "Delete this opportunity?",
+        "search": "Search...",
+        "name": "Name",
+        "value": "Value (€)",
+        "probability": "Probability (%)",
+        "stage": "Stage",
+        "expected_close": "Expected Close Date",
+        "notes": "Notes",
+        "total_count": "Total Count",
+        "total_value": "Total Value",
+        "weighted_value": "Weighted Value",
+        "columns": {
+          "name": "Name",
+          "value": "Value",
+          "stage": "Stage",
+          "probability": "Probability",
+          "created": "Created"
+        },
+        "stages": {
+          "qualification": "Qualification",
+          "proposal": "Proposal",
+          "negotiation": "Negotiation",
+          "closed_won": "Closed Won",
+          "closed_lost": "Closed Lost"
+        },
+        "errors": {
+          "load_failed": "Failed to load opportunities",
+          "create_failed": "Failed to create opportunity",
+          "update_failed": "Failed to update opportunity",
+          "delete_failed": "Failed to delete opportunity"
+        }
       },
       "pipeline": {
-        "title": "Sales Pipeline",
+        "title": "Pipeline",
         "total_value": "Total Pipeline Value",
         "weighted_value": "Weighted Value",
         "move_to": "Move to",
@@ -682,8 +1264,8 @@
       "activities": {
         "title": "Activities",
         "count": "activities",
-        "add": "Add Activity",
-        "created": "Activity created successfully",
+        "add": "Add activity",
+        "created": "Activity created",
         "completed": "Activity completed",
         "deleted": "Activity deleted",
         "delete_confirm": "Delete this activity?",
@@ -693,13 +1275,14 @@
           "all": "All",
           "calls": "Calls",
           "meetings": "Meetings",
-          "tasks": "Tasks"
+          "tasks": "Tasks",
+          "notes": "Notes"
         },
         "columns": {
           "type": "Type",
           "subject": "Subject",
-          "related": "Related To",
-          "due_date": "Due Date",
+          "related": "Related to",
+          "due_date": "Due date",
           "status": "Status",
           "notes": "Notes"
         },
@@ -707,7 +1290,8 @@
           "call": "Call",
           "meeting": "Meeting",
           "email": "Email",
-          "task": "Task"
+          "task": "Task",
+          "note": "Note"
         },
         "status": {
           "pending": "Pending",
@@ -717,10 +1301,10 @@
           "undefined": "Completed"
         },
         "errors": {
-          "load_failed": "Failed to load activities",
-          "create_failed": "Failed to create activity",
-          "update_failed": "Failed to update activity",
-          "delete_failed": "Failed to delete activity"
+          "load_failed": "Failed to load",
+          "create_failed": "Failed to create",
+          "update_failed": "Failed to update",
+          "delete_failed": "Failed to delete"
         },
         "subtitle": "Manage activities and lead follow-up"
       },
@@ -781,7 +1365,8 @@
           "templates_load_failed": "Failed to load templates",
           "delete_failed": "Failed to delete email record"
         },
-        "delete_confirm": "Are you sure you want to delete this email record?"
+        "delete_confirm": "Are you sure you want to delete this email record?",
+        "available_languages": "Available in:"
       },
       "settings": {
         "title": "CRM Settings",
@@ -804,7 +1389,58 @@
           "tags": "Tags Management",
           "stages": "Pipeline Stages"
         },
-        "subtitle": "Manage your CRM settings"
+        "subtitle": "Manage your CRM settings",
+        "tabs": {
+          "users": "Users",
+          "tags": "Tags",
+          "stages": "Pipeline Stages"
+        },
+        "users": {
+          "updated": "User updated",
+          "columns": {
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "status": "Status",
+            "created": "Created"
+          },
+          "errors": {
+            "update_failed": "Update failed"
+          }
+        },
+        "tags": {
+          "add": "Add Tag",
+          "created": "Tag created",
+          "deleted": "Tag deleted",
+          "delete_confirm": "Delete tag?",
+          "columns": {
+            "name": "Name",
+            "color": "Color",
+            "count": "Usage Count"
+          },
+          "errors": {
+            "create_failed": "Create failed",
+            "delete_failed": "Delete failed"
+          }
+        },
+        "stages": {
+          "add": "Add Stage",
+          "created": "Stage created",
+          "updated": "Stage updated",
+          "deleted": "Stage deleted",
+          "delete_confirm": "Delete stage?",
+          "columns": {
+            "name": "Name"
+          },
+          "errors": {
+            "create_failed": "Create failed",
+            "update_failed": "Update failed",
+            "delete_failed": "Delete failed"
+          }
+        },
+        "errors": {
+          "load_failed": "Load failed"
+        }
       },
       "common": {
         "filters": "Filters",
@@ -849,7 +1485,9 @@
         "export_failed": "Failed to export",
         "note_failed": "Failed to add note",
         "status_failed": "Failed to update status",
-        "lead_not_found": "Lead not found"
+        "lead_not_found": "Lead not found",
+        "stage_failed": "Failed to update stage",
+        "convert_failed": "Failed to convert"
       },
       "statuses": {
         "NEW": "New",
@@ -901,7 +1539,7 @@
         },
         "roles": {
           "admin": "Admin",
-          "commercial": "Sales",
+          "commercial": "Commercial",
           "support": "Support"
         },
         "errors": {
@@ -932,6 +1570,13 @@
       "sidebar": {
         "expand": "Expand",
         "collapse": "Collapse"
+      },
+      "status": {
+        "new": "New",
+        "contacted": "Contacted",
+        "qualified": "Qualified",
+        "converted": "Converted",
+        "lost": "Lost"
       }
     },
     "media": {

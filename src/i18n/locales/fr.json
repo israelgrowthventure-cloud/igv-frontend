@@ -1,4 +1,4 @@
-{
+﻿{
   "nav": {
     "home": "Accueil",
     "about": "Qui sommes-nous",
@@ -20,21 +20,21 @@
       "leads": "Prospects",
       "contacts": "Contacts",
       "pipeline": "Pipeline",
-      "opportunities": "Opportunités",
-      "activities": "Activités",
+      "opportunities": "Opportunitֳ©s",
+      "activities": "Activitֳ©s",
       "emails": "Emails",
       "users": "Utilisateurs",
-      "settings": "Paramètres"
+      "settings": "Paramֳ¨tres"
     },
     "breadcrumb": {
       "home": "Accueil"
     },
     "sidebar": {
-      "collapse": "Réduire",
-      "expand": "Développer"
+      "collapse": "Rֳ©duire",
+      "expand": "Dֳ©velopper"
     },
     "common": {
-      "back_to_list": "← Retour à la liste",
+      "back_to_list": "ג† Retour ֳ  la liste",
       "search": "Rechercher...",
       "filter": "Filtrer",
       "refresh": "Actualiser",
@@ -48,7 +48,7 @@
     },
     "user": {
       "admin": "Administrateur",
-      "logout": "Déconnexion",
+      "logout": "Dֳ©connexion",
       "profile": "Profil"
     },
     "role": {
@@ -57,113 +57,113 @@
     },
     "dashboard": {
       "title": "Tableau de bord",
-      "subtitle": "Vue d'ensemble de votre activité CRM",
+      "subtitle": "Vue d'ensemble de votre activitֳ© CRM",
       "totalLeads": "Total Prospects",
       "totalContacts": "Total Contacts",
-      "totalOpportunities": "Total Opportunités",
+      "totalOpportunities": "Total Opportunitֳ©s",
       "pipelineValue": "Valeur Pipeline",
-      "recentActivity": "Activité récente",
-      "noActivity": "Aucune activité récente"
+      "recentActivity": "Activitֳ© rֳ©cente",
+      "noActivity": "Aucune activitֳ© rֳ©cente"
     },
     "leads": {
-      "subtitle": "Gérez vos prospects et convertissez-les en contacts"
+      "subtitle": "Gֳ©rez vos prospects et convertissez-les en contacts"
     },
     "contacts": {
-      "subtitle": "Gérez vos contacts clients"
+      "subtitle": "Gֳ©rez vos contacts clients"
     },
     "users": {
-      "subtitle": "Gérez les utilisateurs et leurs permissions"
+      "subtitle": "Gֳ©rez les utilisateurs et leurs permissions"
     }
   },
   "hero": {
     "title": "Israel Growth Venture",
-    "subtitle": "Votre partenaire stratégique pour une expansion réussie en Israël",
-    "description": "Nous sommes spécialisés dans l'accompagnement des marques pour leur expansion réussie sur le marché israélien. Avec notre expertise et notre réseau, nous proposons des solutions sur mesure pour aider les entreprises à s'implanter, se développer et prospérer dans l'un des marchés les plus dynamiques et innovants du monde.",
+    "subtitle": "Votre partenaire stratֳ©gique pour une expansion rֳ©ussie en Israֳ«l",
+    "description": "Nous sommes spֳ©cialisֳ©s dans l'accompagnement des marques pour leur expansion rֳ©ussie sur le marchֳ© israֳ©lien. Avec notre expertise et notre rֳ©seau, nous proposons des solutions sur mesure pour aider les entreprises ֳ  s'implanter, se dֳ©velopper et prospֳ©rer dans l'un des marchֳ©s les plus dynamiques et innovants du monde.",
     "cta": "En savoir plus",
-    "bookAppointment": "Réserver un rendez-vous"
+    "bookAppointment": "Rֳ©server un rendez-vous"
   },
   "home": {
     "howItWorks": {
-      "title": "Comment ça marche ?",
-      "subtitle": "Un processus simple et efficace en 3 étapes"
+      "title": "Comment ֳ§a marche ?",
+      "subtitle": "Un processus simple et efficace en 3 ֳ©tapes"
     },
     "aiInsight": {
-      "cta": "Prêt à explorer le marché israélien ?",
-      "description": "Commencez par une analyse préliminaire gratuite générée par IA pour comprendre si Israël pourrait être pertinent pour votre entreprise."
+      "cta": "Prֳ×t ֳ  explorer le marchֳ© israֳ©lien ?",
+      "description": "Commencez par une analyse prֳ©liminaire gratuite gֳ©nֳ©rֳ©e par IA pour comprendre si Israֳ«l pourrait ֳ×tre pertinent pour votre entreprise."
     },
     "cta": {
-      "title": "Prêt à commencer votre expansion ?",
+      "title": "Prֳ×t ֳ  commencer votre expansion ?",
       "subtitle": "Contactez-nous aujourd'hui pour une consultation gratuite"
     }
   },
   "about": {
     "title": "Qui sommes-nous ?",
-    "description": "Nous sommes une entreprise spécialisée dans le conseil en expansion de marques et la recherche active de biens immobiliers commerciaux. Notre équipe de spécialistes en conseil à l'implantation de marques vous conseillera et cherchera les meilleurs emplacements pour développer votre marque en Israël.",
-    "collaboration": "Nous collaborons avec les municipalités et les principaux propriétaires immobiliers pour promouvoir activement et rechercher des clients pour divers projets de développement de zones commerciales.",
-    "support": "Le marché israélien étant très difficile d'accès, notre équipe peut guider les clients depuis la création d'un business plan jusqu'à la sélection de l'équipe d'employés. Nous offrons un soutien complet pour assurer le succès de votre expansion.",
-    "service": "Si vous cherchez à établir et développer votre marque ou à étendre votre concept par le biais de franchises ou de succursales, l'équipe Israel Growth Venture est à votre service."
+    "description": "Nous sommes une entreprise spֳ©cialisֳ©e dans le conseil en expansion de marques et la recherche active de biens immobiliers commerciaux. Notre ֳ©quipe de spֳ©cialistes en conseil ֳ  l'implantation de marques vous conseillera et cherchera les meilleurs emplacements pour dֳ©velopper votre marque en Israֳ«l.",
+    "collaboration": "Nous collaborons avec les municipalitֳ©s et les principaux propriֳ©taires immobiliers pour promouvoir activement et rechercher des clients pour divers projets de dֳ©veloppement de zones commerciales.",
+    "support": "Le marchֳ© israֳ©lien ֳ©tant trֳ¨s difficile d'accֳ¨s, notre ֳ©quipe peut guider les clients depuis la crֳ©ation d'un business plan jusqu'ֳ  la sֳ©lection de l'ֳ©quipe d'employֳ©s. Nous offrons un soutien complet pour assurer le succֳ¨s de votre expansion.",
+    "service": "Si vous cherchez ֳ  ֳ©tablir et dֳ©velopper votre marque ou ֳ  ֳ©tendre votre concept par le biais de franchises ou de succursales, l'ֳ©quipe Israel Growth Venture est ֳ  votre service."
   },
   "steps": {
     "step1": {
-      "title": "Planifiez une réunion avec un expert",
-      "description": "Discutez de votre projet d'expansion en Israël avec nos spécialistes."
+      "title": "Planifiez une rֳ©union avec un expert",
+      "description": "Discutez de votre projet d'expansion en Israֳ«l avec nos spֳ©cialistes."
     },
     "step2": {
-      "title": "Obtenez une analyse préliminaire gratuite",
-      "description": "Nous évaluons votre potentiel et fournissons un premier aperçu des opportunités."
+      "title": "Obtenez une analyse prֳ©liminaire gratuite",
+      "description": "Nous ֳ©valuons votre potentiel et fournissons un premier aperֳ§u des opportunitֳ©s."
     },
     "step3": {
-      "title": "Nous gérons votre expansion",
-      "description": "De la recherche de propriété à l'établissement complet, nous vous soutenons à chaque étape."
+      "title": "Nous gֳ©rons votre expansion",
+      "description": "De la recherche de propriֳ©tֳ© ֳ  l'ֳ©tablissement complet, nous vous soutenons ֳ  chaque ֳ©tape."
     }
   },
   "packs": {
     "title": "Conseil High-Ticket",
-    "subtitle": "Stratégies d'expansion premium pour marques ambitieuses",
+    "subtitle": "Stratֳ©gies d'expansion premium pour marques ambitieuses",
     "analyse": {
-      "name": "Diagnostic Stratégique",
-      "description": "Analyse approfondie du potentiel de votre marque sur le marché israelien avec recommandations sur mesure",
+      "name": "Diagnostic Stratֳ©gique",
+      "description": "Analyse approfondie du potentiel de votre marque sur le marchֳ© israelien avec recommandations sur mesure",
       "features": [
         "Audit de positionnement concurrentiel",
-        "Cartographie des opportunités territoriales",
-        "Analyse des risques et facteurs clés de succès",
-        "Feuille de route stratégique personnalisée",
+        "Cartographie des opportunitֳ©s territoriales",
+        "Analyse des risques et facteurs clֳ©s de succֳ¨s",
+        "Feuille de route stratֳ©gique personnalisֳ©e",
         "Session de debriefing avec un expert"
       ],
       "note": "Pour des projets multi-localisations, nous consulter."
     },
     "succursales": {
       "name": "Accompagnement Succursales",
-      "description": "Service premium de bout en bout pour l'ouverture et le développement de vos points de vente en Israël",
+      "description": "Service premium de bout en bout pour l'ouverture et le dֳ©veloppement de vos points de vente en Israֳ«l",
       "features": [
-        "Diagnostic stratégique inclus",
-        "Recherche et sélection de locaux premium",
+        "Diagnostic stratֳ©gique inclus",
+        "Recherche et sֳ©lection de locaux premium",
         "Negociation de baux commerciaux",
-        "Coordination des travaux d'aménagement",
-        "Recrutement et formation des équipes",
+        "Coordination des travaux d'amֳ©nagement",
+        "Recrutement et formation des ֳ©quipes",
         "Support au lancement et premiers mois"
       ]
     },
     "franchise": {
-      "name": "Développement Franchise",
-      "description": "Partenariat stratégique pour structurer et accélérer votre développement en franchise",
+      "name": "Dֳ©veloppement Franchise",
+      "description": "Partenariat stratֳ©gique pour structurer et accֳ©lֳ©rer votre dֳ©veloppement en franchise",
       "features": [
-        "Diagnostic stratégique inclus",
+        "Diagnostic stratֳ©gique inclus",
         "Structuration du dossier franchise (manuels, IP)",
-        "Stratégie de recrutement de franchisés",
+        "Stratֳ©gie de recrutement de franchisֳ©s",
         "Formation des partenaires",
-        "Accompagnement au déploiement",
-        "Suivi qualité continu"
+        "Accompagnement au dֳ©ploiement",
+        "Suivi qualitֳ© continu"
       ]
     },
-    "cta": "Démarrer mon projet",
+    "cta": "Dֳ©marrer mon projet",
     "ctaTalk": "Parler de ce pack",
-    "popular": "LE PLUS DEMANDÉ",
+    "popular": "LE PLUS DEMANDֳ‰",
     "priceOnRequest": "Sur devis",
     "customPack": {
-      "title": "Un projet unique mérite une approche unique",
-      "description": "Chaque marque a son propre potentiel et ses défis spécifiques. Parlons de votre vision pour construire ensemble une stratégie sur mesure.",
-      "cta": "Échanger avec un consultant"
+      "title": "Un projet unique mֳ©rite une approche unique",
+      "description": "Chaque marque a son propre potentiel et ses dֳ©fis spֳ©cifiques. Parlons de votre vision pour construire ensemble une stratֳ©gie sur mesure.",
+      "cta": "ֳ‰changer avec un consultant"
     },
     "email": {
       "subject": "Demande de consultation - Pack {packName}"
@@ -172,24 +172,24 @@
     "ctaMiniAnalysis": "Obtenir ma mini-analyse gratuite"
   },
   "pricing": {
-    "region": "Prix selon votre région",
-    "detecting": "Détection en cours..."
+    "region": "Prix selon votre rֳ©gion",
+    "detecting": "Dֳ©tection en cours..."
   },
   "demandeRappel": {
     "title": "Demande de rappel",
-    "subtitle": "Un expert IGV vous contactera sous 48h pour discuter de votre projet d'expansion en Israël",
-    "successTitle": "Demande enregistrée !",
-    "successMessage": "Merci pour votre intérêt. Un expert IGV vous contactera sous 48h pour discuter de votre projet.",
-    "packSelected": "Pack sélectionné",
-    "preferredDate": "Date souhaitée",
+    "subtitle": "Un expert IGV vous contactera sous 48h pour discuter de votre projet d'expansion en Israֳ«l",
+    "successTitle": "Demande enregistrֳ©e !",
+    "successMessage": "Merci pour votre intֳ©rֳ×t. Un expert IGV vous contactera sous 48h pour discuter de votre projet.",
+    "packSelected": "Pack sֳ©lectionnֳ©",
+    "preferredDate": "Date souhaitֳ©e",
     "submit": "Demander un rappel",
     "fields": {
       "nom": "Nom complet",
       "email": "Email",
-      "telephone": "Téléphone",
+      "telephone": "Tֳ©lֳ©phone",
       "entreprise": "Entreprise",
-      "date": "Date souhaitée",
-      "heure": "Heure souhaitée",
+      "date": "Date souhaitֳ©e",
+      "heure": "Heure souhaitֳ©e",
       "message": "Message (optionnel)"
     },
     "placeholders": {
@@ -197,68 +197,68 @@
       "email": "jean@entreprise.com",
       "telephone": "+33 6 12 34 56 78",
       "entreprise": "Nom de l'entreprise",
-      "heure": "Sélectionner",
+      "heure": "Sֳ©lectionner",
       "message": "Parlez-nous de votre projet..."
     },
     "errors": {
       "fieldsRequired": "Veuillez remplir tous les champs obligatoires",
-      "submitFailed": "Erreur lors de l'envoi. Veuillez réessayer."
+      "submitFailed": "Erreur lors de l'envoi. Veuillez rֳ©essayer."
     },
-    "success": "Votre demande a été enregistrée avec succès"
+    "success": "Votre demande a ֳ©tֳ© enregistrֳ©e avec succֳ¨s"
   },
   "payment": {
     "title": "Finaliser votre achat",
-    "subtitle": "Paiement sécurisé par carte bancaire",
+    "subtitle": "Paiement sֳ©curisֳ© par carte bancaire",
     "pageTitle": "Retour paiement",
     "processing": "Traitement en cours...",
-    "pleaseWait": "Veuillez patienter pendant la vérification de votre paiement",
-    "cta": "Procéder au paiement",
+    "pleaseWait": "Veuillez patienter pendant la vֳ©rification de votre paiement",
+    "cta": "Procֳ©der au paiement",
     "backToPacks": "Retour aux packs",
-    "redirectMessage": "Vous allez être redirigé vers notre plateforme de paiement sécurisée",
+    "redirectMessage": "Vous allez ֳ×tre redirigֳ© vers notre plateforme de paiement sֳ©curisֳ©e",
     "security": {
-      "title": "Paiement 100% sécurisé",
+      "title": "Paiement 100% sֳ©curisֳ©",
       "ssl": "Cryptage SSL/TLS",
-      "secure3d": "3D Secure activé",
+      "secure3d": "3D Secure activֳ©",
       "pciDss": "Conforme PCI-DSS"
     },
     "method": {
       "title": "Mode de paiement",
       "card": "Carte bancaire",
-      "cardSubtitle": "Visa, Mastercard, CB acceptées"
+      "cardSubtitle": "Visa, Mastercard, CB acceptֳ©es"
     },
     "support": {
       "question": "Une question avant de payer ?"
     },
     "errors": {
-      "packNotSelected": "Aucun pack sélectionné",
-      "noPackSelected": "Aucun pack sélectionné",
-      "notConfigured": "Le paiement n'est pas encore configuré. Contactez-nous directement.",
-      "generic": "Une erreur est survenue. Veuillez réessayer."
+      "packNotSelected": "Aucun pack sֳ©lectionnֳ©",
+      "noPackSelected": "Aucun pack sֳ©lectionnֳ©",
+      "notConfigured": "Le paiement n'est pas encore configurֳ©. Contactez-nous directement.",
+      "generic": "Une erreur est survenue. Veuillez rֳ©essayer."
     },
-    "successTitle": "Paiement réussi !",
-    "successMessage": "Votre paiement a été traité avec succès.",
-    "details": "Détails du paiement",
-    "reference": "Référence",
+    "successTitle": "Paiement rֳ©ussi !",
+    "successMessage": "Votre paiement a ֳ©tֳ© traitֳ© avec succֳ¨s.",
+    "details": "Dֳ©tails du paiement",
+    "reference": "Rֳ©fֳ©rence",
     "amount": "Montant",
     "confirmationEmail": "Vous recevrez un email de confirmation avec votre facture sous peu.",
     "requestInvoice": "Demander une facture",
-    "failedTitle": "Échec du paiement",
-    "failedMessage": "Votre paiement n'a pas pu être traité.",
-    "tryAgainMessage": "Veuillez réessayer ou contacter notre équipe support pour assistance.",
-    "tryAgain": "Réessayer",
+    "failedTitle": "ֳ‰chec du paiement",
+    "failedMessage": "Votre paiement n'a pas pu ֳ×tre traitֳ©.",
+    "tryAgainMessage": "Veuillez rֳ©essayer ou contacter notre ֳ©quipe support pour assistance.",
+    "tryAgain": "Rֳ©essayer",
     "invalidTitle": "Retour de paiement invalide",
-    "invalidMessage": "Les données de retour de paiement sont invalides ou manquantes.",
+    "invalidMessage": "Les donnֳ©es de retour de paiement sont invalides ou manquantes.",
     "invalidReturn": "Retour de paiement invalide",
-    "success": "Paiement réussi !",
-    "cancelled": "Paiement annulé par l'utilisateur",
-    "cancelledToast": "Paiement annulé",
-    "failed": "Échec du paiement",
-    "failedToast": "Échec du paiement"
+    "success": "Paiement rֳ©ussi !",
+    "cancelled": "Paiement annulֳ© par l'utilisateur",
+    "cancelledToast": "Paiement annulֳ©",
+    "failed": "ֳ‰chec du paiement",
+    "failedToast": "ֳ‰chec du paiement"
   },
   "common": {
     "loading": "Chargement...",
     "error": "Erreur",
-    "success": "Succès",
+    "success": "Succֳ¨s",
     "close": "Fermer",
     "yes": "Oui",
     "no": "Non",
@@ -269,120 +269,120 @@
     "edit": "Modifier",
     "search": "Rechercher",
     "filter": "Filtrer",
-    "retry": "Réessayer",
+    "retry": "Rֳ©essayer",
     "brandName": "Israel Growth Venture",
     "emailCompose": {
       "compose": "Nouveau message",
-      "to": "À",
+      "to": "ֳ€",
       "subject": "Objet",
       "subject_placeholder": "Objet de votre email...",
       "message": "Message",
-      "message_placeholder": "Rédigez votre message ici...",
-      "select_template": "Choisir un modèle",
+      "message_placeholder": "Rֳ©digez votre message ici...",
+      "select_template": "Choisir un modֳ¨le",
       "use": "Utiliser",
       "send": "Envoyer",
       "sending": "Envoi...",
-      "sent_success": "Email envoyé avec succès",
-      "send_failed": "Échec de l'envoi de l'email",
+      "sent_success": "Email envoyֳ© avec succֳ¨s",
+      "send_failed": "ֳ‰chec de l'envoi de l'email",
       "error_empty": "Veuillez remplir l'objet et le message"
     }
   },
   "errors": {
-    "pageNotFound": "Page non trouvée"
+    "pageNotFound": "Page non trouvֳ©e"
   },
   "futureCommerce": {
     "title": "Le commerce tel que vous le pratiquez est mort.",
-    "subtitle": "Israël : là où le commerce du futur se crée avant les autres",
+    "subtitle": "Israֳ«l : lֳ  oֳ¹ le commerce du futur se crֳ©e avant les autres",
     "hero": {
       "line1": "Le commerce tel que vous le pratiquez est mort.",
       "line2": "Pas dans 10 ans. Pas dans 5 ans.",
       "line3": "Maintenant.",
-      "description": "Les marques qui continuent d'ouvrir des boutiques comme en 2010 s'accrochent à un modèle qui n'existe déjà plus. Les consommateurs ne veulent plus acheter : ils veulent vivre, ressentir, tester, participer."
+      "description": "Les marques qui continuent d'ouvrir des boutiques comme en 2010 s'accrochent ֳ  un modֳ¨le qui n'existe dֳ©jֳ  plus. Les consommateurs ne veulent plus acheter : ils veulent vivre, ressentir, tester, participer."
     },
     "israel": {
-      "title": "Israël : là où le commerce du futur se crée avant les autres",
-      "subtitle": "Israël n'est pas un marché. C'est un laboratoire.",
+      "title": "Israֳ«l : lֳ  oֳ¹ le commerce du futur se crֳ©e avant les autres",
+      "subtitle": "Israֳ«l n'est pas un marchֳ©. C'est un laboratoire.",
       "points": [
-        "Le consommateur adopte en 3 mois ce que l'Europe met 3 ans à comprendre.",
+        "Le consommateur adopte en 3 mois ce que l'Europe met 3 ans ֳ  comprendre.",
         "Les usages changent plus vite que les business plans.",
-        "Les concepts survivent uniquement s'ils sont réellement bons.",
-        "Le digital et le physique ne sont plus séparés : tout est hybride, tout est instantané."
+        "Les concepts survivent uniquement s'ils sont rֳ©ellement bons.",
+        "Le digital et le physique ne sont plus sֳ©parֳ©s : tout est hybride, tout est instantanֳ©."
       ],
-      "conclusion": "Si votre concept tient en Israël, il est prêt pour le futur."
+      "conclusion": "Si votre concept tient en Israֳ«l, il est prֳ×t pour le futur."
     },
     "realities": {
-      "title": "3 Réalités que les marques doivent comprendre maintenant",
+      "title": "3 Rֳ©alitֳ©s que les marques doivent comprendre maintenant",
       "reality1": {
-        "title": "Le client n'achète plus un produit, il achète une expérience",
-        "description": "Et cette expérience doit commencer avant qu'il entre en magasin, et continuer après qu'il soit sorti."
+        "title": "Le client n'achֳ¨te plus un produit, il achֳ¨te une expֳ©rience",
+        "description": "Et cette expֳ©rience doit commencer avant qu'il entre en magasin, et continuer aprֳ¨s qu'il soit sorti."
       },
       "reality2": {
-        "title": "Le retail n'est plus un lieu. C'est un média.",
+        "title": "Le retail n'est plus un lieu. C'est un mֳ©dia.",
         "description": "Un magasin qui ne raconte rien ne vend rien."
       },
       "reality3": {
-        "title": "Le modèle économique doit intégrer :",
+        "title": "Le modֳ¨le ֳ©conomique doit intֳ©grer :",
         "points": [
-          "le coût du digital,",
-          "l'inflation immobilière,",
-          "les attentes émotionnelles,",
+          "le coֳ»t du digital,",
+          "l'inflation immobiliֳ¨re,",
+          "les attentes ֳ©motionnelles,",
           "la vitesse des tendances."
         ],
-        "conclusion": "Beaucoup refusent de l'admettre. Mais ceux qui réussissent sont ceux qui regardent la réalité en face."
+        "conclusion": "Beaucoup refusent de l'admettre. Mais ceux qui rֳ©ussissent sont ceux qui regardent la rֳ©alitֳ© en face."
       }
     },
     "what_we_do": {
       "title": "Ce que nous faisons chez IGV",
-      "description": "Nous testons des concepts en conditions réelles, ici, dans le pays le plus rapide du monde pour valider une idée :",
+      "description": "Nous testons des concepts en conditions rֳ©elles, ici, dans le pays le plus rapide du monde pour valider une idֳ©e :",
       "services": [
         "Nous trouvons les bons emplacements",
         "Nous montons les structures",
-        "Nous formons les équipes",
-        "Nous lançons",
+        "Nous formons les ֳ©quipes",
+        "Nous lanֳ§ons",
         "Et nous suivons"
       ],
-      "conclusion": "IGV, ce n'est pas du conseil. C'est de l'exécution."
+      "conclusion": "IGV, ce n'est pas du conseil. C'est de l'exֳ©cution."
     },
     "why_series": {
-      "title": "Pourquoi une série \"Le Commerce de Demain\" ?",
-      "description": "Parce que les marques doivent comprendre où va le commerce, pour savoir où placer leurs pions.",
+      "title": "Pourquoi une sֳ©rie \"Le Commerce de Demain\" ?",
+      "description": "Parce que les marques doivent comprendre oֳ¹ va le commerce, pour savoir oֳ¹ placer leurs pions.",
       "content": "Chaque semaine, je partage :",
       "items": [
         "une observation terrain",
         "un insight consommateur",
-        "une vérité que personne n'ose dire",
+        "une vֳ©ritֳ© que personne n'ose dire",
         "une tendance que je vois arriver",
-        "ou un concept qui mérite d'être analysé"
+        "ou un concept qui mֳ©rite d'ֳ×tre analysֳ©"
       ],
-      "conclusion": "Pas de théorie. Pas de buzzwords. Juste la réalité du terrain, maintenant."
+      "conclusion": "Pas de thֳ©orie. Pas de buzzwords. Juste la rֳ©alitֳ© du terrain, maintenant."
     },
-    "cta": "Réserver un appel de 30 minutes"
+    "cta": "Rֳ©server un appel de 30 minutes"
   },
   "contact": {
     "title": "Contactez-nous",
-    "subtitle": "Nous sommes là pour répondre à vos questions",
+    "subtitle": "Nous sommes lֳ  pour rֳ©pondre ֳ  vos questions",
     "form": {
       "name": "Nom complet",
       "email": "Email",
-      "company": "Société (optionnel)",
-      "phone": "Téléphone (optionnel)",
+      "company": "Sociֳ©tֳ© (optionnel)",
+      "phone": "Tֳ©lֳ©phone (optionnel)",
       "message": "Message",
       "submit": "Envoyer",
       "sending": "Envoi en cours...",
-      "success": "Message envoyé avec succès !",
-      "error": "Erreur lors de l'envoi. Veuillez réessayer."
+      "success": "Message envoyֳ© avec succֳ¨s !",
+      "error": "Erreur lors de l'envoi. Veuillez rֳ©essayer."
     },
     "info": {
       "title": "Informations de contact",
       "email": "Email",
       "address": "Adresse",
-      "addressValue": "21 Rue Gefen, Harish, Israël"
+      "addressValue": "21 Rue Gefen, Harish, Israֳ«l"
     }
   },
   "appointment": {
-    "title": "Réserver un rendez-vous",
-    "subtitle": "Discutons de votre projet d'expansion en Israël",
-    "description": "Réservez un créneau de 30 minutes avec notre équipe pour discuter de votre projet. Nous analyserons votre concept et définirons la meilleure stratégie pour votre expansion.",
+    "title": "Rֳ©server un rendez-vous",
+    "subtitle": "Discutons de votre projet d'expansion en Israֳ«l",
+    "description": "Rֳ©servez un crֳ©neau de 30 minutes avec notre ֳ©quipe pour discuter de votre projet. Nous analyserons votre concept et dֳ©finirons la meilleure stratֳ©gie pour votre expansion.",
     "cta": "Ouvrir Google Calendar",
     "or": "ou",
     "contact": "Contactez-nous par email"
@@ -397,53 +397,53 @@
   },
   "footer": {
     "company": "Israel Growth Venture",
-    "description": "Votre partenaire stratégique pour une expansion réussie en Israël",
+    "description": "Votre partenaire stratֳ©gique pour une expansion rֳ©ussie en Israֳ«l",
     "contact": "Contact",
     "email": "Email",
     "address": "Adresse",
-    "addressValue": "21 Rue Gefen, Harish, Israël",
+    "addressValue": "21 Rue Gefen, Harish, Israֳ«l",
     "links": "Liens",
-    "about": "À propos",
-    "legal": "Mentions légales",
-    "rights": "Tous droits réservés."
+    "about": "ֳ€ propos",
+    "legal": "Mentions lֳ©gales",
+    "rights": "Tous droits rֳ©servֳ©s."
   },
   "miniAnalysis": {
     "hero": {
       "title": "Mini-Analyse IA Gratuite",
-      "subtitle": "Découvrez le potentiel de votre marque sur le marché israélien en 2 minutes",
-      "description": "Notre IA analyse votre concept et vous fournit une évaluation préliminaire personnalisée de vos opportunités d'expansion en Israël."
+      "subtitle": "Dֳ©couvrez le potentiel de votre marque sur le marchֳ© israֳ©lien en 2 minutes",
+      "description": "Notre IA analyse votre concept et vous fournit une ֳ©valuation prֳ©liminaire personnalisֳ©e de vos opportunitֳ©s d'expansion en Israֳ«l."
     },
     "form": {
       "title": "Parlez-nous de votre marque",
       "email": "Email professionnel",
       "emailPlaceholder": "votre@email.com",
-      "phone": "Téléphone",
+      "phone": "Tֳ©lֳ©phone",
       "phonePlaceholder": "+33 6 XX XX XX XX",
-      "phoneRequired": "Le téléphone est obligatoire",
+      "phoneRequired": "Le tֳ©lֳ©phone est obligatoire",
       "brandName": "Nom de marque",
       "brandNamePlaceholder": "Ex: Ma Boutique",
-      "sector": "Secteur d'activité",
-      "sectorPlaceholder": "Sélectionnez votre secteur",
+      "sector": "Secteur d'activitֳ©",
+      "sectorPlaceholder": "Sֳ©lectionnez votre secteur",
       "foodStatus": "Statut alimentaire",
       "foodStatusPlaceholder": "Casher, Halal, Vegan...",
-      "seniority": "Ancienneté de la marque",
+      "seniority": "Anciennetֳ© de la marque",
       "seniorityPlaceholder": "Depuis combien de temps existez-vous ?",
       "originCountry": "Pays d'origine",
       "originCountryPlaceholder": "Ex: France",
       "concept": "Concept de la marque",
-      "conceptPlaceholder": "Décrivez votre concept en quelques mots",
+      "conceptPlaceholder": "Dֳ©crivez votre concept en quelques mots",
       "positioning": "Positionnement",
       "positioningPlaceholder": "Haut de gamme, accessible, premium...",
-      "currentModel": "Modèle actuel",
-      "currentModelPlaceholder": "Franchise, succursales, indépendant...",
-      "differentiation": "Différenciation concurrentielle",
+      "currentModel": "Modֳ¨le actuel",
+      "currentModelPlaceholder": "Franchise, succursales, indֳ©pendant...",
+      "differentiation": "Diffֳ©renciation concurrentielle",
       "differentiationPlaceholder": "Qu'est-ce qui vous rend unique ?",
-      "israelObjective": "Objectif en Israël",
-      "israelObjectivePlaceholder": "Ouverture de boutiques, franchise, test marché...",
-      "constraints": "Contraintes et préoccupations",
-      "constraintsPlaceholder": "Budget, timing, exigences spécifiques...",
-      "submit": "Générer ma mini-analyse gratuite",
-      "submitting": "Génération en cours...",
+      "israelObjective": "Objectif en Israֳ«l",
+      "israelObjectivePlaceholder": "Ouverture de boutiques, franchise, test marchֳ©...",
+      "constraints": "Contraintes et prֳ©occupations",
+      "constraintsPlaceholder": "Budget, timing, exigences spֳ©cifiques...",
+      "submit": "Gֳ©nֳ©rer ma mini-analyse gratuite",
+      "submitting": "Gֳ©nֳ©ration en cours...",
       "required": "Champ obligatoire",
       "requiredForFood": "Obligatoire pour la restauration"
     },
@@ -451,15 +451,15 @@
       "Restauration / Food",
       "Retail (hors food)",
       "Services",
-      "Paramédical / Santé"
+      "Paramֳ©dical / Santֳ©"
     ],
     "foodStatuses": [
       "Casher",
       "Halal",
       "Healthy",
-      "Vegan/Végétarien",
+      "Vegan/Vֳ©gֳ©tarien",
       "Aucun",
-      "À définir"
+      "ֳ€ dֳ©finir"
     ],
     "seniorities": [
       "Moins de 1 an",
@@ -470,37 +470,37 @@
     ],
     "results": {
       "title": "Votre Mini-Analyse IGV",
-      "subtitle": "Analyse IA personnalisée pour",
+      "subtitle": "Analyse IA personnalisֳ©e pour",
       "copy": "Copier l'analyse",
-      "copied": "Analyse copiée dans le presse-papiers",
-      "download": "Télécharger en PDF",
+      "copied": "Analyse copiֳ©e dans le presse-papiers",
+      "download": "Tֳ©lֳ©charger en PDF",
       "email": "Recevoir par email",
       "contactExpert": "Prendre contact avec l'un de nos experts",
-      "nextSteps": "Étapes suivantes",
-      "nextStepsDescription": "Cette mini-analyse gratuite est une première évaluation. Pour un accompagnement complet et une analyse approfondie de votre projet, nos experts sont à votre disposition.",
-      "bookCall": "Réserver un appel de 30 minutes",
-      "viewPacks": "Découvrir nos packs d'accompagnement"
+      "nextSteps": "ֳ‰tapes suivantes",
+      "nextStepsDescription": "Cette mini-analyse gratuite est une premiֳ¨re ֳ©valuation. Pour un accompagnement complet et une analyse approfondie de votre projet, nos experts sont ֳ  votre disposition.",
+      "bookCall": "Rֳ©server un appel de 30 minutes",
+      "viewPacks": "Dֳ©couvrir nos packs d'accompagnement"
     },
     "toast": {
       "fieldsRequired": "Veuillez remplir tous les champs obligatoires",
       "foodStatusRequired": "Le statut alimentaire est obligatoire pour la restauration",
-      "success": "Votre mini-analyse IGV a été générée!",
-      "duplicate": "Une analyse a déjà été générée pour cette enseigne",
-      "error": "Erreur lors de la génération de l'analyse. Veuillez réessayer.",
-      "networkError": "Erreur réseau. Vérifiez votre connexion.",
+      "success": "Votre mini-analyse IGV a ֳ©tֳ© gֳ©nֳ©rֳ©e!",
+      "duplicate": "Une analyse a dֳ©jֳ  ֳ©tֳ© gֳ©nֳ©rֳ©e pour cette enseigne",
+      "error": "Erreur lors de la gֳ©nֳ©ration de l'analyse. Veuillez rֳ©essayer.",
+      "networkError": "Erreur rֳ©seau. Vֳ©rifiez votre connexion.",
       "analyzing": "Analyse en cours, cela peut prendre quelques secondes...",
       "contactExpertSuccess": "Merci. Nous vous contacterons dans les prochaines 48h.",
-      "pdfDownloading": "Téléchargement du PDF...",
-      "pdfDownloaded": "PDF téléchargé avec succès!",
+      "pdfDownloading": "Tֳ©lֳ©chargement du PDF...",
+      "pdfDownloaded": "PDF tֳ©lֳ©chargֳ© avec succֳ¨s!",
       "emailSending": "Envoi par email...",
-      "emailSent": "Le PDF a été envoyé à votre email!"
+      "emailSent": "Le PDF a ֳ©tֳ© envoyֳ© ֳ  votre email!"
     }
   },
   "admin": {
     "welcome": "Bienvenue",
     "logout": {
-      "success": "Déconnexion réussie",
-      "button": "Se déconnecter"
+      "success": "Dֳ©connexion rֳ©ussie",
+      "button": "Se dֳ©connecter"
     },
     "roles": {
       "admin": "Administrateur",
@@ -513,7 +513,7 @@
         "leads": "Prospects",
         "pipeline": "Pipeline",
         "contacts": "Contacts",
-        "settings": "Paramètres"
+        "settings": "Paramֳ¨tres"
       },
       "dashboard": {
         "title": "Tableau de bord",
@@ -521,7 +521,7 @@
         "stats": {
           "total_leads": "Total Prospects",
           "total_contacts": "Total Contacts",
-          "total_opportunities": "Total Opportunités",
+          "total_opportunities": "Total Opportunitֳ©s",
           "pipeline_value": "Valeur du Pipeline",
           "conversion_rate": "Taux de Conversion",
           "active_deals": "Affaires Actives",
@@ -529,64 +529,64 @@
           "vs_last_month": "vs. mois dernier"
         },
         "recent": {
-          "leads": "Prospects Récents",
-          "contacts": "Contacts Récents",
-          "opportunities": "Opportunités Récentes",
-          "activities": "Activités Récentes"
+          "leads": "Prospects Rֳ©cents",
+          "contacts": "Contacts Rֳ©cents",
+          "opportunities": "Opportunitֳ©s Rֳ©centes",
+          "activities": "Activitֳ©s Rֳ©centes"
         }
       },
       "stages": {
         "prospecting": "Prospection",
         "qualification": "Qualification",
         "proposal": "Proposition",
-        "negotiation": "Négociation",
-        "closed_won": "Gagné",
+        "negotiation": "Nֳ©gociation",
+        "closed_won": "Gagnֳ©",
         "closed_lost": "Perdu",
         "new": "Nouveau",
-        "contacted": "Contacté",
-        "qualified": "Qualifié"
+        "contacted": "Contactֳ©",
+        "qualified": "Qualifiֳ©"
       },
       "title": "Gestion CRM",
       "sendEmail": "Envoyer un Email",
-      "emailSent": "Email envoyé avec succès",
-      "emailFailed": "Échec de l'envoi de l'email",
+      "emailSent": "Email envoyֳ© avec succֳ¨s",
+      "emailFailed": "ֳ‰chec de l'envoi de l'email",
       "convertToContact": "Convertir en Contact",
-      "leadConverted": "Prospect converti avec succès",
-      "conversionFailed": "Échec de la conversion",
+      "leadConverted": "Prospect converti avec succֳ¨s",
+      "conversionFailed": "ֳ‰chec de la conversion",
       "leads": {
         "title": "Prospects",
-        "subtitle": "Gérez vos prospects et convertissez-les en contacts",
+        "subtitle": "Gֳ©rez vos prospects et convertissez-les en contacts",
         "new_lead": "Nouveau Prospect",
         "export": "Exporter CSV",
         "search": "Rechercher des prospects...",
         "filter_sector": "Filtrer par secteur",
-        "created": "Prospect créé avec succès",
-        "deleted": "Prospect supprimé avec succès",
-        "status_updated": "Statut mis à jour",
-        "note_added": "Note ajoutée avec succès",
-        "export_success": "Prospects exportés avec succès",
+        "created": "Prospect crֳ©ֳ© avec succֳ¨s",
+        "deleted": "Prospect supprimֳ© avec succֳ¨s",
+        "status_updated": "Statut mis ֳ  jour",
+        "note_added": "Note ajoutֳ©e avec succֳ¨s",
+        "export_success": "Prospects exportֳ©s avec succֳ¨s",
         "empty_title": "Aucun prospect",
-        "empty_description": "Créez votre premier prospect pour commencer",
+        "empty_description": "Crֳ©ez votre premier prospect pour commencer",
         "columns": {
-          "created": "Créé le",
-          "priority": "Priorité",
+          "created": "Crֳ©ֳ© le",
+          "priority": "Prioritֳ©",
           "status": "Statut",
           "sector": "Secteur",
           "brand": "Marque",
           "email": "Email",
           "contact": "Nom du Contact",
           "name": "Nom",
-          "phone": "Téléphone"
+          "phone": "Tֳ©lֳ©phone"
         },
         "toast": {
-          "convert_success": "Prospect converti en contact avec succès",
-          "contact_created": "Contact créé",
+          "convert_success": "Prospect converti en contact avec succֳ¨s",
+          "contact_created": "Contact crֳ©ֳ©",
           "view_contact": "Voir le Contact",
-          "opportunity_created": "Opportunité créée",
-          "view_opportunity": "Voir l'Opportunité",
-          "already_converted": "Ce prospect a déjà été converti",
+          "opportunity_created": "Opportunitֳ© crֳ©ֳ©e",
+          "view_opportunity": "Voir l'Opportunitֳ©",
+          "already_converted": "Ce prospect a dֳ©jֳ  ֳ©tֳ© converti",
           "lead_not_found": "Prospect introuvable",
-          "missing_info": "Le prospect doit avoir au moins un email ou un nom pour être converti",
+          "missing_info": "Le prospect doit avoir au moins un email ou un nom pour ֳ×tre converti",
           "convert_error": "Erreur lors de la conversion du prospect"
         },
         "details": {
@@ -594,63 +594,63 @@
           "info": "Informations du Prospect",
           "notes": "Notes",
           "add_note": "Ajouter une note...",
-          "activities": "Activités"
+          "activities": "Activitֳ©s"
         }
       },
       "contacts": {
         "title": "Contacts",
-        "created": "Contact créé avec succès",
-        "updated": "Contact mis à jour avec succès",
-        "deleted": "Contact supprimé avec succès",
-        "note_added": "Note ajoutée avec succès",
-        "export_success": "Contacts exportés avec succès",
+        "created": "Contact crֳ©ֳ© avec succֳ¨s",
+        "updated": "Contact mis ֳ  jour avec succֳ¨s",
+        "deleted": "Contact supprimֳ© avec succֳ¨s",
+        "note_added": "Note ajoutֳ©e avec succֳ¨s",
+        "export_success": "Contacts exportֳ©s avec succֳ¨s",
         "new_contact": "Nouveau Contact",
         "search": "Rechercher des contacts...",
         "export": "Exporter CSV",
-        "not_found": "Contact non trouvé",
+        "not_found": "Contact non trouvֳ©",
         "columns": {
           "name": "Nom",
           "company": "Entreprise",
           "email": "Email",
-          "phone": "Téléphone",
+          "phone": "Tֳ©lֳ©phone",
           "status": "Statut",
           "sector": "Secteur",
-          "created": "Créé le",
+          "created": "Crֳ©ֳ© le",
           "last_contact": "Dernier Contact"
         }
       },
       "opportunities": {
-        "title": "Opportunité",
-        "created": "Créée depuis prospect"
+        "title": "Opportunitֳ©",
+        "created": "Crֳ©ֳ©e depuis prospect"
       },
       "pipeline": {
         "title": "Pipeline Commercial",
         "total_value": "Valeur Totale du Pipeline",
-        "weighted_value": "Valeur Pondérée",
-        "move_to": "Déplacer vers",
-        "opportunities": "opportunités",
-        "stage_updated": "Étape mise à jour avec succès",
-        "total_opps": "Total Opportunités",
+        "weighted_value": "Valeur Pondֳ©rֳ©e",
+        "move_to": "Dֳ©placer vers",
+        "opportunities": "opportunitֳ©s",
+        "stage_updated": "ֳ‰tape mise ֳ  jour avec succֳ¨s",
+        "total_opps": "Total Opportunitֳ©s",
         "avg_deal": "Affaire Moyenne",
-        "close_rate": "Taux de Clôture",
-        "current_stage": "Étape Actuelle",
-        "estimated_value": "Valeur Estimée",
+        "close_rate": "Taux de Clֳ´ture",
+        "current_stage": "ֳ‰tape Actuelle",
+        "estimated_value": "Valeur Estimֳ©e",
         "description": "Description",
-        "stage_history": "Historique des Étapes",
+        "stage_history": "Historique des ֳ‰tapes",
         "stages": {
           "prospecting": "Prospection",
           "qualification": "Qualification",
           "proposal": "Proposition",
-          "negotiation": "Négociation",
-          "closed_won": "Gagné",
+          "negotiation": "Nֳ©gociation",
+          "closed_won": "Gagnֳ©",
           "closed_lost": "Perdu",
-          "initial_interest": "Intérêt Initial",
-          "info_requested": "Infos Demandées",
-          "first_call": "Premier Appel Planifié",
-          "pitch_delivered": "Pitch Présenté",
-          "proposal_sent": "Proposition Envoyée",
+          "initial_interest": "Intֳ©rֳ×t Initial",
+          "info_requested": "Infos Demandֳ©es",
+          "first_call": "Premier Appel Planifiֳ©",
+          "pitch_delivered": "Pitch Prֳ©sentֳ©",
+          "proposal_sent": "Proposition Envoyֳ©e",
           "verbal_commitment": "Engagement Verbal",
-          "won": "Gagné"
+          "won": "Gagnֳ©"
         }
       },
       "activities": {
@@ -700,88 +700,88 @@
         "title": "Historique des Emails",
         "history_title": "Historique des Emails",
         "compose": "Composer un email",
-        "to": "À",
-        "sent_count": "emails envoyés",
-        "empty_title": "Aucun email envoyé",
-        "empty_description": "Les emails envoyés aux prospects apparaîtront ici",
-        "detail_title": "Détails de l'Email",
-        "select_template": "Choisir un modèle",
+        "to": "ֳ€",
+        "sent_count": "emails envoyֳ©s",
+        "empty_title": "Aucun email envoyֳ©",
+        "empty_description": "Les emails envoyֳ©s aux prospects apparaֳ®tront ici",
+        "detail_title": "Dֳ©tails de l'Email",
+        "select_template": "Choisir un modֳ¨le",
         "use": "Utiliser",
         "subject": "Objet",
         "subject_placeholder": "Objet de votre email...",
         "message": "Message",
-        "message_placeholder": "Rédigez votre message ici...",
+        "message_placeholder": "Rֳ©digez votre message ici...",
         "sending": "Envoi...",
         "send": "Envoyer",
-        "sent_success": "Email envoyé avec succès",
-        "send_failed": "Échec de l'envoi de l'email",
+        "sent_success": "Email envoyֳ© avec succֳ¨s",
+        "send_failed": "ֳ‰chec de l'envoi de l'email",
         "error_empty": "Veuillez remplir l'objet et le message",
         "columns": {
           "recipient": "Destinataire",
           "subject": "Sujet",
           "date": "Date",
           "status": "Statut",
-          "sent_by": "Envoyé Par",
+          "sent_by": "Envoyֳ© Par",
           "from": "De",
-          "to": "À"
+          "to": "ֳ€"
         },
         "status": {
-          "sent": "Envoyé",
-          "delivered": "Distribué",
+          "sent": "Envoyֳ©",
+          "delivered": "Distribuֳ©",
           "opened": "Ouvert",
-          "clicked": "Cliqué",
-          "failed": "Échoué",
-          "bounced": "Rejeté"
+          "clicked": "Cliquֳ©",
+          "failed": "ֳ‰chouֳ©",
+          "bounced": "Rejetֳ©"
         },
-        "refreshed": "Historique des emails mis à jour",
-        "deleted": "Enregistrement d'email supprimé",
+        "refreshed": "Historique des emails mis ֳ  jour",
+        "deleted": "Enregistrement d'email supprimֳ©",
         "tabs": {
-          "sent": "Envoyés",
-          "received": "Reçus",
-          "templates": "Modèles"
+          "sent": "Envoyֳ©s",
+          "received": "Reֳ§us",
+          "templates": "Modֳ¨les"
         },
-        "received_title": "Emails Reçus",
-        "received_description": "La réception d'emails n'est pas encore implémentée dans ce CRM",
-        "received_tab": "Boîte de réception",
-        "templates_count": "modèles disponibles",
-        "templates_info": "Ces modèles sont disponibles en anglais, français et hébreu. Ils peuvent être utilisés lors de la rédaction de nouveaux emails.",
-        "no_templates": "Aucun modèle disponible",
-        "no_templates_description": "Les modèles d'emails apparaîtront ici",
-        "template_detail": "Détails du Modèle",
+        "received_title": "Emails Reֳ§us",
+        "received_description": "La rֳ©ception d'emails n'est pas encore implֳ©mentֳ©e dans ce CRM",
+        "received_tab": "Boֳ®te de rֳ©ception",
+        "templates_count": "modֳ¨les disponibles",
+        "templates_info": "Ces modֳ¨les sont disponibles en anglais, franֳ§ais et hֳ©breu. Ils peuvent ֳ×tre utilisֳ©s lors de la rֳ©daction de nouveaux emails.",
+        "no_templates": "Aucun modֳ¨le disponible",
+        "no_templates_description": "Les modֳ¨les d'emails apparaֳ®tront ici",
+        "template_detail": "Dֳ©tails du Modֳ¨le",
         "errors": {
-          "load_failed": "Échec du chargement de l'historique des emails",
-          "templates_load_failed": "Échec du chargement des modèles",
-          "delete_failed": "Échec de la suppression de l'enregistrement"
+          "load_failed": "ֳ‰chec du chargement de l'historique des emails",
+          "templates_load_failed": "ֳ‰chec du chargement des modֳ¨les",
+          "delete_failed": "ֳ‰chec de la suppression de l'enregistrement"
         },
         "delete_confirm": "Voulez-vous vraiment supprimer cet enregistrement ?"
       },
       "settings": {
-        "title": "Paramètres CRM",
-        "user_created": "Utilisateur créé avec succès",
-        "user_deleted": "Utilisateur supprimé avec succès",
-        "password_changed": "Mot de passe modifié avec succès",
-        "tag_added": "Tag ajouté avec succès",
-        "confirm_delete_user": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+        "title": "Paramֳ¨tres CRM",
+        "user_created": "Utilisateur crֳ©ֳ© avec succֳ¨s",
+        "user_deleted": "Utilisateur supprimֳ© avec succֳ¨s",
+        "password_changed": "Mot de passe modifiֳ© avec succֳ¨s",
+        "tag_added": "Tag ajoutֳ© avec succֳ¨s",
+        "confirm_delete_user": "ֳtes-vous sֳ»r de vouloir supprimer cet utilisateur ?",
         "password_mismatch": "Les mots de passe ne correspondent pas",
-        "password_too_short": "Le mot de passe doit contenir au moins 6 caractères",
+        "password_too_short": "Le mot de passe doit contenir au moins 6 caractֳ¨res",
         "change_password": "Changer le Mot de Passe",
-        "change_password_desc": "Mettre à jour le mot de passe de votre compte",
+        "change_password_desc": "Mettre ֳ  jour le mot de passe de votre compte",
         "current_password": "Mot de Passe Actuel",
         "new_password": "Nouveau Mot de Passe",
         "confirm_password": "Confirmer le Nouveau Mot de Passe",
-        "save_password": "Mettre à Jour le Mot de Passe",
+        "save_password": "Mettre ֳ  Jour le Mot de Passe",
         "sections": {
           "profile": "Mon Profil",
           "users": "Gestion des Utilisateurs",
           "tags": "Gestion des Tags",
-          "stages": "Étapes du Pipeline"
+          "stages": "ֳ‰tapes du Pipeline"
         }
       },
       "common": {
         "filters": "Filtres",
         "all_statuses": "Tous les statuts",
-        "all_priorities": "Toutes les priorités",
-        "reset": "Réinitialiser",
+        "all_priorities": "Toutes les prioritֳ©s",
+        "reset": "Rֳ©initialiser",
         "edit": "Modifier",
         "delete": "Supprimer",
         "save": "Enregistrer",
@@ -791,40 +791,40 @@
         "export": "Exporter",
         "search": "Rechercher...",
         "loading": "Chargement...",
-        "no_data": "Aucune donnée disponible",
+        "no_data": "Aucune donnֳ©e disponible",
         "no_history": "Aucun historique disponible",
         "confirm": "Confirmer",
         "close": "Fermer",
         "add": "Ajouter",
-        "create": "Créer",
-        "update": "Mettre à jour",
-        "view": "Voir les Détails",
+        "create": "Crֳ©er",
+        "update": "Mettre ֳ  jour",
+        "view": "Voir les Dֳ©tails",
         "refresh": "Actualiser",
-        "refreshed": "Données actualisées",
+        "refreshed": "Donnֳ©es actualisֳ©es",
         "no_notes": "Aucune note",
-        "no_opportunities": "Aucune opportunité",
-        "no_activities": "Aucune activité",
-        "created": "Créé le",
-        "updated": "Modifié le",
+        "no_opportunities": "Aucune opportunitֳ©",
+        "no_activities": "Aucune activitֳ©",
+        "created": "Crֳ©ֳ© le",
+        "updated": "Modifiֳ© le",
         "language": "Langue",
-        "confirm_delete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
-        "reference": "Référence",
-        "back_to_list": "Retour à la liste",
+        "confirm_delete": "ֳtes-vous sֳ»r de vouloir supprimer cet ֳ©lֳ©ment ?",
+        "reference": "Rֳ©fֳ©rence",
+        "back_to_list": "Retour ֳ  la liste",
         "send_email": "Envoyer un email"
       },
       "errors": {
-        "load_failed": "Échec du chargement",
-        "create_failed": "Échec de la création",
-        "update_failed": "Échec de la mise à jour",
-        "delete_failed": "Échec de la suppression",
-        "export_failed": "Échec de l'export",
-        "note_failed": "Échec de l'ajout de note",
-        "status_failed": "Échec de la mise à jour du statut"
+        "load_failed": "ֳ‰chec du chargement",
+        "create_failed": "ֳ‰chec de la crֳ©ation",
+        "update_failed": "ֳ‰chec de la mise ֳ  jour",
+        "delete_failed": "ֳ‰chec de la suppression",
+        "export_failed": "ֳ‰chec de l'export",
+        "note_failed": "ֳ‰chec de l'ajout de note",
+        "status_failed": "ֳ‰chec de la mise ֳ  jour du statut"
       },
       "statuses": {
         "NEW": "Nouveau",
-        "CONTACTED": "Contacté",
-        "QUALIFIED": "Qualifié",
+        "CONTACTED": "Contactֳ©",
+        "QUALIFIED": "Qualifiֳ©",
         "CONVERTED": "Converti",
         "LOST": "Perdu",
         "PENDING_QUOTA": "En attente quota"
@@ -839,31 +839,31 @@
         "new": "Nouvel Utilisateur",
         "edit": "Modifier l'Utilisateur",
         "search_placeholder": "Rechercher des utilisateurs...",
-        "all_roles": "Tous les Rôles",
+        "all_roles": "Tous les Rֳ´les",
         "all_statuses": "Tous les Statuts",
         "active": "Actif",
         "inactive": "Inactif",
         "columns": {
           "user": "Utilisateur",
           "email": "Email",
-          "role": "Rôle",
+          "role": "Rֳ´le",
           "status": "Statut",
-          "assigned_leads": "Leads Assignés",
+          "assigned_leads": "Leads Assignֳ©s",
           "actions": "Actions"
         },
-        "empty": "Aucun utilisateur trouvé",
+        "empty": "Aucun utilisateur trouvֳ©",
         "no_name": "Sans nom",
-        "created": "Utilisateur créé avec succès",
-        "updated": "Utilisateur mis à jour avec succès",
-        "deleted": "Utilisateur supprimé avec succès",
-        "delete_confirm": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+        "created": "Utilisateur crֳ©ֳ© avec succֳ¨s",
+        "updated": "Utilisateur mis ֳ  jour avec succֳ¨s",
+        "deleted": "Utilisateur supprimֳ© avec succֳ¨s",
+        "delete_confirm": "ֳtes-vous sֳ»r de vouloir supprimer cet utilisateur ?",
         "form": {
           "email": "Email",
-          "first_name": "Prénom",
+          "first_name": "Prֳ©nom",
           "last_name": "Nom",
           "password": "Mot de passe",
           "password_edit": "Nouveau mot de passe (laisser vide pour ne pas changer)",
-          "role": "Rôle",
+          "role": "Rֳ´le",
           "active_account": "Compte actif"
         },
         "roles": {
@@ -875,13 +875,13 @@
           "load_failed": "Erreur lors du chargement des utilisateurs",
           "email_required": "L'email est requis",
           "password_required": "Le mot de passe est requis",
-          "update_failed": "Erreur lors de la mise à jour",
+          "update_failed": "Erreur lors de la mise ֳ  jour",
           "delete_failed": "Erreur lors de la suppression"
         },
         "buttons": {
           "save": "Enregistrer",
           "cancel": "Annuler",
-          "create": "Créer",
+          "create": "Crֳ©er",
           "modify": "Modifier"
         }
       },
@@ -890,44 +890,44 @@
         "leads": "Prospects",
         "contacts": "Contacts",
         "pipeline": "Pipeline",
-        "opportunities": "Opportunités",
-        "activities": "Activités",
+        "opportunities": "Opportunitֳ©s",
+        "activities": "Activitֳ©s",
         "emails": "Emails",
         "users": "Utilisateurs",
-        "settings": "Paramètres"
+        "settings": "Paramֳ¨tres"
       },
       "sidebar": {
-        "expand": "Développer",
-        "collapse": "Réduire"
+        "expand": "Dֳ©velopper",
+        "collapse": "Rֳ©duire"
       }
     },
     "media": {
-      "title": "Médiathèque",
-      "subtitle": "Gérez les images et fichiers de votre site",
+      "title": "Mֳ©diathֳ¨que",
+      "subtitle": "Gֳ©rez les images et fichiers de votre site",
       "upload": "Ajouter des fichiers",
       "uploading": "Upload...",
       "searchPlaceholder": "Rechercher des fichiers...",
       "resultsCount": "{count} fichier(s) sur {total} au total",
-      "noResults": "Aucun fichier trouvé",
-      "emptyLibrary": "Votre médiathèque est vide",
-      "noSearchResults": "Aucun résultat pour cette recherche",
-      "tryDifferentSearch": "Essayez une recherche différente ou téléchargez de nouveaux fichiers",
-      "uploadFirstImage": " Téléchargez votre première image pour commencer",
+      "noResults": "Aucun fichier trouvֳ©",
+      "emptyLibrary": "Votre mֳ©diathֳ¨que est vide",
+      "noSearchResults": "Aucun rֳ©sultat pour cette recherche",
+      "tryDifferentSearch": "Essayez une recherche diffֳ©rente ou tֳ©lֳ©chargez de nouveaux fichiers",
+      "uploadFirstImage": " Tֳ©lֳ©chargez votre premiֳ¨re image pour commencer",
       "fetchError": "Erreur lors du chargement des fichiers",
-      "uploadSuccess": "{count} fichier(s) téléchargé(s) avec succès",
-      "invalidType": "Type de fichier non autorisé",
+      "uploadSuccess": "{count} fichier(s) tֳ©lֳ©chargֳ©(s) avec succֳ¨s",
+      "invalidType": "Type de fichier non autorisֳ©",
       "fileTooLarge": "Fichier trop volumineux (max 10 Mo)",
-      "uploadFailed": "Échec du téléchargement",
-      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
-      "deleteSuccess": "Fichier supprimé avec succès",
+      "uploadFailed": "ֳ‰chec du tֳ©lֳ©chargement",
+      "deleteConfirm": "ֳtes-vous sֳ»r de vouloir supprimer ce fichier ?",
+      "deleteSuccess": "Fichier supprimֳ© avec succֳ¨s",
       "deleteError": "Erreur lors de la suppression",
-      "copiedToClipboard": "URL copiée dans le presse-papiers",
-      "copyFailed": "Échec de la copie",
+      "copiedToClipboard": "URL copiֳ©e dans le presse-papiers",
+      "copyFailed": "ֳ‰chec de la copie",
       "copyUrl": "Copier l'URL",
       "delete": "Supprimer",
       "url": "URL du fichier",
       "th": {
-        "thumbnail": "Aperçu",
+        "thumbnail": "Aperֳ§u",
         "name": "Nom",
         "size": "Taille",
         "date": "Date",
@@ -943,130 +943,130 @@
       "password": "Mot de passe",
       "submit": "Se connecter",
       "logging_in": "Connexion en cours...",
-      "success": "Connexion réussie",
-      "security_notice": "Accès sécurisé réservé aux administrateurs autorisés",
-      "rights_reserved": "Tous droits réservés.",
+      "success": "Connexion rֳ©ussie",
+      "security_notice": "Accֳ¨s sֳ©curisֳ© rֳ©servֳ© aux administrateurs autorisֳ©s",
+      "rights_reserved": "Tous droits rֳ©servֳ©s.",
       "errors": {
         "required": "Email et mot de passe requis",
         "invalid": "Identifiants invalides",
         "wrong_credentials": "Email ou mot de passe incorrect",
-        "server": "Erreur serveur. Veuillez réessayer."
+        "server": "Erreur serveur. Veuillez rֳ©essayer."
       }
     }
   },
   "gdpr": {
     "cookie_banner": {
       "title": "Gestion des cookies",
-      "description": "Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez choisir les types de cookies que vous acceptez.",
+      "description": "Nous utilisons des cookies pour amֳ©liorer votre expֳ©rience. Vous pouvez choisir les types de cookies que vous acceptez.",
       "essential": "Cookies essentiels",
-      "essential_desc": "Nécessaires au fonctionnement du site. Toujours activés.",
+      "essential_desc": "Nֳ©cessaires au fonctionnement du site. Toujours activֳ©s.",
       "analytics": "Cookies analytiques",
       "analytics_desc": "Nous permettent de comprendre comment les visiteurs utilisent notre site.",
       "marketing": "Cookies marketing",
-      "marketing_desc": "Utilisés pour vous envoyer des communications personnalisées.",
+      "marketing_desc": "Utilisֳ©s pour vous envoyer des communications personnalisֳ©es.",
       "accept_all": "Tout accepter",
-      "save_preferences": "Enregistrer mes préférences",
+      "save_preferences": "Enregistrer mes prֳ©fֳ©rences",
       "refuse_all": "Tout refuser",
       "learn_more": "En savoir plus"
     },
     "privacy": {
-      "page_title": "Politique de confidentialité - IGV",
-      "title": "Politique de confidentialité",
-      "intro": "Dernière mise à jour : Décembre 2024. Cette politique décrit comment Israel Growth Venture collecte, utilise et protège vos données personnelles.",
+      "page_title": "Politique de confidentialitֳ© - IGV",
+      "title": "Politique de confidentialitֳ©",
+      "intro": "Derniֳ¨re mise ֳ  jour : Dֳ©cembre 2024. Cette politique dֳ©crit comment Israel Growth Venture collecte, utilise et protֳ¨ge vos donnֳ©es personnelles.",
       "section1": {
-        "title": "1. Données collectées",
-        "p1": "Nous collectons uniquement les données nécessaires pour vous fournir nos services :",
-        "data1": "Informations de contact : nom, email, téléphone, entreprise",
-        "data2": "Données de navigation : adresse IP (anonymisée), pages visitées, durée",
-        "data3": "Préférences : langue, consentement cookies",
-        "important": "Important : Aucune donnée de navigation n'est collectée sans votre consentement explicite."
+        "title": "1. Donnֳ©es collectֳ©es",
+        "p1": "Nous collectons uniquement les donnֳ©es nֳ©cessaires pour vous fournir nos services :",
+        "data1": "Informations de contact : nom, email, tֳ©lֳ©phone, entreprise",
+        "data2": "Donnֳ©es de navigation : adresse IP (anonymisֳ©e), pages visitֳ©es, durֳ©e",
+        "data3": "Prֳ©fֳ©rences : langue, consentement cookies",
+        "important": "Important : Aucune donnֳ©e de navigation n'est collectֳ©e sans votre consentement explicite."
       },
       "section2": {
-        "title": "2. Utilisation des données",
-        "p1": "Vos données sont utilisées pour :",
-        "use1": "Répondre à vos demandes de renseignements",
-        "use2": "Générer des analyses personnalisées (mini-analyses)",
-        "use3": "Améliorer nos services (avec consentement analytique)",
+        "title": "2. Utilisation des donnֳ©es",
+        "p1": "Vos donnֳ©es sont utilisֳ©es pour :",
+        "use1": "Rֳ©pondre ֳ  vos demandes de renseignements",
+        "use2": "Gֳ©nֳ©rer des analyses personnalisֳ©es (mini-analyses)",
+        "use3": "Amֳ©liorer nos services (avec consentement analytique)",
         "use4": "Vous envoyer notre newsletter (opt-in explicite uniquement)",
-        "important": "Nous ne vendons jamais vos données à des tiers."
+        "important": "Nous ne vendons jamais vos donnֳ©es ֳ  des tiers."
       },
       "section3": {
-        "title": "3. Protection des données",
-        "p1": "Nous prenons la sécurité de vos données très au sérieux :",
+        "title": "3. Protection des donnֳ©es",
+        "p1": "Nous prenons la sֳ©curitֳ© de vos donnֳ©es trֳ¨s au sֳ©rieux :",
         "security1": "Chiffrement SSL/TLS pour toutes les communications",
-        "security2": "Stockage sécurisé sur serveurs conformes RGPD",
-        "security3": "Accès restreint aux données (équipe autorisée uniquement)",
+        "security2": "Stockage sֳ©curisֳ© sur serveurs conformes RGPD",
+        "security3": "Accֳ¨s restreint aux donnֳ©es (ֳ©quipe autorisֳ©e uniquement)",
         "security4": "Anonymisation des adresses IP"
       },
       "section4": {
         "title": "4. Newsletter et marketing",
-        "p1": "Nous n'envoyons la newsletter qu'aux personnes ayant explicitement accepté de la recevoir via une case à cocher dédiée.",
-        "p2": "Vous pouvez vous désinscrire à tout moment en cliquant sur le lien de désinscription dans chaque email ou en nous contactant."
+        "p1": "Nous n'envoyons la newsletter qu'aux personnes ayant explicitement acceptֳ© de la recevoir via une case ֳ  cocher dֳ©diֳ©e.",
+        "p2": "Vous pouvez vous dֳ©sinscrire ֳ  tout moment en cliquant sur le lien de dֳ©sinscription dans chaque email ou en nous contactant."
       },
       "section5": {
         "title": "5. Vos droits",
-        "p1": "Conformément au RGPD, vous avez le droit de :",
-        "right1": "Accéder à vos données personnelles",
-        "right2": "Rectifier des données inexactes",
-        "right3": "Demander l'effacement de vos données",
-        "right4": "Limiter le traitement de vos données",
-        "right5": "Porter réclamation auprès de la CNIL",
-        "contact": "Pour exercer ces droits, contactez-nous à :"
+        "p1": "Conformֳ©ment au RGPD, vous avez le droit de :",
+        "right1": "Accֳ©der ֳ  vos donnֳ©es personnelles",
+        "right2": "Rectifier des donnֳ©es inexactes",
+        "right3": "Demander l'effacement de vos donnֳ©es",
+        "right4": "Limiter le traitement de vos donnֳ©es",
+        "right5": "Porter rֳ©clamation auprֳ¨s de la CNIL",
+        "contact": "Pour exercer ces droits, contactez-nous ֳ  :"
       },
       "section6": {
         "title": "Contact",
-        "p1": "Pour toute question sur cette politique ou vos données personnelles :"
+        "p1": "Pour toute question sur cette politique ou vos donnֳ©es personnelles :"
       }
     },
     "cookies": {
       "page_title": "Politique des cookies - IGV",
       "title": "Politique des cookies",
-      "intro": "Cette page explique quels cookies nous utilisons, pourquoi, et comment vous pouvez les gérer.",
+      "intro": "Cette page explique quels cookies nous utilisons, pourquoi, et comment vous pouvez les gֳ©rer.",
       "section1": {
         "title": "1. Qu'est-ce qu'un cookie ?",
-        "p1": "Un cookie est un petit fichier texte déposé sur votre ordinateur ou appareil mobile lors de votre visite sur un site web. Les cookies permettent au site de mémoriser vos actions et préférences."
+        "p1": "Un cookie est un petit fichier texte dֳ©posֳ© sur votre ordinateur ou appareil mobile lors de votre visite sur un site web. Les cookies permettent au site de mֳ©moriser vos actions et prֳ©fֳ©rences."
       },
       "section2": {
-        "title": "2. Types de cookies utilisés"
+        "title": "2. Types de cookies utilisֳ©s"
       },
       "essential": {
         "title": "Cookies essentiels",
-        "desc": "Ces cookies sont nécessaires au fonctionnement du site. Ils ne peuvent pas être désactivés.",
+        "desc": "Ces cookies sont nֳ©cessaires au fonctionnement du site. Ils ne peuvent pas ֳ×tre dֳ©sactivֳ©s.",
         "cookie1": "Session utilisateur (authentification admin)",
-        "cookie2": "Préférences de langue",
+        "cookie2": "Prֳ©fֳ©rences de langue",
         "cookie3": "Consentement cookies",
-        "status": "✓ Toujours activés"
+        "status": "ג“ Toujours activֳ©s"
       },
       "analytics": {
         "title": "Cookies analytiques",
-        "desc": "Ces cookies nous aident à comprendre comment les visiteurs utilisent notre site.",
-        "cookie1": "Suivi des pages visitées",
-        "cookie2": "Durée de visite",
+        "desc": "Ces cookies nous aident ֳ  comprendre comment les visiteurs utilisent notre site.",
+        "cookie1": "Suivi des pages visitֳ©es",
+        "cookie2": "Durֳ©e de visite",
         "cookie3": "Source de trafic",
-        "status": "⚠ Nécessite votre consentement",
-        "note": "Note : Les adresses IP sont anonymisées. Aucune donnée personnellement identifiable n'est collectée."
+        "status": "ג  Nֳ©cessite votre consentement",
+        "note": "Note : Les adresses IP sont anonymisֳ©es. Aucune donnֳ©e personnellement identifiable n'est collectֳ©e."
       },
       "marketing": {
         "title": "Cookies marketing",
         "desc": "Ces cookies permettent de personnaliser les communications que vous recevez.",
-        "cookie1": "Préférences de newsletter",
+        "cookie1": "Prֳ©fֳ©rences de newsletter",
         "cookie2": "Historique d'interaction avec emails",
-        "status": "⚠ Nécessite votre consentement explicite"
+        "status": "ג  Nֳ©cessite votre consentement explicite"
       },
       "section3": {
-        "title": "3. Comment gérer vos cookies ?",
-        "p1": "Vous pouvez gérer vos préférences de cookies de plusieurs manières :",
+        "title": "3. Comment gֳ©rer vos cookies ?",
+        "p1": "Vous pouvez gֳ©rer vos prֳ©fֳ©rences de cookies de plusieurs maniֳ¨res :",
         "method1": {
-          "title": "Via notre bannière de consentement",
-          "desc": "Lors de votre première visite, vous pouvez choisir les types de cookies à accepter."
+          "title": "Via notre banniֳ¨re de consentement",
+          "desc": "Lors de votre premiֳ¨re visite, vous pouvez choisir les types de cookies ֳ  accepter."
         },
         "method2": {
-          "title": "Via les paramètres de votre navigateur",
-          "desc": "Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies. Attention : certaines fonctionnalités du site pourraient ne plus fonctionner."
+          "title": "Via les paramֳ¨tres de votre navigateur",
+          "desc": "Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies. Attention : certaines fonctionnalitֳ©s du site pourraient ne plus fonctionner."
         }
       },
       "section4": {
-        "title": "4. Durée de conservation",
+        "title": "4. Durֳ©e de conservation",
         "essential": "Cookies essentiels :",
         "essential_duration": "Session + 30 jours",
         "analytics": "Cookies analytiques :",
@@ -1076,92 +1076,92 @@
       },
       "section5": {
         "title": "Questions ?",
-        "p1": "Pour toute question sur notre utilisation des cookies, contactez-nous à :"
+        "p1": "Pour toute question sur notre utilisation des cookies, contactez-nous ֳ  :"
       }
     }
   },
   "contactExpert": {
-    "title": "Consultation Personnalisée",
-    "subtitle": "Parlons de votre projet d'expansion en Israël",
+    "title": "Consultation Personnalisֳ©e",
+    "subtitle": "Parlons de votre projet d'expansion en Israֳ«l",
     "hero": {
-      "title": "Transformez votre ambition en réalité",
-      "description": "Vous avez sélectionné le pack {packName}. Nos experts sont prêts à analyser votre projet et à vous guider vers le succès."
+      "title": "Transformez votre ambition en rֳ©alitֳ©",
+      "description": "Vous avez sֳ©lectionnֳ© le pack {packName}. Nos experts sont prֳ×ts ֳ  analyser votre projet et ֳ  vous guider vers le succֳ¨s."
     },
     "form": {
       "name": "Nom complet",
       "email": "Email professionnel",
       "company": "Entreprise",
-      "phone": "Téléphone",
-      "message": "Présentation de votre projet",
+      "phone": "Tֳ©lֳ©phone",
+      "message": "Prֳ©sentation de votre projet",
       "submit": "Demander une consultation",
       "sending": "Envoi en cours...",
-      "success": "Votre demande a été transmise ! Un expert vous contactera sous 48h.",
-      "error": "Une erreur est survenue. Veuillez réessayer."
+      "success": "Votre demande a ֳ©tֳ© transmise ! Un expert vous contactera sous 48h.",
+      "error": "Une erreur est survenue. Veuillez rֳ©essayer."
     },
     "packInfo": {
-      "label": "Pack sélectionné",
+      "label": "Pack sֳ©lectionnֳ©",
       "change": "Changer de pack"
     },
     "whyIGV": {
       "title": "Pourquoi choisir IGV ?",
       "items": [
-        "10+ années d'expérience sur le marché israelien",
-        " Réseau exclusif de partenaires et d'emplacements",
-        "Accompagnement de A à Z, du diagnostic à l'ouverture",
-        "Taux de succès supérieur à 90%"
+        "10+ annֳ©es d'expֳ©rience sur le marchֳ© israelien",
+        " Rֳ©seau exclusif de partenaires et d'emplacements",
+        "Accompagnement de A ֳ  Z, du diagnostic ֳ  l'ouverture",
+        "Taux de succֳ¨s supֳ©rieur ֳ  90%"
       ]
     },
-    "nextSteps": "Prochaines étapes",
-    "nextStepsDescription": "Après réception de votre demande, nous programmerons un appel de 30 minutes pour comprendre votre projet en profondeur et vous présenter notre approche."
+    "nextSteps": "Prochaines ֳ©tapes",
+    "nextStepsDescription": "Aprֳ¨s rֳ©ception de votre demande, nous programmerons un appel de 30 minutes pour comprendre votre projet en profondeur et vous prֳ©senter notre approche."
   },
   "auth": {
     "forgotPassword": {
-      "title": "Mot de passe oublié",
-      "subtitle": "Nous vous enverrons un lien pour réinitialiser votre mot de passe",
+      "title": "Mot de passe oubliֳ©",
+      "subtitle": "Nous vous enverrons un lien pour rֳ©initialiser votre mot de passe",
       "emailLabel": "Adresse email",
       "emailPlaceholder": "postmaster@israelgrowthventure.com",
       "submit": "Envoyer le lien",
       "sending": "Envoi en cours...",
-      "checkEmail": "Vérifiez votre email",
-      "emailSent": "Si un compte existe avec cette adresse, vous recevrez un lien de réinitialisation.",
-      "sentTo": "Lien envoyé à",
-      "instructions": "Cliquez sur le lien dans l'email pour réinitialiser votre mot de passe. Le lien expire dans 1 heure.",
-      "backToLogin": "Retour à la connexion",
-      "allRightsReserved": "Tous droits réservés.",
-      "success": "Si un compte existe, un email de réinitialisation a été envoyé.",
+      "checkEmail": "Vֳ©rifiez votre email",
+      "emailSent": "Si un compte existe avec cette adresse, vous recevrez un lien de rֳ©initialisation.",
+      "sentTo": "Lien envoyֳ© ֳ ",
+      "instructions": "Cliquez sur le lien dans l'email pour rֳ©initialiser votre mot de passe. Le lien expire dans 1 heure.",
+      "backToLogin": "Retour ֳ  la connexion",
+      "allRightsReserved": "Tous droits rֳ©servֳ©s.",
+      "success": "Si un compte existe, un email de rֳ©initialisation a ֳ©tֳ© envoyֳ©.",
       "errors": {
         "emailRequired": "Veuillez entrer votre adresse email",
         "invalidEmail": "Adresse email invalide",
-        "genericError": "Une erreur est survenue. Veuillez réessayer.",
+        "genericError": "Une erreur est survenue. Veuillez rֳ©essayer.",
         "serviceUnavailable": "Service temporairement indisponible"
       }
     },
     "resetPassword": {
-      "title": "Réinitialiser le mot de passe",
-      "subtitle": "Créez un nouveau mot de passe pour votre compte",
+      "title": "Rֳ©initialiser le mot de passe",
+      "subtitle": "Crֳ©ez un nouveau mot de passe pour votre compte",
       "validating": "Validation en cours...",
-      "pleaseWait": "Veuillez patienter pendant que nous vérifions le lien",
+      "pleaseWait": "Veuillez patienter pendant que nous vֳ©rifions le lien",
       "newPasswordLabel": "Nouveau mot de passe",
-      "passwordPlaceholder": "Minimum 8 caractères",
+      "passwordPlaceholder": "Minimum 8 caractֳ¨res",
       "confirmPasswordLabel": "Confirmer le mot de passe",
-      "confirmPasswordPlaceholder": "Répétez votre mot de passe",
-      "passwordRequirements": "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre",
+      "confirmPasswordPlaceholder": "Rֳ©pֳ©tez votre mot de passe",
+      "passwordRequirements": "Le mot de passe doit contenir au moins 8 caractֳ¨res, une majuscule et un chiffre",
       "passwordStrength": "Force du mot de passe :",
-      "atLeast8Chars": "✓ Au moins 8 caractères",
-      "oneUppercase": "✓ Une majuscule",
-      "oneNumber": "✓ Un chiffre",
-      "submit": "Réinitialiser le mot de passe",
-      "resetting": "Réinitialisation...",
-      "success": "Votre mot de passe a été réinitialisé avec succès. Redirection vers la connexion...",
-      "allRightsReserved": "Tous droits réservés.",
+      "atLeast8Chars": "ג“ Au moins 8 caractֳ¨res",
+      "oneUppercase": "ג“ Une majuscule",
+      "oneNumber": "ג“ Un chiffre",
+      "submit": "Rֳ©initialiser le mot de passe",
+      "resetting": "Rֳ©initialisation...",
+      "success": "Votre mot de passe a ֳ©tֳ© rֳ©initialisֳ© avec succֳ¨s. Redirection vers la connexion...",
+      "allRightsReserved": "Tous droits rֳ©servֳ©s.",
       "errors": {
-        "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractֳ¨res",
         "passwordsNotMatch": "Les mots de passe ne correspondent pas",
         "passwordTooCommon": "Ce mot de passe est trop courant",
-        "invalidToken": "Lien de réinitialisation invalide ou expiré",
-        "expiredLink": "Ce lien de réinitialisation a expiré. Veuillez demander un nouveau lien.",
+        "invalidToken": "Lien de rֳ©initialisation invalide ou expirֳ©",
+        "expiredLink": "Ce lien de rֳ©initialisation a expirֳ©. Veuillez demander un nouveau lien.",
         "invalidLink": "Lien invalide",
-        "genericError": "Une erreur est survenue. Veuillez réessayer.",
+        "genericError": "Une erreur est survenue. Veuillez rֳ©essayer.",
         "serviceUnavailable": "Service temporairement indisponible",
         "validationError": "Erreur lors de la validation du lien"
       },

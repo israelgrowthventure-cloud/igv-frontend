@@ -225,6 +225,19 @@ export const api = {
     return response.data;
   },
 
+  patch: async (endpoint, data, config = {}) => {
+    const token = localStorage.getItem('admin_token');
+    const response = await axios.patch(`${BACKEND_URL}${endpoint}`, data, {
+      ...config,
+      timeout: config.timeout || 8000,
+      headers: { 
+        Authorization: token ? `Bearer ${token}` : '',
+        ...config.headers 
+      }
+    });
+    return response.data;
+  },
+
   // ==========================================
   // CMS, Media Library & Password Recovery
   // ==========================================

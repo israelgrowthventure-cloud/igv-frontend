@@ -5,6 +5,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../utils/api';
 
 // Create context
 const AuthContext = createContext(null);
@@ -66,9 +67,16 @@ export const AuthProvider = ({ children }) => {
   /**
    * Logout - Clear user data and redirect to login
    */
-  const logout = () => {
+  const logout = async () => {
+    // Notify backend (fire and forget)
+    try {
+      await api.post('/api/admin/logout', {});
+    } catch (e) {
+      // Ignore backend errors during logout
+    }
     setUser(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('admin_token');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userName');
     localStorage.removeItem('userRole');

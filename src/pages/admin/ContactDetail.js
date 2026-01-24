@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { 
   ArrowLeft, Mail, Phone, Building, MapPin, Save, Trash2, 
-  Loader2, Edit2, X, Tag, Calendar, User, TrendingUp, Plus
+  Loader2, Edit2, X, Tag, Calendar, User, TrendingUp, Plus,
+  MessageSquare, Activity, FileText, Send, Clock
 } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '../../utils/api';
@@ -23,11 +24,47 @@ const ContactDetail = () => {
   const [oppForm, setOppForm] = useState({ name: '', value: '', probability: 50, stage: 'qualification' });
   const [opportunities, setOpportunities] = useState([]);
 
+  // Tab system
+  const [activeTab, setActiveTab] = useState('details');
+  // Notes state
+  const [notes, setNotes] = useState([]);
+  const [notesLoading, setNotesLoading] = useState(false);
+  const [noteText, setNoteText] = useState('');
+  // Activities state
+  const [activities, setActivities] = useState([]);
+  const [activitiesLoading, setActivitiesLoading] = useState(false);
+  const [showActivityModal, setShowActivityModal] = useState(false);
+  const [activityForm, setActivityForm] = useState({ type: 'call', description: '' });
+  // Emails state
+  const [emails, setEmails] = useState([]);
+  const [emailsLoading, setEmailsLoading] = useState(false);
+
   const isRTL = i18n.language === 'he';
 
   useEffect(() => {
     fetchContact();
   }, [id]);
+
+  // Fetch notes when notes tab is selected
+  useEffect(() => {
+    if (activeTab === 'notes' && contact && contact.contact_id) {
+      fetchNotes();
+    }
+  }, [activeTab, contact]);
+
+  // Fetch activities when activities tab is selected
+  useEffect(() => {
+    if (activeTab === 'activities' && contact && contact.contact_id) {
+      fetchActivities();
+    }
+  }, [activeTab, contact]);
+
+  // Fetch emails when emails tab is selected
+  useEffect(() => {
+    if (activeTab === 'emails' && contact && contact.contact_id) {
+      fetchEmails();
+    }
+  }, [activeTab, contact]);
 
   const fetchContact = async () => {
     try {
@@ -49,6 +86,82 @@ const ContactDetail = () => {
       navigate('/admin/crm/contacts');
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Fetch notes
+  const fetchNotes = async () => {
+    try {
+      setNotesLoading(true);
+      const response = await api.get(`/api/crm/contacts/${id}/notes`);
+      setNotes(response?.notes || response || []);
+    } catch (error) {
+      console.error('Error fetching notes:', error);
+      setNotes([]);
+    } finally {
+      setNotesLoading(false);
+    }
+  };
+
+  // Fetch activities
+  const fetchActivities = async () => {
+    try {
+      setActivitiesLoading(true);
+      const response = await api.get(`/api/crm/contacts/${id}/activities`);
+      setActivities(response?.activities || response || []);
+    } catch (error) {
+      console.error('Error fetching activities:', error);
+      setActivities([]);
+    } finally {
+      setActivitiesLoading(false);
+    }
+  };
+
+  // Fetch emails
+  const fetchEmails = async () => {
+    try {
+      setEmailsLoading(true);
+      const response = await api.get(`/api/crm/contacts/${id}/emails`);
+      setEmails(response?.emails || response || []);
+    } catch (error) {
+      console.error('Error fetching emails:', error);
+      setEmails([]);
+    } finally {
+      setEmailsLoading(false);
+    }
+  };
+
+  // Add note
+  const handleAddNote = async () => {
+    if (!noteText.trim()) return;
+    try {
+      setSaving(true);
+      await api.post(`/api/crm/contacts/${id}/notes`, { note_text: noteText });
+      toast.success(t('crm.notes.added') || 'Note added');
+      setNoteText('');
+      fetchNotes();
+    } catch (error) {
+      toast.error(t('crm.errors.note_failed') || 'Failed to add note');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Add activity
+  const handleAddActivity = async (e) => {
+    e.preventDefault();
+    if (!activityForm.description.trim()) return;
+    try {
+      setSaving(true);
+      await api.post(`/api/crm/contacts/${id}/activities`, activityForm);
+      toast.success(t('crm.activities.added') || 'Activity added');
+      setShowActivityModal(false);
+      setActivityForm({ type: 'call', description: '' });
+      fetchActivities();
+    } catch (error) {
+      toast.error(t('crm.errors.activity_failed') || 'Failed to add activity');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -189,6 +302,34 @@ const ContactDetail = () => {
 
         {/* Content */}
         <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
+          {/* Tab Navigation */}
+          <div className="bg-white rounded-lg shadow border">
+            <div className="flex border-b">
+              {[
+                { key: 'details', label: t('crm.tabs.details') || 'Details', icon: FileText },
+                { key: 'notes', label: t('crm.tabs.notes') || 'Notes', icon: MessageSquare },
+                { key: 'activities', label: t('crm.tabs.activities') || 'Activities', icon: Activity },
+                { key: 'emails', label: t('crm.tabs.emails') || 'Emails', icon: Mail }
+              ].map(tab => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 font-medium transition-colors ${
+                    activeTab === tab.key
+                      ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
+                      : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
+                  <tab.icon className="w-4 h-4" />
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Details Tab */}
+          {activeTab === 'details' && (
+            <>
           {/* Contact Info */}
           <div className="bg-white rounded-lg shadow border p-6">
             <h2 className="font-semibold mb-4">{t('crm.contacts.details.contact_info') || 'Contact Information'}</h2>
@@ -362,25 +503,6 @@ const ContactDetail = () => {
             </div>
           </div>
 
-          {/* Recent Activities */}
-          <div className="bg-white rounded-lg shadow border p-6">
-            <h2 className="font-semibold mb-4 flex items-center gap-2">
-              <Calendar className="w-5 h-5" />
-              {t('crm.contacts.recent_activities') || 'Recent Activities'}
-            </h2>
-            <div className="space-y-3">
-              {contact.activities && contact.activities.length > 0 ? contact.activities.slice(0, 10).map((activity, idx) => (
-                <div key={idx} className="p-3 bg-gray-50 rounded-lg">
-                  <p className="text-sm font-medium">{activity.type}</p>
-                  <p className="text-xs text-gray-600 mt-1">{activity.description}</p>
-                  <p className="text-xs text-gray-500 mt-1">{new Date(activity.created_at).toLocaleString()}</p>
-                </div>
-              )) : (
-                <p className="text-gray-500 text-sm">{t('crm.common.no_activities') || 'No activities yet'}</p>
-              )}
-            </div>
-          </div>
-
           {/* Metadata */}
           <div className="bg-gray-100 rounded-lg p-4 text-sm text-gray-600">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -400,8 +522,219 @@ const ContactDetail = () => {
               </div>
             </div>
           </div>
+            </>
+          )}
+
+          {/* Notes Tab */}
+          {activeTab === 'notes' && (
+            <div className="bg-white rounded-lg shadow border p-6">
+              <h2 className="font-semibold mb-4 flex items-center gap-2">
+                <MessageSquare className="w-5 h-5" />
+                {t('crm.contacts.notes') || 'Notes'}
+              </h2>
+              {notesLoading ? (
+                <div className="flex items-center gap-2 py-4">
+                  <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+                  <span className="text-sm text-gray-500">{t('crm.common.loading') || 'Loading...'}</span>
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-3 mb-4">
+                    {notes && notes.length > 0 ? notes.map((note, idx) => (
+                      <div key={idx} className="p-3 bg-gray-50 rounded-lg">
+                        <p className="text-sm">{note.note_text}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {new Date(note.created_at).toLocaleString()} • {note.created_by}
+                        </p>
+                      </div>
+                    )) : (
+                      <p className="text-gray-500 text-sm">{t('crm.common.no_notes') || 'No notes yet'}</p>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    <input 
+                      type="text" 
+                      placeholder={t('crm.contacts.add_note_placeholder') || 'Add a note...'} 
+                      value={noteText} 
+                      onChange={(e) => setNoteText(e.target.value)} 
+                      className="flex-1 px-3 py-2 border rounded-lg" 
+                    />
+                    <button 
+                      onClick={handleAddNote} 
+                      disabled={!noteText.trim() || saving} 
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                    >
+                      {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.add') || 'Add'}
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Activities Tab */}
+          {activeTab === 'activities' && (
+            <div className="bg-white rounded-lg shadow border p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-semibold flex items-center gap-2">
+                  <Activity className="w-5 h-5" />
+                  {t('crm.contacts.activities') || 'Activities'}
+                </h2>
+                <button
+                  onClick={() => setShowActivityModal(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                >
+                  <Plus className="w-4 h-4" />
+                  {t('crm.activities.add') || 'Add Activity'}
+                </button>
+              </div>
+              {activitiesLoading ? (
+                <div className="flex items-center gap-2 py-4">
+                  <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+                  <span className="text-sm text-gray-500">{t('crm.common.loading') || 'Loading...'}</span>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {activities && activities.length > 0 ? activities.map((activity, idx) => (
+                    <div key={idx} className="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`px-2 py-1 rounded text-xs font-semibold ${
+                          activity.type === 'call' ? 'bg-green-100 text-green-800' :
+                          activity.type === 'email' ? 'bg-blue-100 text-blue-800' :
+                          activity.type === 'meeting' ? 'bg-purple-100 text-purple-800' :
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {t(`crm.activities.types.${activity.type}`) || activity.type}
+                        </span>
+                        <span className="text-xs text-gray-500">
+                          {new Date(activity.created_at).toLocaleString()}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-700">{activity.description}</p>
+                      <p className="text-xs text-gray-500 mt-1">{t('crm.common.by') || 'By'}: {activity.created_by}</p>
+                    </div>
+                  )) : (
+                    <div className="text-center py-8 text-gray-500">
+                      <Activity className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                      <p>{t('crm.activities.no_activities') || 'No activities yet'}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Emails Tab */}
+          {activeTab === 'emails' && (
+            <div className="bg-white rounded-lg shadow border p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-semibold flex items-center gap-2">
+                  <Mail className="w-5 h-5" />
+                  {t('crm.contacts.emails') || 'Emails'}
+                </h2>
+                <button
+                  onClick={() => navigate(`/admin/crm/emails/compose?contact_id=${id}&email=${contact.email}`)}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                >
+                  <Send className="w-4 h-4" />
+                  {t('crm.emails.compose') || 'Compose Email'}
+                </button>
+              </div>
+              {emailsLoading ? (
+                <div className="flex items-center gap-2 py-4">
+                  <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+                  <span className="text-sm text-gray-500">{t('crm.common.loading') || 'Loading...'}</span>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {emails && emails.length > 0 ? emails.map((email, idx) => (
+                    <div key={idx} className="p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 cursor-pointer">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-medium text-sm">{email.subject}</span>
+                        <span className={`px-2 py-1 rounded text-xs font-semibold ${
+                          email.status === 'sent' ? 'bg-green-100 text-green-800' :
+                          email.status === 'draft' ? 'bg-yellow-100 text-yellow-800' :
+                          email.status === 'failed' ? 'bg-red-100 text-red-800' :
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {t(`crm.emails.status.${email.status}`) || email.status}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600 line-clamp-2">{email.body_preview || email.body?.substring(0, 100)}</p>
+                      <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+                        <span><Clock className="w-3 h-3 inline mr-1" />{new Date(email.created_at || email.sent_at).toLocaleString()}</span>
+                        <span>{t('crm.emails.to') || 'To'}: {email.to}</span>
+                      </div>
+                    </div>
+                  )) : (
+                    <div className="text-center py-8 text-gray-500">
+                      <Mail className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                      <p>{t('crm.emails.no_emails') || 'No emails yet'}</p>
+                      <button
+                        onClick={() => navigate(`/admin/crm/emails/compose?contact_id=${id}&email=${contact.email}`)}
+                        className="mt-4 text-blue-600 hover:underline"
+                      >
+                        {t('crm.emails.send_first') || 'Send your first email'}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </main>
       </div>
+
+      {/* Add Activity Modal */}
+      {showActivityModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <h3 className="text-lg font-bold mb-4">{t('crm.activities.add_title') || 'Add Activity'}</h3>
+            <form onSubmit={handleAddActivity} className="space-y-4">
+              <div>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.activities.type') || 'Type'}</label>
+                <select 
+                  value={activityForm.type} 
+                  onChange={(e) => setActivityForm({...activityForm, type: e.target.value})}
+                  className="w-full px-3 py-2 border rounded-lg"
+                >
+                  <option value="call">{t('crm.activities.types.call') || 'Call'}</option>
+                  <option value="email">{t('crm.activities.types.email') || 'Email'}</option>
+                  <option value="meeting">{t('crm.activities.types.meeting') || 'Meeting'}</option>
+                  <option value="note">{t('crm.activities.types.note') || 'Note'}</option>
+                  <option value="task">{t('crm.activities.types.task') || 'Task'}</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm text-gray-600 mb-1">{t('crm.activities.description') || 'Description'}</label>
+                <textarea 
+                  value={activityForm.description} 
+                  onChange={(e) => setActivityForm({...activityForm, description: e.target.value})}
+                  placeholder={t('crm.activities.description_placeholder') || 'Describe the activity...'}
+                  rows={4}
+                  className="w-full px-3 py-2 border rounded-lg resize-none"
+                />
+              </div>
+              <div className="flex gap-3 justify-end pt-2">
+                <button 
+                  type="button"
+                  onClick={() => { setShowActivityModal(false); setActivityForm({ type: 'call', description: '' }); }} 
+                  className="px-4 py-2 border rounded-lg hover:bg-gray-50"
+                >
+                  {t('crm.common.cancel') || 'Cancel'}
+                </button>
+                <button 
+                  type="submit"
+                  disabled={saving || !activityForm.description.trim()}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                >
+                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : t('crm.common.add') || 'Add'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (

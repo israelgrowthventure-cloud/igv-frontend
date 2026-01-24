@@ -57,9 +57,22 @@ const MediaLibrary = lazy(() => import('./pages/admin/MediaLibrary'));
 
 // CRM Modular Pages (Phase 1 Refactor)
 const OpportunitiesPage = lazy(() => import('./pages/admin/OpportunitiesPage'));
+const OpportunityDetail = lazy(() => import('./pages/admin/OpportunityDetail'));
 const EmailsPage = lazy(() => import('./pages/admin/EmailsPage'));
 const ActivitiesPage = lazy(() => import('./pages/admin/ActivitiesPage'));
 const SettingsPage = lazy(() => import('./pages/admin/SettingsPage'));
+
+// CRM Companies (B2B) - Point 1 Mission
+const CompaniesPage = lazy(() => import('./pages/admin/CompaniesPage'));
+const CompanyDetail = lazy(() => import('./pages/admin/CompanyDetail'));
+
+// CRM Advanced Features - Points 2-12 Mission
+const QualityPage = lazy(() => import('./pages/admin/QualityPage'));
+const AutomationRulesPage = lazy(() => import('./pages/admin/AutomationRulesPage'));
+const KPIDashboard = lazy(() => import('./pages/admin/KPIDashboard'));
+const RBACPage = lazy(() => import('./pages/admin/RBACPage'));
+const AuditLogsPage = lazy(() => import('./pages/admin/AuditLogsPage'));
+const MiniAnalysisWorkflowPage = lazy(() => import('./pages/crm/MiniAnalysisWorkflowPage'));
 
 // CRM Index Redirect - Handles legacy ?tab= URLs
 import CRMIndexRedirect from './components/crm/CRMIndexRedirect';
@@ -194,12 +207,20 @@ function AppContent() {
               <Route path="dashboard" element={<DashboardPage />} />
               <Route path="leads" element={<LeadsPage />} />
               <Route path="contacts" element={<ContactsPage />} />
+              <Route path="companies" element={<CompaniesPage />} />
               <Route path="users" element={<UsersPage />} />
               <Route path="opportunities" element={<OpportunitiesPage />} />
               <Route path="pipeline" element={<Pipeline />} />
               <Route path="emails" element={<EmailsPage />} />
               <Route path="activities" element={<ActivitiesPage />} />
               <Route path="settings" element={<SettingsPage />} />
+              {/* Advanced CRM Features - Points 2-12 */}
+              <Route path="quality" element={<QualityPage />} />
+              <Route path="automation" element={<AutomationRulesPage />} />
+              <Route path="kpi" element={<KPIDashboard />} />
+              <Route path="rbac" element={<RBACPage />} />
+              <Route path="audit" element={<AuditLogsPage />} />
+              <Route path="mini-analyses" element={<MiniAnalysisWorkflowPage />} />
             </Route>
             
             <Route path="/admin/dashboard" element={
@@ -210,6 +231,12 @@ function AppContent() {
             } />
             <Route path="/admin/crm/contacts/:id" element={
               <PrivateRoute><Suspense fallback={<AdminLoading />}><ContactDetail /></Suspense></PrivateRoute>
+            } />
+            <Route path="/admin/crm/opportunities/:id" element={
+              <PrivateRoute><Suspense fallback={<AdminLoading />}><OpportunityDetail /></Suspense></PrivateRoute>
+            } />
+            <Route path="/admin/crm/companies/:id" element={
+              <PrivateRoute><Suspense fallback={<AdminLoading />}><CompanyDetail /></Suspense></PrivateRoute>
             } />
             <Route path="/admin/invoices" element={
               <PrivateRoute><Suspense fallback={<AdminLoading />}><AdminInvoices /></Suspense></PrivateRoute>

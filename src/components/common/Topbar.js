@@ -8,8 +8,12 @@ import {
   User,
   LogOut,
   Globe,
-  Menu
+  Menu,
+  Download,
+  Command
 } from 'lucide-react';
+import GlobalSearchBar from '../crm/GlobalSearchBar';
+import ExportPanel from '../crm/ExportPanel';
 
 /**
  * Topbar - Barre supérieure du dashboard CRM
@@ -30,6 +34,8 @@ const Topbar = ({ onToggleSidebar }) => {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [user, setUser] = useState(null);
+  const [showGlobalSearch, setShowGlobalSearch] = useState(false);
+  const [showExportPanel, setShowExportPanel] = useState(false);
 
   useEffect(() => {
     // Récupérer les infos utilisateur depuis localStorage ou API
@@ -37,6 +43,18 @@ const Topbar = ({ onToggleSidebar }) => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+  }, []);
+
+  // Keyboard shortcut for global search (Ctrl+K or Cmd+K)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        setShowGlobalSearch(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const getBreadcrumb = () => {
@@ -117,20 +135,32 @@ const Topbar = ({ onToggleSidebar }) => {
 
       {/* Center: Global Search */}
       <div className="hidden lg:flex flex-1 max-w-md mx-4">
-        <div className="relative w-full">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <input
-            type="text"
-            placeholder={t('crm.search.placeholder', 'Rechercher...')}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-          />
-        </div>
+        <button
+          onClick={() => setShowGlobalSearch(true)}
+          className="w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-500 hover:border-gray-400 hover:bg-gray-50 transition-colors"
+        >
+          <div className="flex items-center">
+            <Search className="w-4 h-4 mr-2" />
+            <span>{t('crm.search.placeholder', 'Rechercher...')}</span>
+          </div>
+          <div className="flex items-center space-x-1 text-xs text-gray-400">
+            <Command className="w-3 h-3" />
+            <span>K</span>
+          </div>
+        </button>
       </div>
 
       {/* Right: Actions */}
       <div className="flex items-center space-x-4">
+        {/* Export Button */}
+        <button 
+          onClick={() => setShowExportPanel(true)}
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          title={t('crm.export.title', 'Exporter')}
+        >
+          <Download className="w-5 h-5 text-gray-600" />
+        </button>
+
         {/* Language Switcher */}
         <div className="relative">
           <button
@@ -208,6 +238,18 @@ const Topbar = ({ onToggleSidebar }) => {
           )}
         </div>
       </div>
+
+      {/* Global Search Modal */}
+      <GlobalSearchBar 
+        isOpen={showGlobalSearch} 
+        onClose={() => setShowGlobalSearch(false)} 
+      />
+
+      {/* Export Panel */}
+      <ExportPanel 
+        isOpen={showExportPanel} 
+        onClose={() => setShowExportPanel(false)} 
+      />
     </div>
   );
 };

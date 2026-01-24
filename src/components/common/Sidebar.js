@@ -13,9 +13,17 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
-  Palette
+  Palette,
+  Building2,
+  Shield,
+  Zap,
+  TrendingUp,
+  FileText,
+  History,
+  CheckSquare
 } from 'lucide-react';
 import CmsAdminButton from '../CmsAdminButton';
+import { useAuth } from '../../contexts/AuthContext';
 
 /**
  * Sidebar - Navigation principale du CRM
@@ -31,18 +39,35 @@ const Sidebar = ({ collapsed, onToggle }) => {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin';
+  const isManager = user?.role === 'admin' || user?.role === 'manager';
 
   const navigationItems = [
     { id: 'dashboard', path: '/admin/crm/dashboard', icon: LayoutDashboard, label: t('crm.nav.dashboard', 'Tableau de bord') },
     { id: 'leads', path: '/admin/crm/leads', icon: Users, label: t('crm.nav.leads', 'Prospects') },
     { id: 'contacts', path: '/admin/crm/contacts', icon: UserCheck, label: t('crm.nav.contacts', 'Contacts') },
+    { id: 'companies', path: '/admin/crm/companies', icon: Building2, label: t('crm.nav.companies', 'Entreprises') },
     { id: 'opportunities', path: '/admin/crm/opportunities', icon: Target, label: t('crm.nav.opportunities', 'Opportunités') },
     { id: 'pipeline', path: '/admin/crm/pipeline', icon: BarChart3, label: t('crm.nav.pipeline', 'Pipeline') },
     { id: 'activities', path: '/admin/crm/activities', icon: Activity, label: t('crm.nav.activities', 'Activités') },
     { id: 'emails', path: '/admin/crm/emails', icon: Mail, label: t('crm.nav.emails', 'Emails') },
+    { id: 'mini-analyses', path: '/admin/crm/mini-analyses', icon: FileText, label: t('crm.nav.mini_analyses', 'Mini-Analyses'), managerOnly: true },
+    { id: 'kpi', path: '/admin/crm/kpi', icon: TrendingUp, label: t('crm.nav.kpi', 'KPIs'), managerOnly: true },
+    { id: 'automation', path: '/admin/crm/automation', icon: Zap, label: t('crm.nav.automation', 'Automatisation'), adminOnly: true },
+    { id: 'quality', path: '/admin/crm/quality', icon: CheckSquare, label: t('crm.nav.quality', 'Qualité'), adminOnly: true },
+    { id: 'rbac', path: '/admin/crm/rbac', icon: Shield, label: t('crm.nav.rbac', 'Rôles & Accès'), adminOnly: true },
+    { id: 'audit', path: '/admin/crm/audit', icon: History, label: t('crm.nav.audit', 'Audit'), adminOnly: true },
     { id: 'users', path: '/admin/crm/users', icon: UserCog, label: t('crm.nav.users', 'Utilisateurs'), adminOnly: true },
     { id: 'settings', path: '/admin/crm/settings', icon: Settings, label: t('crm.nav.settings', 'Paramètres') }
   ];
+
+  // Filter items based on user role
+  const filteredNavItems = navigationItems.filter(item => {
+    if (item.adminOnly && !isAdmin) return false;
+    if (item.managerOnly && !isManager) return false;
+    return true;
+  });
 
   const isActive = (path) => {
     return location.pathname === path || location.pathname.startsWith(path + '/');
@@ -78,7 +103,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
       {/* Navigation Items */}
       <nav className="flex-1 py-4 overflow-y-auto">
         <ul className="space-y-1 px-2">
-          {navigationItems.map((item) => {
+          {filteredNavItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.path);
             

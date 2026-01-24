@@ -53,7 +53,8 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   const handleExportCSV = async () => {
     try {
       setLoadingAction(true);
-      const response = await api.get('/api/crm/leads/export', { responseType: 'blob' });
+      // P1-001 FIX: Correct endpoint path (was /export, should be /export/csv)
+      const response = await api.get('/api/crm/leads/export/csv', { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([response]));
       const link = document.createElement('a');
       link.href = url;
@@ -70,23 +71,29 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   };
 
   const handleAddNote = async (leadId) => {
-    console.log('[DEBUG handleAddNote] Called with leadId:', leadId);
-    console.log('[DEBUG handleAddNote] selectedItem:', JSON.stringify(selectedItem));
-    console.log('[DEBUG handleAddNote] noteText:', noteText);
     if (!noteText.trim()) {
-      console.log('[DEBUG handleAddNote] Empty noteText, returning early');
       return;
     }
     try {
-      console.log('[DEBUG handleAddNote] Calling API POST /notes with leadId:', leadId);
       setLoadingAction(true);
       await api.post(`/api/crm/leads/${leadId}/notes`, { note_text: noteText });
-      console.log('[DEBUG handleAddNote] API call successful');
       setNoteText('');
       toast.success(t('crm.leads.note_added'));
-      await onRefresh();
+      
+      // P0-001 FIX: Fetch fresh lead with notes instead of just refreshing list
+      // The list endpoint returns notes: [] for performance, so we need the detail endpoint
+      try {
+        const freshLead = await api.get(`/api/crm/leads/${leadId}`);
+        if (freshLead) {
+          setSelectedItem(freshLead);
+        }
+      } catch (fetchErr) {
+        console.error('Failed to refresh lead after note add:', fetchErr);
+        // Fallback to list refresh
+        await onRefresh();
+      }
     } catch (error) {
-      console.error('[DEBUG handleAddNote] API call failed:', error);
+      console.error('Failed to add note:', error);
       toast.error(t('crm.errors.note_failed'));
     } finally {
       setLoadingAction(false);

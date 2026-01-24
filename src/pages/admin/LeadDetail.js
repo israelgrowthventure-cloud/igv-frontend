@@ -104,7 +104,9 @@ const LeadDetail = () => {
       await api.post(`/api/crm/leads/${id}/notes`, { note_text: noteText });
       toast.success(t('crm.leads.note_added') || 'Note added');
       setNoteText('');
-      fetchLead();
+      // P0-002 FIX: Call fetchNotes directly instead of fetchLead to ensure notes are refreshed
+      // fetchLead triggers useEffect which may not always re-fetch notes due to object reference comparison
+      await fetchNotes();
     } catch (error) {
       toast.error(t('crm.errors.note_failed') || 'Failed to add note');
     } finally {

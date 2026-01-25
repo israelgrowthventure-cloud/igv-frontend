@@ -48,11 +48,31 @@ const RBACPage = () => {
         api.get('/api/crm/roles')
       ]);
       
-      setTeam(teamRes.team || []);
-      setRoles(rolesRes.roles || []);
+      // Normalize team to array
+      const teamData = teamRes?.team || teamRes?.data?.team || [];
+      setTeam(Array.isArray(teamData) ? teamData : []);
+      
+      // Convert roles object to array for .map() compatibility
+      // API returns {roles: {admin: {...}, manager: {...}}} 
+      const rolesData = rolesRes?.roles || rolesRes?.data?.roles || {};
+      if (typeof rolesData === 'object' && !Array.isArray(rolesData)) {
+        // Convert object to array: {admin: {description:...}} → [{name: 'admin', description:...}]
+        const rolesArray = Object.entries(rolesData).map(([name, config]) => ({
+          name,
+          description: config?.description || '',
+          permissions: config?.permissions || []
+        }));
+        setRoles(rolesArray);
+      } else if (Array.isArray(rolesData)) {
+        setRoles(rolesData);
+      } else {
+        setRoles([]);
+      }
     } catch (error) {
       console.error('Error loading RBAC data:', error);
       toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
+      setTeam([]);
+      setRoles([]);
     } finally {
       setLoading(false);
     }
@@ -162,14 +182,14 @@ const RBACPage = () => {
 
       {/* Roles Overview */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        {roles.map((role) => (
+        {(Array.isArray(roles) ? roles : []).map((role) => (
           <div key={role.name} className={`p-4 rounded-lg border ${getRoleColor(role.name).replace('text-', 'border-').replace('100', '200')}`}>
             <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getRoleColor(role.name)} mb-2`}>
               {getRoleLabel(role.name)}
             </div>
             <p className="text-sm text-gray-600">{role.description || ''}</p>
             <div className="mt-2 text-xs text-gray-500">
-              {team.filter(m => m.role === role.name).length} utilisateur(s)
+              {(Array.isArray(team) ? team : []).filter(m => m.role === role.name).length} utilisateur(s)
             </div>
           </div>
         ))}

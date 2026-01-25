@@ -79,15 +79,18 @@ const AuditLogsPage = () => {
       };
 
       const response = await api.get('/api/crm/audit-logs', { params });
-      setLogs(response.logs || []);
+      // Normalize response - logs can be in response.logs or response.data.logs
+      const logsData = response?.logs || response?.data?.logs || [];
+      setLogs(Array.isArray(logsData) ? logsData : []);
       setPagination(prev => ({
         ...prev,
-        total: response.total || 0,
-        pages: response.pages || 1
+        total: response?.total || response?.data?.total || 0,
+        pages: response?.pages || response?.data?.pages || 1
       }));
     } catch (error) {
       console.error('Error loading audit logs:', error);
       toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
+      setLogs([]);
     } finally {
       setLoading(false);
     }

@@ -19,12 +19,19 @@
       "dashboard": "Tableau de bord",
       "leads": "Prospects",
       "contacts": "Contacts",
+      "companies": "Entreprises",
       "opportunities": "Opportunités",
       "pipeline": "Pipeline",
       "activities": "Activités",
       "emails": "Emails",
       "users": "Utilisateurs",
-      "settings": "Paramètres"
+      "settings": "Paramètres",
+      "mini_analyses": "Mini-Analyses",
+      "kpi": "KPIs",
+      "automation": "Automatisation",
+      "quality": "Qualité",
+      "rbac": "Rôles & Accès",
+      "audit": "Audit"
     },
     "breadcrumb": {
       "home": "Accueil"
@@ -480,6 +487,75 @@
       "errors": {
         "load_failed": "Erreur lors du chargement du pipeline"
       }
+    },
+    "settings": {
+      "title": "Paramètres",
+      "subtitle": "Configurez votre CRM",
+      "tabs": {
+        "profile": "Profil",
+        "dispatch": "Dispatch",
+        "tags": "Tags",
+        "pipeline_steps": "Étapes Pipeline",
+        "templates": "Modèles",
+        "quality": "Qualité",
+        "performance": "Performance",
+        "general": "Général"
+      }
+    },
+    "rbac": {
+      "title": "Rôles & Permissions",
+      "subtitle": "Gérez les accès de votre équipe",
+      "team": "Équipe",
+      "no_team": "Aucun membre d'équipe",
+      "user": "Utilisateur",
+      "role": "Rôle",
+      "role_updated": "Rôle mis à jour",
+      "permissions_updated": "Permissions mises à jour",
+      "permissions": "Permissions",
+      "custom_permissions": "Permissions personnalisées",
+      "edit_permissions": "Modifier les permissions",
+      "save_permissions": "Sauvegarder les permissions",
+      "cancel": "Annuler"
+    },
+    "audit": {
+      "title": "Logs d'audit",
+      "subtitle": "Historique complet des actions"
+    },
+    "mini_analysis": {
+      "title": "Mini-Analyses",
+      "subtitle": "Workflow des mini-analyses",
+      "status_updated": "Statut mis à jour",
+      "assigned": "Assigné avec succès",
+      "converted": "Converti en lead",
+      "workflow_status": {
+        "pending": "En attente",
+        "in_progress": "En cours",
+        "processing": "Traitement",
+        "completed": "Terminé",
+        "converted": "Converti",
+        "archived": "Archivé"
+      }
+    },
+    "quality": {
+      "title": "Qualité des données",
+      "subtitle": "Détection et fusion des doublons",
+      "duplicates": "Doublons détectés",
+      "merge": "Fusionner",
+      "no_duplicates": "Aucun doublon détecté"
+    },
+    "automation": {
+      "title": "Automatisation",
+      "subtitle": "Règles et workflows automatiques"
+    },
+    "kpi": {
+      "title": "KPIs",
+      "subtitle": "Indicateurs de performance"
+    },
+    "export": {
+      "title": "Exports",
+      "subtitle": "Exporter les données",
+      "success": "Export réussi",
+      "failed": "Échec de l'export"
     }
   },
   "hero": {

@@ -57,18 +57,21 @@ const MiniAnalysisWorkflowPage = () => {
 
       const [analysesRes, statsRes] = await Promise.all([
         api.get('/api/crm/mini-analyses', { params }),
-        api.get('/api/crm/mini-analyses/stats')
+        api.get('/api/crm/mini-analyses/stats').catch(() => ({}))
       ]);
 
-      setAnalyses(analysesRes.analyses || []);
-      setStats(statsRes);
+      // API returns {mini_analyses: [...]} not {analyses: [...]}
+      const analysesData = analysesRes?.mini_analyses || analysesRes?.analyses || analysesRes?.data?.mini_analyses || [];
+      setAnalyses(Array.isArray(analysesData) ? analysesData : []);
+      setStats(statsRes || {});
       setPagination(prev => ({
         ...prev,
-        total: analysesRes.total || 0
+        total: analysesRes?.total || analysesRes?.data?.total || 0
       }));
     } catch (error) {
       console.error('Error loading mini-analyses:', error);
       toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
+      setAnalyses([]);
     } finally {
       setLoading(false);
     }
@@ -77,9 +80,11 @@ const MiniAnalysisWorkflowPage = () => {
   const loadTeam = async () => {
     try {
       const response = await api.get('/api/crm/team');
-      setTeam(response.team || []);
+      const teamData = response?.team || response?.data?.team || [];
+      setTeam(Array.isArray(teamData) ? teamData : []);
     } catch (error) {
       console.error('Error loading team:', error);
+      setTeam([]);
     }
   };
 

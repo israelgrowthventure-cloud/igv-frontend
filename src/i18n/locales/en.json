@@ -19,12 +19,19 @@
       "dashboard": "Dashboard",
       "leads": "Leads",
       "contacts": "Contacts",
+      "companies": "Companies",
       "opportunities": "Opportunities",
       "pipeline": "Pipeline",
       "activities": "Activities",
       "emails": "Emails",
       "users": "Users",
-      "settings": "Settings"
+      "settings": "Settings",
+      "mini_analyses": "Mini-Analyses",
+      "kpi": "KPIs",
+      "automation": "Automation",
+      "quality": "Quality",
+      "rbac": "Roles & Access",
+      "audit": "Audit"
     },
     "breadcrumb": {
       "home": "Home"

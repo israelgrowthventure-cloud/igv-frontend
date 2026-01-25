@@ -19,12 +19,19 @@
       "dashboard": "לוח בקרה",
       "leads": "לידים",
       "contacts": "אנשי קשר",
+      "companies": "חברות",
       "opportunities": "הזדמנויות",
       "pipeline": "צינור מכירות",
       "activities": "פעילויות",
       "emails": "אימיילים",
       "users": "משתמשים",
-      "settings": "הגדרות"
+      "settings": "הגדרות",
+      "mini_analyses": "מיני-אנליזות",
+      "kpi": "מדדי ביצוע",
+      "automation": "אוטומציה",
+      "quality": "איכות",
+      "rbac": "תפקידים והרשאות",
+      "audit": "ביקורת"
     },
     "breadcrumb": {
       "home": "בית"

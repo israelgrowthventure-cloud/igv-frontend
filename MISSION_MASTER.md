@@ -52,10 +52,10 @@
 - [x] Backend app loads OK
 
 ### PHASE 6 — DEPLOY + POST-DEPLOY
-- [ ] Commit backend
-- [ ] Commit frontend
-- [ ] Push backend → Render auto-deploy
-- [ ] Push frontend → Render auto-deploy
+- [x] Commit backend
+- [x] Commit frontend
+- [x] Push backend → Render auto-deploy
+- [x] Push frontend → Render auto-deploy
 - [ ] Test post-deploy RBAC
 - [ ] Test post-deploy Audit
 - [ ] Test post-deploy Leads/Contacts/Companies
@@ -67,16 +67,49 @@
 ## COMMITS
 | Repo | SHA | Message |
 |------|-----|---------|
-| igv-backend | - | - |
-| igv-frontend | - | - |
+| igv-backend | `8b312dd` | chore: add advanced CRM modules (quality, automation, kpi, rbac, audit, export, mini-analysis workflow) |
+| igv-frontend | `821db62` | fix: RBAC/Audit pages blanches, MiniAnalyses parsing, i18n keys, ErrorBoundary |
 
 ## SERVICES RENDER DÉPLOYÉS
 | Service | URL | Status |
 |---------|-----|--------|
-| Backend | https://igv-cms-backend.onrender.com | - |
-| Frontend | https://israelgrowthventure.com | - |
+| Backend | https://igv-cms-backend.onrender.com | ✅ Live |
+| Frontend | https://israelgrowthventure.com | ✅ Live |
 
 ---
+
+## CORRECTIONS APPLIQUÉES
+
+### RBACPage.js
+- **Problème**: `roles.map()` crashait car API renvoie `{roles: {admin:{}, manager:{}}}` (objet) pas un array
+- **Fix**: Conversion objet → array dans `loadData()` + guards `Array.isArray()` dans le render
+
+### AuditLogsPage.js
+- **Problème**: Potentiel crash si API renvoie format inattendu
+- **Fix**: Normalisation de la réponse + guards + setLogs([]) en cas d'erreur
+
+### MiniAnalysisWorkflowPage.js
+- **Problème**: Frontend attendait `response.analyses` mais API renvoie `response.mini_analyses`
+- **Fix**: Lecture `mini_analyses || analyses` + guards
+
+### AdminLayout.js
+- **Ajout**: CRMErrorBoundary pour capturer les erreurs et éviter les pages blanches
+
+### i18n (fr.json, en.json, he.json)
+- **Ajout**: Clés `crm.nav.*` pour companies, mini_analyses, kpi, automation, quality, rbac, audit
+- **Ajout**: Clés `crm.settings.tabs.*`, `crm.rbac.*`, `crm.audit.*`, `crm.mini_analysis.*`
+
+---
+
+## ERREURS IDENTIFIÉES ET CORRIGÉES
+
+| Erreur | Cause | Fix |
+|--------|-------|-----|
+| `w.map is not a function` (RBACPage:165) | API renvoie objet au lieu d'array | Conversion Object.entries() |
+| Page blanche RBAC | .map() sur non-array | Guards Array.isArray() |
+| Page blanche Audit | Parsing réponse non défensif | Guards + catch |
+| Mini-Analyses "Échec chargement" | Mauvaise clé `analyses` vs `mini_analyses` | Fix parsing |
+| Clés i18n visibles | Clés manquantes dans fr/en/he.json | Ajout des clés |
 
 ## ERREURS IDENTIFIÉES
 (À compléter pendant diagnostic)

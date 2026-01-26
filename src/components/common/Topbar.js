@@ -219,7 +219,7 @@ const Topbar = ({ onToggleSidebar }) => {
                 {user?.name || t('crm.user.admin', 'Administrateur')}
               </div>
               <div className="text-xs text-gray-500">
-                {user?.role === 'admin' ? t('crm.role.admin', 'Admin') : t('crm.role.commercial', 'Commercial')}
+                {t(`admin.roles.${user?.role || 'admin'}`, user?.role || 'Admin')}
               </div>
             </div>
             <ChevronDown className="w-4 h-4 text-gray-500" />

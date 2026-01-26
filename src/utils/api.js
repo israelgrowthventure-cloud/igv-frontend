@@ -171,13 +171,13 @@ export const api = {
     return response.data;
   },
 
-  // CRM Complete API - with fast timeouts
+  // CRM Complete API - with generous timeouts for Render cold starts
   get: async (endpoint, config = {}) => {
     const token = localStorage.getItem('admin_token');
     const isCRM = endpoint.includes('/crm/');
     const response = await axios.get(`${BACKEND_URL}${endpoint}`, {
       ...config,
-      timeout: isCRM ? 5000 : 8000, // 5s for CRM, 8s for others
+      timeout: isCRM ? 15000 : 8000, // 15s for CRM (Render cold starts), 8s for others
       headers: { 
         Authorization: token ? `Bearer ${token}` : '',
         ...config.headers 

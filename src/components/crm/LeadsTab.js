@@ -44,7 +44,11 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
       });
       await onRefresh();
     } catch (error) {
-      toast.error(t('crm.errors.create_failed'));
+      if (error.response?.status === 409) {
+        toast.error(t('crm.errors.email_already_exists') || 'Un prospect avec cet email existe déjà');
+      } else {
+        toast.error(t('crm.errors.create_failed'));
+      }
     } finally {
       setLoadingAction(false);
     }

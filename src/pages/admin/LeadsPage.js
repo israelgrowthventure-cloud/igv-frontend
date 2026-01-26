@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
@@ -20,6 +20,10 @@ const LeadsPage = () => {
   const [filters, setFilters] = useState({});
   const [selectedItem, setSelectedItemState] = useState(null);
   const [pendingSelectedId, setPendingSelectedId] = useState(null);
+  
+  // Refs for debounce and abort controller
+  const debounceTimerRef = useRef(null);
+  const abortControllerRef = useRef(null);
 
   // Wrapper for setSelectedItem that manages browser history
   const setSelectedItem = (item) => {
@@ -76,8 +80,28 @@ const LeadsPage = () => {
     };
   }, [selectedItem, location.pathname]);
 
+  // Debounced search + request cancellation
   useEffect(() => {
-    loadLeads();
+    // Clear previous debounce timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    
+    // Cancel previous request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    
+    // Debounce search (500ms)
+    debounceTimerRef.current = setTimeout(() => {
+      loadLeads();
+    }, 500);
+    
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
   }, [searchTerm, filters]);
 
   // Auto-select lead when data is loaded and we have a pendingSelectedId
@@ -106,16 +130,26 @@ const LeadsPage = () => {
   const loadLeads = async () => {
     try {
       setLoading(true);
+      
+      // Create new abort controller for this request
+      const controller = new AbortController();
+      abortControllerRef.current = controller;
+      
       const response = await api.get('/api/crm/leads', {
-        params: { search: searchTerm, ...filters, limit: 50 }
+        params: { search: searchTerm, ...filters, limit: 50 },
+        signal: controller.signal
       });
+      
       setData({
         leads: Array.isArray(response?.leads) ? response.leads : [],
         total: response?.total || 0
       });
     } catch (error) {
-      console.error('Error loading leads:', error);
-      toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
+      // Don't show error if request was cancelled
+      if (error.name !== 'CanceledError' && error.name !== 'AbortError') {
+        console.error('Error loading leads:', error);
+        toast.error(t('crm.errors.load_failed', 'Erreur de chargement'));
+      }
     } finally {
       setLoading(false);
     }

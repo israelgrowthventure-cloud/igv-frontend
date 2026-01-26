@@ -55,13 +55,13 @@ const AdminDashboard = () => {
       
       // Map CRM dashboard stats to expected format
       const leadsData = dashboardRes.leads || {};
-      const totalContacts = contactsRes.total || 0;
+      const totalContacts = dashboardRes.contacts?.total || contactsRes.total || 0;
       const conversionRate = leadsData.total > 0 ? Math.round((totalContacts / leadsData.total) * 100) : 0;
       
       setStats({
-        total_leads: leadsData.total || 0,
+        total_leads: leadsData.total || dashboardRes.total_leads || 0,
         total_contacts: totalContacts,
-        total_analyses: leadsData.last_30_days || 0,
+        total_analyses: dashboardRes.mini_analyses || leadsData.last_30_days || 0,
         conversion_rate: conversionRate
       });
       setLeads(leadsRes.leads || []);

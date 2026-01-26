@@ -223,8 +223,8 @@ export const ROUTES = {
     rbac: {
       roles: '/api/crm/rbac/roles',
       permissions: '/api/crm/rbac/permissions',
-      updateUserRole: (userId) => `/api/crm/rbac/users/${userId}/role`,
-      setCustomPermissions: (userId) => `/api/crm/rbac/users/${userId}/permissions`,
+      updateUserRole: (userId) => `/api/crm/users/${userId}/role`,
+      setCustomPermissions: (userId) => `/api/crm/users/${userId}/permissions`,
     },
     
     // ==========================================
@@ -266,7 +266,8 @@ export const ROUTES = {
       createUser: '/api/crm/settings/users',
       updateUser: (id) => `/api/crm/settings/users/${id}`,
       deleteUser: (id) => `/api/crm/settings/users/${id}`,
-      changePassword: '/api/crm/settings/users/change-password',
+      changePassword: (id) => `/api/crm/settings/users/${id}/change-password`,
+      assignUser: (id) => `/api/crm/settings/users/${id}/assign`,
       tags: '/api/crm/settings/tags',
       createTag: '/api/crm/settings/tags',
       pipelineStages: '/api/crm/settings/pipeline-stages',

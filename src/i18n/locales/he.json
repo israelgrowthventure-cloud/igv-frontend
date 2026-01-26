@@ -72,12 +72,18 @@
       "noData": "אין נתונים",
       "stageDistribution": "התפלגות שלבים",
       "leads_today": "לידים היום",
-      "leads_7d": "Leads 7d",
-      "pipeline_value": "Pipeline value",
-      "tasks_overdue": "Tasks overdue",
+      "leads_7d": "לידים (7 ימים)",
+      "pipeline_value": "ערך צינור",
+      "tasks_overdue": "משימות באיחור",
       "top_sources": "מקורות מובילים",
-      "direct": "Direct",
-      "stage_distribution": "התפלגות שלבים"
+      "direct": "ישיר",
+      "stage_distribution": "התפלגות שלבים",
+      "leads_to_dispatch": "לידים לשיבוץ",
+      "all_leads_assigned": "כל הלידים שובצו",
+      "manage_assignments": "נהל שיבוצים",
+      "urgent_leads": "לידים דחופים",
+      "no_activity_7d": "ללא פעילות 7+ ימים",
+      "no_urgent_leads": "אין לידים דחופים"
     },
     "leads": {
       "subtitle": "נהל את הלידים שלך והמר אותם לאנשי קשר",
@@ -696,14 +702,23 @@
       "custom_permissions": "Custom permissions"
     },
     "mini_analysis": {
-      "status_updated": "Status updated",
-      "assigned": "Assigned",
+      "status_updated": "הסטטוס עודכן",
+      "assigned": "שובץ בהצלחה",
       "confirm_convert": "לאשר המרה?",
-      "converted": "Converted",
-      "title": "Title",
-      "subtitle": "Subtitle",
-      "empty": "Empty",
-      "assign": "הקצה"
+      "converted": "הומר בהצלחה",
+      "title": "מיני-אנליזות",
+      "subtitle": "ניהול מיני-אנליזות",
+      "empty": "לא נמצאו מיני-אנליזות",
+      "assign": "הקצה",
+      "view_all": "צפה במיני-אנליזות",
+      "status": {
+        "pending": "ממתין",
+        "in_progress": "בתהליך",
+        "completed": "הושלם",
+        "converted": "הומר",
+        "cancelled": "בוטל",
+        "sent": "נשלח"
+      }
     }
   },
   "hero": {
@@ -1177,6 +1192,14 @@
       "thumbnail": "Thumbnail"
     },
     "welcome": "ברוך הבא",
+    "roles": {
+      "admin": "מנהל",
+      "commercial": "איש מכירות",
+      "sales": "איש מכירות",
+      "manager": "מנהל צוות",
+      "viewer": "צופה",
+      "editor": "עורך"
+    },
     "errors": {
       "loadFailed": "Load failed"
     },

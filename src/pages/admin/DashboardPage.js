@@ -159,7 +159,7 @@ const DashboardPage = () => {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-orange-800 flex items-center gap-2">
                 <Send className="w-5 h-5" />
-                Leads à dispatcher
+                {t('crm.dashboard.leads_to_dispatch', 'Leads to Dispatch')}
               </h2>
               <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-bold">
                 {dispatch.unassigned_leads?.length || 0}
@@ -179,10 +179,10 @@ const DashboardPage = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-green-600 py-4">✓ Tous les leads sont assignés</p>
+              <p className="text-center text-green-600 py-4">✓ {t('crm.dashboard.all_leads_assigned', 'All leads are assigned')}</p>
             )}
             <Link to="/admin/crm/settings" className="block mt-4 text-center text-orange-600 hover:underline text-sm">
-              Gérer les assignations →
+              {t('crm.dashboard.manage_assignments', 'Manage assignments')} →
             </Link>
           </div>
 
@@ -191,13 +191,13 @@ const DashboardPage = () => {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-red-800 flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5" />
-                Leads urgents
+                {t('crm.dashboard.urgent_leads', 'Urgent Leads')}
               </h2>
               <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-bold">
                 {urgentLeads.length}
               </span>
             </div>
-            <p className="text-xs text-gray-500 mb-2">Sans activité depuis 7+ jours</p>
+            <p className="text-xs text-gray-500 mb-2">{t('crm.dashboard.no_activity_7d', 'No activity for 7+ days')}</p>
             {urgentLeads.length > 0 ? (
               <div className="space-y-2 max-h-48 overflow-y-auto">
                 {urgentLeads.map((lead, idx) => (
@@ -215,7 +215,7 @@ const DashboardPage = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-green-600 py-4">✓ Aucun lead urgent</p>
+              <p className="text-center text-green-600 py-4">✓ {t('crm.dashboard.no_urgent_leads', 'No urgent leads')}</p>
             )}
           </div>
 
@@ -224,25 +224,25 @@ const DashboardPage = () => {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-purple-800 flex items-center gap-2">
                 <FileText className="w-5 h-5" />
-                Mini-Analyses
+                {t('crm.nav.mini_analyses', 'Mini-Analyses')}
               </h2>
             </div>
             <div className="space-y-3">
               <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                <span className="text-sm text-yellow-800">En attente</span>
+                <span className="text-sm text-yellow-800">{t('crm.mini_analysis.status.pending', 'Pending')}</span>
                 <span className="font-bold text-yellow-800">{miniAnalyses.pending}</span>
               </div>
               <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                <span className="text-sm text-green-800">Envoyées</span>
+                <span className="text-sm text-green-800">{t('crm.mini_analysis.status.sent', 'Sent')}</span>
                 <span className="font-bold text-green-800">{miniAnalyses.sent}</span>
               </div>
               <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                <span className="text-sm text-purple-800">Total</span>
+                <span className="text-sm text-purple-800">{t('common.total', 'Total')}</span>
                 <span className="font-bold text-purple-800">{miniAnalyses.total || 0}</span>
               </div>
             </div>
             <Link to="/admin/crm/leads?source=mini-analyse" className="block mt-4 text-center text-purple-600 hover:underline text-sm">
-              Voir les mini-analyses →
+              {t('crm.mini_analysis.view_all', 'View mini-analyses')} →
             </Link>
           </div>
         </div>

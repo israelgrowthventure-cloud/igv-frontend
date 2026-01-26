@@ -115,7 +115,13 @@
       "leadsToday": "Prospects aujourd'hui",
       "topSources": "Sources principales",
       "noData": "Aucune donnée",
-      "stageDistribution": "Répartition par étape"
+      "stageDistribution": "Répartition par étape",
+      "leads_to_dispatch": "Leads à dispatcher",
+      "all_leads_assigned": "Tous les leads sont assignés",
+      "manage_assignments": "Gérer les assignations",
+      "urgent_leads": "Leads urgents",
+      "no_activity_7d": "Sans activité depuis 7+ jours",
+      "no_urgent_leads": "Aucun lead urgent"
     },
     "leads": {
       "subtitle": "Gérez vos prospects et convertissez-les en contacts",
@@ -609,6 +615,10 @@
       "status_updated": "Statut mis à jour",
       "assigned": "Assigné avec succès",
       "converted": "Converti en lead",
+      "view_all": "Voir les mini-analyses",
+      "empty": "Aucune mini-analyse trouvée",
+      "assign": "Attribuer",
+      "confirm_convert": "Confirmer la conversion ?",
       "workflow_status": {
         "pending": "En attente",
         "in_progress": "En cours",
@@ -617,9 +627,14 @@
         "converted": "Converti",
         "archived": "Archivé"
       },
-      "confirm_convert": "Confirmer la conversion ?",
-      "empty": "Empty",
-      "assign": "Attribuer"
+      "status": {
+        "pending": "En attente",
+        "in_progress": "En cours",
+        "completed": "Terminée",
+        "converted": "Convertie",
+        "cancelled": "Annulée",
+        "sent": "Envoyée"
+      }
     },
     "quality": {
       "title": "Qualité des données",
@@ -1228,6 +1243,14 @@
       "thumbnail": "Thumbnail"
     },
     "welcome": "Bienvenue",
+    "roles": {
+      "admin": "Administrateur",
+      "commercial": "Commercial",
+      "sales": "Commercial",
+      "manager": "Manager",
+      "viewer": "Lecteur",
+      "editor": "Éditeur"
+    },
     "errors": {
       "loadFailed": "Load failed"
     },

@@ -35,11 +35,11 @@ const MiniAnalysisWorkflowPage = () => {
   const [assignTo, setAssignTo] = useState('');
 
   const statusFilters = [
-    { value: 'all', label: 'Toutes', count: stats?.total || 0 },
-    { value: 'pending', label: 'En attente', count: stats?.pending || 0, color: 'bg-yellow-100 text-yellow-800' },
-    { value: 'in_progress', label: 'En cours', count: stats?.in_progress || 0, color: 'bg-blue-100 text-blue-800' },
-    { value: 'completed', label: 'Terminées', count: stats?.completed || 0, color: 'bg-green-100 text-green-800' },
-    { value: 'converted', label: 'Converties', count: stats?.converted || 0, color: 'bg-purple-100 text-purple-800' }
+    { value: 'all', label: t('common.all', 'All'), count: stats?.total || 0 },
+    { value: 'pending', label: t('crm.mini_analysis.status.pending', 'Pending'), count: stats?.pending || 0, color: 'bg-yellow-100 text-yellow-800' },
+    { value: 'in_progress', label: t('crm.mini_analysis.status.in_progress', 'In Progress'), count: stats?.in_progress || 0, color: 'bg-blue-100 text-blue-800' },
+    { value: 'completed', label: t('crm.mini_analysis.status.completed', 'Completed'), count: stats?.completed || 0, color: 'bg-green-100 text-green-800' },
+    { value: 'converted', label: t('crm.mini_analysis.status.converted', 'Converted'), count: stats?.converted || 0, color: 'bg-purple-100 text-purple-800' }
   ];
 
   useEffect(() => {
@@ -160,11 +160,11 @@ const MiniAnalysisWorkflowPage = () => {
 
   const getStatusLabel = (status) => {
     switch (status) {
-      case 'pending': return 'En attente';
-      case 'in_progress': return 'En cours';
-      case 'completed': return 'Terminée';
-      case 'converted': return 'Convertie';
-      case 'cancelled': return 'Annulée';
+      case 'pending': return t('crm.mini_analysis.status.pending', 'Pending');
+      case 'in_progress': return t('crm.mini_analysis.status.in_progress', 'In Progress');
+      case 'completed': return t('crm.mini_analysis.status.completed', 'Completed');
+      case 'converted': return t('crm.mini_analysis.status.converted', 'Converted');
+      case 'cancelled': return t('crm.mini_analysis.status.cancelled', 'Cancelled');
       default: return status;
     }
   };

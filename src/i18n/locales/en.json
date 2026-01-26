@@ -77,7 +77,13 @@
       "leadsToday": "Leads today",
       "topSources": "Top sources",
       "noData": "No data",
-      "stageDistribution": "Stage distribution"
+      "stageDistribution": "Stage distribution",
+      "leads_to_dispatch": "Leads to Dispatch",
+      "all_leads_assigned": "All leads are assigned",
+      "manage_assignments": "Manage assignments",
+      "urgent_leads": "Urgent Leads",
+      "no_activity_7d": "No activity for 7+ days",
+      "no_urgent_leads": "No urgent leads"
     },
     "leads": {
       "subtitle": "Manage your leads and convert them to contacts",
@@ -727,10 +733,19 @@
       "assigned": "Assigned",
       "confirm_convert": "Confirm conversion?",
       "converted": "Converted",
-      "title": "Title",
-      "subtitle": "Subtitle",
-      "empty": "Empty",
-      "assign": "Assign"
+      "title": "Mini-Analyses",
+      "subtitle": "Manage mini-analysis workflow",
+      "empty": "No mini-analyses found",
+      "assign": "Assign",
+      "view_all": "View mini-analyses",
+      "status": {
+        "pending": "Pending",
+        "in_progress": "In Progress",
+        "completed": "Completed",
+        "converted": "Converted",
+        "cancelled": "Cancelled",
+        "sent": "Sent"
+      }
     }
   },
   "hero": {
@@ -954,7 +969,9 @@
     "previous": "Previous",
     "next": "Next",
     "backToPacks": "Back To Packs",
-    "assign": "Assign"
+    "assign": "Assign",
+    "total": "Total",
+    "all": "All"
   },
   "errors": {
     "pageNotFound": "Page not found"
@@ -1204,6 +1221,14 @@
       "thumbnail": "Thumbnail"
     },
     "welcome": "Welcome",
+    "roles": {
+      "admin": "Admin",
+      "commercial": "Sales Rep",
+      "sales": "Sales Rep",
+      "manager": "Manager",
+      "viewer": "Viewer",
+      "editor": "Editor"
+    },
     "errors": {
       "loadFailed": "Load Failed"
     },

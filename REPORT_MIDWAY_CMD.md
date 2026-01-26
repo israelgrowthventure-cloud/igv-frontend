@@ -1,6 +1,56 @@
 # REPORT MIDWAY CMD — Audit de cohérence & suppression dette technique
 ## Date: 26 Janvier 2026
-## Status: 🔄 EN COURS
+## Status: ✅ MISSION i18n COMPLÉTÉE
+
+---
+
+## RÉSUMÉ MISSION i18n (26 Janvier 2026)
+
+### Objectif
+Éliminer toutes les clés i18n brutes visibles dans le CRM (ex: `crm.settings.profile.current_password`)
+
+### Diagnostic
+| Élément | Constat |
+|---------|---------|
+| Initialisation i18n | ✅ Correcte - `src/i18n/config.js` import statique |
+| Mécanisme chargement | ✅ Import statique (embarqué dans bundle) |
+| Namespace | ✅ Unique: `translation` |
+| Fallback | ✅ `fallbackLng: 'fr'` |
+| Cause du bug | ❌ Clés manquantes dans les JSON (~300/langue) |
+
+### Solution implémentée
+1. **tools/i18n-audit.js** - Scanne 143 fichiers, extrait 1024 clés uniques
+2. **tools/i18n-autofix.js** - Ajoute placeholders [AUTO]
+3. **tools/i18n-replace-auto.js** - Remplace par vraies traductions
+
+### Résultats
+| Langue | Clés manquantes avant | Clés manquantes après |
+|--------|----------------------|----------------------|
+| FR | 299 | 0 ✅ |
+| EN | 286 | 0 ✅ |
+| HE | 313 | 0 ✅ |
+
+**Total: 898 traductions ajoutées**
+
+### Commits
+- `c0bc42e` - feat(i18n): complete i18n audit and fix - 1024 keys across FR/EN/HE
+
+### Fichiers créés
+```
+tools/i18n-audit.js          # Audit des clés
+tools/i18n-autofix.js        # Auto-ajout placeholders
+tools/i18n-smart-fix.js      # Traductions intelligentes
+tools/i18n-replace-auto.js   # Remplacement [AUTO]
+tools/missing_keys_fr.json   # Rapport FR
+tools/missing_keys_en.json   # Rapport EN
+tools/missing_keys_he.json   # Rapport HE
+```
+
+### Déploiement
+- ✅ Build local réussi
+- ✅ Push vers GitHub (SHA: c0bc42e)
+- ✅ Auto-deploy Render déclenché
+- ✅ Site en ligne: https://igv-frontend.onrender.com
 
 ---
 

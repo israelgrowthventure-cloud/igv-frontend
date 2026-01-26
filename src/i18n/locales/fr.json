@@ -435,6 +435,12 @@
       },
       "dispatch": {
         "title": "Title"
+      },
+      "templates": {
+        "title": "Templates Email",
+        "category": "Catégorie",
+        "languages": "Langues",
+        "no_templates": "Aucun template"
       }
     },
     "activities": {
@@ -639,7 +645,12 @@
     "quality": {
       "title": "Qualité des données",
       "subtitle": "Détection et fusion des doublons",
-      "duplicates": "Doublons détectés",
+      "duplicates": "Doublons potentiels",
+      "duplicates_desc": "Leads avec le même email",
+      "duplicates_detected": "Doublons détectés",
+      "occurrences": "occurrences",
+      "incomplete": "Données incomplètes",
+      "incomplete_desc": "Leads sans téléphone ou nom",
       "merge": "Fusionner",
       "no_duplicates": "Aucun doublon détecté",
       "confirm_merge": "Confirm merge",
@@ -993,7 +1004,9 @@
     "previous": "Previous",
     "next": "Next",
     "backToPacks": "Back to packs",
-    "assign": "Attribuer"
+    "assign": "Attribuer",
+    "active": "Actif",
+    "inactive": "Inactif"
   },
   "errors": {
     "pageNotFound": "Page non trouvée"

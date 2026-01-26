@@ -205,10 +205,10 @@ const SettingsTab = ({ data, onRefresh, t }) => {
             <table className="w-full">
               <thead className="border-b">
                 <tr>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">Nom</th>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">Email</th>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">Rôle</th>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">Statut</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold">{t('crm.settings.users.columns.name', 'Name')}</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold">{t('crm.settings.users.columns.email', 'Email')}</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold">{t('crm.settings.users.columns.role', 'Role')}</th>
+                  <th className="px-4 py-2 text-left text-sm font-semibold">{t('crm.settings.users.columns.status', 'Status')}</th>
                   <th className="px-4 py-2"></th>
                 </tr>
               </thead>
@@ -217,10 +217,10 @@ const SettingsTab = ({ data, onRefresh, t }) => {
                   <tr key={user._id || user.id} className="border-b">
                     <td className="px-4 py-3">{user.name}</td>
                     <td className="px-4 py-3">{user.email}</td>
-                    <td className="px-4 py-3"><span className="capitalize">{user.role}</span></td>
+                    <td className="px-4 py-3"><span className="capitalize">{t(`admin.roles.${user.role}`, user.role)}</span></td>
                     <td className="px-4 py-3">
                       <span className={`px-2 py-1 rounded text-xs ${user.is_active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
-                        {user.is_active ? 'Actif' : 'Inactif'}
+                        {user.is_active ? t('common.active', 'Active') : t('common.inactive', 'Inactive')}
                       </span>
                     </td>
                     <td className="px-4 py-3">

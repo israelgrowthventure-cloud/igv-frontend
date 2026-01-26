@@ -424,6 +424,12 @@
       },
       "dispatch": {
         "title": "Title"
+      },
+      "templates": {
+        "title": "תבניות אימייל",
+        "category": "קטגוריה",
+        "languages": "שפות",
+        "no_templates": "אין תבניות"
       }
     },
     "activities": {
@@ -673,9 +679,14 @@
     "quality": {
       "confirm_merge": "Confirm merge",
       "merged": "מוזג",
-      "duplicates": "כפילויות",
+      "duplicates": "כפילויות פוטנציאליות",
+      "duplicates_desc": "לידים עם אותו אימייל",
+      "duplicates_detected": "כפילויות שזוהו",
+      "occurrences": "מופעים",
+      "incomplete": "נתונים חסרים",
+      "incomplete_desc": "לידים ללא טלפון או שם",
       "stats": "Stats",
-      "title": "Title",
+      "title": "איכות נתונים",
       "subtitle": "Subtitle",
       "lead_completeness": "Lead completeness",
       "contact_completeness": "Contact completeness",
@@ -942,7 +953,9 @@
     "previous": "Previous",
     "next": "Next",
     "backToPacks": "Back to packs",
-    "assign": "הקצה"
+    "assign": "הקצה",
+    "active": "פעיל",
+    "inactive": "לא פעיל"
   },
   "errors": {
     "pageNotFound": "הדף לא נמצא"

@@ -340,7 +340,7 @@ const SettingsPage = () => {
                       <td className="px-4 py-3 text-sm">{user.email}</td>
                       <td className="px-4 py-3">
                         <span className="inline-block px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800">
-                          {user.role}
+                          {t(`admin.roles.${user.role}`, user.role)}
                         </span>
                       </td>
                       <td className="px-4 py-3">
@@ -352,7 +352,7 @@ const SettingsPage = () => {
                               : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                           }`}
                         >
-                          {user.status}
+                          {user.status === 'active' ? t('common.active', 'Active') : t('common.inactive', 'Inactive')}
                         </button>
                       </td>
                       <td className="px-4 py-3 text-sm text-gray-500">
@@ -813,21 +813,21 @@ const SettingsPage = () => {
             <div className="space-y-6">
               <h2 className="text-lg font-semibold flex items-center gap-2">
                 <Mail className="w-5 h-5" />
-                Templates Email
+                {t('crm.settings.templates.title', 'Email Templates')}
               </h2>
               <div className="bg-white rounded-lg shadow overflow-hidden">
                 <table className="w-full">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Nom</th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Catégorie</th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Langues</th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">Statut</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">{t('crm.settings.users.columns.name', 'Name')}</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">{t('crm.settings.templates.category', 'Category')}</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">{t('crm.settings.templates.languages', 'Languages')}</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">{t('crm.settings.users.columns.status', 'Status')}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y">
                     {templates.length === 0 ? (
-                      <tr><td colSpan="4" className="p-8 text-center text-gray-500">Aucun template</td></tr>
+                      <tr><td colSpan="4" className="p-8 text-center text-gray-500">{t('crm.settings.templates.no_templates', 'No templates')}</td></tr>
                     ) : templates.map((tpl) => (
                       <tr key={tpl.id || tpl.name} className="hover:bg-gray-50">
                         <td className="px-4 py-3 font-medium">{tpl.name}</td>
@@ -841,7 +841,7 @@ const SettingsPage = () => {
                         </td>
                         <td className="px-4 py-3">
                           <span className={`px-2 py-1 rounded text-xs ${tpl.active !== false ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
-                            {tpl.active !== false ? 'Actif' : 'Inactif'}
+                            {tpl.active !== false ? t('common.active', 'Active') : t('common.inactive', 'Inactive')}
                           </span>
                         </td>
                       </tr>
@@ -857,32 +857,32 @@ const SettingsPage = () => {
             <div className="space-y-6">
               <h2 className="text-lg font-semibold flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5" />
-                Qualité des Données
+                {t('crm.quality.title', 'Data Quality')}
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-white rounded-lg shadow p-4">
-                  <h3 className="font-medium mb-2 text-orange-600">Doublons potentiels</h3>
+                  <h3 className="font-medium mb-2 text-orange-600">{t('crm.quality.duplicates', 'Potential Duplicates')}</h3>
                   <p className="text-3xl font-bold">{quality.duplicates?.length || 0}</p>
-                  <p className="text-sm text-gray-500">Leads avec le même email</p>
+                  <p className="text-sm text-gray-500">{t('crm.quality.duplicates_desc', 'Leads with same email')}</p>
                 </div>
                 <div className="bg-white rounded-lg shadow p-4">
-                  <h3 className="font-medium mb-2 text-yellow-600">Données incomplètes</h3>
+                  <h3 className="font-medium mb-2 text-yellow-600">{t('crm.quality.incomplete', 'Incomplete Data')}</h3>
                   <p className="text-3xl font-bold">{quality.incomplete?.length || 0}</p>
-                  <p className="text-sm text-gray-500">Leads sans téléphone ou nom</p>
+                  <p className="text-sm text-gray-500">{t('crm.quality.incomplete_desc', 'Leads without phone or name')}</p>
                 </div>
               </div>
 
               {quality.duplicates?.length > 0 && (
                 <div className="bg-white rounded-lg shadow">
                   <div className="px-4 py-3 border-b">
-                    <h3 className="font-semibold">Doublons détectés</h3>
+                    <h3 className="font-semibold">{t('crm.quality.duplicates_detected', 'Duplicates Detected')}</h3>
                   </div>
                   <div className="divide-y max-h-64 overflow-y-auto">
                     {quality.duplicates?.slice(0, 10).map((dup, idx) => (
                       <div key={idx} className="p-4">
                         <p className="font-medium">{dup.email}</p>
-                        <p className="text-sm text-gray-500">{dup.count} occurrences</p>
+                        <p className="text-sm text-gray-500">{dup.count} {t('crm.quality.occurrences', 'occurrences')}</p>
                       </div>
                     ))}
                   </div>

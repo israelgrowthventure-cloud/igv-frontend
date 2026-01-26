@@ -445,6 +445,12 @@
       },
       "dispatch": {
         "title": "Title"
+      },
+      "templates": {
+        "title": "Email Templates",
+        "category": "Category",
+        "languages": "Languages",
+        "no_templates": "No templates"
       }
     },
     "activities": {
@@ -700,9 +706,14 @@
     "quality": {
       "confirm_merge": "Confirm Merge",
       "merged": "Merged",
-      "duplicates": "Duplicates",
+      "duplicates": "Potential Duplicates",
+      "duplicates_desc": "Leads with same email",
+      "duplicates_detected": "Duplicates Detected",
+      "occurrences": "occurrences",
+      "incomplete": "Incomplete Data",
+      "incomplete_desc": "Leads without phone or name",
       "stats": "Stats",
-      "title": "Title",
+      "title": "Data Quality",
       "subtitle": "Subtitle",
       "lead_completeness": "Lead Completeness",
       "contact_completeness": "Contact Completeness",
@@ -971,7 +982,9 @@
     "backToPacks": "Back To Packs",
     "assign": "Assign",
     "total": "Total",
-    "all": "All"
+    "all": "All",
+    "active": "Active",
+    "inactive": "Inactive"
   },
   "errors": {
     "pageNotFound": "Page not found"

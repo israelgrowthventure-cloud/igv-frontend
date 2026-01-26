@@ -73,10 +73,19 @@
       "all_priorities": "Toutes les priorités",
       "reset": "Réinitialiser",
       "retry": "Réessayer",
-      "no_name": "Sans nom"
+      "no_name": "Sans nom",
+      "by": "Par",
+      "select": "Sélectionner",
+      "assign": "Attribuer"
     },
     "search": {
-      "placeholder": "Rechercher..."
+      "placeholder": "Rechercher...",
+      "recent": "Récent",
+      "hint": "Conseil",
+      "shortcut": "Raccourci",
+      "no_results": "Aucun résultat",
+      "try_different": "Essayez autre chose",
+      "min_chars": "Minimum 3 caractères"
     },
     "user": {
       "admin": "Administrateur",
@@ -102,7 +111,11 @@
       "tasks_overdue": "Tâches en retard",
       "top_sources": "Principales sources",
       "stage_distribution": "Répartition par étape",
-      "direct": "Direct"
+      "direct": "Direct",
+      "leadsToday": "Prospects aujourd'hui",
+      "topSources": "Sources principales",
+      "noData": "Aucune donnée",
+      "stageDistribution": "Répartition par étape"
     },
     "leads": {
       "subtitle": "Gérez vos prospects et convertissez-les en contacts",
@@ -155,7 +168,43 @@
       "analysis_language": "Langue",
       "analysis_date": "Généré le",
       "empty_title": "Aucun lead",
-      "empty_subtitle": "Créez votre premier lead"
+      "empty_subtitle": "Créez votre premier lead",
+      "export_error": "Erreur d'exportation",
+      "update_success": "Mise à jour réussie",
+      "update_error": "Erreur de mise à jour",
+      "note_error": "Erreur de note",
+      "confirm_convert": "Confirmer la conversion ?",
+      "convert_success": "Conversion réussie",
+      "convert_error": "Erreur de conversion",
+      "search_placeholder": "Rechercher...",
+      "filters": "Filtres",
+      "filter_status": "Filtrer par statut",
+      "all_statuses": "Tous les statuts",
+      "filter_stage": "Filtrer par étape",
+      "all_stages": "Toutes les étapes",
+      "apply_filters": "Appliquer les filtres",
+      "col_brand": "Marque",
+      "col_email": "Email",
+      "col_sector": "Secteur",
+      "col_status": "Statut",
+      "col_created": "Créé",
+      "col_actions": "Col actions",
+      "no_leads": "No leads",
+      "info": "Information",
+      "email": "Email",
+      "sector": "Sector",
+      "status": "Status",
+      "add_note": "Ajouter une note",
+      "note_placeholder": "Note placeholder",
+      "save_note": "Save note",
+      "activities": "Activities",
+      "no_activities": "No activities",
+      "assigned": "Assigned",
+      "assign_commercial": "Assign commercial",
+      "assigned_to": "Assigned to",
+      "emails": "Emails",
+      "assign_title": "Assign title",
+      "select_commercial": "Select commercial"
     },
     "contacts": {
       "subtitle": "Gérez vos contacts clients",
@@ -180,7 +229,11 @@
         "position": "Poste",
         "location": "Localisation",
         "tags": "Tags"
-      }
+      },
+      "notes": "Notes",
+      "add_note_placeholder": "Add note placeholder",
+      "activities": "Activities",
+      "emails": "Emails"
     },
     "users": {
       "subtitle": "Gérez les utilisateurs et leurs permissions"
@@ -195,7 +248,10 @@
       "opportunities": "Opportunités",
       "activities": "Activités",
       "emails": "Emails",
-      "users": "Utilisateurs"
+      "users": "Utilisateurs",
+      "info": "Information",
+      "notes": "Notes",
+      "details": "Details"
     },
     "stages": {
       "new": "Nouveau",
@@ -245,7 +301,15 @@
       "status_failed": "Échec de la mise à jour du statut",
       "export_failed": "Échec de l'export",
       "lead_not_found": "Lead non trouvé",
-      "contact_not_found": "Contact non trouvé"
+      "contact_not_found": "Contact non trouvé",
+      "admin_only": "Réservé aux administrateurs",
+      "save_failed": "Save failed",
+      "execution_failed": "Execution failed",
+      "company_not_found": "Company not found",
+      "link_failed": "Link failed",
+      "activity_failed": "Activity failed",
+      "assign_failed": "Assign failed",
+      "merge_failed": "Merge failed"
     },
     "opportunities": {
       "title": "Opportunités",
@@ -292,85 +356,79 @@
     },
     "settings": {
       "title": "Paramètres",
-      "subtitle": "Gérer les utilisateurs, tags et étapes du pipeline",
+      "subtitle": "Configurez votre CRM",
       "tabs": {
-        "profile": "Mon Profil",
-        "users": "Utilisateurs",
-        "dispatch": "Dispatch Leads",
+        "profile": "Profil",
+        "dispatch": "Dispatch",
         "tags": "Tags",
-        "stages": "Pipeline",
-        "templates": "Templates Email",
+        "pipeline_steps": "Étapes Pipeline",
+        "templates": "Modèles",
         "quality": "Qualité",
         "performance": "Performance",
-        "activity": "Mon Activité"
+        "general": "Général",
+        "users": "Users",
+        "stages": "Stages",
+        "activity": "Activity"
       },
       "profile": {
-        "title": "Mon Profil",
-        "name": "Nom",
-        "email": "Email",
-        "role": "Rôle",
+        "password_mismatch": "Password mismatch",
+        "updated": "Updated",
+        "title": "Title",
+        "name": "Name",
+        "language": "Langue",
+        "change_password": "Changer le mot de passe",
         "current_password": "Mot de passe actuel",
         "new_password": "Nouveau mot de passe",
-        "confirm_password": "Confirmer le mot de passe",
-        "change_password": "Changer le mot de passe",
-        "updated": "Profil mis à jour",
-        "password_changed": "Mot de passe modifié",
-        "password_mismatch": "Les mots de passe ne correspondent pas"
+        "confirm_password": "Confirmer le mot de passe"
       },
       "users": {
-        "title": "Gestion des utilisateurs",
-        "add": "Ajouter un utilisateur",
-        "created": "Utilisateur créé",
-        "updated": "Utilisateur mis à jour",
-        "deleted": "Utilisateur supprimé",
-        "delete_confirm": "Supprimer cet utilisateur ?",
+        "created": "Created",
+        "delete_confirm": "Delete confirm",
+        "deleted": "Deleted",
+        "updated": "Updated",
+        "errors": {
+          "update_failed": "Update failed"
+        },
         "columns": {
-          "name": "Nom",
+          "name": "Name",
           "email": "Email",
           "role": "Rôle",
-          "status": "Statut",
-          "created": "Créé"
-        },
-        "errors": {
-          "update_failed": "Échec de la mise à jour",
-          "create_failed": "Échec de la création",
-          "delete_failed": "Échec de la suppression"
+          "status": "Status",
+          "created": "Created"
         }
       },
       "tags": {
-        "add": "Ajouter un tag",
-        "created": "Tag créé",
-        "deleted": "Tag supprimé",
-        "delete_confirm": "Supprimer ce tag ?",
-        "columns": {
-          "name": "Nom",
-          "color": "Couleur",
-          "count": "Utilisation"
-        },
+        "created": "Created",
         "errors": {
-          "create_failed": "Échec de la création",
-          "delete_failed": "Échec de la suppression"
+          "create_failed": "Create failed",
+          "delete_failed": "Delete failed"
+        },
+        "delete_confirm": "Delete confirm",
+        "deleted": "Deleted",
+        "add": "Ajouter",
+        "columns": {
+          "name": "Name",
+          "color": "Color",
+          "count": "Count"
         }
       },
       "stages": {
-        "add": "Ajouter une étape",
-        "created": "Étape créée",
-        "updated": "Étape mise à jour",
-        "deleted": "Étape supprimée",
-        "delete_confirm": "Supprimer cette étape ?",
-        "columns": {
-          "name": "Nom",
-          "order": "Ordre",
-          "color": "Couleur"
-        },
+        "created": "Created",
         "errors": {
-          "create_failed": "Échec de la création",
-          "update_failed": "Échec de la mise à jour",
-          "delete_failed": "Échec de la suppression"
+          "create_failed": "Create failed",
+          "update_failed": "Update failed",
+          "delete_failed": "Delete failed"
+        },
+        "updated": "Updated",
+        "delete_confirm": "Delete confirm",
+        "deleted": "Deleted",
+        "add": "Ajouter",
+        "columns": {
+          "name": "Name"
         }
       },
-      "errors": {
-        "load_failed": "Échec du chargement des paramètres"
+      "dispatch": {
+        "title": "Title"
       }
     },
     "activities": {
@@ -417,7 +475,13 @@
         "completed": "Terminé",
         "cancelled": "Annulé",
         "undefined": "Non défini"
-      }
+      },
+      "added": "Added",
+      "no_activities": "No activities",
+      "add_title": "Add title",
+      "type": "Type",
+      "description": "Description",
+      "description_placeholder": "Description placeholder"
     },
     "emails": {
       "title": "Emails",
@@ -476,7 +540,9 @@
         "delete_failed": "Échec de la suppression"
       },
       "delete_confirm": "Supprimer cet email ?",
-      "available_languages": "Disponible en :"
+      "available_languages": "Disponible en :",
+      "no_emails": "No emails",
+      "send_first": "Send first"
     },
     "pipeline": {
       "opportunities": "opportunités",
@@ -514,20 +580,6 @@
         "load_failed": "Erreur lors du chargement du pipeline"
       }
     },
-    "settings": {
-      "title": "Paramètres",
-      "subtitle": "Configurez votre CRM",
-      "tabs": {
-        "profile": "Profil",
-        "dispatch": "Dispatch",
-        "tags": "Tags",
-        "pipeline_steps": "Étapes Pipeline",
-        "templates": "Modèles",
-        "quality": "Qualité",
-        "performance": "Performance",
-        "general": "Général"
-      }
-    },
     "rbac": {
       "title": "Rôles & Permissions",
       "subtitle": "Gérez les accès de votre équipe",
@@ -541,11 +593,15 @@
       "custom_permissions": "Permissions personnalisées",
       "edit_permissions": "Modifier les permissions",
       "save_permissions": "Sauvegarder les permissions",
-      "cancel": "Annuler"
+      "cancel": "Annuler",
+      "leads_assigned": "Leads assigned",
+      "custom_perms": "Custom perms",
+      "permissions_matrix": "Permissions matrix"
     },
     "audit": {
       "title": "Logs d'audit",
-      "subtitle": "Historique complet des actions"
+      "subtitle": "Historique complet des actions",
+      "no_logs": "No logs"
     },
     "mini_analysis": {
       "title": "Mini-Analyses",
@@ -560,14 +616,28 @@
         "completed": "Terminé",
         "converted": "Converti",
         "archived": "Archivé"
-      }
+      },
+      "confirm_convert": "Confirmer la conversion ?",
+      "empty": "Empty",
+      "assign": "Attribuer"
     },
     "quality": {
       "title": "Qualité des données",
       "subtitle": "Détection et fusion des doublons",
       "duplicates": "Doublons détectés",
       "merge": "Fusionner",
-      "no_duplicates": "Aucun doublon détecté"
+      "no_duplicates": "Aucun doublon détecté",
+      "confirm_merge": "Confirm merge",
+      "merged": "Fusionné",
+      "stats": "Stats",
+      "lead_completeness": "Lead completeness",
+      "contact_completeness": "Contact completeness",
+      "duplicates_found": "Duplicates found",
+      "threshold": "Threshold",
+      "threshold_hint": "Threshold hint",
+      "lead_duplicates": "Lead duplicates",
+      "contact_duplicates": "Contact duplicates",
+      "data_stats": "Data stats"
     },
     "automation": {
       "title": "Automatisation",
@@ -575,13 +645,101 @@
     },
     "kpi": {
       "title": "KPIs",
-      "subtitle": "Indicateurs de performance"
+      "subtitle": "Indicateurs de performance",
+      "first_response": "First response",
+      "conversion_time": "Conversion time",
+      "leads_processed": "Leads processed",
+      "conversion_rate": "Taux de conversion",
+      "funnel": "Entonnoir",
+      "source_performance": "Performance par source",
+      "no_data": "Aucune donnée",
+      "response_by_user": "Response by user"
     },
     "export": {
       "title": "Exports",
       "subtitle": "Exporter les données",
       "success": "Export réussi",
-      "failed": "Échec de l'export"
+      "failed": "Échec de l'export",
+      "error": "Erreur",
+      "backup_success": "Sauvegarde réussie",
+      "backup_all": "Tout sauvegarder"
+    },
+    "next_action": {
+      "date_required": "Date requise",
+      "saved": "Enregistré",
+      "missing": "Manquant",
+      "missing_hint": "Veuillez définir une prochaine action",
+      "add": "Ajouter",
+      "edit": "Modifier"
+    },
+    "alerts": {
+      "actions_required": "Actions requises"
+    },
+    "rules": {
+      "updated": "Updated",
+      "created": "Created",
+      "confirm_delete": "Confirm delete",
+      "deleted": "Deleted",
+      "deactivated": "Deactivated",
+      "activated": "Activated",
+      "executed": "Executed",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "execute": "Execute",
+      "add": "Ajouter",
+      "empty": "Empty",
+      "create_first": "Create first",
+      "name": "Name",
+      "trigger": "Trigger",
+      "actions": "Actions",
+      "status": "Status",
+      "edit": "Modifier",
+      "create": "Créer",
+      "description": "Description",
+      "trigger_type": "Trigger type",
+      "conditions": "Conditions",
+      "active": "Active"
+    },
+    "companies": {
+      "subtitle": "Subtitle",
+      "updated": "Updated",
+      "confirm_delete": "Confirm delete",
+      "deleted": "Deleted",
+      "contact_linked": "Contact linked",
+      "lead_linked": "Lead linked",
+      "general_info": "General info",
+      "name": "Name",
+      "domain": "Domain",
+      "industry": "Industry",
+      "size": "Size",
+      "employees": "Employees",
+      "annual_revenue": "Annual revenue",
+      "contact_info": "Contact info",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "address": "Address",
+      "city": "City",
+      "country": "Country",
+      "description": "Description",
+      "linked_contacts": "Linked contacts",
+      "link_contact": "Link contact",
+      "no_contacts": "No contacts",
+      "linked_leads": "Linked leads",
+      "link_lead": "Link lead",
+      "no_leads": "No leads",
+      "linked_opportunities": "Linked opportunities",
+      "no_opportunities": "No opportunities",
+      "notes": "Notes",
+      "select_contact": "Select contact",
+      "all_contacts_linked": "All contacts linked",
+      "select_lead": "Select lead",
+      "all_leads_linked": "All leads linked"
+    },
+    "notes": {
+      "added": "Added",
+      "add_placeholder": "Add placeholder",
+      "empty": "Empty"
     }
   },
   "hero": {
@@ -678,11 +836,13 @@
       "subject": "Demande de consultation - Pack {packName}"
     },
     "ctaContactExpert": "Discuter avec un expert",
-    "ctaMiniAnalysis": "Obtenir ma mini-analyse gratuite"
+    "ctaMiniAnalysis": "Obtenir ma mini-analyse gratuite",
+    "orBookCall": "Or book call"
   },
   "pricing": {
     "region": "Prix selon votre région",
-    "detecting": "Détection en cours..."
+    "detecting": "Détection en cours...",
+    "international": "International"
   },
   "demandeRappel": {
     "title": "Demande de rappel",
@@ -758,11 +918,26 @@
     "invalidTitle": "Retour de paiement invalide",
     "invalidMessage": "Les données de retour de paiement sont invalides ou manquantes.",
     "invalidReturn": "Retour de paiement invalide",
-    "success": "Paiement réussi !",
+    "success": {
+      "title": "Title",
+      "message": "Message",
+      "accessDashboard": "Access dashboard",
+      "backHome": "Back home",
+      "emailConfirmation": "Email confirmation"
+    },
     "cancelled": "Paiement annulé par l'utilisateur",
     "cancelledToast": "Paiement annulé",
     "failed": "Échec du paiement",
-    "failedToast": "Échec du paiement"
+    "failedToast": "Échec du paiement",
+    "failure": {
+      "title": "Title",
+      "message": "Message",
+      "retry": "Réessayer",
+      "contactSupport": "Contact support",
+      "backHome": "Back home",
+      "helpText": "Help text"
+    },
+    "errorCode": "Error code"
   },
   "common": {
     "loading": "Chargement...",
@@ -794,7 +969,16 @@
       "sent_success": "Email envoyé avec succès",
       "send_failed": "Échec de l'envoi de l'email",
       "error_empty": "Veuillez remplir l'objet et le message"
-    }
+    },
+    "backToHome": "Retour à l'accueil",
+    "refresh": "Actualiser",
+    "actions": "Actions",
+    "back": "Back",
+    "select": "Sélectionner",
+    "previous": "Previous",
+    "next": "Next",
+    "backToPacks": "Back to packs",
+    "assign": "Attribuer"
   },
   "errors": {
     "pageNotFound": "Page non trouvée"
@@ -1002,7 +1186,8 @@
       "pdfDownloading": "Téléchargement du PDF...",
       "pdfDownloaded": "PDF téléchargé avec succès!",
       "emailSending": "Envoi par email...",
-      "emailSent": "Le PDF a été envoyé à votre email!"
+      "emailSent": "Le PDF a été envoyé à votre email!",
+      "phoneRequired": "Phone required"
     }
   },
   "admin": {
@@ -1039,9 +1224,77 @@
         "type": "Type",
         "actions": "Actions"
       },
-      "pageOf": "Page {current} sur {total}"
+      "pageOf": "Page {current} sur {total}",
+      "thumbnail": "Thumbnail"
     },
-    "welcome": "Bienvenue"
+    "welcome": "Bienvenue",
+    "errors": {
+      "loadFailed": "Load failed"
+    },
+    "logout": {
+      "success": "Succès",
+      "button": "Button"
+    },
+    "dashboard": {
+      "title": "Title"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "leads": "Leads",
+      "contacts": "Contacts",
+      "users": "Users",
+      "fullCRM": "Full crm"
+    },
+    "stats": {
+      "totalLeads": "Total leads",
+      "totalContacts": "Total contacts",
+      "analyses": "Analyses",
+      "conversionRate": "Taux de conversion"
+    },
+    "leads": {
+      "title": "Title",
+      "viewAll": "View all",
+      "email": "Email",
+      "brand": "Brand",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions",
+      "view": "View"
+    },
+    "contacts": {
+      "title": "Title",
+      "viewAll": "View all",
+      "comingSoon": "Coming soon"
+    },
+    "users": {
+      "title": "Title",
+      "createUser": "Create user",
+      "comingSoon": "Coming soon"
+    },
+    "quickActions": "Quick actions",
+    "actions": {
+      "manageCRM": "Manage crm",
+      "viewLeads": "View leads",
+      "viewPipeline": "View pipeline"
+    },
+    "login": {
+      "errors": {
+        "fieldsRequired": "Fields required",
+        "invalidCredentials": "Invalid credentials",
+        "serverError": "Server error"
+      },
+      "success": "Succès",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "language": "Langue",
+      "email": "Email",
+      "emailPlaceholder": "Email placeholder",
+      "password": "Password",
+      "passwordPlaceholder": "Password placeholder",
+      "signing": "Signing",
+      "submit": "Soumettre",
+      "securityNotice": "Security notice"
+    }
   },
   "gdpr": {
     "cookie_banner": {
@@ -1252,9 +1505,37 @@
         "invalidLink": "Lien invalide",
         "genericError": "Une erreur est survenue. Veuillez réessayer.",
         "serviceUnavailable": "Service temporairement indisponible",
-        "validationError": "Erreur lors de la validation du lien"
+        "validationError": "Erreur lors de la validation du lien",
+        "linkExpired": "Link expired"
       },
       "requestNewLink": "Demander un nouveau lien"
     }
+  },
+  "checkout": {
+    "title": "Title",
+    "processing": "Processing",
+    "message": "Message",
+    "confirmation": "Confirmation",
+    "contact": "Contact",
+    "secure": "Secure"
+  },
+  "client": {
+    "dashboard": {
+      "loadError": "Erreur de chargement",
+      "downloadSuccess": "Download success",
+      "downloadError": "Download error",
+      "logoutSuccess": "Logout success",
+      "welcome": "Welcome",
+      "logout": "Logout",
+      "totalAnalyses": "Total analyses",
+      "completed": "Completed",
+      "inProgress": "En cours",
+      "myAnalyses": "My analyses",
+      "noAnalyses": "No analyses",
+      "download": "Télécharger"
+    }
+  },
+  "settings": {
+    "title": "Title"
   }
 }

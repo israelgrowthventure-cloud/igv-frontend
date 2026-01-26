@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>i18n Loading Test</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #0f0; }
+    .pass { color: #0f0; }
+    .fail { color: #f00; }
+    pre { background: #2d2d2d; padding: 10px; border-radius: 4px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>🔍 i18n Loading Test</h1>
+  <div id="results"></div>
+  
+  <script type="module">
+    const results = document.getElementById('results');
+    
+    function log(msg, isPass = true) {
+      const div = document.createElement('div');
+      div.className = isPass ? 'pass' : 'fail';
+      div.textContent = (isPass ? '✅ ' : '❌ ') + msg;
+      results.appendChild(div);
+    }
+    
+    async function testI18n() {
+      log('Testing i18n loading from /src/i18n/locales/...');
+      
+      // Test 1: Load FR locale
+      try {
+        const fr = await import('/src/i18n/locales/fr.json', { assert: { type: 'json' } });
+        log(`fr.json loaded: ${Object.keys(fr.default).length} top-level keys`);
+        
+        // Check crm.settings exists
+        if (fr.default.crm?.settings?.tabs) {
+          log(`fr.json: crm.settings.tabs found: ${JSON.stringify(Object.keys(fr.default.crm.settings.tabs))}`);
+        } else {
+          log('fr.json: crm.settings.tabs MISSING', false);
+        }
+      } catch (e) {
+        log(`fr.json failed to load: ${e.message}`, false);
+      }
+      
+      // Test 2: Load EN locale
+      try {
+        const en = await import('/src/i18n/locales/en.json', { assert: { type: 'json' } });
+        log(`en.json loaded: ${Object.keys(en.default).length} top-level keys`);
+      } catch (e) {
+        log(`en.json failed to load: ${e.message}`, false);
+      }
+      
+      // Test 3: Load HE locale
+      try {
+        const he = await import('/src/i18n/locales/he.json', { assert: { type: 'json' } });
+        log(`he.json loaded: ${Object.keys(he.default).length} top-level keys`);
+      } catch (e) {
+        log(`he.json failed to load: ${e.message}`, false);
+      }
+      
+      log('--- Test Complete ---');
+    }
+    
+    testI18n();
+  </script>
+</body>
+</html>

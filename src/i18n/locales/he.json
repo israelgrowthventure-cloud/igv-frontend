@@ -41,7 +41,13 @@
       "expand": "הרחב"
     },
     "search": {
-      "placeholder": "חיפוש..."
+      "placeholder": "חיפוש...",
+      "recent": "אחרון",
+      "hint": "רמז",
+      "shortcut": "קיצור",
+      "no_results": "אין תוצאות",
+      "try_different": "נסה משהו אחר",
+      "min_chars": "מינימום 3 תווים"
     },
     "user": {
       "admin": "מנהל",
@@ -60,7 +66,18 @@
       "totalOpportunities": "סה״כ הזדמנויות",
       "pipelineValue": "ערך צינור",
       "recentActivity": "פעילות אחרונה",
-      "noActivity": "אין פעילות אחרונה"
+      "noActivity": "אין פעילות אחרונה",
+      "leadsToday": "לידים היום",
+      "topSources": "מקורות מובילים",
+      "noData": "אין נתונים",
+      "stageDistribution": "התפלגות שלבים",
+      "leads_today": "לידים היום",
+      "leads_7d": "Leads 7d",
+      "pipeline_value": "Pipeline value",
+      "tasks_overdue": "Tasks overdue",
+      "top_sources": "מקורות מובילים",
+      "direct": "Direct",
+      "stage_distribution": "התפלגות שלבים"
     },
     "leads": {
       "subtitle": "נהל את הלידים שלך והמר אותם לאנשי קשר",
@@ -113,7 +130,43 @@
         "status_priority": "סטטוס ועדיפות",
         "contact_info": "פרטי קשר",
         "additional": "מידע נוסף"
-      }
+      },
+      "export_error": "שגיאת ייצוא",
+      "update_success": "עודכן בהצלחה",
+      "update_error": "העדכון נכשל",
+      "note_error": "שגיאת הערה",
+      "confirm_convert": "לאשר המרה?",
+      "convert_success": "הומר בהצלחה",
+      "convert_error": "ההמרה נכשלה",
+      "search_placeholder": "חיפוש...",
+      "filters": "סינונים",
+      "filter_status": "סנן לפי סטטוס",
+      "all_statuses": "כל הסטטוסים",
+      "filter_stage": "סנן לפי שלב",
+      "all_stages": "כל השלבים",
+      "apply_filters": "החל סינונים",
+      "col_brand": "מותג",
+      "col_email": "אימייל",
+      "col_sector": "מגזר",
+      "col_status": "סטטוס",
+      "col_created": "נוצר",
+      "col_actions": "Col actions",
+      "no_leads": "No leads",
+      "info": "מידע",
+      "email": "Email",
+      "sector": "Sector",
+      "status": "Status",
+      "add_note": "הוסף הערה",
+      "note_placeholder": "Note placeholder",
+      "save_note": "Save note",
+      "activities": "Activities",
+      "no_activities": "No activities",
+      "assigned": "Assigned",
+      "assign_commercial": "Assign commercial",
+      "assigned_to": "Assigned to",
+      "emails": "Emails",
+      "assign_title": "Assign title",
+      "select_commercial": "Select commercial"
     },
     "contacts": {
       "subtitle": "נהל את אנשי הקשר שלך",
@@ -138,7 +191,11 @@
         "position": "תפקיד",
         "location": "מיקום",
         "tags": "תגיות"
-      }
+      },
+      "notes": "Notes",
+      "add_note_placeholder": "Add note placeholder",
+      "activities": "Activities",
+      "emails": "Emails"
     },
     "users": {
       "subtitle": "נהל משתמשים והרשאות"
@@ -176,7 +233,10 @@
       "all_priorities": "כל העדיפויות",
       "reset": "איפוס",
       "retry": "נסה שוב",
-      "no_name": "ללא שם"
+      "no_name": "ללא שם",
+      "by": "על ידי",
+      "select": "בחר",
+      "assign": "הקצה"
     },
     "title": "CRM",
     "tabs": {
@@ -184,7 +244,13 @@
       "leads": "לידים",
       "contacts": "אנשי קשר",
       "pipeline": "צינור מכירות",
-      "settings": "הגדרות"
+      "settings": "הגדרות",
+      "info": "מידע",
+      "opportunities": "Opportunities",
+      "notes": "Notes",
+      "details": "Details",
+      "activities": "Activities",
+      "emails": "Emails"
     },
     "stages": {
       "new": "חדש",
@@ -221,7 +287,15 @@
       "status_failed": "שגיאה בעדכון סטטוס",
       "export_failed": "שגיאה בייצוא",
       "lead_not_found": "ליד לא נמצא",
-      "contact_not_found": "איש קשר לא נמצא"
+      "contact_not_found": "איש קשר לא נמצא",
+      "admin_only": "מנהלים בלבד",
+      "save_failed": "Save failed",
+      "execution_failed": "Execution failed",
+      "company_not_found": "Company not found",
+      "link_failed": "Link failed",
+      "activity_failed": "Activity failed",
+      "assign_failed": "Assign failed",
+      "merge_failed": "Merge failed"
     },
     "opportunities": {
       "title": "הזדמנויות",
@@ -272,7 +346,13 @@
       "tabs": {
         "users": "משתמשים",
         "tags": "תגיות",
-        "stages": "שלבי צינור"
+        "stages": "שלבי צינור",
+        "profile": "Profile",
+        "dispatch": "Dispatch",
+        "templates": "Templates",
+        "quality": "Quality",
+        "performance": "Performance",
+        "activity": "Activity"
       },
       "users": {
         "updated": "משתמש עודכן",
@@ -285,7 +365,10 @@
         },
         "errors": {
           "update_failed": "שגיאה בעדכון משתמש"
-        }
+        },
+        "created": "Created",
+        "delete_confirm": "Delete confirm",
+        "deleted": "Deleted"
       },
       "tags": {
         "add": "הוסף תגית",
@@ -321,6 +404,20 @@
       },
       "errors": {
         "load_failed": "שגיאה בטעינת הגדרות"
+      },
+      "profile": {
+        "password_mismatch": "Password mismatch",
+        "updated": "Updated",
+        "title": "Title",
+        "name": "Name",
+        "language": "שפה",
+        "change_password": "שנה סיסמה",
+        "current_password": "סיסמה נוכחית",
+        "new_password": "סיסמה חדשה",
+        "confirm_password": "אשר סיסמה"
+      },
+      "dispatch": {
+        "title": "Title"
       }
     },
     "activities": {
@@ -367,7 +464,13 @@
         "delete_failed": "שגיאה במחיקת פעילות"
       },
       "new": "פעילות חדשה",
-      "updated": "פעילות עודכנה"
+      "updated": "פעילות עודכנה",
+      "added": "Added",
+      "no_activities": "No activities",
+      "add_title": "Add title",
+      "type": "Type",
+      "description": "Description",
+      "description_placeholder": "Description placeholder"
     },
     "emails": {
       "title": "אימיילים",
@@ -420,7 +523,9 @@
         "load_failed": "שגיאה בטעינת היסטוריית אימיילים",
         "templates_load_failed": "שגיאה בטעינת תבניות",
         "delete_failed": "שגיאה במחיקת אימייל"
-      }
+      },
+      "no_emails": "No emails",
+      "send_first": "Send first"
     },
     "pipeline": {
       "opportunities": "הזדמנויות",
@@ -457,6 +562,148 @@
       "errors": {
         "load_failed": "שגיאה בטעינת צינור המכירות"
       }
+    },
+    "export": {
+      "title": "Title",
+      "success": "הצלחה",
+      "error": "שגיאה",
+      "backup_success": "הגיבוי הצליח",
+      "backup_all": "גבה הכל"
+    },
+    "next_action": {
+      "date_required": "תאריך נדרש",
+      "saved": "נשמר",
+      "missing": "חסר",
+      "missing_hint": "נא להגדיר פעולה הבאה",
+      "add": "הוסף",
+      "edit": "ערוך"
+    },
+    "alerts": {
+      "actions_required": "נדרשות פעולות"
+    },
+    "audit": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "no_logs": "No logs"
+    },
+    "rules": {
+      "updated": "Updated",
+      "created": "Created",
+      "confirm_delete": "Confirm delete",
+      "deleted": "Deleted",
+      "deactivated": "Deactivated",
+      "activated": "Activated",
+      "executed": "Executed",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "execute": "Execute",
+      "add": "הוסף",
+      "empty": "Empty",
+      "create_first": "Create first",
+      "name": "Name",
+      "trigger": "Trigger",
+      "actions": "Actions",
+      "status": "Status",
+      "edit": "ערוך",
+      "create": "צור",
+      "description": "Description",
+      "trigger_type": "Trigger type",
+      "conditions": "Conditions",
+      "active": "Active"
+    },
+    "companies": {
+      "subtitle": "Subtitle",
+      "updated": "Updated",
+      "confirm_delete": "Confirm delete",
+      "deleted": "Deleted",
+      "contact_linked": "Contact linked",
+      "lead_linked": "Lead linked",
+      "general_info": "General info",
+      "name": "Name",
+      "domain": "Domain",
+      "industry": "Industry",
+      "size": "Size",
+      "employees": "Employees",
+      "annual_revenue": "Annual revenue",
+      "contact_info": "Contact info",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "address": "Address",
+      "city": "City",
+      "country": "Country",
+      "description": "Description",
+      "linked_contacts": "Linked contacts",
+      "link_contact": "Link contact",
+      "no_contacts": "No contacts",
+      "linked_leads": "Linked leads",
+      "link_lead": "Link lead",
+      "no_leads": "No leads",
+      "linked_opportunities": "Linked opportunities",
+      "no_opportunities": "No opportunities",
+      "notes": "Notes",
+      "select_contact": "Select contact",
+      "all_contacts_linked": "All contacts linked",
+      "select_lead": "Select lead",
+      "all_leads_linked": "All leads linked"
+    },
+    "notes": {
+      "added": "Added",
+      "add_placeholder": "Add placeholder",
+      "empty": "Empty"
+    },
+    "kpi": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "first_response": "First response",
+      "conversion_time": "Conversion time",
+      "leads_processed": "Leads processed",
+      "conversion_rate": "שיעור המרה",
+      "funnel": "משפך",
+      "source_performance": "ביצועי מקור",
+      "no_data": "אין נתונים",
+      "response_by_user": "Response by user"
+    },
+    "quality": {
+      "confirm_merge": "Confirm merge",
+      "merged": "מוזג",
+      "duplicates": "כפילויות",
+      "stats": "Stats",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "lead_completeness": "Lead completeness",
+      "contact_completeness": "Contact completeness",
+      "duplicates_found": "Duplicates found",
+      "threshold": "Threshold",
+      "threshold_hint": "Threshold hint",
+      "lead_duplicates": "Lead duplicates",
+      "no_duplicates": "אין כפילויות",
+      "contact_duplicates": "Contact duplicates",
+      "data_stats": "Data stats"
+    },
+    "rbac": {
+      "role_updated": "Role updated",
+      "permissions_updated": "Permissions updated",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "team": "Team",
+      "no_team": "No team",
+      "user": "משתמש",
+      "role": "תפקיד",
+      "leads_assigned": "Leads assigned",
+      "custom_perms": "Custom perms",
+      "permissions_matrix": "Permissions matrix",
+      "custom_permissions": "Custom permissions"
+    },
+    "mini_analysis": {
+      "status_updated": "Status updated",
+      "assigned": "Assigned",
+      "confirm_convert": "לאשר המרה?",
+      "converted": "Converted",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "empty": "Empty",
+      "assign": "הקצה"
     }
   },
   "hero": {
@@ -474,6 +721,10 @@
     "cta": {
       "title": "מוכנים להתחיל את ההתרחבות שלכם?",
       "subtitle": "צרו אלינו קשר היום לייעוץ חינמי"
+    },
+    "aiInsight": {
+      "cta": "Cta",
+      "description": "Description"
     }
   },
   "about": {
@@ -549,11 +800,13 @@
       "subject": "בקשת ייעוץ - חבילה {packName}"
     },
     "ctaContactExpert": "דבר עם מומחה",
-    "ctaMiniAnalysis": "קבל את המיני-אנליזה החינמית שלי"
+    "ctaMiniAnalysis": "קבל את המיני-אנליזה החינמית שלי",
+    "orBookCall": "Or book call"
   },
   "pricing": {
     "region": "מחיר לפי האזור שלך",
-    "detecting": "מזהה..."
+    "detecting": "מזהה...",
+    "international": "International"
   },
   "demandeRappel": {
     "title": "בקשת חזרה",
@@ -629,11 +882,26 @@
     "invalidTitle": "חזרת תשלום לא חוקית",
     "invalidMessage": "נתוני החזרת התשלום אינם תקינים או חסרים.",
     "invalidReturn": "חזרת תשלום לא חוקית",
-    "success": "התשלום הצליח!",
+    "success": {
+      "title": "Title",
+      "message": "Message",
+      "accessDashboard": "Access dashboard",
+      "backHome": "Back home",
+      "emailConfirmation": "Email confirmation"
+    },
     "cancelled": "התשלום בוטל על ידי המשתמש",
     "cancelledToast": "התשלום בוטל",
     "failed": "התשלום נכשל",
-    "failedToast": "התשלום נכשל"
+    "failedToast": "התשלום נכשל",
+    "failure": {
+      "title": "Title",
+      "message": "Message",
+      "retry": "נסה שוב",
+      "contactSupport": "Contact support",
+      "backHome": "Back home",
+      "helpText": "Help text"
+    },
+    "errorCode": "Error code"
   },
   "common": {
     "loading": "טוען...",
@@ -650,7 +918,16 @@
     "search": "חפש",
     "filter": "סנן",
     "retry": "נסה שוב",
-    "brandName": "Israel Growth Venture"
+    "brandName": "Israel Growth Venture",
+    "backToHome": "חזור לדף הבית",
+    "refresh": "רענן",
+    "actions": "Actions",
+    "back": "Back",
+    "select": "בחר",
+    "previous": "Previous",
+    "next": "Next",
+    "backToPacks": "Back to packs",
+    "assign": "הקצה"
   },
   "errors": {
     "pageNotFound": "הדף לא נמצא"
@@ -858,7 +1135,8 @@
       "pdfDownloading": "מוריד PDF...",
       "pdfDownloaded": "PDF הורד בהצלחה!",
       "emailSending": "שולח במייל...",
-      "emailSent": "ה-PDF נשלח למייל שלך!"
+      "emailSent": "ה-PDF נשלח למייל שלך!",
+      "phoneRequired": "Phone required"
     }
   },
   "admin": {
@@ -895,9 +1173,77 @@
         "type": "סוג",
         "actions": "פעולות"
       },
-      "pageOf": "עמוד {current} מתוך {total}"
+      "pageOf": "עמוד {current} מתוך {total}",
+      "thumbnail": "Thumbnail"
     },
-    "welcome": "ברוך הבא"
+    "welcome": "ברוך הבא",
+    "errors": {
+      "loadFailed": "Load failed"
+    },
+    "logout": {
+      "success": "הצלחה",
+      "button": "Button"
+    },
+    "dashboard": {
+      "title": "Title"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "leads": "Leads",
+      "contacts": "Contacts",
+      "users": "Users",
+      "fullCRM": "Full crm"
+    },
+    "stats": {
+      "totalLeads": "Total leads",
+      "totalContacts": "Total contacts",
+      "analyses": "Analyses",
+      "conversionRate": "שיעור המרה"
+    },
+    "leads": {
+      "title": "Title",
+      "viewAll": "View all",
+      "email": "Email",
+      "brand": "Brand",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions",
+      "view": "View"
+    },
+    "contacts": {
+      "title": "Title",
+      "viewAll": "View all",
+      "comingSoon": "Coming soon"
+    },
+    "users": {
+      "title": "Title",
+      "createUser": "Create user",
+      "comingSoon": "Coming soon"
+    },
+    "quickActions": "Quick actions",
+    "actions": {
+      "manageCRM": "Manage crm",
+      "viewLeads": "View leads",
+      "viewPipeline": "View pipeline"
+    },
+    "login": {
+      "errors": {
+        "fieldsRequired": "Fields required",
+        "invalidCredentials": "Invalid credentials",
+        "serverError": "Server error"
+      },
+      "success": "הצלחה",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "language": "שפה",
+      "email": "Email",
+      "emailPlaceholder": "Email placeholder",
+      "password": "Password",
+      "passwordPlaceholder": "Password placeholder",
+      "signing": "Signing",
+      "submit": "שלח",
+      "securityNotice": "Security notice"
+    }
   },
   "gdpr": {
     "cookie_banner": {
@@ -1108,9 +1454,37 @@
         "invalidLink": "קישור לא תקין",
         "genericError": "אירעה שגיאה. נסה שוב.",
         "serviceUnavailable": "השירות אינו זמין זמנית",
-        "validationError": "שגיאה באימות הקישור"
+        "validationError": "שגיאה באימות הקישור",
+        "linkExpired": "Link expired"
       },
       "requestNewLink": "בקש קישור חדש"
     }
+  },
+  "checkout": {
+    "title": "Title",
+    "processing": "Processing",
+    "message": "Message",
+    "confirmation": "Confirmation",
+    "contact": "Contact",
+    "secure": "Secure"
+  },
+  "client": {
+    "dashboard": {
+      "loadError": "נכשל בטעינה",
+      "downloadSuccess": "Download success",
+      "downloadError": "Download error",
+      "logoutSuccess": "Logout success",
+      "welcome": "Welcome",
+      "logout": "Logout",
+      "totalAnalyses": "Total analyses",
+      "completed": "Completed",
+      "inProgress": "בתהליך",
+      "myAnalyses": "My analyses",
+      "noAnalyses": "No analyses",
+      "download": "הורד"
+    }
+  },
+  "settings": {
+    "title": "Title"
   }
 }

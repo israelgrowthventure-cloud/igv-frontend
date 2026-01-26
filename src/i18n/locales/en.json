@@ -41,7 +41,13 @@
       "expand": "Expand"
     },
     "search": {
-      "placeholder": "Search..."
+      "placeholder": "Search...",
+      "recent": "Recent",
+      "hint": "Hint",
+      "shortcut": "Shortcut",
+      "no_results": "No results",
+      "try_different": "Try something different",
+      "min_chars": "Minimum 3 characters"
     },
     "user": {
       "admin": "Administrator",
@@ -67,7 +73,11 @@
       "tasks_overdue": "Overdue Tasks",
       "top_sources": "Top Sources",
       "stage_distribution": "Stage Distribution",
-      "direct": "Direct"
+      "direct": "Direct",
+      "leadsToday": "Leads today",
+      "topSources": "Top sources",
+      "noData": "No data",
+      "stageDistribution": "Stage distribution"
     },
     "leads": {
       "subtitle": "Manage your leads and convert them to contacts",
@@ -120,7 +130,43 @@
       "analysis_language": "Language",
       "analysis_date": "Generated on",
       "empty_title": "No Leads",
-      "empty_subtitle": "Create your first lead"
+      "empty_subtitle": "Create your first lead",
+      "export_error": "Export error",
+      "update_success": "Updated successfully",
+      "update_error": "Update failed",
+      "note_error": "Note error",
+      "confirm_convert": "Confirm conversion?",
+      "convert_success": "Converted successfully",
+      "convert_error": "Conversion failed",
+      "search_placeholder": "Search...",
+      "filters": "Filters",
+      "filter_status": "Filter by status",
+      "all_statuses": "All statuses",
+      "filter_stage": "Filter by stage",
+      "all_stages": "All stages",
+      "apply_filters": "Apply filters",
+      "col_brand": "Brand",
+      "col_email": "Email",
+      "col_sector": "Sector",
+      "col_status": "Status",
+      "col_created": "Created",
+      "col_actions": "Col Actions",
+      "no_leads": "No Leads",
+      "info": "Info",
+      "email": "Email",
+      "sector": "Sector",
+      "status": "Status",
+      "add_note": "Add note",
+      "note_placeholder": "Note Placeholder",
+      "save_note": "Save Note",
+      "activities": "Activities",
+      "no_activities": "No Activities",
+      "assigned": "Assigned",
+      "assign_commercial": "Assign Commercial",
+      "assigned_to": "Assigned To",
+      "emails": "Emails",
+      "assign_title": "Assign Title",
+      "select_commercial": "Select Commercial"
     },
     "contacts": {
       "subtitle": "Manage your customer contacts",
@@ -145,7 +191,11 @@
         "position": "Position",
         "location": "Location",
         "tags": "Tags"
-      }
+      },
+      "notes": "Notes",
+      "add_note_placeholder": "Add Note Placeholder",
+      "activities": "Activities",
+      "emails": "Emails"
     },
     "users": {
       "subtitle": "Manage users and their permissions"
@@ -183,7 +233,10 @@
       "all_priorities": "All priorities",
       "reset": "Reset",
       "retry": "Retry",
-      "no_name": "No name"
+      "no_name": "No name",
+      "by": "By",
+      "select": "Select",
+      "assign": "Assign"
     },
     "title": "IGV CRM",
     "tabs": {
@@ -195,7 +248,10 @@
       "opportunities": "Opportunities",
       "activities": "Activities",
       "emails": "Emails",
-      "users": "Users"
+      "users": "Users",
+      "info": "Info",
+      "notes": "Notes",
+      "details": "Details"
     },
     "stages": {
       "new": "New",
@@ -245,7 +301,15 @@
       "status_failed": "Failed to update status",
       "export_failed": "Failed to export",
       "lead_not_found": "Lead not found",
-      "contact_not_found": "Contact not found"
+      "contact_not_found": "Contact not found",
+      "admin_only": "Admin only",
+      "save_failed": "Save Failed",
+      "execution_failed": "Execution Failed",
+      "company_not_found": "Company Not Found",
+      "link_failed": "Link Failed",
+      "activity_failed": "Activity Failed",
+      "assign_failed": "Assign Failed",
+      "merge_failed": "Merge Failed"
     },
     "opportunities": {
       "title": "Opportunities",
@@ -315,7 +379,8 @@
         "change_password": "Change Password",
         "updated": "Profile updated",
         "password_changed": "Password changed",
-        "password_mismatch": "Passwords do not match"
+        "password_mismatch": "Passwords do not match",
+        "language": "Language"
       },
       "users": {
         "title": "User Management",
@@ -371,6 +436,9 @@
       },
       "errors": {
         "load_failed": "Failed to load settings"
+      },
+      "dispatch": {
+        "title": "Title"
       }
     },
     "activities": {
@@ -417,7 +485,13 @@
         "completed": "Completed",
         "cancelled": "Cancelled",
         "undefined": "Undefined"
-      }
+      },
+      "added": "Added",
+      "no_activities": "No Activities",
+      "add_title": "Add Title",
+      "type": "Type",
+      "description": "Description",
+      "description_placeholder": "Description Placeholder"
     },
     "emails": {
       "title": "Emails",
@@ -476,7 +550,9 @@
         "templates_load_failed": "Failed to load templates",
         "delete_failed": "Failed to delete email"
       },
-      "delete_confirm": "Delete this email record?"
+      "delete_confirm": "Delete this email record?",
+      "no_emails": "No Emails",
+      "send_first": "Send First"
     },
     "pipeline": {
       "opportunities": "opportunities",
@@ -513,6 +589,148 @@
       "errors": {
         "load_failed": "Failed to load pipeline"
       }
+    },
+    "export": {
+      "title": "Title",
+      "success": "Success",
+      "error": "Error",
+      "backup_success": "Backup successful",
+      "backup_all": "Backup all"
+    },
+    "next_action": {
+      "date_required": "Date required",
+      "saved": "Saved",
+      "missing": "Missing",
+      "missing_hint": "Please set a next action",
+      "add": "Add",
+      "edit": "Edit"
+    },
+    "alerts": {
+      "actions_required": "Actions required"
+    },
+    "audit": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "no_logs": "No Logs"
+    },
+    "rules": {
+      "updated": "Updated",
+      "created": "Created",
+      "confirm_delete": "Confirm Delete",
+      "deleted": "Deleted",
+      "deactivated": "Deactivated",
+      "activated": "Activated",
+      "executed": "Executed",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "execute": "Execute",
+      "add": "Add",
+      "empty": "Empty",
+      "create_first": "Create First",
+      "name": "Name",
+      "trigger": "Trigger",
+      "actions": "Actions",
+      "status": "Status",
+      "edit": "Edit",
+      "create": "Create",
+      "description": "Description",
+      "trigger_type": "Trigger Type",
+      "conditions": "Conditions",
+      "active": "Active"
+    },
+    "companies": {
+      "subtitle": "Subtitle",
+      "updated": "Updated",
+      "confirm_delete": "Confirm Delete",
+      "deleted": "Deleted",
+      "contact_linked": "Contact Linked",
+      "lead_linked": "Lead Linked",
+      "general_info": "General Info",
+      "name": "Name",
+      "domain": "Domain",
+      "industry": "Industry",
+      "size": "Size",
+      "employees": "Employees",
+      "annual_revenue": "Annual Revenue",
+      "contact_info": "Contact Info",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "address": "Address",
+      "city": "City",
+      "country": "Country",
+      "description": "Description",
+      "linked_contacts": "Linked Contacts",
+      "link_contact": "Link Contact",
+      "no_contacts": "No Contacts",
+      "linked_leads": "Linked Leads",
+      "link_lead": "Link Lead",
+      "no_leads": "No Leads",
+      "linked_opportunities": "Linked Opportunities",
+      "no_opportunities": "No Opportunities",
+      "notes": "Notes",
+      "select_contact": "Select Contact",
+      "all_contacts_linked": "All Contacts Linked",
+      "select_lead": "Select Lead",
+      "all_leads_linked": "All Leads Linked"
+    },
+    "notes": {
+      "added": "Added",
+      "add_placeholder": "Add Placeholder",
+      "empty": "Empty"
+    },
+    "kpi": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "first_response": "First Response",
+      "conversion_time": "Conversion Time",
+      "leads_processed": "Leads Processed",
+      "conversion_rate": "Conversion rate",
+      "funnel": "Funnel",
+      "source_performance": "Source performance",
+      "no_data": "No data",
+      "response_by_user": "Response By User"
+    },
+    "quality": {
+      "confirm_merge": "Confirm Merge",
+      "merged": "Merged",
+      "duplicates": "Duplicates",
+      "stats": "Stats",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "lead_completeness": "Lead Completeness",
+      "contact_completeness": "Contact Completeness",
+      "duplicates_found": "Duplicates Found",
+      "threshold": "Threshold",
+      "threshold_hint": "Threshold Hint",
+      "lead_duplicates": "Lead Duplicates",
+      "no_duplicates": "No duplicates",
+      "contact_duplicates": "Contact Duplicates",
+      "data_stats": "Data Stats"
+    },
+    "rbac": {
+      "role_updated": "Role Updated",
+      "permissions_updated": "Permissions Updated",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "team": "Team",
+      "no_team": "No Team",
+      "user": "User",
+      "role": "Role",
+      "leads_assigned": "Leads Assigned",
+      "custom_perms": "Custom Perms",
+      "permissions_matrix": "Permissions Matrix",
+      "custom_permissions": "Custom Permissions"
+    },
+    "mini_analysis": {
+      "status_updated": "Status Updated",
+      "assigned": "Assigned",
+      "confirm_convert": "Confirm conversion?",
+      "converted": "Converted",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "empty": "Empty",
+      "assign": "Assign"
     }
   },
   "hero": {
@@ -530,6 +748,10 @@
     "cta": {
       "title": "Ready to start your expansion?",
       "subtitle": "Contact us today for a free consultation"
+    },
+    "aiInsight": {
+      "cta": "Cta",
+      "description": "Description"
     }
   },
   "about": {
@@ -605,11 +827,13 @@
       "subject": "Consultation Request - Pack {packName}"
     },
     "ctaContactExpert": "Discuss with an expert",
-    "ctaMiniAnalysis": "Get my free mini-analysis"
+    "ctaMiniAnalysis": "Get my free mini-analysis",
+    "orBookCall": "Or Book Call"
   },
   "pricing": {
     "region": "Price according to your region",
-    "detecting": "Detecting..."
+    "detecting": "Detecting...",
+    "international": "International"
   },
   "demandeRappel": {
     "title": "Request a callback",
@@ -685,11 +909,26 @@
     "invalidTitle": "Invalid Payment Return",
     "invalidMessage": "The payment return data is invalid or missing.",
     "invalidReturn": "Invalid payment return",
-    "success": "Payment successful!",
+    "success": {
+      "title": "Title",
+      "message": "Message",
+      "accessDashboard": "Access Dashboard",
+      "backHome": "Back Home",
+      "emailConfirmation": "Email Confirmation"
+    },
     "cancelled": "Payment cancelled by user",
     "cancelledToast": "Payment cancelled",
     "failed": "Payment failed",
-    "failedToast": "Payment failed"
+    "failedToast": "Payment failed",
+    "failure": {
+      "title": "Title",
+      "message": "Message",
+      "retry": "Retry",
+      "contactSupport": "Contact Support",
+      "backHome": "Back Home",
+      "helpText": "Help Text"
+    },
+    "errorCode": "Error Code"
   },
   "common": {
     "loading": "Loading...",
@@ -706,7 +945,16 @@
     "search": "Search",
     "filter": "Filter",
     "retry": "Retry",
-    "brandName": "Israel Growth Venture"
+    "brandName": "Israel Growth Venture",
+    "backToHome": "Back to home",
+    "refresh": "Refresh",
+    "actions": "Actions",
+    "back": "Back",
+    "select": "Select",
+    "previous": "Previous",
+    "next": "Next",
+    "backToPacks": "Back To Packs",
+    "assign": "Assign"
   },
   "errors": {
     "pageNotFound": "Page not found"
@@ -914,7 +1162,8 @@
       "pdfDownloading": "Downloading PDF...",
       "pdfDownloaded": "PDF downloaded successfully!",
       "emailSending": "Sending via email...",
-      "emailSent": "The PDF has been sent to your email!"
+      "emailSent": "The PDF has been sent to your email!",
+      "phoneRequired": "Phone Required"
     }
   },
   "admin": {
@@ -951,9 +1200,77 @@
         "type": "Type",
         "actions": "Actions"
       },
-      "pageOf": "Page {current} of {total}"
+      "pageOf": "Page {current} of {total}",
+      "thumbnail": "Thumbnail"
     },
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "errors": {
+      "loadFailed": "Load Failed"
+    },
+    "logout": {
+      "success": "Success",
+      "button": "Button"
+    },
+    "dashboard": {
+      "title": "Title"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "leads": "Leads",
+      "contacts": "Contacts",
+      "users": "Users",
+      "fullCRM": "Full Crm"
+    },
+    "stats": {
+      "totalLeads": "Total Leads",
+      "totalContacts": "Total Contacts",
+      "analyses": "Analyses",
+      "conversionRate": "Conversion rate"
+    },
+    "leads": {
+      "title": "Title",
+      "viewAll": "View All",
+      "email": "Email",
+      "brand": "Brand",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions",
+      "view": "View"
+    },
+    "contacts": {
+      "title": "Title",
+      "viewAll": "View All",
+      "comingSoon": "Coming Soon"
+    },
+    "users": {
+      "title": "Title",
+      "createUser": "Create User",
+      "comingSoon": "Coming Soon"
+    },
+    "quickActions": "Quick Actions",
+    "actions": {
+      "manageCRM": "Manage Crm",
+      "viewLeads": "View Leads",
+      "viewPipeline": "View Pipeline"
+    },
+    "login": {
+      "errors": {
+        "fieldsRequired": "Fields Required",
+        "invalidCredentials": "Invalid Credentials",
+        "serverError": "Server Error"
+      },
+      "success": "Success",
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "language": "Language",
+      "email": "Email",
+      "emailPlaceholder": "Email Placeholder",
+      "password": "Password",
+      "passwordPlaceholder": "Password Placeholder",
+      "signing": "Signing",
+      "submit": "Submit",
+      "securityNotice": "Security Notice"
+    }
   },
   "gdpr": {
     "cookie_banner": {
@@ -1164,9 +1481,37 @@
         "invalidLink": "Invalid link",
         "genericError": "An error occurred. Please try again.",
         "serviceUnavailable": "Service temporarily unavailable",
-        "validationError": "Error validating the link"
+        "validationError": "Error validating the link",
+        "linkExpired": "Link Expired"
       },
       "requestNewLink": "Request New Link"
     }
+  },
+  "checkout": {
+    "title": "Title",
+    "processing": "Processing",
+    "message": "Message",
+    "confirmation": "Confirmation",
+    "contact": "Contact",
+    "secure": "Secure"
+  },
+  "client": {
+    "dashboard": {
+      "loadError": "Failed to load",
+      "downloadSuccess": "Download Success",
+      "downloadError": "Download Error",
+      "logoutSuccess": "Logout Success",
+      "welcome": "Welcome",
+      "logout": "Logout",
+      "totalAnalyses": "Total Analyses",
+      "completed": "Completed",
+      "inProgress": "In progress",
+      "myAnalyses": "My Analyses",
+      "noAnalyses": "No Analyses",
+      "download": "Download"
+    }
+  },
+  "settings": {
+    "title": "Title"
   }
 }

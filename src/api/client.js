@@ -15,12 +15,30 @@
  */
 
 import axios from 'axios';
+import { LEGACY_ALIASES } from './routes';
 
 // ============================================================
 // CONFIGURATION
 // ============================================================
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
+const IS_DEV = process.env.NODE_ENV === 'development';
+
+// Legacy route detection (warn in dev mode)
+const LEGACY_ROUTE_PATTERNS = Object.keys(LEGACY_ALIASES);
+
+function checkLegacyRoute(url) {
+  if (!IS_DEV) return;
+  
+  const matchedLegacy = LEGACY_ROUTE_PATTERNS.find(legacy => url.startsWith(legacy));
+  if (matchedLegacy) {
+    console.warn(
+      `[API AUDIT] ⚠️ Legacy route detected: ${url}\n` +
+      `  → Use canonical: ${LEGACY_ALIASES[matchedLegacy]}\n` +
+      `  → Import { ROUTES } from '@/api' and use ROUTES.* instead`
+    );
+  }
+}
 
 // Timeout configuration (milliseconds)
 const TIMEOUTS = {
@@ -49,6 +67,9 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
+    // AUDIT: Check for legacy routes in dev mode
+    checkLegacyRoute(config.url || '');
+    
     // Add Authorization header if token exists
     const token = localStorage.getItem('admin_token');
     if (token) {

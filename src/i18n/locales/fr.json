@@ -294,12 +294,36 @@
       "title": "Paramètres",
       "subtitle": "Gérer les utilisateurs, tags et étapes du pipeline",
       "tabs": {
+        "profile": "Mon Profil",
         "users": "Utilisateurs",
+        "dispatch": "Dispatch Leads",
         "tags": "Tags",
-        "stages": "Étapes du pipeline"
+        "stages": "Pipeline",
+        "templates": "Templates Email",
+        "quality": "Qualité",
+        "performance": "Performance",
+        "activity": "Mon Activité"
+      },
+      "profile": {
+        "title": "Mon Profil",
+        "name": "Nom",
+        "email": "Email",
+        "role": "Rôle",
+        "current_password": "Mot de passe actuel",
+        "new_password": "Nouveau mot de passe",
+        "confirm_password": "Confirmer le mot de passe",
+        "change_password": "Changer le mot de passe",
+        "updated": "Profil mis à jour",
+        "password_changed": "Mot de passe modifié",
+        "password_mismatch": "Les mots de passe ne correspondent pas"
       },
       "users": {
+        "title": "Gestion des utilisateurs",
+        "add": "Ajouter un utilisateur",
+        "created": "Utilisateur créé",
         "updated": "Utilisateur mis à jour",
+        "deleted": "Utilisateur supprimé",
+        "delete_confirm": "Supprimer cet utilisateur ?",
         "columns": {
           "name": "Nom",
           "email": "Email",
@@ -308,7 +332,9 @@
           "created": "Créé"
         },
         "errors": {
-          "update_failed": "Échec de la mise à jour"
+          "update_failed": "Échec de la mise à jour",
+          "create_failed": "Échec de la création",
+          "delete_failed": "Échec de la suppression"
         }
       },
       "tags": {

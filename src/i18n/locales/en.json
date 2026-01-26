@@ -294,12 +294,36 @@
       "title": "Settings",
       "subtitle": "Manage users, tags, and pipeline stages",
       "tabs": {
+        "profile": "My Profile",
         "users": "Users",
+        "dispatch": "Lead Dispatch",
         "tags": "Tags",
-        "stages": "Pipeline Stages"
+        "stages": "Pipeline Stages",
+        "templates": "Email Templates",
+        "quality": "Quality",
+        "performance": "Performance",
+        "activity": "My Activity"
+      },
+      "profile": {
+        "title": "My Profile",
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "current_password": "Current Password",
+        "new_password": "New Password",
+        "confirm_password": "Confirm Password",
+        "change_password": "Change Password",
+        "updated": "Profile updated",
+        "password_changed": "Password changed",
+        "password_mismatch": "Passwords do not match"
       },
       "users": {
+        "title": "User Management",
+        "add": "Add User",
+        "created": "User created",
         "updated": "User updated",
+        "deleted": "User deleted",
+        "delete_confirm": "Delete this user?",
         "columns": {
           "name": "Name",
           "email": "Email",
@@ -308,7 +332,9 @@
           "created": "Created"
         },
         "errors": {
-          "update_failed": "Failed to update user"
+          "update_failed": "Failed to update user",
+          "create_failed": "Failed to create user",
+          "delete_failed": "Failed to delete user"
         }
       },
       "tags": {

@@ -172,7 +172,18 @@
       "assigned_to": "Assigned to",
       "emails": "Emails",
       "assign_title": "Assign title",
-      "select_commercial": "Select commercial"
+      "select_commercial": "Select commercial",
+      "sectorOptions": {
+        "restauration": "מסעדנות / אוכל",
+        "retail": "קמעונאות (ללא אוכל)",
+        "services": "שירותים",
+        "paramedical": "פרא-רפואי / בריאות",
+        "tech": "טכנולוגיה / SaaS",
+        "fashion": "אופנה / יוקרה",
+        "beauty": "יופי / קוסמטיקה",
+        "other": "אחר"
+      },
+      "select_sector": "בחר תחום"
     },
     "contacts": {
       "subtitle": "נהל את אנשי הקשר שלך",
@@ -275,7 +286,14 @@
       "negotiation": "משא ומתן",
       "won": "זכייה",
       "lost": "הפסד",
-      "archived": "בארכיון"
+      "archived": "בארכיון",
+      "NEW": "חדש",
+      "CONTACTED": "נוצר קשר",
+      "QUALIFIED": "מתאים",
+      "NURTURING": "בטיפוח",
+      "CONVERTED": "הומר",
+      "LOST": "אבוד",
+      "PENDING_QUOTA": "ממתין למכסה"
     },
     "priorities": {
       "A": "עדיפות A - גבוהה",

@@ -307,12 +307,21 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">{t('crm.leads.columns.sector')}</label>
-                <input
-                  type="text"
+                <select
                   value={newLeadData.sector}
                   onChange={(e) => setNewLeadData({...newLeadData, sector: e.target.value})}
                   className="w-full px-3 py-2 border rounded-lg"
-                />
+                >
+                  <option value="">{t('crm.leads.select_sector')}</option>
+                  <option value="restauration">{t('crm.leads.sectorOptions.restauration')}</option>
+                  <option value="retail">{t('crm.leads.sectorOptions.retail')}</option>
+                  <option value="services">{t('crm.leads.sectorOptions.services')}</option>
+                  <option value="paramedical">{t('crm.leads.sectorOptions.paramedical')}</option>
+                  <option value="tech">{t('crm.leads.sectorOptions.tech')}</option>
+                  <option value="fashion">{t('crm.leads.sectorOptions.fashion')}</option>
+                  <option value="beauty">{t('crm.leads.sectorOptions.beauty')}</option>
+                  <option value="other">{t('crm.leads.sectorOptions.other')}</option>
+                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">{t('crm.leads.phone')}</label>
@@ -387,8 +396,8 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                   </td>
                   <td className="px-4 py-3" data-testid="prospect-email">{lead.email}</td>
                   <td className="px-4 py-3">{lead.brand_name || '-'}</td>
-                  <td className="px-4 py-3">{lead.sector || '-'}</td>
-                  <td className="px-4 py-3"><StatusBadge status={lead.status} /></td>
+                  <td className="px-4 py-3">{lead.sector ? t(`crm.leads.sectorOptions.${lead.sector}`, lead.sector) : '-'}</td>
+                  <td className="px-4 py-3"><StatusBadge status={lead.status} t={t} /></td>
                   <td className="px-4 py-3"><span className={`px-2 py-1 rounded text-xs font-semibold ${lead.priority === 'A' ? 'bg-red-100 text-red-800' : lead.priority === 'B' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'}`}>{lead.priority || 'C'}</span></td>
                   <td className="px-4 py-3 text-sm text-gray-600">{new Date(lead.created_at).toLocaleDateString()}</td>
                   <td className="px-4 py-3">
@@ -468,7 +477,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
               {selectedItem.sector && (
                 <div className="flex items-start gap-3">
                   <Building className="w-5 h-5 text-gray-400 mt-1" />
-                  <div><p className="text-sm text-gray-600">{t('crm.leads.details.sector')}</p><p className="font-medium">{selectedItem.sector}</p></div>
+                  <div><p className="text-sm text-gray-600">{t('crm.leads.details.sector')}</p><p className="font-medium">{t(`crm.leads.sectorOptions.${selectedItem.sector}`, selectedItem.sector)}</p></div>
                 </div>
               )}
               {selectedItem.target_city && (
@@ -631,7 +640,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   );
 };
 
-const StatusBadge = ({ status }) => {
+const StatusBadge = ({ status, t }) => {
   const colors = {
     NEW: 'bg-blue-100 text-blue-800',
     CONTACTED: 'bg-yellow-100 text-yellow-800',
@@ -640,7 +649,8 @@ const StatusBadge = ({ status }) => {
     LOST: 'bg-gray-100 text-gray-800',
     PENDING_QUOTA: 'bg-orange-100 text-orange-800'
   };
-  return <span className={`px-2 py-1 rounded text-xs font-semibold ${colors[status] || 'bg-gray-100 text-gray-800'}`}>{status}</span>;
+  const translatedStatus = t ? t(`crm.statuses.${status}`, status) : status;
+  return <span className={`px-2 py-1 rounded text-xs font-semibold ${colors[status] || 'bg-gray-100 text-gray-800'}`}>{translatedStatus}</span>;
 };
 
 export default LeadsTab;

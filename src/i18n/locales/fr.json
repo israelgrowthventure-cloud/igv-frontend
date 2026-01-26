@@ -210,7 +210,18 @@
       "assigned_to": "Assigned to",
       "emails": "Emails",
       "assign_title": "Assign title",
-      "select_commercial": "Select commercial"
+      "select_commercial": "Select commercial",
+      "sectorOptions": {
+        "restauration": "Restauration / Food",
+        "retail": "Retail (hors food)",
+        "services": "Services",
+        "paramedical": "Paramédical / Santé",
+        "tech": "Tech / SaaS",
+        "fashion": "Mode / Luxe",
+        "beauty": "Beauté / Cosmétique",
+        "other": "Autre"
+      },
+      "select_sector": "Sélectionner un secteur"
     },
     "contacts": {
       "subtitle": "Gérez vos contacts clients",
@@ -280,7 +291,14 @@
       "proposal_sent": "Proposition envoyée",
       "negotiation": "Négociation",
       "won": "Gagné",
-      "archived": "Archivé"
+      "archived": "Archivé",
+      "NEW": "Nouveau",
+      "CONTACTED": "Contacté",
+      "QUALIFIED": "Qualifié",
+      "NURTURING": "En nurturing",
+      "CONVERTED": "Converti",
+      "LOST": "Perdu",
+      "PENDING_QUOTA": "En attente quota"
     },
     "priorities": {
       "1": "Basse",

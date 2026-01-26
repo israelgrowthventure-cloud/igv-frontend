@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CheckCircle, Circle, Calendar, User, Loader2, Plus, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
+import api, { ROUTES } from '@/api';
 
 const AdminTasks = () => {
   const { t } = useTranslation();
@@ -24,17 +25,8 @@ const AdminTasks = () => {
   const loadTasks = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('admin_token');
-      const statusParam = filter === 'all' ? '' : `?status=${filter}`;
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/crm/tasks${statusParam}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (!response.ok) throw new Error('Failed to load tasks');
-      
-      const data = await response.json();
+      const params = filter === 'all' ? {} : { status: filter };
+      const data = await api.get(ROUTES.crm.tasks.list, { params });
       setTasks(data.tasks || []);
     } catch (error) {
       console.error('Error loading tasks:', error);
@@ -48,20 +40,10 @@ const AdminTasks = () => {
     e.preventDefault();
     
     try {
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/crm/tasks`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          ...newTask,
-          due_date: newTask.due_date ? new Date(newTask.due_date).toISOString() : null
-        })
+      await api.post(ROUTES.crm.tasks.create, {
+        ...newTask,
+        due_date: newTask.due_date ? new Date(newTask.due_date).toISOString() : null
       });
-      
-      if (!response.ok) throw new Error('Failed to create task');
       
       toast.success('Task created successfully!');
       setShowCreateModal(false);
@@ -81,17 +63,7 @@ const AdminTasks = () => {
 
   const handleToggleComplete = async (taskId, isCompleted) => {
     try {
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/crm/tasks/${taskId}`, {
-        method: 'PATCH',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ is_completed: !isCompleted })
-      });
-      
-      if (!response.ok) throw new Error('Failed to update task');
+      await api.patch(ROUTES.crm.tasks.update(taskId), { is_completed: !isCompleted });
       
       toast.success(isCompleted ? 'Task marked as open' : 'Task completed!');
       loadTasks();
@@ -105,15 +77,7 @@ const AdminTasks = () => {
     if (!window.confirm('Delete this task?')) return;
     
     try {
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/crm/tasks/${taskId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (!response.ok) throw new Error('Failed to delete task');
+      await api.delete(ROUTES.crm.tasks.delete(taskId));
       
       toast.success('Task deleted');
       loadTasks();

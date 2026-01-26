@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CreditCard, Check, X, Loader2, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
+import api, { ROUTES } from '@/api';
 
 const AdminPayments = () => {
   const { t } = useTranslation();
@@ -15,16 +16,7 @@ const AdminPayments = () => {
   const loadPayments = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/monetico/payments`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (!response.ok) throw new Error('Failed to load payments');
-      
-      const data = await response.json();
+      const data = await api.get(ROUTES.monetico.payments);
       setPayments(data.payments || []);
     } catch (error) {
       console.error('Error loading payments:', error);

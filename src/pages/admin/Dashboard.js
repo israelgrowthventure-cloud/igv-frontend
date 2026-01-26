@@ -7,7 +7,7 @@ import {
   Plus, Eye, Edit, Trash2, Shield, UserCheck, UserX, Loader2, Target, ArrowRight 
 } from 'lucide-react';
 import { toast } from 'sonner';
-import api from '../../utils/api';
+import api, { ROUTES } from '@/api';
 
 const AdminDashboard = () => {
   const { t, i18n } = useTranslation();
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      const response = await api.adminVerifyToken();
+      const response = await api.get(ROUTES.auth.verify);
       setUser(response.user);
       loadDashboardData();
     } catch (error) {
@@ -46,15 +46,11 @@ const AdminDashboard = () => {
 
   const loadDashboardData = async () => {
     try {
-      // Use CRM API endpoints
-      const token = localStorage.getItem('admin_token');
-      const headers = { Authorization: `Bearer ${token}` };
-      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
-      
+      // Use centralized API client
       const [dashboardRes, leadsRes, contactsRes] = await Promise.all([
-        fetch(`${backendUrl}/api/crm/dashboard/stats`, { headers }).then(r => r.json()),
-        fetch(`${backendUrl}/api/crm/leads?limit=10`, { headers }).then(r => r.json()),
-        fetch(`${backendUrl}/api/crm/contacts?limit=1`, { headers }).then(r => r.json()).catch(() => ({ total: 0 }))
+        api.get(ROUTES.crm.dashboard.stats),
+        api.get(ROUTES.crm.leads.list, { params: { limit: 10 } }),
+        api.get(ROUTES.crm.contacts.list, { params: { limit: 1 } }).catch(() => ({ total: 0 }))
       ]);
       
       // Map CRM dashboard stats to expected format

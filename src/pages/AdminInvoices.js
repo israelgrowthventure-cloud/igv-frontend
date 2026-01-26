@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Download, Send, FileText, Check, X, Loader2, Plus } from 'lucide-react';
 import { toast } from 'sonner';
-import api from '../utils/api';
+import api, { ROUTES } from '@/api';
 
 const AdminInvoices = () => {
   const { t } = useTranslation();
@@ -20,16 +20,7 @@ const AdminInvoices = () => {
   const loadInvoices = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/invoices/`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (!response.ok) throw new Error('Failed to load invoices');
-      
-      const data = await response.json();
+      const data = await api.get(ROUTES.invoices.list);
       setInvoices(data.invoices || []);
     } catch (error) {
       console.error('Error loading invoices:', error);
@@ -42,17 +33,7 @@ const AdminInvoices = () => {
   const handleGeneratePDF = async (invoiceId) => {
     try {
       setPdfLoading(true);
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/invoices/${invoiceId}/generate-pdf`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (!response.ok) throw new Error('Failed to generate PDF');
-      
-      const data = await response.json();
+      const data = await api.post(ROUTES.invoices.generatePdf(invoiceId));
       
       // Download PDF
       const link = document.createElement('a');
@@ -73,17 +54,7 @@ const AdminInvoices = () => {
   const handleSendEmail = async (invoiceId) => {
     try {
       setSendLoading(true);
-      const token = localStorage.getItem('admin_token');
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com'}/api/invoices/${invoiceId}/send`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      if (!response.ok) throw new Error('Failed to send email');
-      
-      const data = await response.json();
+      const data = await api.post(ROUTES.invoices.send(invoiceId));
       
       if (data.success) {
         toast.success('Invoice sent successfully!');

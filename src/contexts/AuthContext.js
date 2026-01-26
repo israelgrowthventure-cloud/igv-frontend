@@ -23,10 +23,11 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const loadUser = () => {
       try {
-        const token = localStorage.getItem('token');
+        // Unified token: use admin_token as primary source
+        const token = localStorage.getItem('admin_token') || localStorage.getItem('token');
         const userEmail = localStorage.getItem('userEmail');
         const userName = localStorage.getItem('userName');
-        const userRole = localStorage.getItem('userRole');
+        const userRole = localStorage.getItem('userRole') || localStorage.getItem('admin_role');
 
         if (token && userEmail) {
           setUser({
@@ -48,6 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   /**
    * Login - Store user data in state and localStorage
+   * Uses admin_token as the unified token key
    */
   const login = (token, email, name, role = 'admin') => {
     const userData = {
@@ -58,10 +60,13 @@ export const AuthProvider = ({ children }) => {
     };
 
     setUser(userData);
+    // Unified: store in both keys for maximum compatibility
+    localStorage.setItem('admin_token', token);
     localStorage.setItem('token', token);
     localStorage.setItem('userEmail', email);
     localStorage.setItem('userName', name || '');
     localStorage.setItem('userRole', role);
+    localStorage.setItem('admin_role', role);
   };
 
   /**

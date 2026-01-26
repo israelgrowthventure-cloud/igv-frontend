@@ -43,13 +43,14 @@ const RBACPage = () => {
   const loadData = async () => {
     try {
       setLoading(true);
+      // Canonical routes (replaces legacy /api/crm/team and /api/crm/roles)
       const [teamRes, rolesRes] = await Promise.all([
-        api.get('/api/crm/team'),
-        api.get('/api/crm/roles')
+        api.get('/api/crm/settings/users'),
+        api.get('/api/crm/rbac/roles')
       ]);
       
-      // Normalize team to array
-      const teamData = teamRes?.team || teamRes?.data?.team || [];
+      // Normalize team to array (response may have 'users' or 'team' key)
+      const teamData = teamRes?.users || teamRes?.team || teamRes?.data?.team || [];
       setTeam(Array.isArray(teamData) ? teamData : []);
       
       // Convert roles object to array for .map() compatibility

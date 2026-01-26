@@ -79,8 +79,9 @@ const MiniAnalysisWorkflowPage = () => {
 
   const loadTeam = async () => {
     try {
-      const response = await api.get('/api/crm/team');
-      const teamData = response?.team || response?.data?.team || [];
+      // Canonical route: /api/crm/settings/users (replaces legacy /api/crm/team)
+      const response = await api.get('/api/crm/settings/users');
+      const teamData = response?.users || response?.team || response?.data?.team || [];
       setTeam(Array.isArray(teamData) ? teamData : []);
     } catch (error) {
       console.error('Error loading team:', error);

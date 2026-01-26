@@ -218,21 +218,21 @@ export const ROUTES = {
     },
     
     // ==========================================
-    // CRM - RBAC
+    // CRM - RBAC (routes canoniques)
     // ==========================================
     rbac: {
-      roles: '/api/crm/roles',
-      permissions: '/api/crm/permissions',
-      updateUserRole: (userId) => `/api/crm/users/${userId}/role`,
-      setCustomPermissions: (userId) => `/api/crm/users/${userId}/permissions`,
+      roles: '/api/crm/rbac/roles',
+      permissions: '/api/crm/rbac/permissions',
+      updateUserRole: (userId) => `/api/crm/rbac/users/${userId}/role`,
+      setCustomPermissions: (userId) => `/api/crm/rbac/users/${userId}/permissions`,
     },
     
     // ==========================================
-    // CRM - TEAM
+    // CRM - TEAM (routes canoniques vers settings/users)
     // ==========================================
     team: {
-      list: '/api/crm/team',
-      assign: '/api/crm/team/assign',
+      list: '/api/crm/settings/users',
+      assign: '/api/crm/settings/users/assign',
     },
     
     // ==========================================

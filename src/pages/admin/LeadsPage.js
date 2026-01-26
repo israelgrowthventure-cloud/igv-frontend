@@ -18,8 +18,17 @@ const LeadsPage = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({});
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItemState] = useState(null);
   const [pendingSelectedId, setPendingSelectedId] = useState(null);
+
+  // Wrapper for setSelectedItem that manages browser history
+  const setSelectedItem = (item) => {
+    if (item && !selectedItem) {
+      // Selecting a lead: push state so back button works
+      window.history.pushState({ leadSelected: true }, '', location.pathname);
+    }
+    setSelectedItemState(item);
+  };
 
   // Check for ?selected= URL parameter
   useEffect(() => {
@@ -43,19 +52,29 @@ const LeadsPage = () => {
   }, [location.pathname, location.search, pendingSelectedId]);
 
   // Listen for custom event from Sidebar when clicking on Leads menu
+  // Also handle browser back button to deselect lead instead of navigating away
   useEffect(() => {
     const handleResetView = () => {
-      setSelectedItem(null);
+      setSelectedItemState(null);
+    };
+    
+    const handlePopState = (event) => {
+      // If a lead is selected and user clicks back, just deselect
+      if (selectedItem) {
+        // Push the current state back to prevent actual navigation
+        window.history.pushState(null, '', location.pathname);
+        setSelectedItemState(null);
+      }
     };
     
     window.addEventListener('resetLeadView', handleResetView);
-    window.addEventListener('popstate', handleResetView);
+    window.addEventListener('popstate', handlePopState);
     
     return () => {
       window.removeEventListener('resetLeadView', handleResetView);
-      window.removeEventListener('popstate', handleResetView);
+      window.removeEventListener('popstate', handlePopState);
     };
-  }, []);
+  }, [selectedItem, location.pathname]);
 
   useEffect(() => {
     loadLeads();

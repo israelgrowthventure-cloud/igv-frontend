@@ -17,8 +17,17 @@ const ContactsPage = () => {
   const [data, setData] = useState({ contacts: [], total: 0 });
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItemState] = useState(null);
   const [pendingSelectedId, setPendingSelectedId] = useState(null);
+
+  // Wrapper for setSelectedItem that manages browser history
+  const setSelectedItem = (item) => {
+    if (item && !selectedItem) {
+      // Selecting a contact: push state so back button works
+      window.history.pushState({ contactSelected: true }, '', location.pathname);
+    }
+    setSelectedItemState(item);
+  };
 
   // Check for ?selected= URL parameter
   useEffect(() => {
@@ -42,19 +51,29 @@ const ContactsPage = () => {
   }, [location.pathname, location.search, pendingSelectedId]);
 
   // Listen for custom event from Sidebar when clicking on Contacts menu
+  // Also handle browser back button to deselect contact instead of navigating away
   useEffect(() => {
     const handleResetView = () => {
-      setSelectedItem(null);
+      setSelectedItemState(null);
+    };
+    
+    const handlePopState = (event) => {
+      // If a contact is selected and user clicks back, just deselect
+      if (selectedItem) {
+        // Push the current state back to prevent actual navigation
+        window.history.pushState(null, '', location.pathname);
+        setSelectedItemState(null);
+      }
     };
     
     window.addEventListener('resetContactView', handleResetView);
-    window.addEventListener('popstate', handleResetView);
+    window.addEventListener('popstate', handlePopState);
     
     return () => {
       window.removeEventListener('resetContactView', handleResetView);
-      window.removeEventListener('popstate', handleResetView);
+      window.removeEventListener('popstate', handlePopState);
     };
-  }, []);
+  }, [selectedItem, location.pathname]);
 
   useEffect(() => {
     loadContacts();

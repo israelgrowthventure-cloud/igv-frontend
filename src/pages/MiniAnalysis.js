@@ -635,8 +635,53 @@ const MiniAnalysis = () => {
                         {currentLang === 'he' ? 'לדוגמה: תל אביב, ירושלים, חיפה' : currentLang === 'en' ? 'E.g., Tel Aviv, Jerusalem, Haifa' : 'Ex: Tel Aviv, Jérusalem, Haïfa'}
                       </p>
                     </div>
+
+                    {/* NEW FIELDS: Points of sale & Cities for existing business */}
+                    <div className="pt-4 border-t border-indigo-200 mt-4">
+                      <h4 className="font-semibold text-indigo-900 mb-4 text-sm uppercase">
+                         {currentLang === 'he' ? 'עסק קיים' : currentLang === 'en' ? 'Existing Business' : 'Réseau existant'}
+                      </h4>
+
+                      {/* Store Count */}
+                      <div className="mb-4">
+                        <label htmlFor="shop_count" className="block text-sm font-semibold text-indigo-800 mb-2">
+                          {currentLang === 'he' ? 'כמה נקודות מכירה קיימות?' : currentLang === 'en' ? 'How many existing points of sale?' : 'Combien de points de vente existent déjà ?'}
+                        </label>
+                        <select
+                          id="shop_count"
+                          name="shop_count"
+                          value={formData.shop_count || ''}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-indigo-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        >
+                          <option value="">{currentLang === 'he' ? 'בחר' : currentLang === 'en' ? 'Select' : 'Sélectionnez'}</option>
+                          <option value="1-10">1 - 10</option>
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                          <option value="100+">+100</option>
+                        </select>
+                      </div>
+
+                      {/* City list */}
+                      <div>
+                        <label htmlFor="shop_cities" className="block text-sm font-semibold text-indigo-800 mb-2">
+                          {currentLang === 'he' ? 'באילו ערים הם נמצאים?' : currentLang === 'en' ? 'In which cities are they located?' : 'Dans quelles villes sont-ils ?'}
+                        </label>
+                        <input
+                           type="text"
+                           id="shop_cities"
+                           name="shop_cities"
+                           value={formData.shop_cities || ''}
+                           onChange={handleChange}
+                           className="w-full px-4 py-3 border border-indigo-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                           placeholder={currentLang === 'he' ? 'רשימת ערים...' : currentLang === 'en' ? 'List of cities...' : 'Liste des villes...'}
+                        />
+                      </div>
+                    </div>
                   </div>
                 )}
+
 
                 {/* Concept */}
                 <div>

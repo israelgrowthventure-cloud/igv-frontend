@@ -130,33 +130,12 @@ const Packs = () => {
                     </p>
                   </div>
 
-                  {/* Price */}
-                  <div className="mb-6">
-                    {loading ? (
-                      <div className="text-xl font-bold">{t('pricing.detecting')}</div>
-                    ) : packPrice ? (
-                      <div>
-                        <div className={`text-4xl font-bold ${
-                          pack.highlighted ? 'text-white' : 'text-gray-900'
-                        }`} dir="ltr" style={{ unicodeBidi: 'isolate' }}>
-                          {packPrice.label}
-                        </div>
-                        <div className={`text-xs mt-1 ${
-                          pack.highlighted ? 'text-blue-100' : 'text-gray-500'
-                        }`}>
-                          {location?.country || 'International'}
-                        </div>
-                      </div>
-                    ) : (
-                      <div>
-                        <div className="text-xl font-bold">{t('packs.priceOnRequest', 'Prix sur demande')}</div>
-                        <div className="text-xs mt-1 text-gray-500">{t('pricing.international', 'International')}</div>
-                      </div>
-                    )}
-                  </div>
+                  {/* Price REMOVED */}
+                  
 
                   {/* Features */}
                   <ul className="space-y-3 mb-8">
+
                     {pack.features.map((feature, index) => (
                       <li key={index} className="flex items-start space-x-3">
                         <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${

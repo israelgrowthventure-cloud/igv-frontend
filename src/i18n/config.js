@@ -14,6 +14,7 @@ i18n
       en: { translation: en },
       he: { translation: he }
     },
+    lng: 'fr', // CORRECTIF: Langue par default FR forcee
     fallbackLng: 'fr',
     supportedLngs: ['fr', 'en', 'he'],
     detection: {

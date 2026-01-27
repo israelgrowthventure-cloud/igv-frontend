@@ -1,53 +1,90 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, TrendingUp, Eye, Zap, Target } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const FutureCommerce = () => {
   const { t } = useTranslation();
 
-  const realities = [
-    {
-      title: t('futureCommerce.realities.reality1.title'),
-      description: t('futureCommerce.realities.reality1.description'),
-      icon: Eye
-    },
-    {
-      title: t('futureCommerce.realities.reality2.title'),
-      description: t('futureCommerce.realities.reality2.description'),
-      icon: Target
-    },
-    {
-      title: t('futureCommerce.realities.reality3.title'),
-      points: t('futureCommerce.realities.reality3.points', { returnObjects: true }),
-      conclusion: t('futureCommerce.realities.reality3.conclusion'),
-      icon: Zap
-    }
-  ];
-
-  const services = t('futureCommerce.what_we_do.services', { returnObjects: true });
-  const israelPoints = t('futureCommerce.israel.points', { returnObjects: true });
-  const whySeriesItems = t('futureCommerce.why_series.items', { returnObjects: true });
-
   return (
     <>
       <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>{t('futureCommerce.title', 'IGV Blog')} | Israel Growth Venture</title>
+        <meta name="robots" content="index, follow" />
       </Helmet>
-      <div className="min-h-screen pt-20">
-      {/* Hero */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20" />
-        </div>
-        
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              {t('futureCommerce.hero.line1')}
+      
+      <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+               {t('futureCommerce.title', 'Le Blog IGV')}
             </h1>
-            <p className="text-2xl sm:text-3xl text-blue-200 mb-4">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+               {t('futureCommerce.subtitle', 'Actualités, Tendances et Innovations Retail en Israël')}
+            </p>
+          </div>
+
+          {/* Blog Grid Mockup */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+             {/* Article 1 */}
+             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="h-48 bg-blue-600 flex items-center justify-center text-white text-4xl font-bold">
+                   IGV
+                </div>
+                <div className="p-6">
+                   <div className="text-sm text-blue-600 font-semibold mb-2">Retail Tech</div>
+                   <h3 className="text-xl font-bold mb-3">L'IA dans le retail israélien en 2026</h3>
+                   <p className="text-gray-600 text-sm mb-4">
+                      Comment l'intelligence artificielle transforme l'expérience client dans les centres commerciaux de Tel Aviv.
+                   </p>
+                   <span className="text-sm text-gray-400">27 Jan 2026</span>
+                </div>
+             </div>
+
+             {/* Article 2 */}
+             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="h-48 bg-indigo-600 flex items-center justify-center text-white text-4xl font-bold">
+                   IGV
+                </div>
+                <div className="p-6">
+                   <div className="text-sm text-indigo-600 font-semibold mb-2">Expansion</div>
+                   <h3 className="text-xl font-bold mb-3">Ouvrir son réseau en Israël : Guide Complet</h3>
+                   <p className="text-gray-600 text-sm mb-4">
+                      Les étapes clés pour réussir son implantation de franchise sur le marché local.
+                   </p>
+                   <span className="text-sm text-gray-400">15 Jan 2026</span>
+                </div>
+             </div>
+
+             {/* Article 3 */}
+             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="h-48 bg-purple-600 flex items-center justify-center text-white text-4xl font-bold">
+                   IGV
+                </div>
+                <div className="p-6">
+                   <div className="text-sm text-purple-600 font-semibold mb-2">Success Story</div>
+                   <h3 className="text-xl font-bold mb-3">L'essor des Food Courts Premium</h3>
+                   <p className="text-gray-600 text-sm mb-4">
+                      Analyse du changement des habitudes de consommation post-2025.
+                   </p>
+                   <span className="text-sm text-gray-400">03 Jan 2026</span>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default FutureCommerce;
+
+/*
+  DEPRECATED CONTENT
+  The old content was deleted to replace with the Blog layout.
+  The original translations keys might still be present in json files but are unused in this view.
+*/
+
               {t('futureCommerce.hero.line2')}
             </p>
             <p className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-8">

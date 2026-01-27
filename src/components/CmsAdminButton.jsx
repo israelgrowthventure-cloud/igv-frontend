@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Palette } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './CmsAdminButton.css';
 
 /**
@@ -9,15 +11,14 @@ import './CmsAdminButton.css';
  * Conditions d'affichage:
  * - Seulement visible pour les rôles 'admin' ou 'technique'
  * - Protégé par un mot de passe séparé (CMS_PASSWORD via Render)
- * - Ouvre une page placeholder "CMS bientôt disponible"
- * 
- * Mission 2: Mise de côté temporaire du CMS
+ * - Redirige vers /admin/crm/cms après validation
  */
 const CmsAdminButton = ({ collapsed = false }) => {
   const { user, isAdmin, hasRole } = useAuth();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [password, setPassword] = useState('');
-  const [showPlaceholder, setShowPlaceholder] = useState(false);
   const [error, setError] = useState('');
 
   // Condition d'affichage: seulement admin ou technique
@@ -39,18 +40,19 @@ const CmsAdminButton = ({ collapsed = false }) => {
     
     try {
       // Vérifier le mot de passe via l'API backend
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com'}/api/cms/verify-password`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'https://igv-backend.onrender.com'}/api/cms/verify-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user?.token}`
+          'Authorization': `Bearer ${user?.token || localStorage.getItem('admin_token')}`
         },
         body: JSON.stringify({ password })
       });
 
       if (response.ok) {
         setShowPasswordModal(false);
-        setShowPlaceholder(true);
+        // Rediriger vers le CMS Manager
+        navigate('/admin/crm/cms');
       } else {
         setError('Mot de passe incorrect');
       }
@@ -63,10 +65,6 @@ const CmsAdminButton = ({ collapsed = false }) => {
     setShowPasswordModal(false);
     setPassword('');
     setError('');
-  };
-
-  const closePlaceholder = () => {
-    setShowPlaceholder(false);
   };
 
   return (
@@ -118,28 +116,6 @@ const CmsAdminButton = ({ collapsed = false }) => {
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-      )}
-
-      {/* Placeholder CMS bientôt disponible */}
-      {showPlaceholder && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 w-[500px] shadow-xl text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Palette className="w-8 h-8 text-blue-600" />
-            </div>
-            <h2 className="text-2xl font-bold mb-3 text-gray-900">CMS bientôt disponible</h2>
-            <p className="text-gray-600 mb-6">
-              L'éditeur de contenu est en cours de développement.<br />
-              Cette fonctionnalité sera disponible prochainement.
-            </p>
-            <button
-              onClick={closePlaceholder}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Fermer
-            </button>
           </div>
         </div>
       )}

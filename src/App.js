@@ -74,6 +74,9 @@ const RBACPage = lazy(() => import('./pages/admin/RBACPage'));
 const AuditLogsPage = lazy(() => import('./pages/admin/AuditLogsPage'));
 const MiniAnalysisWorkflowPage = lazy(() => import('./pages/crm/MiniAnalysisWorkflowPage'));
 
+// CMS Manager (NEW)
+const CMSManager = lazy(() => import('./pages/admin/CMSManager'));
+
 // CRM Index Redirect - Handles legacy ?tab= URLs
 import CRMIndexRedirect from './components/crm/CRMIndexRedirect';
 
@@ -221,6 +224,8 @@ function AppContent() {
               <Route path="rbac" element={<RBACPage />} />
               <Route path="audit" element={<AuditLogsPage />} />
               <Route path="mini-analyses" element={<MiniAnalysisWorkflowPage />} />
+              {/* CMS Manager - NEW */}
+              <Route path="cms" element={<CMSManager />} />
             </Route>
             
             <Route path="/admin/dashboard" element={

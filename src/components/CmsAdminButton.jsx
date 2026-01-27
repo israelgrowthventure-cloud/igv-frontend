@@ -40,7 +40,7 @@ const CmsAdminButton = ({ collapsed = false }) => {
     
     try {
       // Vérifier le mot de passe via l'API backend
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'https://igv-backend.onrender.com'}/api/cms/verify-password`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com'}/api/cms/verify-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

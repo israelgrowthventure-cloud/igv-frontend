@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://igv-backend.onrender.com';
+const API_URL = process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com';
 
 function CMSManager() {
   const { t, i18n } = useTranslation();

@@ -394,7 +394,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                     <div className="flex items-center gap-2">
                       {lead.contact_name || '-'}
                       {lead.status === 'CONVERTED' && (
-                        <Users className="w-4 h-4 text-green-600" title="Converti en contact" />
+                        <Users className="w-4 h-4 text-green-600" title={t('crm.leads.convertedToContactTitle')} />
                       )}
                     </div>
                   </td>
@@ -415,7 +415,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                             navigate(`/admin/crm/contacts/${lead.converted_to_contact_id}`);
                           }}
                           className="text-green-600 hover:text-green-800"
-                          title="Voir le contact créé"
+                          title={t('crm.leads.viewContactTitle')}
                         >
                           <Users className="w-4 h-4" />
                         </button>
@@ -461,7 +461,7 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
                 <p className="text-sm text-gray-500">{selectedItem.phone}</p>
               )}
             </div>
-            <button onClick={() => setSelectedItem(null)} className="p-2 hover:bg-gray-100 rounded-lg" title="Fermer">
+            <button onClick={() => setSelectedItem(null)} className="p-2 hover:bg-gray-100 rounded-lg" title={t('common.closeTitle')}>
               <X className="w-5 h-5" />
             </button>
           </div>

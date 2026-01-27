@@ -148,7 +148,7 @@ const AdminInvoices = () => {
                     onClick={() => handleGeneratePDF(invoice._id)}
                     disabled={pdfLoading}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 disabled:opacity-50"
-                    title="Generate PDF"
+                    title={t('invoice.generatePdfTitle')}
                   >
                     <Download className="w-4 h-4" />
                     PDF
@@ -157,7 +157,7 @@ const AdminInvoices = () => {
                     onClick={() => handleSendEmail(invoice._id)}
                     disabled={sendLoading || invoice.status === 'CANCELED'}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 disabled:opacity-50"
-                    title="Send by Email"
+                    title={t('invoice.sendEmailTitle')}
                   >
                     <Send className="w-4 h-4" />
                     Send

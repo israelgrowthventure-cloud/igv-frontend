@@ -41,7 +41,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo - Minimaliste */}
           <Link to="/" className="flex items-center">
-            <img src="/igv-logo.png" alt="Israel Growth Venture" className="h-12" />
+            <img src="/igv-logo.png" alt={t('common.logoAlt')} className="h-12" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -178,7 +178,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-              placeholder="Ex: Contrat ABC Corp"
+              placeholder={t('crm.opportunities.namePlaceholder')}
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -193,7 +193,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
                 required
                 min="0"
                 className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                placeholder="10000"
+                placeholder={t('crm.opportunities.valuePlaceholder')}
               />
             </div>
             <div>
@@ -244,7 +244,7 @@ const OpportunitiesTab = ({ data, onRefresh, searchTerm, setSearchTerm, t }) => 
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               rows={3}
               className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-              placeholder="Notes additionnelles..."
+              placeholder={t('crm.opportunities.notesPlaceholder')}
             />
           </div>
           <div className="flex gap-3 pt-4">

@@ -348,14 +348,14 @@ const UsersTab = () => {
                         <button
                           onClick={() => handleEdit(user)}
                           className="text-blue-600 hover:text-blue-900 p-1 hover:bg-blue-50 rounded"
-                          title="Modifier"
+                          title={t('common.editTitle')}
                         >
                           <Edit className="w-5 h-5" />
                         </button>
                         <button
                           onClick={() => handleDelete(user._id || user.id)}
                           className="text-red-600 hover:text-red-900 p-1 hover:bg-red-50 rounded"
-                          title="Supprimer"
+                          title={t('common.deleteTitle')}
                         >
                           <Trash2 className="w-5 h-5" />
                         </button>

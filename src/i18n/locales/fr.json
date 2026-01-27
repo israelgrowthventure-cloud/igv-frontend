@@ -221,7 +221,9 @@
         "beauty": "Beauté / Cosmétique",
         "other": "Autre"
       },
-      "select_sector": "Sélectionner un secteur"
+      "select_sector": "Sélectionner un secteur",
+      "convertedToContactTitle": "Converti en contact",
+      "viewContactTitle": "Voir le contact créé"
     },
     "contacts": {
       "subtitle": "Gérez vos contacts clients",
@@ -250,7 +252,10 @@
       "notes": "Notes",
       "add_note_placeholder": "Add note placeholder",
       "activities": "Activities",
-      "emails": "Emails"
+      "emails": "Emails",
+      "searchPlaceholder": "Rechercher un contact...",
+      "notePlaceholder": "Écrivez votre note ici...",
+      "sendEmailTitle": "Envoyer un email"
     },
     "users": {
       "subtitle": "Gérez les utilisateurs et leurs permissions"
@@ -376,7 +381,10 @@
       "total_value": "Valeur totale",
       "weighted_value": "Valeur pondérée",
       "empty_title": "Aucune opportunité",
-      "empty_subtitle": "Créez votre première opportunité"
+      "empty_subtitle": "Créez votre première opportunité",
+      "namePlaceholder": "Ex: Contrat ABC Corp",
+      "valuePlaceholder": "10000",
+      "notesPlaceholder": "Notes additionnelles..."
     },
     "settings": {
       "title": "Paramètres",
@@ -459,7 +467,10 @@
         "category": "Catégorie",
         "languages": "Langues",
         "no_templates": "Aucun template"
-      }
+      },
+      "fullNamePlaceholder": "Nom complet",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Mot de passe"
     },
     "activities": {
       "title": "Activités",
@@ -511,7 +522,8 @@
       "add_title": "Add title",
       "type": "Type",
       "description": "Description",
-      "description_placeholder": "Description placeholder"
+      "description_placeholder": "Description placeholder",
+      "searchPlaceholder": "Rechercher une activité..."
     },
     "emails": {
       "title": "Emails",
@@ -572,7 +584,10 @@
       "delete_confirm": "Supprimer cet email ?",
       "available_languages": "Disponible en :",
       "no_emails": "No emails",
-      "send_first": "Send first"
+      "send_first": "Send first",
+      "namePlaceholder": "Ex: Bienvenue Lead",
+      "subjectPlaceholder": "Ex: Bienvenue chez Israel Growth Venture",
+      "bodyPlaceholder": "Bonjour {name},\\n\\nMerci pour votre intérêt..."
     },
     "pipeline": {
       "opportunities": "opportunités",
@@ -626,7 +641,8 @@
       "cancel": "Annuler",
       "leads_assigned": "Leads assigned",
       "custom_perms": "Custom perms",
-      "permissions_matrix": "Permissions matrix"
+      "permissions_matrix": "Permissions matrix",
+      "editPermissionsTitle": "Modifier les permissions"
     },
     "audit": {
       "title": "Logs d'audit",
@@ -778,12 +794,17 @@
       "select_contact": "Select contact",
       "all_contacts_linked": "All contacts linked",
       "select_lead": "Select lead",
-      "all_leads_linked": "All leads linked"
+      "all_leads_linked": "All leads linked",
+      "domainPlaceholder": "example.com",
+      "websitePlaceholder": "https://"
     },
     "notes": {
       "added": "Added",
       "add_placeholder": "Add placeholder",
       "empty": "Empty"
+    },
+    "nextAction": {
+      "detailsPlaceholder": "Détails sur l'action à effectuer..."
     }
   },
   "hero": {
@@ -794,6 +815,13 @@
     "bookAppointment": "Réserver un rendez-vous"
   },
   "home": {
+    "hero": {
+      "businessImageAlt": "Entreprise en Israël",
+      "yearsExperience": "Années d'expérience"
+    },
+    "about": {
+      "teamImageAlt": "Notre équipe"
+    },
     "howItWorks": {
       "title": "Comment ça marche ?",
       "subtitle": "Un processus simple et efficace en 3 étapes"
@@ -981,7 +1009,10 @@
       "backHome": "Back home",
       "helpText": "Help text"
     },
-    "errorCode": "Error code"
+    "errorCode": "Error code",
+    "visaAlt": "Visa",
+    "mastercardAlt": "Mastercard",
+    "cbAlt": "Carte Bancaire"
   },
   "common": {
     "loading": "Chargement...",
@@ -999,6 +1030,11 @@
     "filter": "Filtrer",
     "retry": "Réessayer",
     "brandName": "Israel Growth Venture",
+    "logoAlt": "Israel Growth Venture",
+    "editTitle": "Modifier",
+    "deleteTitle": "Supprimer",
+    "closeTitle": "Fermer",
+    "copyTitle": "Copier",
     "emailCompose": {
       "compose": "Nouveau message",
       "to": "À",
@@ -1591,5 +1627,12 @@
   },
   "settings": {
     "title": "Title"
+  },
+  "cms": {
+    "openEditorTitle": "Ouvrir l'éditeur de site (protégé)"
+  },
+  "invoice": {
+    "generatePdfTitle": "Générer le PDF",
+    "sendEmailTitle": "Envoyer par email"
   }
 }

@@ -183,7 +183,9 @@
         "beauty": "Beauty / Cosmetics",
         "other": "Other"
       },
-      "select_sector": "Select a sector"
+      "select_sector": "Select a sector",
+      "convertedToContactTitle": "Converted to Contact",
+      "viewContactTitle": "View Created Contact"
     },
     "contacts": {
       "subtitle": "Manage your customer contacts",
@@ -212,7 +214,10 @@
       "notes": "Notes",
       "add_note_placeholder": "Add Note Placeholder",
       "activities": "Activities",
-      "emails": "Emails"
+      "emails": "Emails",
+      "searchPlaceholder": "Search for a contact...",
+      "notePlaceholder": "Write your note here...",
+      "sendEmailTitle": "Send Email"
     },
     "users": {
       "subtitle": "Manage users and their permissions"
@@ -376,7 +381,10 @@
       "total_value": "Total Value",
       "weighted_value": "Weighted Value",
       "empty_title": "No Opportunities",
-      "empty_subtitle": "Create your first opportunity"
+      "empty_subtitle": "Create your first opportunity",
+      "namePlaceholder": "Ex: ABC Corp Contract",
+      "valuePlaceholder": "10000",
+      "notesPlaceholder": "Additional notes..."
     },
     "settings": {
       "title": "Settings",
@@ -469,7 +477,10 @@
         "category": "Category",
         "languages": "Languages",
         "no_templates": "No templates"
-      }
+      },
+      "fullNamePlaceholder": "Full Name",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password"
     },
     "activities": {
       "title": "Activities",
@@ -521,7 +532,8 @@
       "add_title": "Add Title",
       "type": "Type",
       "description": "Description",
-      "description_placeholder": "Description Placeholder"
+      "description_placeholder": "Description Placeholder",
+      "searchPlaceholder": "Search for an activity..."
     },
     "emails": {
       "title": "Emails",
@@ -582,7 +594,10 @@
       },
       "delete_confirm": "Delete this email record?",
       "no_emails": "No Emails",
-      "send_first": "Send First"
+      "send_first": "Send First",
+      "namePlaceholder": "Ex: Welcome Lead",
+      "subjectPlaceholder": "Ex: Welcome to Israel Growth Venture",
+      "bodyPlaceholder": "Hello {name},\\n\\nThank you for your interest..."
     },
     "pipeline": {
       "opportunities": "opportunities",
@@ -702,7 +717,9 @@
       "select_contact": "Select Contact",
       "all_contacts_linked": "All Contacts Linked",
       "select_lead": "Select Lead",
-      "all_leads_linked": "All Leads Linked"
+      "all_leads_linked": "All Leads Linked",
+      "domainPlaceholder": "example.com",
+      "websitePlaceholder": "https://"
     },
     "notes": {
       "added": "Added",
@@ -755,7 +772,8 @@
       "leads_assigned": "Leads Assigned",
       "custom_perms": "Custom Perms",
       "permissions_matrix": "Permissions Matrix",
-      "custom_permissions": "Custom Permissions"
+      "custom_permissions": "Custom Permissions",
+      "editPermissionsTitle": "Edit Permissions"
     },
     "mini_analysis": {
       "status_updated": "Status Updated",
@@ -775,6 +793,9 @@
         "cancelled": "Cancelled",
         "sent": "Sent"
       }
+    },
+    "nextAction": {
+      "detailsPlaceholder": "Details about the action to take..."
     }
   },
   "hero": {
@@ -796,6 +817,13 @@
     "aiInsight": {
       "cta": "Cta",
       "description": "Description"
+    },
+    "hero": {
+      "businessImageAlt": "Business in Israel",
+      "yearsExperience": "Years of Experience"
+    },
+    "about": {
+      "teamImageAlt": "Our Team"
     }
   },
   "about": {
@@ -972,7 +1000,10 @@
       "backHome": "Back Home",
       "helpText": "Help Text"
     },
-    "errorCode": "Error Code"
+    "errorCode": "Error Code",
+    "visaAlt": "Visa",
+    "mastercardAlt": "Mastercard",
+    "cbAlt": "Bank Card"
   },
   "common": {
     "loading": "Loading...",
@@ -1002,7 +1033,12 @@
     "total": "Total",
     "all": "All",
     "active": "Active",
-    "inactive": "Inactive"
+    "inactive": "Inactive",
+    "logoAlt": "Israel Growth Venture",
+    "editTitle": "Edit",
+    "deleteTitle": "Delete",
+    "closeTitle": "Close",
+    "copyTitle": "Copy"
   },
   "errors": {
     "pageNotFound": "Page not found"
@@ -1569,5 +1605,12 @@
   },
   "settings": {
     "title": "Title"
+  },
+  "cms": {
+    "openEditorTitle": "Open Site Editor (Protected)"
+  },
+  "invoice": {
+    "generatePdfTitle": "Generate PDF",
+    "sendEmailTitle": "Send by Email"
   }
 }

@@ -180,9 +180,9 @@ const SettingsTab = ({ data, onRefresh, t }) => {
           {showForm && (
             <div className="p-6 border-b bg-gray-50">
               <form onSubmit={handleCreateUser} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Nom complet" value={formData.name || ''} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="px-3 py-2 border rounded-lg" />
-                <input type="email" placeholder="Email" value={formData.email || ''} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="px-3 py-2 border rounded-lg" />
-                <input type="password" placeholder="Mot de passe" value={formData.password || ''} onChange={(e) => setFormData({ ...formData, password: e.target.value })} required minLength={6} className="px-3 py-2 border rounded-lg" />
+                <input type="text" placeholder={t('crm.settings.fullNamePlaceholder')} value={formData.name || ''} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="px-3 py-2 border rounded-lg" />
+                <input type="email" placeholder={t('crm.settings.emailPlaceholder')} value={formData.email || ''} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="px-3 py-2 border rounded-lg" />
+                <input type="password" placeholder={t('crm.settings.passwordPlaceholder')} value={formData.password || ''} onChange={(e) => setFormData({ ...formData, password: e.target.value })} required minLength={6} className="px-3 py-2 border rounded-lg" />
                 <select value={formData.role || 'commercial'} onChange={(e) => setFormData({ ...formData, role: e.target.value })} className="px-3 py-2 border rounded-lg">
                   <option value="admin">Admin</option>
                   <option value="commercial">Commercial</option>

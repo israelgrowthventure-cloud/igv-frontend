@@ -320,7 +320,7 @@ const CompaniesTab = ({
                     type="text"
                     value={formData.domain}
                     onChange={(e) => setFormData({ ...formData, domain: e.target.value })}
-                    placeholder="example.com"
+                    placeholder={t('crm.companies.domainPlaceholder')}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -391,7 +391,7 @@ const CompaniesTab = ({
                     type="url"
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    placeholder="https://"
+                    placeholder={t('crm.companies.websitePlaceholder')}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>

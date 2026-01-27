@@ -183,7 +183,9 @@
         "beauty": "יופי / קוסמטיקה",
         "other": "אחר"
       },
-      "select_sector": "בחר תחום"
+      "select_sector": "בחר תחום",
+      "convertedToContactTitle": "הומר לאיש קשר",
+      "viewContactTitle": "צפה באיש הקשר שנוצר"
     },
     "contacts": {
       "subtitle": "נהל את אנשי הקשר שלך",
@@ -212,7 +214,10 @@
       "notes": "Notes",
       "add_note_placeholder": "Add note placeholder",
       "activities": "Activities",
-      "emails": "Emails"
+      "emails": "Emails",
+      "searchPlaceholder": "חפש איש קשר...",
+      "notePlaceholder": "כתוב את ההערה שלך כאן...",
+      "sendEmailTitle": "שלח אימייל"
     },
     "users": {
       "subtitle": "נהל משתמשים והרשאות"
@@ -362,7 +367,10 @@
         "load_failed": "שגיאה בטעינת הזדמנויות",
         "delete_failed": "שגיאה במחיקת הזדמנות",
         "update_failed": "שגיאה בעדכון הזדמנות"
-      }
+      },
+      "namePlaceholder": "לדוגמה: חוזה ABC Corp",
+      "valuePlaceholder": "10000",
+      "notesPlaceholder": "הערות נוספות..."
     },
     "settings": {
       "title": "הגדרות",
@@ -448,7 +456,10 @@
         "category": "קטגוריה",
         "languages": "שפות",
         "no_templates": "אין תבניות"
-      }
+      },
+      "fullNamePlaceholder": "שם מלא",
+      "emailPlaceholder": "אימייל",
+      "passwordPlaceholder": "סיסמה"
     },
     "activities": {
       "title": "פעילויות",
@@ -500,7 +511,8 @@
       "add_title": "Add title",
       "type": "Type",
       "description": "Description",
-      "description_placeholder": "Description placeholder"
+      "description_placeholder": "Description placeholder",
+      "searchPlaceholder": "חפש פעילות..."
     },
     "emails": {
       "title": "אימיילים",
@@ -555,7 +567,10 @@
         "delete_failed": "שגיאה במחיקת אימייל"
       },
       "no_emails": "No emails",
-      "send_first": "Send first"
+      "send_first": "Send first",
+      "namePlaceholder": "לדוגמה: ליד ברוך הבא",
+      "subjectPlaceholder": "לדוגמה: ברוכים הבאים ל-Israel Growth Venture",
+      "bodyPlaceholder": "שלום {name},\\n\\nתודה על ההתעניינות שלך..."
     },
     "pipeline": {
       "opportunities": "הזדמנויות",
@@ -675,7 +690,9 @@
       "select_contact": "Select contact",
       "all_contacts_linked": "All contacts linked",
       "select_lead": "Select lead",
-      "all_leads_linked": "All leads linked"
+      "all_leads_linked": "All leads linked",
+      "domainPlaceholder": "example.com",
+      "websitePlaceholder": "https://"
     },
     "notes": {
       "added": "Added",
@@ -728,7 +745,8 @@
       "leads_assigned": "Leads assigned",
       "custom_perms": "Custom perms",
       "permissions_matrix": "Permissions matrix",
-      "custom_permissions": "Custom permissions"
+      "custom_permissions": "Custom permissions",
+      "editPermissionsTitle": "ערוך הרשאות"
     },
     "mini_analysis": {
       "status_updated": "הסטטוס עודכן",
@@ -748,6 +766,9 @@
         "cancelled": "בוטל",
         "sent": "נשלח"
       }
+    },
+    "nextAction": {
+      "detailsPlaceholder": "פרטים על הפעולה לביצוע..."
     }
   },
   "hero": {
@@ -769,6 +790,13 @@
     "aiInsight": {
       "cta": "Cta",
       "description": "Description"
+    },
+    "hero": {
+      "businessImageAlt": "עסקים בישראל",
+      "yearsExperience": "שנות ניסיון"
+    },
+    "about": {
+      "teamImageAlt": "הצוות שלנו"
     }
   },
   "about": {
@@ -945,7 +973,10 @@
       "backHome": "Back home",
       "helpText": "Help text"
     },
-    "errorCode": "Error code"
+    "errorCode": "Error code",
+    "visaAlt": "ויזה",
+    "mastercardAlt": "מאסטרקארד",
+    "cbAlt": "כרטיס בנקאי"
   },
   "common": {
     "loading": "טוען...",
@@ -973,7 +1004,12 @@
     "backToPacks": "Back to packs",
     "assign": "הקצה",
     "active": "פעיל",
-    "inactive": "לא פעיל"
+    "inactive": "לא פעיל",
+    "logoAlt": "Israel Growth Venture",
+    "editTitle": "ערוך",
+    "deleteTitle": "מחק",
+    "closeTitle": "סגור",
+    "copyTitle": "העתק"
   },
   "errors": {
     "pageNotFound": "הדף לא נמצא"
@@ -1540,5 +1576,12 @@
   },
   "settings": {
     "title": "Title"
+  },
+  "cms": {
+    "openEditorTitle": "פתח עורך אתר (מוגן)"
+  },
+  "invoice": {
+    "generatePdfTitle": "צור PDF",
+    "sendEmailTitle": "שלח באימייל"
   }
 }

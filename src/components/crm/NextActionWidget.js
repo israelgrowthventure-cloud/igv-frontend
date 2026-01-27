@@ -181,7 +181,7 @@ const NextActionWidget = ({ leadId, lead, onUpdate }) => {
               value={nextAction.description}
               onChange={(e) => setNextAction(prev => ({ ...prev, description: e.target.value }))}
               rows={2}
-              placeholder="Détails sur l'action à effectuer..."
+              placeholder={t('crm.nextAction.detailsPlaceholder')}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             />
           </div>

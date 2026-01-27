@@ -85,7 +85,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
           <div className="flex items-center space-x-2">
             <img 
               src="/igv-logo.png" 
-              alt="IGV Logo" 
+              alt={t('common.logoAlt')} 
               className="w-10 h-10 object-contain"
             />
             <span className="font-semibold text-sm">Israel Growth Venture</span>
@@ -94,7 +94,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
         {collapsed && (
           <img 
             src="/igv-logo.png" 
-            alt="IGV" 
+            alt={t('common.logoAlt')} 
             className="w-10 h-10 object-contain mx-auto"
           />
         )}

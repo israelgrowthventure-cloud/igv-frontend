@@ -21,7 +21,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/igv-logo.png" alt="Israel Growth Venture" className="h-10" />
+              <img src="/igv-logo.png" alt={t('common.logoAlt')} className="h-10" />
             </div>
             <p className="text-sm text-gray-400">
               {t('footer.company')}

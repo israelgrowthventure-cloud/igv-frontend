@@ -76,7 +76,7 @@ const CmsAdminButton = ({ collapsed = false }) => {
         data-testid="btn-cms-edit"
         aria-label="Modifier le Site"
         className="cms-admin-button"
-        title="Ouvrir l'éditeur de site (protégé)"
+        title={t('cms.openEditorTitle')}
       >
         <Palette />
         {!collapsed && <span>Modifier le Site</span>}

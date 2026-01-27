@@ -279,7 +279,7 @@ const RBACPage = () => {
                       onClick={() => startEditPermissions(member)}
                       disabled={member.email === user?.email}
                       className="p-1 text-gray-400 hover:text-blue-600 disabled:opacity-50"
-                      title="Modifier les permissions"
+                      title={t('crm.rbac.editPermissionsTitle')}
                     >
                       <Lock className="w-4 h-4" />
                     </button>

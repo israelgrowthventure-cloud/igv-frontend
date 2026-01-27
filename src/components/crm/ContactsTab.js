@@ -288,7 +288,7 @@ const ContactsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, 
           <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder="Rechercher un contact..."
+            placeholder={t('crm.contacts.searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border rounded-lg"
@@ -347,14 +347,14 @@ const ContactsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, 
                       <button
                         onClick={(e) => { e.stopPropagation(); setEmailContact(contact); setShowEmailModal(true); }}
                         className="p-1.5 text-green-600 hover:bg-green-50 rounded"
-                        title="Envoyer un email"
+                        title={t('crm.contacts.sendEmailTitle')}
                       >
                         <Send className="w-4 h-4" />
                       </button>
                       <button
                         onClick={(e) => { e.stopPropagation(); openEditModal(contact); }}
                         className="p-1.5 text-blue-600 hover:bg-blue-50 rounded flex items-center gap-1"
-                        title="Modifier"
+                        title={t('common.editTitle')}
                       >
                         <Edit className="w-4 h-4" />
                         <span className="text-xs">Modifier</span>
@@ -363,7 +363,7 @@ const ContactsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, 
                         onClick={(e) => { e.stopPropagation(); handleDelete(contact._id || contact.contact_id); }}
                         disabled={loadingAction}
                         className="p-1.5 text-red-600 hover:bg-red-50 rounded disabled:opacity-50 flex items-center gap-1"
-                        title="Supprimer"
+                        title={t('common.deleteTitle')}
                       >
                         <Trash2 className="w-4 h-4" />
                         <span className="text-xs">Supprimer</span>
@@ -509,7 +509,7 @@ const ContactsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, 
                 <textarea
                   value={newNote}
                   onChange={(e) => setNewNote(e.target.value)}
-                  placeholder="Écrivez votre note ici..."
+                  placeholder={t('crm.contacts.notePlaceholder')}
                   className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-500 resize-none"
                   rows={3}
                 />
@@ -551,7 +551,7 @@ const ContactsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, 
                       <button
                         onClick={() => handleDeleteNote(note._id)}
                         className="p-1.5 text-red-500 hover:bg-red-50 rounded opacity-0 group-hover:opacity-100 transition-opacity"
-                        title="Supprimer"
+                        title={t('common.deleteTitle')}
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

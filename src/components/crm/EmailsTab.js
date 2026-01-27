@@ -184,7 +184,7 @@ const EmailsTab = ({ t: tProp }) => {
                     toast.success('Template copié');
                   }}
                   className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition"
-                  title="Copier"
+                  title={t('common.copyTitle')}
                 >
                   <Copy className="w-4 h-4" />
                 </button>
@@ -195,7 +195,7 @@ const EmailsTab = ({ t: tProp }) => {
                   }}
                   disabled={loadingAction}
                   className="p-2 text-red-600 hover:bg-red-50 rounded-md transition disabled:opacity-50"
-                  title="Supprimer"
+                  title={t('common.deleteTitle')}
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -307,7 +307,7 @@ const EmailsTab = ({ t: tProp }) => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                     className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                    placeholder="Ex: Bienvenue Lead"
+                    placeholder={t('crm.emails.namePlaceholder')}
                   />
                 </div>
 
@@ -319,7 +319,7 @@ const EmailsTab = ({ t: tProp }) => {
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     required
                     className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                    placeholder="Ex: Bienvenue chez Israel Growth Venture"
+                    placeholder={t('crm.emails.subjectPlaceholder')}
                   />
                 </div>
 
@@ -331,7 +331,7 @@ const EmailsTab = ({ t: tProp }) => {
                     required
                     rows={8}
                     className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 font-mono text-sm"
-                    placeholder="Bonjour {name},\n\nMerci pour votre intérêt..."
+                    placeholder={t('crm.emails.bodyPlaceholder')}
                   />
                 </div>
 

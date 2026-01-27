@@ -100,7 +100,7 @@ const Home = () => {
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop"
-                alt="Israel Business"
+                alt={t('home.hero.businessImageAlt')}
                 className="rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
@@ -110,7 +110,7 @@ const Home = () => {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">20+</div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
+                    <div className="text-sm text-gray-600">{t('home.hero.yearsExperience')}</div>
                   </div>
                 </div>
               </div>
@@ -142,7 +142,7 @@ const Home = () => {
             <div>
               <img
                 src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop"
-                alt="Team"
+                alt={t('home.about.teamImageAlt')}
                 className="rounded-xl shadow-lg w-full h-full object-cover"
               />
             </div>

@@ -193,9 +193,9 @@ const Payment = () => {
                   </div>
                 </div>
                 <div className="flex gap-2 mt-4">
-                  <img src="/images/visa.svg" alt="Visa" className="h-8" onError={(e) => e.target.style.display = 'none'} />
-                  <img src="/images/mastercard.svg" alt="Mastercard" className="h-8" onError={(e) => e.target.style.display = 'none'} />
-                  <img src="/images/cb.svg" alt="CB" className="h-8" onError={(e) => e.target.style.display = 'none'} />
+                  <img src="/images/visa.svg" alt={t('payment.visaAlt')} className="h-8" onError={(e) => e.target.style.display = 'none'} />
+                  <img src="/images/mastercard.svg" alt={t('payment.mastercardAlt')} className="h-8" onError={(e) => e.target.style.display = 'none'} />
+                  <img src="/images/cb.svg" alt={t('payment.cbAlt')} className="h-8" onError={(e) => e.target.style.display = 'none'} />
                 </div>
               </div>
 

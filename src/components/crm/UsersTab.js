@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Plus, Edit, Trash2, X, Save, Loader2, Shield, UserCheck, UserX, Search, Mail, Phone } from 'lucide-react';
 import { toast } from 'sonner';
+import { useTranslation } from 'react-i18next';
 import api from '../../utils/api';
 import { SkeletonTable } from './Skeleton';
 
 const UsersTab = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingAction, setLoadingAction] = useState(false);

@@ -23,10 +23,29 @@ const PAGE_SECTIONS = {
     { id: 'mission', name: 'Notre Mission', type: 'html' },
     { id: 'team', name: 'L\'équipe', type: 'html' },
   ],
+  services: [
+    { id: 'title', name: 'Titre principal', type: 'text' },
+    { id: 'subtitle', name: 'Sous-titre', type: 'text' },
+    { id: 'intro', name: 'Introduction', type: 'html' },
+    { id: 'service1_title', name: 'Service 1 - Titre', type: 'text' },
+    { id: 'service1_desc', name: 'Service 1 - Description', type: 'textarea' },
+    { id: 'service2_title', name: 'Service 2 - Titre', type: 'text' },
+    { id: 'service2_desc', name: 'Service 2 - Description', type: 'textarea' },
+    { id: 'service3_title', name: 'Service 3 - Titre', type: 'text' },
+    { id: 'service3_desc', name: 'Service 3 - Description', type: 'textarea' },
+  ],
+  blog: [
+    { id: 'title', name: 'Titre de la page', type: 'text' },
+    { id: 'subtitle', name: 'Sous-titre', type: 'text' },
+    { id: 'intro', name: 'Introduction', type: 'html' },
+    { id: 'featured_title', name: 'Titre Articles en Vedette', type: 'text' },
+  ],
   'mini-analyse': [
     { id: 'title', name: 'Titre', type: 'text' },
     { id: 'subtitle', name: 'Sous-titre', type: 'text' },
     { id: 'form_intro', name: 'Introduction formulaire', type: 'textarea' },
+    { id: 'benefits_title', name: 'Titre Avantages', type: 'text' },
+    { id: 'benefits_desc', name: 'Description Avantages', type: 'html' },
   ],
   contact: [
     { id: 'title', name: 'Titre', type: 'text' },
@@ -34,11 +53,24 @@ const PAGE_SECTIONS = {
     { id: 'address', name: 'Adresse', type: 'textarea' },
     { id: 'phone', name: 'Téléphone', type: 'text' },
     { id: 'email', name: 'Email', type: 'text' },
+    { id: 'hours', name: 'Horaires', type: 'textarea' },
   ],
   packs: [
     { id: 'title', name: 'Titre', type: 'text' },
     { id: 'subtitle', name: 'Sous-titre', type: 'text' },
     { id: 'intro', name: 'Introduction', type: 'html' },
+    { id: 'pack_starter_title', name: 'Pack Starter - Titre', type: 'text' },
+    { id: 'pack_starter_price', name: 'Pack Starter - Prix', type: 'text' },
+    { id: 'pack_pro_title', name: 'Pack Pro - Titre', type: 'text' },
+    { id: 'pack_pro_price', name: 'Pack Pro - Prix', type: 'text' },
+    { id: 'pack_enterprise_title', name: 'Pack Enterprise - Titre', type: 'text' },
+    { id: 'pack_enterprise_price', name: 'Pack Enterprise - Prix', type: 'text' },
+  ],
+  faq: [
+    { id: 'title', name: 'Titre de la page', type: 'text' },
+    { id: 'subtitle', name: 'Sous-titre', type: 'text' },
+    { id: 'intro', name: 'Introduction', type: 'html' },
+    { id: 'categories_title', name: 'Titre Catégories', type: 'text' },
   ],
   'future-commerce': [
     { id: 'title', name: 'Titre de la page', type: 'text' },
@@ -57,12 +89,15 @@ const LANGUAGES = [
 ];
 
 const PAGES = [
-  { id: 'home', name: 'Accueil', url: '/' },
-  { id: 'about', name: 'À Propos', url: '/about' },
-  { id: 'mini-analyse', name: 'Mini-Analyse', url: '/mini-analyse' },
-  { id: 'packs', name: 'Packs', url: '/packs' },
-  { id: 'contact', name: 'Contact', url: '/contact' },
-  { id: 'future-commerce', name: 'Blog / Future Commerce', url: '/future-commerce' },
+  { id: 'home', name: '🏠 Accueil', url: '/' },
+  { id: 'about', name: 'ℹ️ À Propos', url: '/about' },
+  { id: 'services', name: '⚙️ Services', url: '/services' },
+  { id: 'blog', name: '📝 Blog', url: '/blog' },
+  { id: 'mini-analyse', name: '📊 Mini-Analyse', url: '/mini-analyse' },
+  { id: 'packs', name: '📦 Packs', url: '/packs' },
+  { id: 'faq', name: '❓ FAQ', url: '/faq' },
+  { id: 'contact', name: '📞 Contact', url: '/contact' },
+  { id: 'future-commerce', name: '🚀 Future Commerce', url: '/future-commerce' },
 ];
 
 function CMSEditor() {

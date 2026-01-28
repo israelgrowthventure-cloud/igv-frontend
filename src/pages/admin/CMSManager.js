@@ -1,345 +1,226 @@
-import React, { useState, useEffect } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { useDropzone } from 'react-dropzone';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 
 const API_URL = process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com';
+const SITE_URL = 'https://israelgrowthventure.com';
+
+// Pages disponibles avec leurs URLs
+const PAGES = [
+  { id: 'home', name: 'Accueil', url: '/' },
+  { id: 'mini-analyse', name: 'Mini-Analyse', url: '/mini-analyse' },
+  { id: 'about', name: 'À Propos', url: '/about' },
+  { id: 'packs', name: 'Packs', url: '/packs' },
+  { id: 'blog', name: 'Blog', url: '/blog' },
+  { id: 'contact', name: 'Contact', url: '/contact' },
+  { id: 'contact-expert', name: 'Contact Expert', url: '/contact-expert' },
+  { id: 'terms', name: 'CGV', url: '/terms' },
+  { id: 'privacy', name: 'Confidentialité', url: '/privacy' },
+  { id: 'cookies', name: 'Cookies', url: '/cookies' },
+];
 
 function CMSManager() {
   const { t, i18n } = useTranslation();
+  const iframeRef = useRef(null);
   
-  // États
-  const [pages, setPages] = useState([]);
-  const [selectedPage, setSelectedPage] = useState('home');
+  const [selectedPage, setSelectedPage] = useState(PAGES[0]);
   const [language, setLanguage] = useState(i18n.language || 'fr');
-  const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
-  const [saving, setSaving] = useState(false);
-  const [media, setMedia] = useState([]);
-  const [showMediaLibrary, setShowMediaLibrary] = useState(false);
-  
-  // Charger la liste des pages au montage
+  const [editMode, setEditMode] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+
+  // URL de la page avec paramètre de langue
+  const getPageUrl = () => {
+    const langParam = language !== 'fr' ? `?lang=${language}` : '';
+    return `${SITE_URL}${selectedPage.url}${langParam}`;
+  };
+
+  // Recharger l'iframe quand page ou langue change
   useEffect(() => {
-    loadPages();
-    loadMedia();
-  }, []);
-  
-  // Charger le contenu quand page ou langue change
-  useEffect(() => {
-    if (selectedPage && language) {
-      loadPageContent(selectedPage, language);
+    setIframeLoaded(false);
+    if (iframeRef.current) {
+      iframeRef.current.src = getPageUrl();
     }
   }, [selectedPage, language]);
-  
-  // Synchroniser avec i18n
-  useEffect(() => {
-    setLanguage(i18n.language);
-  }, [i18n.language]);
-  
-  // Fonctions API
-  const loadPages = async () => {
-    try {
-      const token = localStorage.getItem('admin_token');
-      const res = await axios.get(`${API_URL}/api/pages/list`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setPages(res.data.pages || []);
-      if (res.data.pages.length > 0 && !selectedPage) {
-        setSelectedPage(res.data.pages[0].page);
-      }
-    } catch (error) {
-      console.error('Erreur chargement pages:', error);
-      toast.error('Erreur de chargement des pages');
-    }
+
+  const handleIframeLoad = () => {
+    setIframeLoaded(true);
   };
 
-  // Initialiser les pages CMS si la liste est vide
-  const initializePages = async () => {
-    try {
-      setLoading(true);
-      const token = localStorage.getItem('admin_token');
-      const res = await axios.post(
-        `${API_URL}/api/cms/init-pages`,
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      toast.success(`${res.data.created} pages créées, ${res.data.updated} mises à jour`);
-      await loadPages(); // Recharger la liste
-    } catch (error) {
-      console.error('Erreur initialisation pages:', error);
-      toast.error('Erreur lors de l\'initialisation des pages');
-    } finally {
-      setLoading(false);
-    }
+  // Ouvrir la page dans un nouvel onglet pour édition
+  const openInNewTab = () => {
+    window.open(getPageUrl(), '_blank');
   };
-  
-  const loadPageContent = async (page, lang) => {
-    setLoading(true);
-    try {
-      const token = localStorage.getItem('admin_token');
-      const res = await axios.get(
-        `${API_URL}/api/pages/${page}?language=${lang}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      setContent(res.data.content?.main?.html || '');
-    } catch (error) {
-      console.error('Erreur chargement contenu:', error);
-      setContent('');
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  const handleSave = async () => {
-    setSaving(true);
-    try {
-      const token = localStorage.getItem('admin_token');
-      await axios.post(
-        `${API_URL}/api/pages/update`,
-        {
-          page: selectedPage,
-          language: language,
-          section: 'main',
-          content: { html: content }
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      toast.success(t('cms.saved', 'Sauvegardé avec succès'));
-    } catch (error) {
-      console.error('Erreur sauvegarde:', error);
-      toast.error(t('cms.error', 'Erreur de sauvegarde'));
-    } finally {
-      setSaving(false);
-    }
-  };
-  
-  const loadMedia = async () => {
-    try {
-      const token = localStorage.getItem('admin_token');
-      const res = await axios.get(`${API_URL}/api/admin/media/list`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setMedia(res.data.media || []);
-    } catch (error) {
-      console.error('Erreur chargement médias:', error);
-    }
-  };
-  
-  const handleMediaUpload = async (files) => {
-    for (const file of files) {
-      const formData = new FormData();
-      formData.append('file', file);
-      
-      try {
-        const token = localStorage.getItem('admin_token');
-        const res = await axios.post(
-          `${API_URL}/api/admin/media/upload`,
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              'Content-Type': 'multipart/form-data'
-            }
-          }
-        );
-        toast.success(`Image ${file.name} uploadée`);
-        loadMedia(); // Recharger la liste
-      } catch (error) {
-        console.error('Erreur upload:', error);
-        toast.error(`Erreur upload ${file.name}`);
-      }
-    }
-  };
-  
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: handleMediaUpload,
-    accept: {
-      'image/*': ['.jpeg', '.jpg', '.png', '.gif', '.webp']
-    },
-    maxSize: 10485760 // 10MB
-  });
-  
-  // Configuration Quill
-  const quillModules = {
-    toolbar: [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      [{ color: [] }, { background: [] }],
-      ['link', 'image', 'video'],
-      ['clean']
-    ]
-  };
-  
+
   return (
-    <div className="cms-manager min-h-screen bg-gray-50 p-6">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          {t('cms.title', 'Gestionnaire de Contenu')}
-        </h1>
-        <p className="text-gray-600">
-          {t('cms.subtitle', 'Éditez le contenu de vos pages en temps réel')}
-        </p>
-      </div>
+    <div className="min-h-screen bg-gray-100">
+      {/* Header Toolbar */}
+      <div className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-full mx-auto px-4 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            {/* Title */}
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🖼️</span>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">CMS Visuel</h1>
+                <p className="text-sm text-gray-500">Prévisualisation des pages en temps réel</p>
+              </div>
+            </div>
 
-      {/* Empty state - Initialize pages button */}
-      {pages.length === 0 && (
-        <div className="max-w-7xl mx-auto bg-yellow-50 border border-yellow-200 rounded-lg shadow p-6 mb-6 text-center">
-          <h2 className="text-xl font-semibold text-yellow-800 mb-2">
-            {t('cms.noPages', 'Aucune page dans le CMS')}
-          </h2>
-          <p className="text-yellow-700 mb-4">
-            {t('cms.initDesc', 'Cliquez sur le bouton ci-dessous pour initialiser les pages par défaut (Accueil, À propos, Contact, etc.)')}
-          </p>
-          <button
-            onClick={initializePages}
-            disabled={loading}
-            className="px-6 py-3 bg-yellow-600 text-white font-semibold rounded-md hover:bg-yellow-700 disabled:opacity-50 transition"
-          >
-            {loading ? t('cms.initializing', 'Initialisation...') : t('cms.initButton', '🚀 Initialiser les Pages CMS')}
-          </button>
-        </div>
-      )}
-      
-      {/* Toolbar */}
-      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow p-4 mb-6">
-        <div className="flex flex-wrap gap-4 items-center">
-          {/* Sélecteur de page */}
-          <div className="flex-1 min-w-[200px]">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('cms.page', 'Page')}
-            </label>
-            <select
-              value={selectedPage}
-              onChange={(e) => setSelectedPage(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
-            >
-              {pages.map((page) => (
-                <option key={page.page} value={page.page}>
-                  {page.page.charAt(0).toUpperCase() + page.page.slice(1)}
-                </option>
-              ))}
-            </select>
-          </div>
-          
-          {/* Sélecteur de langue */}
-          <div className="flex-1 min-w-[150px]">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('cms.language', 'Langue')}
-            </label>
-            <select
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="fr">🇫🇷 Français</option>
-              <option value="en">🇬🇧 English</option>
-              <option value="he">🇮🇱 עברית</option>
-            </select>
-          </div>
-          
-          {/* Boutons d'action */}
-          <div className="flex gap-2 items-end">
-            <button
-              onClick={() => setShowMediaLibrary(!showMediaLibrary)}
-              className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition"
-            >
-              📁 {t('cms.media', 'Médias')}
-            </button>
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition disabled:opacity-50"
-            >
-              {saving ? '⏳ Sauvegarde...' : '💾 Sauvegarder'}
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      {/* Bibliothèque média (modal) */}
-      {showMediaLibrary && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-xl p-6 max-w-4xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold">Bibliothèque Média</h2>
+            {/* Page Selector */}
+            <div className="flex items-center gap-4">
+              <div>
+                <label className="block text-xs font-medium text-gray-500 mb-1">Page</label>
+                <select
+                  value={selectedPage.id}
+                  onChange={(e) => setSelectedPage(PAGES.find(p => p.id === e.target.value) || PAGES[0])}
+                  className="border border-gray-300 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-blue-500 min-w-[180px]"
+                >
+                  {PAGES.map((page) => (
+                    <option key={page.id} value={page.id}>
+                      {page.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-gray-500 mb-1">Langue</label>
+                <select
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  className="border border-gray-300 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="fr">🇫🇷 Français</option>
+                  <option value="en">🇬🇧 English</option>
+                  <option value="he">🇮🇱 עברית</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-3">
               <button
-                onClick={() => setShowMediaLibrary(false)}
-                className="text-gray-500 hover:text-gray-700"
+                onClick={() => {
+                  setIframeLoaded(false);
+                  if (iframeRef.current) {
+                    iframeRef.current.src = getPageUrl();
+                  }
+                }}
+                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition flex items-center gap-2"
               >
-                ✕
+                🔄 Actualiser
+              </button>
+              
+              <button
+                onClick={openInNewTab}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2"
+              >
+                ↗️ Ouvrir
               </button>
             </div>
-            
-            {/* Zone de drop */}
-            <div
-              {...getRootProps()}
-              className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition ${
-                isDragActive
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-300 hover:border-gray-400'
-              }`}
-            >
-              <input {...getInputProps()} />
-              <p className="text-gray-600">
-                {isDragActive
-                  ? '📥 Déposez vos images ici...'
-                  : '📤 Glissez-déposez des images ou cliquez pour sélectionner'}
-              </p>
-              <p className="text-sm text-gray-500 mt-2">
-                JPG, PNG, GIF, WebP - Max 10MB
-              </p>
-            </div>
-            
-            {/* Grille d'images */}
-            <div className="grid grid-cols-4 gap-4 mt-6">
-              {media.map((item) => (
-                <div
-                  key={item.filename}
-                  className="relative group cursor-pointer border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition"
-                >
-                  <img
-                    src={item.url}
-                    alt={item.filename}
-                    className="w-full h-32 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition flex items-center justify-center">
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(item.url);
-                        toast.success('URL copiée !');
-                      }}
-                      className="opacity-0 group-hover:opacity-100 bg-white text-gray-900 px-3 py-1 rounded text-sm"
-                    >
-                      Copier URL
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
-      )}
-      
-      {/* Éditeur */}
-      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow">
-        {loading ? (
-          <div className="flex items-center justify-center h-96">
-            <div className="text-gray-500">⏳ Chargement...</div>
+      </div>
+
+      {/* Device Preview Buttons */}
+      <div className="bg-gray-200 border-b border-gray-300 px-4 py-2 flex justify-center gap-4">
+        <button
+          onClick={() => document.getElementById('preview-frame').style.width = '100%'}
+          className="px-3 py-1 bg-white rounded shadow text-sm hover:bg-gray-50"
+        >
+          🖥️ Desktop
+        </button>
+        <button
+          onClick={() => document.getElementById('preview-frame').style.width = '768px'}
+          className="px-3 py-1 bg-white rounded shadow text-sm hover:bg-gray-50"
+        >
+          📱 Tablet
+        </button>
+        <button
+          onClick={() => document.getElementById('preview-frame').style.width = '375px'}
+          className="px-3 py-1 bg-white rounded shadow text-sm hover:bg-gray-50"
+        >
+          📱 Mobile
+        </button>
+      </div>
+
+      {/* Page Info Bar */}
+      <div className="bg-blue-50 border-b border-blue-200 px-4 py-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 text-sm">
+            <span className="font-medium text-blue-800">URL:</span>
+            <a 
+              href={getPageUrl()} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              {getPageUrl()}
+            </a>
           </div>
-        ) : (
-          <ReactQuill
-            theme="snow"
-            value={content}
-            onChange={setContent}
-            modules={quillModules}
-            className="h-[600px]"
+          {!iframeLoaded && (
+            <span className="text-sm text-blue-600 flex items-center gap-2">
+              <span className="animate-spin">⏳</span> Chargement...
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Main Preview Area */}
+      <div className="flex justify-center bg-gray-300 p-4" style={{ minHeight: 'calc(100vh - 200px)' }}>
+        <div 
+          id="preview-frame"
+          className="bg-white shadow-2xl transition-all duration-300"
+          style={{ width: '100%', maxWidth: '100%' }}
+        >
+          {/* Loading Overlay */}
+          {!iframeLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10">
+              <div className="text-center">
+                <div className="animate-spin w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+                <p className="text-gray-600">Chargement de la page...</p>
+              </div>
+            </div>
+          )}
+          
+          {/* Live Preview Iframe */}
+          <iframe
+            ref={iframeRef}
+            src={getPageUrl()}
+            onLoad={handleIframeLoad}
+            className="w-full border-0"
+            style={{ height: 'calc(100vh - 220px)', minHeight: '600px' }}
+            title="Page Preview"
           />
-        )}
+        </div>
+      </div>
+
+      {/* Bottom Help Bar */}
+      <div className="bg-white border-t border-gray-200 px-4 py-3">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-sm">
+          <div className="flex items-center gap-6">
+            <span className="text-gray-600">
+              💡 <strong>Astuce:</strong> Pour modifier le contenu des pages, utilisez les fichiers de traduction i18n
+            </span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a 
+              href="/admin/crm/blog" 
+              className="text-blue-600 hover:underline flex items-center gap-1"
+            >
+              📝 Gérer les articles du blog
+            </a>
+            <span className="text-gray-300">|</span>
+            <a 
+              href="/admin/crm/settings" 
+              className="text-blue-600 hover:underline flex items-center gap-1"
+            >
+              ⚙️ Paramètres
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

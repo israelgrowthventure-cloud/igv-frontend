@@ -59,24 +59,29 @@ const UsersTab = () => {
       setLoadingAction(true);
       
       if (editingUser) {
-        // Update existing user
+        // Update existing user - send ALL fields
         const updateData = { 
           name: `${formData.first_name} ${formData.last_name}`.trim(),
+          first_name: formData.first_name,
+          last_name: formData.last_name,
           role: formData.role,
           is_active: formData.is_active
         };
-        if (updateData.password) {
+        if (formData.password) {
           updateData.password = formData.password;
         }
         await api.put(`/api/crm/settings/users/${editingUser._id || editingUser.id}`, updateData);
         toast.success('Utilisateur modifié avec succès');
       } else {
-        // Create new user - use correct format for backend
+        // Create new user - send ALL fields to backend
         const userData = {
           email: formData.email,
           name: `${formData.first_name} ${formData.last_name}`.trim(),
+          first_name: formData.first_name,
+          last_name: formData.last_name,
           password: formData.password,
-          role: formData.role
+          role: formData.role,
+          is_active: formData.is_active
         };
         await api.post('/api/crm/settings/users', userData);
         toast.success('Utilisateur créé avec succès');

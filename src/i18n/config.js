@@ -14,11 +14,11 @@ i18n
       en: { translation: en },
       he: { translation: he }
     },
-    lng: 'fr', // CORRECTIF: Langue par default FR forcee
     fallbackLng: 'fr',
     supportedLngs: ['fr', 'en', 'he'],
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['querystring', 'localStorage', 'navigator'],
+      lookupQuerystring: 'lng',
       caches: ['localStorage']
     },
     interpolation: {

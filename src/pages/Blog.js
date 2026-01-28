@@ -129,7 +129,7 @@ const Blog = () => {
                   return (
                     <Link 
                       key={article._id} 
-                      to={article.slug ? `/blog/${article.slug}` : '#'}
+                      to={article.slug ? `/future-commerce/${article.slug}` : '#'}
                       className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                     >
                       <div className={`h-48 ${colorClass === 'blue' ? 'bg-blue-600' : colorClass === 'indigo' ? 'bg-indigo-600' : 'bg-purple-600'} flex items-center justify-center text-white text-4xl font-bold`}>

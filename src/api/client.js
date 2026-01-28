@@ -21,7 +21,13 @@ import { LEGACY_ALIASES } from './routes';
 // CONFIGURATION
 // ============================================================
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+if (!BACKEND_URL) {
+  console.error('❌ CRITICAL: REACT_APP_BACKEND_URL must be set');
+  throw new Error('Missing REACT_APP_BACKEND_URL environment variable');
+}
+
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 // Legacy route detection (warn in dev mode)
@@ -101,7 +107,7 @@ apiClient.interceptors.request.use(
 // ============================================================
 
 // Track if we're already handling a logout to prevent loops
-let isLoggingOut = false;
+const LOGOUT_KEY = 'isLoggingOut';
 
 apiClient.interceptors.response.use(
   (response) => {
@@ -112,24 +118,26 @@ apiClient.interceptors.response.use(
     const originalRequest = error.config;
     
     // Handle 401 Unauthorized
-    if (error.response?.status === 401 && !isLoggingOut) {
-      isLoggingOut = true;
-      
-      console.warn('[API] 401 Unauthorized - Token expired or invalid');
-      
-      // Clear token and redirect to login
-      localStorage.removeItem('admin_token');
-      localStorage.removeItem('admin_user');
-      
-      // Only redirect if we're in a browser context and not already on login page
-      if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {
-        window.location.href = '/admin/login';
+    if (error.response?.status === 401) {
+      if (!sessionStorage.getItem(LOGOUT_KEY)) {
+        sessionStorage.setItem(LOGOUT_KEY, 'true');
+        
+        console.warn('[API] 401 Unauthorized - Token expired or invalid');
+        
+        // Clear token and redirect to login
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('admin_user');
+        
+        // Only redirect if we're in a browser context and not already on login page
+        if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {
+          window.location.href = '/admin/login';
+        }
+        
+        // Reset flag after a short delay
+        setTimeout(() => {
+          sessionStorage.removeItem(LOGOUT_KEY);
+        }, 2000);
       }
-      
-      // Reset flag after a short delay
-      setTimeout(() => {
-        isLoggingOut = false;
-      }, 1000);
       
       return Promise.reject(new Error('Session expired. Please log in again.'));
     }

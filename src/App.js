@@ -82,6 +82,10 @@ const CMSManager = lazy(() => import('./pages/admin/CMSManager'));
 // Blog Manager (NEW)
 const BlogManager = lazy(() => import('./pages/admin/BlogManager'));
 
+// Client Pages
+const ClientLogin = lazy(() => import('./pages/client/Login'));
+const ClientDashboard = lazy(() => import('./pages/client/Dashboard'));
+
 // CRM Index Redirect - Handles legacy ?tab= URLs
 import CRMIndexRedirect from './components/crm/CRMIndexRedirect';
 
@@ -200,6 +204,19 @@ function AppContent() {
             <Route path="/payment/return" element={<PaymentReturn />} />
             <Route path="/payment-success" element={<PaymentReturn />} />
             <Route path="/contact-expert" element={<ContactExpert />} />
+            
+            {/* Zone Client */}
+            <Route path="/client/login" element={
+              <Suspense fallback={<Loading />}>
+                <ClientLogin />
+              </Suspense>
+            } />
+            <Route path="/client/dashboard" element={
+              <Suspense fallback={<Loading />}>
+                <ClientDashboard />
+              </Suspense>
+            } />
+            
             <Route path="/admin" element={<Navigate to="/admin/crm/dashboard" replace />} />
             <Route path="/admin/login" element={
               <Suspense fallback={<Loading />}><AdminLogin /></Suspense>

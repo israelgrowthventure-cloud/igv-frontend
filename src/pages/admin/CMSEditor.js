@@ -40,6 +40,14 @@ const PAGE_SECTIONS = {
     { id: 'subtitle', name: 'Sous-titre', type: 'text' },
     { id: 'intro', name: 'Introduction', type: 'html' },
   ],
+  'future-commerce': [
+    { id: 'title', name: 'Titre de la page', type: 'text' },
+    { id: 'subtitle', name: 'Sous-titre', type: 'text' },
+    { id: 'description', name: 'Description', type: 'textarea' },
+    { id: 'cta_title', name: 'Titre CTA', type: 'text' },
+    { id: 'cta_description', name: 'Description CTA', type: 'textarea' },
+    { id: 'cta_button', name: 'Bouton CTA', type: 'text' },
+  ],
 };
 
 const LANGUAGES = [
@@ -54,6 +62,7 @@ const PAGES = [
   { id: 'mini-analyse', name: 'Mini-Analyse', url: '/mini-analyse' },
   { id: 'packs', name: 'Packs', url: '/packs' },
   { id: 'contact', name: 'Contact', url: '/contact' },
+  { id: 'future-commerce', name: 'Blog / Future Commerce', url: '/future-commerce' },
 ];
 
 function CMSEditor() {

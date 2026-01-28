@@ -298,10 +298,11 @@ function CMSEditor() {
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                 <h3 className="font-semibold text-blue-800 mb-1">📝 Édition: {PAGES.find(p => p.id === selectedPage)?.name}</h3>
                 <p className="text-sm text-blue-600">Langue: {LANGUAGES.find(l => l.code === language)?.flag} {LANGUAGES.find(l => l.code === language)?.name}</p>
+                <p className="text-xs text-blue-500 mt-1">✨ Les modifications apparaissent en temps réel dans le preview →</p>
               </div>
 
               {currentPageSections.map(section => (
-                <div key={section.id} className="border border-gray-200 rounded-lg p-4">
+                <div key={section.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     {section.name}
                   </label>
@@ -341,7 +342,54 @@ function CMSEditor() {
           )}
         </div>
 
-        {/* Preview Panel */}
+        {/* Live Preview Panel - VRAIE PAGE DU SITE */}
+        {showPreview && (
+          <div className="w-1/2 bg-gray-100 p-4 overflow-hidden" style={{ maxHeight: 'calc(100vh - 140px)' }}>
+            <div className="bg-white rounded-lg shadow-lg h-full flex flex-col">
+              <div className="bg-gray-800 text-white px-4 py-2 flex items-center justify-between rounded-t-lg">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <span className="text-xs text-gray-300 ml-2">
+                    {SITE_URL}{PAGES.find(p => p.id === selectedPage)?.url}
+                  </span>
+                </div>
+                <a 
+                  href={`${SITE_URL}${PAGES.find(p => p.id === selectedPage)?.url}?lang=${language}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-blue-300 hover:text-blue-100 flex items-center gap-1"
+                >
+                  🔗 Ouvrir dans un nouvel onglet
+                </a>
+              </div>
+              
+              <div className="flex-1 overflow-auto bg-white rounded-b-lg" style={{ width: getPreviewWidth(), margin: '0 auto' }}>
+                <iframe
+                  key={`${selectedPage}-${language}`}
+                  src={`${SITE_URL}${PAGES.find(p => p.id === selectedPage)?.url}?lang=${language}&preview=true`}
+                  className="w-full h-full border-0"
+                  style={{ minHeight: '600px' }}
+                  title="Page Preview"
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                />
+              </div>
+              
+              <div className="bg-gray-50 px-4 py-2 text-xs text-gray-600 border-t rounded-b-lg">
+                💡 Preview en temps réel de la vraie page • Mode: {previewMode === 'desktop' ? 'Bureau' : previewMode === 'tablet' ? 'Tablette' : 'Mobile'}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default CMSEditor;
         {showPreview && (
           <div className="w-1/2 bg-gray-300 p-4 flex justify-center overflow-hidden" style={{ maxHeight: 'calc(100vh - 140px)' }}>
             <div 

@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { toast } from 'sonner';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com';
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
 const SITE_URL = 'https://israelgrowthventure.com';
 
 // Pages et leurs sections éditables
@@ -87,12 +87,12 @@ function CMSEditor() {
         headers: { Authorization: `Bearer ${token}` }
       });
       
-      // Extraire le contenu des sections
-      const content = res.data.content || {};
+      // Structure PLATE: backend retourne directement les champs
+      const pageData = res.data;
       const sectionData = {};
       
       (PAGE_SECTIONS[selectedPage] || []).forEach(section => {
-        sectionData[section.id] = content[section.id] || '';
+        sectionData[section.id] = pageData[section.id] || '';
       });
       
       setSections(sectionData);
@@ -114,12 +114,11 @@ function CMSEditor() {
     try {
       const token = localStorage.getItem('admin_token');
       
-      // Sauvegarder chaque section
+      // Sauvegarder avec structure PLATE
       await axios.post(`${API_URL}/api/pages/update`, {
         page: selectedPage,
         language: language,
-        section: 'main',
-        content: sections
+        ...sections  // Spread: envoie directement { hero_title: "...", services_title: "..." }
       }, {
         headers: { Authorization: `Bearer ${token}` }
       });

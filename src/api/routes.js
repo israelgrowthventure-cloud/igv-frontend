@@ -145,6 +145,10 @@ export const ROUTES = {
     // ==========================================
     activities: {
       list: '/api/crm/activities',
+      detail: (id) => `/api/crm/activities/${id}`,
+      create: '/api/crm/activities',
+      update: (id) => `/api/crm/activities/${id}`,
+      delete: (id) => `/api/crm/activities/${id}`,
     },
     
     // ==========================================

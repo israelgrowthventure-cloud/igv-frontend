@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '../../utils/api';
+import { ROUTES } from '../../api';
 
 const Pipeline = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Pipeline = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await api.get('/api/crm/pipeline');
+      const response = await api.get(ROUTES.crm.pipeline.view);
       setPipeline(response.pipeline || {});
     } catch (err) {
       console.error('Error fetching pipeline:', err);

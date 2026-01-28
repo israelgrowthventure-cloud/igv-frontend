@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '../../utils/api';
+import { ROUTES } from '../../api';
 
 const OpportunitiesPage = () => {
   const { t, i18n } = useTranslation();
@@ -28,7 +29,7 @@ const OpportunitiesPage = () => {
   const fetchOpportunities = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/crm/opportunities', {
+      const response = await api.get(ROUTES.crm.opportunities.list, {
         params: { search: searchTerm, limit: 100 }
       });
       setOpportunities(response?.opportunities || response || []);
@@ -43,7 +44,7 @@ const OpportunitiesPage = () => {
   const handleDelete = async (oppId) => {
     if (!window.confirm(t('crm.opportunities.delete_confirm') || 'Delete this opportunity?')) return;
     try {
-      await api.delete(`/api/crm/opportunities/${oppId}`);
+      await api.delete(ROUTES.crm.opportunities.detail(oppId));
       toast.success(t('crm.opportunities.deleted') || 'Opportunity deleted');
       fetchOpportunities();
     } catch (error) {
@@ -59,7 +60,7 @@ const OpportunitiesPage = () => {
 
   const handleSave = async () => {
     try {
-      await api.put(`/api/crm/opportunities/${selectedOpp.id}`, editData);
+      await api.put(ROUTES.crm.opportunities.detail(selectedOpp.id), editData);
       toast.success(t('crm.opportunities.updated') || 'Opportunity updated');
       setEditing(false);
       setSelectedOpp(null);

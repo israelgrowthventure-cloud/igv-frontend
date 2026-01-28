@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import api from '../../utils/api';
+import { ROUTES } from '../../api';
 
 const ActivitiesPage = () => {
   const { t, i18n } = useTranslation();
@@ -36,7 +37,7 @@ const ActivitiesPage = () => {
       if (searchTerm) params.search = searchTerm;
       if (activeTab !== 'all') params.type = activeTab;
       
-      const response = await api.get('/api/crm/activities', { params });
+      const response = await api.get(ROUTES.crm.activities.list, { params });
       setActivities(response?.activities || response || []);
     } catch (error) {
       console.error('Error fetching activities:', error);
@@ -49,7 +50,7 @@ const ActivitiesPage = () => {
   const handleAddActivity = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/api/crm/activities', newActivity);
+      await api.post(ROUTES.crm.activities.create, newActivity);
       toast.success(t('crm.activities.created') || 'Activity created');
       setShowAddModal(false);
       setNewActivity({ type: 'call', subject: '', lead_id: '', due_date: '', notes: '' });
@@ -61,7 +62,7 @@ const ActivitiesPage = () => {
 
   const handleComplete = async (activityId) => {
     try {
-      await api.put(`/api/crm/activities/${activityId}`, { status: 'completed' });
+      await api.put(ROUTES.crm.activities.update(activityId), { status: 'completed' });
       toast.success(t('crm.activities.completed') || 'Activity completed');
       fetchActivities();
     } catch (error) {
@@ -72,7 +73,7 @@ const ActivitiesPage = () => {
   const handleDelete = async (activityId) => {
     if (!window.confirm(t('crm.activities.delete_confirm') || 'Delete this activity?')) return;
     try {
-      await api.delete(`/api/crm/activities/${activityId}`);
+      await api.delete(ROUTES.crm.activities.delete(activityId));
       toast.success(t('crm.activities.deleted') || 'Activity deleted');
       fetchActivities();
     } catch (error) {

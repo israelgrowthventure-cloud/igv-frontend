@@ -415,11 +415,6 @@ function CMSManager() {
         return null;
     }
   };
-      [{ color: [] }, { background: [] }],
-      ['link', 'image'],
-      ['clean']
-    ]
-  };
 
   const currentPage = PAGES.find(p => p.id === selectedPage);
 

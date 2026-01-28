@@ -123,8 +123,9 @@ test.describe('Blog Complet - Articles + FAQ', () => {
         await page.screenshot({ path: 'test-article-full.png', fullPage: true });
         console.log('   ✅ Contenu article complet OK');
       }
-    } catch (e) {
-      console.log('   ⚠️ Erreur API:', e.message);
+    } catch (e: unknown) {
+      const error = e as Error;
+      console.log('   ⚠️ Erreur API:', error.message);
     }
   });
 });

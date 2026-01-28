@@ -146,16 +146,16 @@ const BlogArticle = () => {
           {/* CTA */}
           <div className="mt-8 bg-blue-600 rounded-xl p-8 text-center text-white">
             <h3 className="text-2xl font-bold mb-2">
-              {t('blog.ctaTitle', 'Vous souhaitez vous développer en Israël ?')}
+              {t('blog.ctaTitle')}
             </h3>
             <p className="mb-4 text-blue-100">
-              {t('blog.ctaDesc', 'Découvrez notre Mini-Analyse gratuite pour évaluer votre potentiel')}
+              {t('blog.ctaDesc')}
             </p>
             <Link 
               to="/mini-analyse"
               className="inline-block px-6 py-3 bg-white text-blue-600 font-semibold rounded-md hover:bg-blue-50 transition"
             >
-              {t('blog.ctaButton', 'Demander ma Mini-Analyse')}
+              {t('blog.ctaButton')}
             </Link>
           </div>
         </div>

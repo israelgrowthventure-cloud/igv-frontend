@@ -189,7 +189,7 @@ const Blog = () => {
                     to="/mini-analyse"
                     className="block w-full text-center px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
                   >
-                    🚀 Demander une Mini-Analyse
+                    🚀 {t('blog.ctaButton', 'Demander une Mini-Analyse')}
                   </Link>
                 </div>
               </div>

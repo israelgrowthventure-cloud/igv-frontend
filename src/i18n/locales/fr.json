@@ -1628,6 +1628,19 @@
   "settings": {
     "title": "Title"
   },
+  "blog": {
+    "title": "Le Blog IGV",
+    "subtitle": "Actualités, tendances et innovations retail en Israël",
+    "backToList": "Retour au blog",
+    "readMore": "Lire l'article",
+    "faqTitle": "Questions Fréquentes",
+    "ctaButton": "Demander une Mini-Analyse",
+    "ctaTitle": "Vous souhaitez vous développer en Israël ?",
+    "ctaDesc": "Découvrez notre Mini-Analyse gratuite pour évaluer votre potentiel",
+    "views": "vues",
+    "loading": "Chargement...",
+    "notFound": "Article non trouvé"
+  },
   "cms": {
     "openEditorTitle": "Ouvrir l'éditeur de site (protégé)"
   },

@@ -27,12 +27,14 @@ function BlogManager() {
   // Article form
   const [articleForm, setArticleForm] = useState({
     title: '', excerpt: '', content: '', category: 'General',
-    language: 'fr', published: false, tags: '', image_url: ''
+    language: 'fr', published: false, tags: '', image_url: '',
+    translate_en: false, translate_he: false
   });
   
   // FAQ form
   const [faqForm, setFaqForm] = useState({
-    question: '', answer: '', language: 'fr', published: true, order: 0
+    question: '', answer: '', language: 'fr', published: true, order: 0,
+    translate_en: false, translate_he: false
   });
   
   const categories = ['General', 'Retail Tech', 'Expansion', 'Success Story', 'Actualités', 'Conseils', 'Interviews'];
@@ -62,7 +64,8 @@ function BlogManager() {
     setEditingArticle(null);
     setArticleForm({
       title: '', excerpt: '', content: '', category: 'General',
-      language: 'fr', published: false, tags: '', image_url: ''
+      language: 'fr', published: false, tags: '', image_url: '',
+      translate_en: true, translate_he: true
     });
     setShowArticleEditor(true);
   };
@@ -77,7 +80,8 @@ function BlogManager() {
       language: article.language || 'fr',
       published: article.published || false,
       tags: (article.tags || []).join(', '),
-      image_url: article.image_url || ''
+      image_url: article.image_url || '',
+      translate_en: false, translate_he: false
     });
     setShowArticleEditor(true);
   };
@@ -91,8 +95,16 @@ function BlogManager() {
     try {
       const token = localStorage.getItem('admin_token');
       const payload = {
-        ...articleForm,
-        tags: articleForm.tags.split(',').map(t => t.trim()).filter(t => t)
+        title: articleForm.title,
+        excerpt: articleForm.excerpt,
+        content: articleForm.content,
+        category: articleForm.category,
+        language: articleForm.language,
+        published: articleForm.published,
+        image_url: articleForm.image_url,
+        tags: articleForm.tags.split(',').map(t => t.trim()).filter(t => t),
+        translate_en: articleForm.translate_en,
+        translate_he: articleForm.translate_he
       };
       
       if (editingArticle) {
@@ -100,9 +112,16 @@ function BlogManager() {
           { headers: { Authorization: `Bearer ${token}` } });
         toast.success('Article mis à jour');
       } else {
-        await axios.post(`${API_URL}/api/blog/admin/articles`, payload,
+        const res = await axios.post(`${API_URL}/api/blog/admin/articles`, payload,
           { headers: { Authorization: `Bearer ${token}` } });
-        toast.success('Article créé');
+        
+        // Afficher les traductions créées
+        if (res.data.translations_created) {
+          const langs = res.data.translations_created.join(', ').toUpperCase();
+          toast.success(`Article créé + traductions ${langs}`);
+        } else {
+          toast.success('Article créé');
+        }
       }
       setShowArticleEditor(false);
       loadArticles();
@@ -167,7 +186,10 @@ function BlogManager() {
 
   const handleNewFaq = () => {
     setEditingFaq(null);
-    setFaqForm({ question: '', answer: '', language: 'fr', published: true, order: faqItems.length });
+    setFaqForm({ 
+      question: '', answer: '', language: 'fr', published: true, order: faqItems.length,
+      translate_en: true, translate_he: true
+    });
     setShowFaqEditor(true);
   };
 
@@ -191,14 +213,30 @@ function BlogManager() {
     setSavingFaq(true);
     try {
       const token = localStorage.getItem('admin_token');
+      const payload = {
+        question: faqForm.question,
+        answer: faqForm.answer,
+        language: faqForm.language,
+        published: faqForm.published,
+        order: faqForm.order,
+        translate_en: faqForm.translate_en,
+        translate_he: faqForm.translate_he
+      };
+      
       if (editingFaq) {
-        await axios.put(`${API_URL}/api/blog/admin/faq/${editingFaq._id}`, faqForm,
+        await axios.put(`${API_URL}/api/blog/admin/faq/${editingFaq._id}`, payload,
           { headers: { Authorization: `Bearer ${token}` } });
         toast.success('FAQ mise à jour');
       } else {
-        await axios.post(`${API_URL}/api/blog/admin/faq`, faqForm,
+        const res = await axios.post(`${API_URL}/api/blog/admin/faq`, payload,
           { headers: { Authorization: `Bearer ${token}` } });
-        toast.success('FAQ créée');
+        
+        if (res.data.translations_created) {
+          const langs = res.data.translations_created.join(', ').toUpperCase();
+          toast.success(`FAQ créée + traductions ${langs}`);
+        } else {
+          toast.success('FAQ créée');
+        }
       }
       setShowFaqEditor(false);
       loadFaq();
@@ -379,6 +417,35 @@ function BlogManager() {
                           onChange={(e) => setArticleForm({...articleForm, published: e.target.checked})} />
                         <label htmlFor="pub">Publier immédiatement</label>
                       </div>
+                      
+                      {/* Traductions automatiques */}
+                      {!editingArticle && articleForm.language === 'fr' && (
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                          <p className="text-sm font-medium text-blue-900 mb-3">🌍 Générer les traductions automatiquement :</p>
+                          <div className="flex flex-wrap gap-4">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input 
+                                type="checkbox" 
+                                checked={articleForm.translate_en} 
+                                onChange={(e) => setArticleForm({...articleForm, translate_en: e.target.checked})}
+                                className="w-5 h-5 text-blue-600 rounded"
+                              />
+                              <span className="text-sm">🇬🇧 Traduire en Anglais</span>
+                            </label>
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input 
+                                type="checkbox" 
+                                checked={articleForm.translate_he} 
+                                onChange={(e) => setArticleForm({...articleForm, translate_he: e.target.checked})}
+                                className="w-5 h-5 text-blue-600 rounded"
+                              />
+                              <span className="text-sm">🇮🇱 Traduire en Hébreu</span>
+                            </label>
+                          </div>
+                          <p className="text-xs text-blue-600 mt-2">Les traductions seront générées automatiquement à la création.</p>
+                        </div>
+                      )}
+                      
                       <div className="flex justify-end gap-3 pt-4 border-t">
                         <button onClick={() => setShowArticleEditor(false)} className="px-4 py-2 border rounded-md">Annuler</button>
                         <button onClick={handleSaveArticle} disabled={savingArticle}
@@ -498,6 +565,34 @@ function BlogManager() {
                           onChange={(e) => setFaqForm({...faqForm, published: e.target.checked})} />
                         <label htmlFor="faqpub">Publier</label>
                       </div>
+                      
+                      {/* Traductions automatiques FAQ */}
+                      {!editingFaq && faqForm.language === 'fr' && (
+                        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                          <p className="text-sm font-medium text-purple-900 mb-3">🌍 Générer les traductions automatiquement :</p>
+                          <div className="flex flex-wrap gap-4">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input 
+                                type="checkbox" 
+                                checked={faqForm.translate_en} 
+                                onChange={(e) => setFaqForm({...faqForm, translate_en: e.target.checked})}
+                                className="w-5 h-5 text-purple-600 rounded"
+                              />
+                              <span className="text-sm">🇬🇧 Traduire en Anglais</span>
+                            </label>
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input 
+                                type="checkbox" 
+                                checked={faqForm.translate_he} 
+                                onChange={(e) => setFaqForm({...faqForm, translate_he: e.target.checked})}
+                                className="w-5 h-5 text-purple-600 rounded"
+                              />
+                              <span className="text-sm">🇮🇱 Traduire en Hébreu</span>
+                            </label>
+                          </div>
+                        </div>
+                      )}
+                      
                       <div className="flex justify-end gap-3 pt-4 border-t">
                         <button onClick={() => setShowFaqEditor(false)} className="px-4 py-2 border rounded-md">Annuler</button>
                         <button onClick={handleSaveFaq} disabled={savingFaq}

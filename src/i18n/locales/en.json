@@ -1606,6 +1606,19 @@
   "settings": {
     "title": "Title"
   },
+  "blog": {
+    "title": "The IGV Blog",
+    "subtitle": "News, trends and retail innovations in Israel",
+    "backToList": "Back to blog",
+    "readMore": "Read article",
+    "faqTitle": "Frequently Asked Questions",
+    "ctaButton": "Request a Mini-Analysis",
+    "ctaTitle": "Want to expand to Israel?",
+    "ctaDesc": "Discover our free Mini-Analysis to evaluate your potential",
+    "views": "views",
+    "loading": "Loading...",
+    "notFound": "Article not found"
+  },
   "cms": {
     "openEditorTitle": "Open Site Editor (Protected)"
   },

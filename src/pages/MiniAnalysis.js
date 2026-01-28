@@ -34,9 +34,11 @@ const MiniAnalysis = () => {
     contraintes: '',
     // Phase 3: Type de projet (auto-filled from pack parameter)
     type_de_projet: '',
-    // Phase 3: Israel-specific fields
+    // Phase 3: Israel-specific fields (backend expects shop_count and shop_cities)
     nombre_points_vente: '',
-    villes_cibles: ''
+    villes_cibles: '',
+    shop_count: '',
+    shop_cities: ''
   });
   
   const [loading, setLoading] = useState(false);

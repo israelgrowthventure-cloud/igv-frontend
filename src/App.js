@@ -189,7 +189,7 @@ function AppContent() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/cookies" element={<CookiesPolicy />} />
             <Route path="/packs" element={<Packs />} />
-            <Route path="/future-commerce" element={<FutureCommerce />} />
+            <Route path="/future-commerce" element={<Blog />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/terms" element={<Terms />} />

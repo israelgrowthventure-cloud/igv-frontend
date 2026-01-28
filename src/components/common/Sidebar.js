@@ -20,7 +20,8 @@ import {
   TrendingUp,
   FileText,
   History,
-  CheckSquare
+  CheckSquare,
+  PenSquare
 } from 'lucide-react';
 import CmsAdminButton from '../CmsAdminButton';
 import { useAuth } from '../../contexts/AuthContext';
@@ -53,6 +54,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
     { id: 'activities', path: '/admin/crm/activities', icon: Activity, label: t('crm.nav.activities', 'Activités') },
     { id: 'emails', path: '/admin/crm/emails', icon: Mail, label: t('crm.nav.emails', 'Emails') },
     { id: 'mini-analyses', path: '/admin/crm/mini-analyses', icon: FileText, label: t('crm.nav.mini_analyses', 'Mini-Analyses'), managerOnly: true },
+    { id: 'blog', path: '/admin/crm/blog', icon: PenSquare, label: t('crm.nav.blog', 'Blog'), managerOnly: true },
     { id: 'kpi', path: '/admin/crm/kpi', icon: TrendingUp, label: t('crm.nav.kpi', 'KPIs'), managerOnly: true },
     { id: 'automation', path: '/admin/crm/automation', icon: Zap, label: t('crm.nav.automation', 'Automatisation'), adminOnly: true },
     { id: 'quality', path: '/admin/crm/quality', icon: CheckSquare, label: t('crm.nav.quality', 'Qualité'), adminOnly: true },

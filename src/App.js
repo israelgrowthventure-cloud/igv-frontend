@@ -23,6 +23,8 @@ import MiniAnalysis from './pages/MiniAnalysis'; // New i18n mini-analysis page
 import About from './pages/About';
 import Packs from './pages/Packs';
 import FutureCommerce from './pages/FutureCommerce';
+import Blog from './pages/Blog';
+import BlogArticle from './pages/BlogArticle';
 import Contact from './pages/Contact';
 import ContactExpert from './pages/ContactExpert'; // Phase 2: High-Ticket Consulting route
 import Appointment from './pages/Appointment';
@@ -76,6 +78,9 @@ const MiniAnalysisWorkflowPage = lazy(() => import('./pages/crm/MiniAnalysisWork
 
 // CMS Manager (NEW)
 const CMSManager = lazy(() => import('./pages/admin/CMSManager'));
+
+// Blog Manager (NEW)
+const BlogManager = lazy(() => import('./pages/admin/BlogManager'));
 
 // CRM Index Redirect - Handles legacy ?tab= URLs
 import CRMIndexRedirect from './components/crm/CRMIndexRedirect';
@@ -185,6 +190,8 @@ function AppContent() {
             <Route path="/cookies" element={<CookiesPolicy />} />
             <Route path="/packs" element={<Packs />} />
             <Route path="/future-commerce" element={<FutureCommerce />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/demande-rappel" element={<DemandeRappel />} />
             <Route path="/sitemap-igv" element={<SitemapView />} />
@@ -226,6 +233,8 @@ function AppContent() {
               <Route path="mini-analyses" element={<MiniAnalysisWorkflowPage />} />
               {/* CMS Manager - NEW */}
               <Route path="cms" element={<CMSManager />} />
+              {/* Blog Manager - NEW */}
+              <Route path="blog" element={<BlogManager />} />
             </Route>
             
             <Route path="/admin/dashboard" element={

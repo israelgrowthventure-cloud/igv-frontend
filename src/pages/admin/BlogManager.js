@@ -326,6 +326,49 @@ function BlogManager() {
                           </select>
                         </div>
                       </div>
+                      {/* Image Upload */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Image de couverture</label>
+                        <div className="flex gap-2">
+                          <input type="text" value={articleForm.image_url} 
+                            onChange={(e) => setArticleForm({...articleForm, image_url: e.target.value})}
+                            className="flex-1 border border-gray-300 rounded-md px-3 py-2" 
+                            placeholder="URL de l'image ou uploadez ci-dessous" />
+                          <input type="file" accept="image/*" id="imageUpload" className="hidden"
+                            onChange={async (e) => {
+                              const file = e.target.files[0];
+                              if (!file) return;
+                              const formData = new FormData();
+                              formData.append('file', file);
+                              try {
+                                const token = localStorage.getItem('admin_token');
+                                const res = await axios.post(`${API_URL}/api/admin/media/upload`, formData, {
+                                  headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
+                                });
+                                setArticleForm({...articleForm, image_url: res.data.url});
+                                toast.success('Image uploadée');
+                              } catch (err) {
+                                toast.error('Erreur upload');
+                              }
+                            }} />
+                          <button type="button" onClick={() => document.getElementById('imageUpload').click()}
+                            className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">
+                            📤 Upload
+                          </button>
+                        </div>
+                        {articleForm.image_url && (
+                          <div className="mt-2">
+                            <img src={articleForm.image_url} alt="Preview" className="h-32 w-auto object-cover rounded-md border" />
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Tags (séparés par virgule)</label>
+                        <input type="text" value={articleForm.tags} 
+                          onChange={(e) => setArticleForm({...articleForm, tags: e.target.value})}
+                          className="w-full border border-gray-300 rounded-md px-3 py-2" 
+                          placeholder="retail, tech, israel" />
+                      </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Contenu</label>
                         <ReactQuill theme="snow" value={articleForm.content} onChange={(v) => setArticleForm({...articleForm, content: v})}

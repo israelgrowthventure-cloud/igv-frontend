@@ -55,6 +55,26 @@ function CMSManager() {
       toast.error('Erreur de chargement des pages');
     }
   };
+
+  // Initialiser les pages CMS si la liste est vide
+  const initializePages = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('admin_token');
+      const res = await axios.post(
+        `${API_URL}/api/cms/init-pages`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      toast.success(`${res.data.created} pages créées, ${res.data.updated} mises à jour`);
+      await loadPages(); // Recharger la liste
+    } catch (error) {
+      console.error('Erreur initialisation pages:', error);
+      toast.error('Erreur lors de l\'initialisation des pages');
+    } finally {
+      setLoading(false);
+    }
+  };
   
   const loadPageContent = async (page, lang) => {
     setLoading(true);
@@ -165,6 +185,25 @@ function CMSManager() {
           {t('cms.subtitle', 'Éditez le contenu de vos pages en temps réel')}
         </p>
       </div>
+
+      {/* Empty state - Initialize pages button */}
+      {pages.length === 0 && (
+        <div className="max-w-7xl mx-auto bg-yellow-50 border border-yellow-200 rounded-lg shadow p-6 mb-6 text-center">
+          <h2 className="text-xl font-semibold text-yellow-800 mb-2">
+            {t('cms.noPages', 'Aucune page dans le CMS')}
+          </h2>
+          <p className="text-yellow-700 mb-4">
+            {t('cms.initDesc', 'Cliquez sur le bouton ci-dessous pour initialiser les pages par défaut (Accueil, À propos, Contact, etc.)')}
+          </p>
+          <button
+            onClick={initializePages}
+            disabled={loading}
+            className="px-6 py-3 bg-yellow-600 text-white font-semibold rounded-md hover:bg-yellow-700 disabled:opacity-50 transition"
+          >
+            {loading ? t('cms.initializing', 'Initialisation...') : t('cms.initButton', '🚀 Initialiser les Pages CMS')}
+          </button>
+        </div>
+      )}
       
       {/* Toolbar */}
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow p-4 mb-6">

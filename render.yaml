@@ -16,6 +16,8 @@ services:
         value: 20.18.3
       - key: REACT_APP_API_URL
         value: https://igv-cms-backend.onrender.com
+      - key: REACT_APP_BACKEND_URL
+        value: https://igv-cms-backend.onrender.com
       - key: GENERATE_SOURCEMAP
         value: false
       - key: CI

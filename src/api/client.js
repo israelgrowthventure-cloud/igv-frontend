@@ -21,11 +21,11 @@ import { LEGACY_ALIASES } from './routes';
 // CONFIGURATION
 // ============================================================
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_API_URL;
 
 if (!BACKEND_URL) {
-  console.error('❌ CRITICAL: REACT_APP_BACKEND_URL must be set');
-  throw new Error('Missing REACT_APP_BACKEND_URL environment variable');
+  console.error('❌ CRITICAL: REACT_APP_BACKEND_URL or REACT_APP_API_URL must be set');
+  throw new Error('Missing REACT_APP_BACKEND_URL or REACT_APP_API_URL environment variable');
 }
 
 const IS_DEV = process.env.NODE_ENV === 'development';

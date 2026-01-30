@@ -3,7 +3,12 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { toast } from 'sonner';
-import PageRenderer from '../../components/cms/PageRenderer';
+import { CMSEditProvider } from '../../contexts/CMSEditContext';
+
+// Import des vraies pages du site
+import Home from '../Home';
+import About from '../About';
+import Contact from '../Contact';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
 const SITE_URL = 'https://israelgrowthventure.com';
@@ -90,15 +95,15 @@ const LANGUAGES = [
 ];
 
 const PAGES = [
-  { id: 'home', name: '🏠 Accueil', url: '/' },
-  { id: 'about', name: 'ℹ️ À Propos', url: '/about' },
-  { id: 'services', name: '⚙️ Services', url: '/services' },
-  { id: 'blog', name: '📝 Blog', url: '/blog' },
-  { id: 'mini-analyse', name: '📊 Mini-Analyse', url: '/mini-analyse' },
-  { id: 'packs', name: '📦 Packs', url: '/packs' },
-  { id: 'faq', name: '❓ FAQ', url: '/faq' },
-  { id: 'contact', name: '📞 Contact', url: '/contact' },
-  { id: 'future-commerce', name: '🚀 Future Commerce', url: '/future-commerce' },
+  { id: 'home', name: '🏠 Accueil', url: '/', component: Home },
+  { id: 'about', name: 'ℹ️ À Propos', url: '/about', component: About },
+  { id: 'services', name: '⚙️ Services', url: '/services', component: null },
+  { id: 'blog', name: '📝 Blog', url: '/blog', component: null },
+  { id: 'mini-analyse', name: '📊 Mini-Analyse', url: '/mini-analyse', component: null },
+  { id: 'packs', name: '📦 Packs', url: '/packs', component: null },
+  { id: 'faq', name: '❓ FAQ', url: '/faq', component: null },
+  { id: 'contact', name: '📞 Contact', url: '/contact', component: Contact },
+  { id: 'future-commerce', name: '🚀 Future Commerce', url: '/future-commerce', component: null },
 ];
 
 function CMSEditor() {
@@ -195,6 +200,12 @@ function CMSEditor() {
   };
 
   const currentPageSections = PAGE_SECTIONS[selectedPage] || [];
+  const currentPageComponent = PAGES.find(p => p.id === selectedPage)?.component;
+  
+  // Fonction pour gérer les changements de contenu depuis les éléments éditables
+  const handleContentChange = (key, value) => {
+    handleSectionChange(key, value);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -282,7 +293,7 @@ function CMSEditor() {
 
       {/* Main Content */}
       <div className="flex">
-        {/* Editor Panel - Rendu IDENTIQUE à Preview mais éditable */}
+        {/* Editor Panel - VRAIE PAGE du site en mode éditable */}
         <div className={`${showPreview ? 'w-1/2' : 'w-full'} bg-white overflow-y-auto`} style={{ maxHeight: 'calc(100vh - 140px)' }}>
           {loading ? (
             <div className="flex items-center justify-center h-64">
@@ -293,25 +304,31 @@ function CMSEditor() {
               <div className="bg-blue-50 border-b border-blue-200 px-6 py-4 sticky top-0 z-10">
                 <h3 className="font-semibold text-blue-800 mb-1">✏️ Mode ÉDITION: {PAGES.find(p => p.id === selectedPage)?.name}</h3>
                 <p className="text-sm text-blue-600">Langue: {LANGUAGES.find(l => l.code === language)?.flag} {LANGUAGES.find(l => l.code === language)?.name}</p>
-                <p className="text-xs text-blue-500 mt-1">💡 Cliquez sur un élément pour l'éditer directement • Même rendu que l'aperçu →</p>
+                <p className="text-xs text-blue-500 mt-1">💡 Cliquez sur un élément pour l'éditer directement • Page réelle du site avec tous les éléments →</p>
               </div>
 
-              <PageRenderer 
-                page={selectedPage}
-                language={language}
-                content={sections}
-                editable={true}
-                onEdit={(key, value) => {
-                  if (value !== undefined) {
-                    handleSectionChange(key, value);
-                  }
-                }}
-              />
+              <CMSEditProvider 
+                isEditing={true}
+                cmsContent={sections}
+                onContentChange={handleContentChange}
+              >
+                {currentPageComponent ? (
+                  React.createElement(currentPageComponent, {
+                    cmsContentOverride: sections,
+                    key: `${selectedPage}-${language}`
+                  })
+                ) : (
+                  <div className="p-8 text-center text-gray-500">
+                    <p className="text-lg mb-4">⚠️ Page "{selectedPage}" non encore connectée</p>
+                    <p className="text-sm">La vraie page doit être importée et rendue éditable.</p>
+                  </div>
+                )}
+              </CMSEditProvider>
             </div>
           )}
         </div>
 
-        {/* Live Preview Panel - VRAIE PAGE DU SITE */}
+        {/* Live Preview Panel - VRAIE PAGE DU SITE en lecture seule */}
         {showPreview && (
           <div className="w-1/2 bg-gray-100 p-4 overflow-hidden" style={{ maxHeight: 'calc(100vh - 140px)' }}>
             <div className="bg-white rounded-lg shadow-lg h-full flex flex-col">
@@ -337,12 +354,24 @@ function CMSEditor() {
               </div>
               
               <div className="flex-1 overflow-auto bg-white" style={{ width: getPreviewWidth(), margin: '0 auto' }}>
-                <PageRenderer 
-                  page={selectedPage}
-                  language={language}
-                  content={sections}
-                  editable={false}
-                />
+                <CMSEditProvider 
+                  isEditing={false}
+                  cmsContent={sections}
+                  onContentChange={() => {}}
+                >
+                  {currentPageComponent ? (
+                    React.createElement(currentPageComponent, {
+                      cmsContentOverride: sections,
+                      key: `preview-${selectedPage}-${language}`
+                    })
+                  ) : (
+                    <iframe
+                      src={`${SITE_URL}${PAGES.find(p => p.id === selectedPage)?.url}?lang=${language}`}
+                      className="w-full h-full border-0"
+                      title="Preview"
+                    />
+                  )}
+                </CMSEditProvider>
               </div>
               
               <div className="bg-gray-50 px-4 py-2 text-xs text-gray-600 border-t rounded-b-lg">

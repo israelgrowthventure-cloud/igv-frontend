@@ -5,14 +5,19 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle, TrendingUp, Users, Building } from 'lucide-react';
 import { api } from '../utils/api';
 import axios from 'axios';
+import { useCMSEdit, useEditableField } from '../contexts/CMSEditContext';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 
-const Home = () => {
+const Home = ({ cmsContentOverride = null }) => {
   const { t, i18n } = useTranslation();
   const [location, setLocation] = useState(null);
-  const [cmsContent, setCmsContent] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [cmsContent, setCmsContent] = useState(cmsContentOverride);
+  const [loading, setLoading] = useState(!cmsContentOverride);
+  const { isEditing, cmsContent: contextCmsContent } = useCMSEdit();
+  
+  // Utiliser le contenu du contexte si en mode édition
+  const content = isEditing ? contextCmsContent : cmsContent;
 
   useEffect(() => {
     // Detect user location on mount
@@ -22,6 +27,9 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    // Ne pas charger si le contenu est déjà fourni (mode CMS) ou en mode édition
+    if (cmsContentOverride || isEditing) return;
+    
     // Charger le contenu CMS pour la page Home
     const loadCmsContent = async () => {
       try {
@@ -35,24 +43,27 @@ const Home = () => {
     };
     
     loadCmsContent();
-  }, [i18n.language]);
+  }, [i18n.language, cmsContentOverride, isEditing]);
 
   const steps = [
     {
       number: '1',
-      title: cmsContent?.service1_title || t('steps.step1.title'),
-      description: cmsContent?.service1_description || t('steps.step1.description'),
+      title: content?.service1_title || t('steps.step1.title'),
+      description: content?.service1_description || t('steps.step1.description'),
       icon: Users,
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop'
     },
     {
       number: '2',
-      title: cmsContent?.service2_title || t('steps.step2.title'),
-      description: cmsContent?.service2_description || t('steps.step2.description'),
+      title: content?.service2_title || t('steps.step2.title'),
+      description: content?.service2_description || t('steps.step2.description'),
       icon: TrendingUp,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop'
     },
     {
+      number: '3',
+      title: content?.service3_title || t('steps.step3.title'),
+      description: c
       number: '3',
       title: cmsContent?.service3_title || t('steps.step3.title'),
       description: cmsContent?.service3_description || t('steps.step3.description'),
@@ -81,14 +92,38 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-testid="hero-section">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                {cmsContent?.hero_title || t('hero.title')}
+              <h1 
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                {...(isEditing ? {
+                  'data-cms-key': 'hero_title',
+                  'contentEditable': true,
+                  'suppressContentEditableWarning': true,
+                  'className': 'text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight cms-editable-field'
+                } : {})}
+              >
+                {content?.hero_title || t('hero.title')}
               </h1>
-              <p className="text-xl text-gray-600 mb-4 font-medium">
-                {cmsContent?.hero_subtitle || t('hero.subtitle')}
+              <p 
+                className="text-xl text-gray-600 mb-4 font-medium"
+                {...(isEditing ? {
+                  'data-cms-key': 'hero_subtitle',
+                  'contentEditable': true,
+                  'suppressContentEditableWarning': true,
+                  'className': 'text-xl text-gray-600 mb-4 font-medium cms-editable-field'
+                } : {})}
+              >
+                {content?.hero_subtitle || t('hero.subtitle')}
               </p>
-              <p className="text-base text-gray-600 mb-8 leading-relaxed">
-                {cmsContent?.hero_description || t('hero.description')}
+              <p 
+                className="text-base text-gray-600 mb-8 leading-relaxed"
+                {...(isEditing ? {
+                  'data-cms-key': 'hero_description',
+                  'contentEditable': true,
+                  'suppressContentEditableWarning': true,
+                  'className': 'text-base text-gray-600 mb-8 leading-relaxed cms-editable-field'
+                } : {})}
+              >
+                {content?.hero_description || t('hero.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -96,7 +131,16 @@ const Home = () => {
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white text-base font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
                   data-testid="hero-appointment-btn"
                 >
-                  {cmsContent?.hero_cta || t('hero.bookAppointment')}
+                  <span 
+                    {...(isEditing ? {
+                      'data-cms-key': 'hero_cta',
+                      'contentEditable': true,
+                      'suppressContentEditableWarning': true,
+                      'className': 'cms-editable-field'
+                    } : {})}
+                  >
+                    {content?.hero_cta || t('hero.bookAppointment')}
+                  </span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link

@@ -1,0 +1,43 @@
+/* CMS Editable Fields Styling */
+.cms-editable-field {
+  position: relative;
+  transition: all 0.2s ease;
+  cursor: text;
+  min-height: 1.2em;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.cms-editable-field:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  outline: 2px solid rgba(59, 130, 246, 0.3);
+  outline-offset: 2px;
+}
+
+.cms-editable-field:focus {
+  background-color: rgba(59, 130, 246, 0.15);
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}
+
+.cms-editable-field::before {
+  content: attr(data-cms-key);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: #3b82f6;
+  color: white;
+  padding: 2px 8px;
+  font-size: 10px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.cms-editable-field:hover::before,
+.cms-editable-field:focus::before {
+  opacity: 1;
+}

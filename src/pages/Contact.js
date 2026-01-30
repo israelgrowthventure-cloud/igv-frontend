@@ -5,10 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { Mail, MapPin, Send } from 'lucide-react';
 import { api } from '../utils/api';
 import { toast } from 'sonner';
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 
 const Contact = () => {
   const { t, i18n } = useTranslation();
   const [searchParams] = useSearchParams();
+  const [cmsContent, setCmsContent] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,6 +21,19 @@ const Contact = () => {
     message: ''
   });
   const [loading, setLoading] = useState(false);
+
+  // Charger le contenu CMS
+  useEffect(() => {
+    const loadCmsContent = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/pages/contact?language=${i18n.language}`);
+        setCmsContent(response.data);
+      } catch (error) {
+        console.error('Failed to load CMS content:', error);
+      }
+    };
+    loadCmsContent();
+  }, [i18n.language]);
 
   // Pré-remplir email depuis URL (si redirigé depuis l'analyse)
   useEffect(() => {
@@ -71,10 +88,10 @@ const Contact = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            {t('contact.title')}
+            {cmsContent?.title || t('contact.title')}
           </h1>
           <p className="text-lg text-gray-600">
-            {t('contact.subtitle')}
+            {cmsContent?.subtitle || t('contact.subtitle')}
           </p>
         </div>
       </section>

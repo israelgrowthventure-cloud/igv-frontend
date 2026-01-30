@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Building, Users, Target } from 'lucide-react';
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [cmsContent, setCmsContent] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadCmsContent = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/pages/about?language=${i18n.language}`);
+        setCmsContent(response.data);
+      } catch (error) {
+        console.error('Failed to load CMS content:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadCmsContent();
+  }, [i18n.language]);
   
   return (
     <>
@@ -19,25 +38,18 @@ const About = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              {t('about.title')}
+              {cmsContent?.title || t('about.title')}
             </h1>
             <p className="text-xl text-gray-600">
-              {t('about.description')}
+              {cmsContent?.intro || t('about.description')}
             </p>
           </div>
 
           {/* What we do */}
           <section className="mb-16">
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed mb-8">
-                {t('about.collaboration')}
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-8">
-                {t('about.support')}
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                {t('about.service')}
-              </p>
+              <div className="text-gray-700 leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: cmsContent?.mission || t('about.collaboration') }} />
+              <div className="text-gray-700 leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: cmsContent?.team || t('about.support') }} />
             </div>
           </section>
 

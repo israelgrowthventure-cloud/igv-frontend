@@ -62,9 +62,6 @@ const Home = ({ cmsContentOverride = null }) => {
     },
     {
       number: '3',
-      title: content?.service3_title || t('steps.step3.title'),
-      description: c
-      number: '3',
       title: cmsContent?.service3_title || t('steps.step3.title'),
       description: cmsContent?.service3_description || t('steps.step3.description'),
       icon: Building,

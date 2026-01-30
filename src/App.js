@@ -76,8 +76,8 @@ const RBACPage = lazy(() => import('./pages/admin/RBACPage'));
 const AuditLogsPage = lazy(() => import('./pages/admin/AuditLogsPage'));
 const MiniAnalysisWorkflowPage = lazy(() => import('./pages/crm/MiniAnalysisWorkflowPage'));
 
-// CMS Manager (NEW)
-const CMSManager = lazy(() => import('./pages/admin/CMSManager'));
+// CMS WYSIWYG Editor (NEW - with PageRenderer)
+const CMSEditor = lazy(() => import('./pages/admin/CMSEditor'));
 
 // Blog Manager (NEW)
 const BlogManager = lazy(() => import('./pages/admin/BlogManager'));
@@ -248,8 +248,8 @@ function AppContent() {
               <Route path="rbac" element={<RBACPage />} />
               <Route path="audit" element={<AuditLogsPage />} />
               <Route path="mini-analyses" element={<MiniAnalysisWorkflowPage />} />
-              {/* CMS Manager - NEW */}
-              <Route path="cms" element={<CMSManager />} />
+              {/* CMS WYSIWYG Editor - NEW */}
+              <Route path="cms" element={<CMSEditor />} />
               {/* Blog Manager - NEW */}
               <Route path="blog" element={<BlogManager />} />
             </Route>

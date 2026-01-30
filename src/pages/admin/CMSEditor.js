@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { toast } from 'sonner';
+import PageRenderer from '../../components/cms/PageRenderer';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
 const SITE_URL = 'https://israelgrowthventure.com';
@@ -149,8 +150,8 @@ function CMSEditor() {
     try {
       const token = localStorage.getItem('admin_token');
       
-      // Sauvegarder avec structure PLATE
-      await axios.post(`${API_URL}/api/pages/update`, {
+      // Sauvegarder avec structure PLATE (flat)
+      await axios.post(`${API_URL}/api/pages/update-flat`, {
         page: selectedPage,
         language: language,
         ...sections  // Spread: envoie directement { hero_title: "...", services_title: "..." }
@@ -281,63 +282,31 @@ function CMSEditor() {
 
       {/* Main Content */}
       <div className="flex">
-        {/* Editor Panel */}
-        <div className={`${showPreview ? 'w-1/2' : 'w-full'} bg-white p-6 overflow-y-auto`} style={{ maxHeight: 'calc(100vh - 140px)' }}>
+        {/* Editor Panel - Rendu IDENTIQUE à Preview mais éditable */}
+        <div className={`${showPreview ? 'w-1/2' : 'w-full'} bg-white overflow-y-auto`} style={{ maxHeight: 'calc(100vh - 140px)' }}>
           {loading ? (
             <div className="flex items-center justify-center h-64">
               <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full"></div>
             </div>
-          ) : currentPageSections.length === 0 ? (
-            <div className="text-center py-12 text-gray-500">
-              <p className="text-xl mb-2">📝</p>
-              <p>Aucune section éditable pour cette page.</p>
-              <p className="text-sm mt-2">Les sections seront bientôt disponibles.</p>
-            </div>
           ) : (
-            <div className="space-y-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                <h3 className="font-semibold text-blue-800 mb-1">📝 Édition: {PAGES.find(p => p.id === selectedPage)?.name}</h3>
+            <div>
+              <div className="bg-blue-50 border-b border-blue-200 px-6 py-4 sticky top-0 z-10">
+                <h3 className="font-semibold text-blue-800 mb-1">✏️ Mode ÉDITION: {PAGES.find(p => p.id === selectedPage)?.name}</h3>
                 <p className="text-sm text-blue-600">Langue: {LANGUAGES.find(l => l.code === language)?.flag} {LANGUAGES.find(l => l.code === language)?.name}</p>
-                <p className="text-xs text-blue-500 mt-1">✨ Les modifications apparaissent en temps réel dans le preview →</p>
+                <p className="text-xs text-blue-500 mt-1">💡 Cliquez sur un élément pour l'éditer directement • Même rendu que l'aperçu →</p>
               </div>
 
-              {currentPageSections.map(section => (
-                <div key={section.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    {section.name}
-                  </label>
-                  
-                  {section.type === 'text' && (
-                    <input
-                      type="text"
-                      value={sections[section.id] || ''}
-                      onChange={(e) => handleSectionChange(section.id, e.target.value)}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
-                      placeholder={`Entrez ${section.name.toLowerCase()}...`}
-                    />
-                  )}
-                  
-                  {section.type === 'textarea' && (
-                    <textarea
-                      value={sections[section.id] || ''}
-                      onChange={(e) => handleSectionChange(section.id, e.target.value)}
-                      rows={4}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
-                      placeholder={`Entrez ${section.name.toLowerCase()}...`}
-                    />
-                  )}
-                  
-                  {section.type === 'html' && (
-                    <ReactQuill
-                      theme="snow"
-                      value={sections[section.id] || ''}
-                      onChange={(value) => handleSectionChange(section.id, value)}
-                      modules={quillModules}
-                      className="bg-white"
-                    />
-                  )}
-                </div>
-              ))}
+              <PageRenderer 
+                page={selectedPage}
+                language={language}
+                content={sections}
+                editable={true}
+                onEdit={(key, value) => {
+                  if (value !== undefined) {
+                    handleSectionChange(key, value);
+                  }
+                }}
+              />
             </div>
           )}
         </div>
@@ -367,57 +336,21 @@ function CMSEditor() {
                 </a>
               </div>
               
-              <div className="flex-1 overflow-auto bg-white rounded-b-lg" style={{ width: getPreviewWidth(), margin: '0 auto' }}>
-                <iframe
-                  key={`${selectedPage}-${language}`}
-                  src={`${SITE_URL}${PAGES.find(p => p.id === selectedPage)?.url}?lang=${language}&preview=true`}
-                  className="w-full h-full border-0"
-                  style={{ minHeight: '600px' }}
-                  title="Page Preview"
-                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              <div className="flex-1 overflow-auto bg-white" style={{ width: getPreviewWidth(), margin: '0 auto' }}>
+                <PageRenderer 
+                  page={selectedPage}
+                  language={language}
+                  content={sections}
+                  editable={false}
                 />
               </div>
               
               <div className="bg-gray-50 px-4 py-2 text-xs text-gray-600 border-t rounded-b-lg">
-                💡 Preview en temps réel de la vraie page • Mode: {previewMode === 'desktop' ? 'Bureau' : previewMode === 'tablet' ? 'Tablette' : 'Mobile'}
+                💡 Preview temps réel • Mode: {previewMode === 'desktop' ? 'Bureau' : previewMode === 'tablet' ? 'Tablette' : 'Mobile'}
               </div>
             </div>
           </div>
         )}
-      </div>
-    </div>
-  );
-}
-
-export default CMSEditor;
-        {showPreview && (
-          <div className="w-1/2 bg-gray-300 p-4 flex justify-center overflow-hidden" style={{ maxHeight: 'calc(100vh - 140px)' }}>
-            <div 
-              className="bg-white shadow-xl transition-all duration-300 overflow-hidden"
-              style={{ width: getPreviewWidth(), maxWidth: '100%' }}
-            >
-              <iframe
-                src={`${SITE_URL}${PAGES.find(p => p.id === selectedPage)?.url || '/'}?lang=${language}`}
-                className="w-full border-0"
-                style={{ height: 'calc(100vh - 180px)' }}
-                title="Preview"
-              />
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-40">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-sm">
-          <span className="text-gray-500">
-            💡 Les modifications seront visibles après le prochain déploiement ou rechargement du cache.
-          </span>
-          <div className="flex gap-4">
-            <a href="/admin/crm/blog" className="text-blue-600 hover:underline">📝 Blog & FAQ</a>
-            <a href={`${SITE_URL}${PAGES.find(p => p.id === selectedPage)?.url || '/'}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">↗️ Voir en live</a>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle, TrendingUp, Users, Building } from 'lucide-react';
 import { api } from '../utils/api';
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [location, setLocation] = useState(null);
+  const [cmsContent, setCmsContent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Detect user location on mount
@@ -16,25 +21,41 @@ const Home = () => {
     });
   }, []);
 
+  useEffect(() => {
+    // Charger le contenu CMS pour la page Home
+    const loadCmsContent = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/pages/home?language=${i18n.language}`);
+        setCmsContent(response.data);
+      } catch (error) {
+        console.error('Failed to load CMS content:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadCmsContent();
+  }, [i18n.language]);
+
   const steps = [
     {
       number: '1',
-      title: t('steps.step1.title'),
-      description: t('steps.step1.description'),
+      title: cmsContent?.service1_title || t('steps.step1.title'),
+      description: cmsContent?.service1_description || t('steps.step1.description'),
       icon: Users,
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop'
     },
     {
       number: '2',
-      title: t('steps.step2.title'),
-      description: t('steps.step2.description'),
+      title: cmsContent?.service2_title || t('steps.step2.title'),
+      description: cmsContent?.service2_description || t('steps.step2.description'),
       icon: TrendingUp,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop'
     },
     {
       number: '3',
-      title: t('steps.step3.title'),
-      description: t('steps.step3.description'),
+      title: cmsContent?.service3_title || t('steps.step3.title'),
+      description: cmsContent?.service3_description || t('steps.step3.description'),
       icon: Building,
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop'
     }
@@ -61,13 +82,13 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-testid="hero-section">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                {t('hero.title')}
+                {cmsContent?.hero_title || t('hero.title')}
               </h1>
               <p className="text-xl text-gray-600 mb-4 font-medium">
-                {t('hero.subtitle')}
+                {cmsContent?.hero_subtitle || t('hero.subtitle')}
               </p>
               <p className="text-base text-gray-600 mb-8 leading-relaxed">
-                {t('hero.description')}
+                {cmsContent?.hero_description || t('hero.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -75,7 +96,7 @@ const Home = () => {
                   className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white text-base font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
                   data-testid="hero-appointment-btn"
                 >
-                  {t('hero.bookAppointment')}
+                  {cmsContent?.hero_cta || t('hero.bookAppointment')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link
@@ -225,10 +246,10 @@ const Home = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            {t('home.cta.title')}
+            {cmsContent?.cta_title || t('home.cta.title')}
           </h2>
           <p className="text-lg text-blue-100 mb-8">
-            {t('home.cta.subtitle')}
+            {cmsContent?.cta_subtitle || t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -236,7 +257,7 @@ const Home = () => {
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 text-base font-semibold rounded-lg hover:bg-gray-100 transition-colors"
               data-testid="cta-appointment-btn"
             >
-              {t('hero.bookAppointment')}
+              {cmsContent?.cta_button || t('hero.bookAppointment')}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <Link

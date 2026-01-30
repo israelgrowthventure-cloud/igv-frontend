@@ -232,11 +232,11 @@ export const ROUTES = {
     },
     
     // ==========================================
-    // CRM - TEAM (routes canoniques vers settings/users)
+    // CRM - TEAM (routes canoniques vers admin/users)
     // ==========================================
     team: {
-      list: '/api/crm/settings/users',
-      assign: '/api/crm/settings/users/assign',
+      list: '/api/admin/users',
+      assign: '/api/admin/users/assign',
     },
     
     // ==========================================
@@ -266,12 +266,12 @@ export const ROUTES = {
     // ==========================================
     settings: {
       general: '/api/crm/settings',
-      users: '/api/crm/settings/users',
-      createUser: '/api/crm/settings/users',
-      updateUser: (id) => `/api/crm/settings/users/${id}`,
-      deleteUser: (id) => `/api/crm/settings/users/${id}`,
-      changePassword: (id) => `/api/crm/settings/users/${id}/change-password`,
-      assignUser: (id) => `/api/crm/settings/users/${id}/assign`,
+      users: '/api/admin/users',
+      createUser: '/api/admin/users',
+      updateUser: (id) => `/api/admin/users/${id}`,
+      deleteUser: (id) => `/api/admin/users/${id}`,
+      changePassword: (id) => `/api/admin/users/${id}/change-password`,
+      assignUser: (id) => `/api/admin/users/${id}/assign`,
       tags: '/api/crm/settings/tags',
       createTag: '/api/crm/settings/tags',
       pipelineStages: '/api/crm/settings/pipeline-stages',

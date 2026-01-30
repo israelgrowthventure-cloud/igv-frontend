@@ -32,7 +32,7 @@ const UsersTab = () => {
   const loadUsers = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/crm/settings/users');
+      const response = await api.get('/api/admin/users');
       setUsers(response.users || response.data?.users || response.data || []);
     } catch (error) {
       console.error('Erreur chargement users:', error);
@@ -70,7 +70,7 @@ const UsersTab = () => {
         if (formData.password) {
           updateData.password = formData.password;
         }
-        await api.put(`/api/crm/settings/users/${editingUser._id || editingUser.id}`, updateData);
+        await api.put(`/api/admin/users/${editingUser._id || editingUser.id}`, updateData);
         toast.success('Utilisateur modifié avec succès');
       } else {
         // Create new user - send ALL fields to backend
@@ -83,7 +83,7 @@ const UsersTab = () => {
           role: formData.role,
           is_active: formData.is_active
         };
-        await api.post('/api/crm/settings/users', userData);
+        await api.post('/api/admin/users', userData);
         toast.success('Utilisateur créé avec succès');
       }
       
@@ -107,7 +107,7 @@ const UsersTab = () => {
 
     try {
       setLoadingAction(true);
-      await api.delete(`/api/crm/settings/users/${userId}`);
+      await api.delete(`/api/admin/users/${userId}`);
       toast.success('Utilisateur supprimé avec succès');
       await loadUsers();
     } catch (error) {

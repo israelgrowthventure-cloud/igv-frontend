@@ -69,9 +69,12 @@
   "scripts": {
     "start": "node server.js",
     "dev": "craco start",
+    "quality:gate": "powershell -ExecutionPolicy Bypass -File ./scripts/quality-gate.ps1",
     "build": "cross-env CI=false craco build",
     "build:win": "set CI=false && craco build",
-    "test": "craco test"
+    "pretest": "npm run quality:gate",
+    "test": "craco test",
+    "test:proof": "playwright test tests/proof-users-flow.spec.ts"
   },
   "browserslist": {
     "production": [

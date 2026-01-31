@@ -1,146 +1,196 @@
 import React from 'react';
 
 /**
- * PageRenderer - Composant qui affiche la page exactement comme APERÇU
+ * PageRenderer - Affiche la VRAIE page complète avec design, images, etc.
  * Modes:
- * - editable=false: Mode preview pur (identique iframe)
+ * - editable=false: Mode preview (lecture seule)
  * - editable=true: Mode édition inline avec data-cms-key
  */
 const PageRenderer = ({ page, language, content, editable = false, onEdit }) => {
   
-  const handleClick = (key) => {
-    if (editable && onEdit) {
-      onEdit(key);
-    }
-  };
-
   const getEditableProps = (key) => {
     if (!editable) return {};
     return {
       'data-cms-key': key,
       'contentEditable': true,
       'suppressContentEditableWarning': true,
-      'onClick': () => handleClick(key),
       'onBlur': (e) => onEdit && onEdit(key, e.currentTarget.textContent),
-      'className': 'cms-editable cursor-pointer hover:outline hover:outline-2 hover:outline-blue-500 transition-all',
+      'className': 'cms-editable cursor-pointer hover:outline hover:outline-2 hover:outline-blue-500 hover:bg-yellow-50 transition-all',
+      style: { minHeight: '1em' }, // Pour que les champs vides restent cliquables
     };
   };
 
-  // Rendu pour la page HOME
+  // Rendu pour la page HOME - Design complet avec images
   if (page === 'home') {
     return (
-      <div className="w-full">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
-          <div className="container mx-auto px-4">
-            <h1 
-              className="text-5xl font-bold mb-4"
-              {...getEditableProps('hero_title')}
-            >
-              {content.hero_title || 'Titre Hero'}
-            </h1>
-            <h2 
-              className="text-2xl mb-6"
-              {...getEditableProps('hero_subtitle')}
-            >
-              {content.hero_subtitle || 'Sous-titre'}
-            </h2>
-            <p 
-              className="text-lg mb-8 max-w-2xl"
-              {...getEditableProps('hero_description')}
-            >
-              {content.hero_description || 'Description'}
-            </p>
-            <div className="flex gap-4">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                {content.hero_cta || 'Commencer'}
-              </button>
+      <div className="w-full min-h-screen bg-white">
+        {/* Hero Section - Design premium */}
+        <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50 -z-10" />
+          
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                  {...getEditableProps('hero_title')}
+                >
+                  {content.hero_title || 'Développez votre business en Israël'}
+                </h1>
+                <p 
+                  className="text-xl text-gray-600 mb-4 font-medium"
+                  {...getEditableProps('hero_subtitle')}
+                >
+                  {content.hero_subtitle || 'Expertise commerciale et stratégique'}
+                </p>
+                <p 
+                  className="text-base text-gray-600 mb-8 leading-relaxed"
+                  {...getEditableProps('hero_description')}
+                >
+                  {content.hero_description || 'IGV accompagne les entreprises...'}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white text-base font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg">
+                    {content.hero_cta || 'Demander une mini-analyse'}
+                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              {/* Image Hero avec badge */}
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop"
+                  alt="Business en Israël"
+                  className="rounded-2xl shadow-2xl w-full"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-gray-900">20+</div>
+                      <div className="text-sm text-gray-600">Années d'expérience</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 
-              className="text-4xl font-bold text-center mb-4 text-gray-900"
-              {...getEditableProps('services_title')}
-            >
-              {content.services_title || 'Nos Services'}
-            </h2>
-            <p 
-              className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto"
-              {...getEditableProps('services_subtitle')}
-            >
-              {content.services_subtitle || 'Découvrez nos solutions'}
-            </p>
+        {/* Services Section - Cards avec icônes */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 
+                className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+                {...getEditableProps('services_title')}
+              >
+                {content.services_title || 'Nos Services'}
+              </h2>
+              <p 
+                className="text-xl text-gray-600"
+                {...getEditableProps('services_subtitle')}
+              >
+                {content.services_subtitle || 'Une approche complète'}
+              </p>
+            </div>
+            
             <div className="grid md:grid-cols-3 gap-8">
               {/* Service 1 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
                 <h3 
                   className="text-xl font-bold mb-3 text-gray-900"
                   {...getEditableProps('service1_title')}
                 >
-                  {content.service1_title || 'Service 1'}
+                  {content.service1_title || 'Étude de Marché'}
                 </h3>
                 <p 
                   className="text-gray-600"
                   {...getEditableProps('service1_description')}
                 >
-                  {content.service1_description || 'Description service 1'}
+                  {content.service1_description || 'Analyse approfondie...'}
                 </p>
               </div>
+              
               {/* Service 2 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
                 <h3 
                   className="text-xl font-bold mb-3 text-gray-900"
                   {...getEditableProps('service2_title')}
                 >
-                  {content.service2_title || 'Service 2'}
+                  {content.service2_title || 'Développement Commercial'}
                 </h3>
                 <p 
                   className="text-gray-600"
                   {...getEditableProps('service2_description')}
                 >
-                  {content.service2_description || 'Description service 2'}
+                  {content.service2_description || 'Prospection ciblée...'}
                 </p>
               </div>
+              
               {/* Service 3 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
                 <h3 
                   className="text-xl font-bold mb-3 text-gray-900"
                   {...getEditableProps('service3_title')}
                 >
-                  {content.service3_title || 'Service 3'}
+                  {content.service3_title || 'Partenariats Stratégiques'}
                 </h3>
                 <p 
                   className="text-gray-600"
                   {...getEditableProps('service3_description')}
                 >
-                  {content.service3_description || 'Description service 3'}
+                  {content.service3_description || 'Identification...'}
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-blue-600 text-white py-16">
-          <div className="container mx-auto px-4 text-center">
+        {/* CTA Section - Gradient premium */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800" />
+          
+          <div className="max-w-4xl mx-auto text-center relative z-10">
             <h2 
-              className="text-3xl font-bold mb-4"
+              className="text-3xl sm:text-4xl font-bold mb-6 text-white"
               {...getEditableProps('cta_title')}
             >
-              {content.cta_title || 'Prêt à commencer ?'}
+              {content.cta_title || 'Prêt à développer votre activité ?'}
             </h2>
             <p 
-              className="text-xl mb-8"
+              className="text-xl mb-8 text-blue-100"
               {...getEditableProps('cta_subtitle')}
             >
-              {content.cta_subtitle || 'Contactez-nous dès aujourd\'hui'}
+              {content.cta_subtitle || 'Obtenez une mini-analyse gratuite'}
             </p>
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-              {content.cta_button || 'Nous contacter'}
+            <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-50 transition-all shadow-xl">
+              {content.cta_button || 'Demander ma mini-analyse'}
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </button>
           </div>
         </section>

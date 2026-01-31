@@ -4,17 +4,23 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle, TrendingUp, Users, Building } from 'lucide-react';
 import { api } from '../utils/api';
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [location, setLocation] = useState(null);
+  const [cmsContent, setCmsContent] = useState(null);
 
   useEffect(() => {
-    // Detect user location on mount
-    api.detectLocation().then(data => {
-      setLocation(data);
-    });
-  }, []);
+    api.detectLocation().then(data => setLocation(data));
+    
+    // Charger contenu CMS
+    axios.get(`${API_URL}/api/pages/home?language=${i18n.language || 'fr'}`)
+      .then(res => setCmsContent(res.data))
+      .catch(err => console.error('CMS load error:', err));
+  }, [i18n.language]);
 
   const steps = [
     {
@@ -61,13 +67,13 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div data-testid="hero-section">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                {t('hero.title')}
+                {cmsContent?.hero_title || t('hero.title')}
               </h1>
               <p className="text-xl text-gray-600 mb-4 font-medium">
-                {t('hero.subtitle')}
+                {cmsContent?.hero_subtitle || t('hero.subtitle')}
               </p>
               <p className="text-base text-gray-600 mb-8 leading-relaxed">
-                {t('hero.description')}
+                {cmsContent?.hero_description || t('hero.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link

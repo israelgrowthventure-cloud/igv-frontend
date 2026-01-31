@@ -16,8 +16,8 @@ const Home = () => {
   useEffect(() => {
     api.detectLocation().then(data => setLocation(data));
     
-    // Charger contenu CMS
-    axios.get(`${API_URL}/api/pages/home?language=${i18n.language || 'fr'}`)
+    // Charger contenu CMS (PUBLIC endpoint - no auth required)
+    axios.get(`${API_URL}/api/pages/public/home?language=${i18n.language || 'fr'}`)
       .then(res => setCmsContent(res.data))
       .catch(err => console.error('CMS load error:', err));
   }, [i18n.language]);

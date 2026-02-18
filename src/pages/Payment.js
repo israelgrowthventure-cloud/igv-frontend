@@ -71,8 +71,11 @@ const Payment = () => {
         pack_id: packId,
         pack_name: packData.name,
         amount: packPrice.amount,
-        currency: packPrice.currency,
-        language: i18n.language
+        currency: packPrice.currencyCode || 'EUR',
+        language: i18n.language,
+        pack_type: packId,
+        customer_name: 'Client IGV',
+        customer_email: 'contact@israelgrowthventure.com'
       });
 
       if (response.payment_url) {

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Check, Calendar } from 'lucide-react';
+import { ArrowRight, Check, Calendar, Loader2, ChevronRight } from 'lucide-react';
 import israelFlag from '../assets/israel-flag-icon-free-vector.png';
 
 // IGV Brand Color
@@ -12,6 +12,79 @@ const IGV_BLUE_HOVER = '#002570';
 // ENV variable - Google Calendar appointment booking URL (israel.growth.venture@gmail.com)
 // Must NOT be Calendly or any third-party booking service - Google Appointment Schedule ONLY
 const BOOKING_URL = process.env.REACT_APP_AUDIT_BOOKING_URL || '';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
+
+/**
+ * BookingPreview — shows next available slots fetched from backend.
+ * Clicking a slot redirects to /appointment with the slot pre-filled.
+ */
+const BookingPreview = ({ navigate }) => {
+  const { t, i18n } = useTranslation();
+  const [slots, setSlots] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Jerusalem';
+    fetch(`${BACKEND_URL}/api/booking/availability?days=7&duration=60&tz=${encodeURIComponent(tz)}`)
+      .then(r => r.json())
+      .then(data => {
+        setSlots((data.slots || []).slice(0, 6));
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+
+  const formatSlot = (iso) => {
+    const d = new Date(iso);
+    return d.toLocaleString(i18n.language === 'he' ? 'he-IL' : i18n.language === 'en' ? 'en-GB' : 'fr-FR', {
+      weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
+    });
+  };
+
+  if (loading) return (
+    <div className="flex items-center justify-center py-12">
+      <Loader2 className="w-6 h-6 animate-spin" style={{ color: IGV_BLUE }} />
+    </div>
+  );
+
+  if (error || slots.length === 0) return (
+    <div className="py-8 text-gray-400 text-sm">
+      {t('booking.noSlotsPreview', 'Les créneaux s\'afficheront après votre paiement.')}
+    </div>
+  );
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left mt-4">
+      {slots.map((slot, i) => (
+        <button
+          key={i}
+          onClick={() => navigate(`/appointment?pack=audit&start=${encodeURIComponent(slot.start)}&end=${encodeURIComponent(slot.end)}`)}
+          className="flex items-center justify-between px-5 py-4 rounded-xl border-2 transition-all hover:shadow-md text-sm font-medium"
+          style={{ borderColor: IGV_BLUE, color: IGV_BLUE, backgroundColor: 'white' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = IGV_BLUE; e.currentTarget.style.color = 'white'; }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'white'; e.currentTarget.style.color = IGV_BLUE; }}
+        >
+          <span>{formatSlot(slot.start)}</span>
+          <ChevronRight className="w-4 h-4 flex-shrink-0" />
+        </button>
+      ))}
+      <div className="sm:col-span-2 text-center mt-4">
+        <button
+          onClick={() => navigate('/payment?pack=audit')}
+          className="text-sm underline"
+          style={{ color: IGV_BLUE }}
+        >
+          {t('booking.seeAllAfterPayment', 'Voir tous les créneaux après paiement →')}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 /**
  * Audit Landing Page - Premium conversion page for 60min diagnostic
@@ -49,6 +122,11 @@ const Audit = () => {
     navigate('/payment?pack=audit');
   };
 
+  // Secondary CTA - scroll to inline booking preview
+  const scrollToBooking = () => {
+    scrollToSection('booking-preview');
+  };
+
   // Primary CTA Button - "Payer et réserver"
   const PrimaryCTAButton = ({ className = '' }) => (
     <button
@@ -73,23 +151,17 @@ const Audit = () => {
     </button>
   );
 
-  // Secondary CTA - "Voir les créneaux" (discrete link)
-  const SecondaryCTALink = () => {
-    if (!BOOKING_URL) return null;
-    
-    return (
-      <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm mt-4 hover:underline transition-colors"
-        style={{ color: IGV_BLUE }}
-      >
-        <Calendar className="w-4 h-4" />
-        <span>{t('audit.cta.viewSlots')}</span>
-      </a>
-    );
-  };
+  // Secondary CTA - "Voir les créneaux" (scroll to booking preview)
+  const SecondaryCTALink = () => (
+    <button
+      onClick={scrollToBooking}
+      className="inline-flex items-center gap-2 text-sm mt-4 hover:underline transition-colors bg-transparent border-0 cursor-pointer"
+      style={{ color: IGV_BLUE }}
+    >
+      <Calendar className="w-4 h-4" />
+      <span>{t('audit.cta.viewSlots')}</span>
+    </button>
+  );
 
   // Section divider
   const Divider = () => (
@@ -284,6 +356,27 @@ const Audit = () => {
             <div className="block">
               <SecondaryCTALink />
             </div>
+          </div>
+        </section>
+
+        <Divider />
+
+        {/* SECTION 7 — BOOKING PREVIEW */}
+        <section
+          id="booking-preview"
+          className="py-24 px-6 lg:px-8"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-4"
+              style={{ color: IGV_BLUE }}
+            >
+              {t('booking.previewTitle', 'Voyez les créneaux disponibles')}
+            </h2>
+            <p className="text-gray-600 mb-8">
+              {t('booking.previewSubtitle', 'Réservez après paiement — voici un aperçu des prochains créneaux disponibles.')}
+            </p>
+            <BookingPreview navigate={navigate} />
           </div>
         </section>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
+import israelFlag from '../assets/israel-flag-icon-free-vector.png';
 
 // IGV Brand Color
 const IGV_BLUE = '#00318D';
@@ -34,6 +35,22 @@ const DecisionBanner = () => {
           <div className={`flex-1 text-center sm:text-left ${isRTL ? 'sm:text-right' : ''}`}>
             <h2 className="text-lg sm:text-xl font-bold text-white mb-1 tracking-tight">
               {t('home_banner.title')}
+              <img
+                src={israelFlag}
+                alt="Drapeau Israël"
+                style={{
+                  height: '1em',
+                  maxHeight: '24px',
+                  width: 'auto',
+                  marginLeft: '8px',
+                  verticalAlign: 'middle',
+                  transform: 'rotate(10deg)',
+                  display: 'inline',
+                  position: 'relative',
+                  top: '-1px',
+                  pointerEvents: 'none'
+                }}
+              />
             </h2>
             <p className="text-sm sm:text-base text-blue-100">
               {t('home_banner.subtitle')}

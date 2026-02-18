@@ -7,7 +7,7 @@ const MAIN_DOMAIN = 'https://israelgrowthventure.com';
 const AUDIT_DOMAIN = 'audit.israelgrowthventure.com';
 
 // Pages that stay inside the audit subdomain SPA
-const AUDIT_INTERNAL_PATHS = ['/', '/payment'];
+const AUDIT_INTERNAL_PATHS = ['/', '/payment', '/appointment'];
 
 const isAuditDomain = () =>
   typeof window !== 'undefined' && window.location.hostname === AUDIT_DOMAIN;

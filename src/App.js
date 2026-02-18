@@ -83,6 +83,9 @@ const CMSEditor = lazy(() => import('./pages/admin/CMSEditor'));
 // Blog Manager (NEW)
 const BlogManager = lazy(() => import('./pages/admin/BlogManager'));
 
+// Google Calendar Connect (NEW)
+const GoogleConnect = lazy(() => import('./pages/admin/GoogleConnect'));
+
 // Client Pages
 const ClientLogin = lazy(() => import('./pages/client/Login'));
 const ClientDashboard = lazy(() => import('./pages/client/Dashboard'));
@@ -279,6 +282,8 @@ function AppContent() {
               <Route path="cms" element={<CMSEditor />} />
               {/* Blog Manager - NEW */}
               <Route path="blog" element={<BlogManager />} />
+              {/* Google Calendar Connect - NEW */}
+              <Route path="google" element={<GoogleConnect />} />
             </Route>
             
             <Route path="/admin/dashboard" element={

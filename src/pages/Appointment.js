@@ -110,6 +110,18 @@ const Appointment = () => {
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
+        if (res.status === 503) {
+          throw new Error(
+            t('booking.error503',
+              "L'agenda n'est pas encore configuré. Contactez-nous directement : israel.growth.venture@gmail.com")
+          );
+        }
+        if (res.status === 409) {
+          throw new Error(
+            t('booking.error409',
+              'Ce créneau vient d\'être réservé. Veuillez en choisir un autre.')
+          );
+        }
         throw new Error(err.detail || `HTTP ${res.status}`);
       }
       const data = await res.json();
@@ -207,7 +219,13 @@ const Appointment = () => {
 
             {slotsError && (
               <div className="bg-red-50 text-red-700 rounded-xl p-4 text-sm">
-                {t('booking.slotsError', 'Impossible de charger les créneaux. Contactez-nous par email.')}
+                {t('booking.slotsError', 'Impossible de charger les créneaux. Contactez-nous par email.')}{' '}
+                <a
+                  href="mailto:israel.growth.venture@gmail.com"
+                  className="underline font-medium"
+                >
+                  israel.growth.venture@gmail.com
+                </a>
               </div>
             )}
 

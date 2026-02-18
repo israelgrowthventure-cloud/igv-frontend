@@ -149,9 +149,32 @@ const AdminLoading = () => (
   </div>
 );
 
+// Domain detection helper
+const isAuditDomain = () => {
+  if (typeof window === 'undefined') return false;
+  return window.location.hostname === 'audit.israelgrowthventure.com';
+};
+
+// Component to handle /audit redirect on main domain
+const AuditRouteHandler = () => {
+  React.useEffect(() => {
+    // If on main domain and accessing /audit, redirect to audit subdomain
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname === 'israelgrowthventure.com' || hostname === 'www.israelgrowthventure.com') {
+        window.location.replace('https://audit.israelgrowthventure.com/');
+      }
+    }
+  }, []);
+  
+  // Show the audit page (will redirect if needed)
+  return <Audit />;
+};
+
 function AppContent() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const onAuditDomain = isAuditDomain();
 
   // Preload admin components when entering admin area
   React.useEffect(() => {
@@ -185,8 +208,10 @@ function AppContent() {
         {!isAdminRoute && <Header />}
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/audit" element={<Audit />} />
+            {/* On audit subdomain, serve Audit page at root */}
+            <Route path="/" element={onAuditDomain ? <Audit /> : <Home />} />
+            {/* /audit route - redirect on main domain, serve page on audit domain */}
+            <Route path="/audit" element={<AuditRouteHandler />} />
             <Route path="/mini-analyse" element={<MiniAnalysis />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

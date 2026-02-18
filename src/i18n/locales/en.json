@@ -850,6 +850,16 @@
   "packs": {
     "title": "High-Ticket Consulting",
     "subtitle": "Premium expansion strategies for ambitious brands",
+    "audit": {
+      "name": "Implantation Diagnostic",
+      "description": "60-minute strategic session to evaluate your potential in the Israeli market",
+      "features": [
+        "Argued Go / No-Go verdict",
+        "Required adaptations analysis",
+        "Personalised entry strategy",
+        "Realistic establishment budget"
+      ]
+    },
     "analyse": {
       "name": "Strategic Assessment",
       "description": "In-depth analysis of your brand's potential in the Israeli market with tailored recommendations",
@@ -1672,7 +1682,10 @@
       "title": "Make the right decision"
     },
     "cta": {
-      "book": "Book my diagnostic"
+      "book": "Book my diagnostic",
+      "payAndBook": "Pay and book",
+      "viewSlots": "View available slots",
+      "linkUnavailable": "Link temporarily unavailable"
     },
     "footer": {
       "tagline": "Strategic consulting for Israel market entry",
@@ -1683,8 +1696,8 @@
     }
   },
   "home_banner": {
-    "title": "Expanding to Israel: are you ready?",
-    "subtitle": "Before investing, get a clear diagnostic of your potential.",
-    "cta": "Discover the diagnostic"
+    "title": "Considering Israel?",
+    "subtitle": "Start with a clear decision in 60 minutes.",
+    "cta": "Get diagnosed"
   }
 }

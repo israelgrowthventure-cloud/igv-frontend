@@ -6,36 +6,40 @@ export const PRICING_CONFIG = {
     name: 'Europe',
     currency: '€',
     packs: {
-      analyse: { price: 3000, label: '3 000 €' },
-      succursales: { price: 15000, label: '15 000 €' },
-      franchise: { price: 15000, label: '15 000 €' }
+      audit: { price: 900, amount: 900, label: '900 €' },
+      analyse: { price: 3000, amount: 3000, label: '3 000 €' },
+      succursales: { price: 15000, amount: 15000, label: '15 000 €' },
+      franchise: { price: 15000, amount: 15000, label: '15 000 €' }
     }
   },
   usa: {
     name: 'USA / North America',
     currency: '$',
     packs: {
-      analyse: { price: 4000, label: '4 000 $' },
-      succursales: { price: 30000, label: '30 000 $' },
-      franchise: { price: 30000, label: '30 000 $' }
+      audit: { price: 1000, amount: 1000, label: '1 000 $' },
+      analyse: { price: 4000, amount: 4000, label: '4 000 $' },
+      succursales: { price: 30000, amount: 30000, label: '30 000 $' },
+      franchise: { price: 30000, amount: 30000, label: '30 000 $' }
     }
   },
   israel: {
     name: 'Israel',
     currency: '₪',
     packs: {
-      analyse: { price: 7000, label: '7 000 ₪' },
-      succursales: { price: 55000, label: '55 000 ₪' },
-      franchise: { price: 55000, label: '55 000 ₪' }
+      audit: { price: 3500, amount: 3500, label: '3 500 ₪' },
+      analyse: { price: 7000, amount: 7000, label: '7 000 ₪' },
+      succursales: { price: 55000, amount: 55000, label: '55 000 ₪' },
+      franchise: { price: 55000, amount: 55000, label: '55 000 ₪' }
     }
   },
   other: {
     name: 'Asia / Africa / Other',
     currency: '$',
     packs: {
-      analyse: { price: 4000, label: '4 000 $' },
-      succursales: { price: 30000, label: '30 000 $' },
-      franchise: { price: 30000, label: '30 000 $' }
+      audit: { price: 1000, amount: 1000, label: '1 000 $' },
+      analyse: { price: 4000, amount: 4000, label: '4 000 $' },
+      succursales: { price: 30000, amount: 30000, label: '30 000 $' },
+      franchise: { price: 30000, amount: 30000, label: '30 000 $' }
     }
   }
 };

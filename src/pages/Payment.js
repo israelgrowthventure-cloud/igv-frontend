@@ -31,6 +31,10 @@ const Payment = () => {
     // Get pack data
     if (packId) {
       const packs = {
+        audit: {
+          name: t('packs.audit.name', 'Diagnostic d\'implantation'),
+          description: t('packs.audit.description', 'Séance de 60 minutes pour évaluer votre potentiel sur le marché israélien')
+        },
         analyse: {
           name: t('packs.analyse.name'),
           description: t('packs.analyse.description')
@@ -107,15 +111,19 @@ const Payment = () => {
   };
 
   if (!packId || !packData) {
+    // If on audit domain, suggest audit pack
+    const isAuditDomain = typeof window !== 'undefined' && 
+      window.location.hostname === 'audit.israelgrowthventure.com';
+    
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center bg-gray-50">
         <div className="text-center p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('payment.errors.noPackSelected')}</h2>
           <button
-            onClick={() => navigate('/packs')}
+            onClick={() => navigate(isAuditDomain ? '/payment?pack=audit' : '/packs')}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
-            {t('payment.backToPacks')}
+            {isAuditDomain ? t('audit.cta.payAndBook', 'Payer et réserver') : t('payment.backToPacks')}
           </button>
         </div>
       </div>

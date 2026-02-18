@@ -58,12 +58,12 @@ const Home = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <div className="min-h-screen">
-      {/* Decision Banner - Priority CTA for Audit */}
+      <div className="min-h-screen pt-20">
+      {/* Decision Banner - Priority CTA for Audit, visible just below fixed header */}
       <DecisionBanner />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Hero Section - pt reduced since pt-20 wrapper already clears the header */}
+      <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50 -z-10" />
         

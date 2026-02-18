@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Check, Calendar } from 'lucide-react';
+import israelFlag from '../assets/israel-flag-icon-free-vector.png';
 
 // IGV Brand Color
 const IGV_BLUE = '#00318D';
@@ -127,6 +128,22 @@ const Audit = () => {
               style={{ color: IGV_BLUE }}
             >
               {t('audit.hero.title')}
+              <img
+                src={israelFlag}
+                alt=""
+                aria-hidden="true"
+                style={{
+                  height: '0.85em',
+                  width: 'auto',
+                  marginLeft: '10px',
+                  verticalAlign: 'baseline',
+                  transform: 'rotate(12deg)',
+                  position: 'relative',
+                  top: '-0.08em',
+                  display: 'inline',
+                  pointerEvents: 'none'
+                }}
+              />
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 mb-12 leading-relaxed">
               {t('audit.hero.subtitle')}

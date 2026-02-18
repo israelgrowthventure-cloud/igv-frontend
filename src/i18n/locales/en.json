@@ -1625,5 +1625,66 @@
   "invoice": {
     "generatePdfTitle": "Generate PDF",
     "sendEmailTitle": "Send by Email"
+  },
+  "audit": {
+    "seo": {
+      "title": "Israel Market Entry Diagnostic | 60 min | Israel Growth Venture",
+      "description": "60-minute strategic diagnostic to evaluate the viability of your expansion into Israel. Get a clear verdict before investing."
+    },
+    "hero": {
+      "title": "Should you really enter the Israeli market?",
+      "subtitle": "Before investing time and money, get a clear answer in 60 minutes."
+    },
+    "reality": {
+      "title": "The Israeli market is different",
+      "description": "Compact geography, unique buying behaviors, dense tech ecosystem, specific regulations. What works elsewhere often fails here. A preliminary diagnostic prevents months of misaligned positioning."
+    },
+    "deliverables": {
+      "title": "What you get",
+      "items": {
+        "verdict": {
+          "title": "Clear verdict",
+          "description": "Argued Go / No-Go on your Israeli market potential"
+        },
+        "adaptations": {
+          "title": "Required adaptations",
+          "description": "What needs to change in your offering for this market"
+        },
+        "strategy": {
+          "title": "Entry strategy",
+          "description": "Where to start and how to position yourself"
+        },
+        "budget": {
+          "title": "Realistic budget",
+          "description": "Clear estimation of establishment costs"
+        }
+      }
+    },
+    "positioning": {
+      "before": "We don't help you come.",
+      "after": "We tell you if you should come."
+    },
+    "pricing": {
+      "deductible": "Deductible if accompanied",
+      "duration": "60-minute session"
+    },
+    "final": {
+      "title": "Make the right decision"
+    },
+    "cta": {
+      "book": "Book my diagnostic"
+    },
+    "footer": {
+      "tagline": "Strategic consulting for Israel market entry",
+      "legal": "© 2026 Israel Growth Venture. All rights reserved."
+    },
+    "accessibility": {
+      "scrollDown": "Scroll down"
+    }
+  },
+  "home_banner": {
+    "title": "Expanding to Israel: are you ready?",
+    "subtitle": "Before investing, get a clear diagnostic of your potential.",
+    "cta": "Discover the diagnostic"
   }
 }

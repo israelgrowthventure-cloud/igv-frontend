@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle, TrendingUp, Users, Building } from 'lucide-react';
 import { api } from '../utils/api';
 import axios from 'axios';
+import DecisionBanner from '../components/DecisionBanner';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
 
@@ -58,6 +59,9 @@ const Home = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="min-h-screen">
+      {/* Decision Banner - Priority CTA for Audit */}
+      <DecisionBanner />
+      
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background gradient */}

@@ -36,6 +36,7 @@ import Payment from './pages/Payment';
 import Checkout from './pages/Checkout';
 import DemandeRappel from './pages/DemandeRappel';
 import SitemapView from './pages/SitemapView'; // SEO sitemap page
+import Audit from './pages/Audit'; // Premium diagnostic landing page
 
 // Layouts
 import AdminLayout from './layouts/AdminLayout';
@@ -185,6 +186,7 @@ function AppContent() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/audit" element={<Audit />} />
             <Route path="/mini-analyse" element={<MiniAnalysis />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

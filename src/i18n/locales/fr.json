@@ -1647,5 +1647,66 @@
   "invoice": {
     "generatePdfTitle": "Générer le PDF",
     "sendEmailTitle": "Envoyer par email"
+  },
+  "audit": {
+    "seo": {
+      "title": "Diagnostic d'implantation en Israël | 60 min | Israel Growth Venture",
+      "description": "Diagnostic stratégique de 60 minutes pour évaluer la viabilité de votre implantation en Israël. Obtenez un verdict clair avant d'investir."
+    },
+    "hero": {
+      "title": "Devez-vous vraiment vous implanter en Israël ?",
+      "subtitle": "Avant d'investir temps et argent, obtenez une réponse claire en 60 minutes."
+    },
+    "reality": {
+      "title": "Le marché israélien est différent",
+      "description": "Géographie compacte, comportements d'achat uniques, écosystème tech dense, réglementations spécifiques. Ce qui fonctionne ailleurs échoue souvent ici. Un diagnostic préalable évite des mois de positionnement erroné."
+    },
+    "deliverables": {
+      "title": "Ce que vous obtenez",
+      "items": {
+        "verdict": {
+          "title": "Verdict clair",
+          "description": "Go / No-Go argumenté sur votre potentiel marché israélien"
+        },
+        "adaptations": {
+          "title": "Adaptations nécessaires",
+          "description": "Ce qui doit changer dans votre offre pour ce marché"
+        },
+        "strategy": {
+          "title": "Stratégie d'entrée",
+          "description": "Par où commencer et comment vous positionner"
+        },
+        "budget": {
+          "title": "Budget réaliste",
+          "description": "Estimation claire des coûts d'implantation"
+        }
+      }
+    },
+    "positioning": {
+      "before": "Nous ne vous aidons pas à venir.",
+      "after": "Nous vous disons si vous devez venir."
+    },
+    "pricing": {
+      "deductible": "Déductible si accompagnement",
+      "duration": "Séance de 60 minutes"
+    },
+    "final": {
+      "title": "Prenez la bonne décision"
+    },
+    "cta": {
+      "book": "Réserver mon diagnostic"
+    },
+    "footer": {
+      "tagline": "Conseil stratégique pour l'implantation en Israël",
+      "legal": "© 2026 Israel Growth Venture. Tous droits réservés."
+    },
+    "accessibility": {
+      "scrollDown": "Défiler vers le bas"
+    }
+  },
+  "home_banner": {
+    "title": "Implantation en Israël : êtes-vous prêt ?",
+    "subtitle": "Avant d'investir, obtenez un diagnostic clair de votre potentiel.",
+    "cta": "Découvrir le diagnostic"
   }
 }

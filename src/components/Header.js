@@ -3,6 +3,25 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, Sparkles, Globe } from 'lucide-react';
 
+const MAIN_DOMAIN = 'https://israelgrowthventure.com';
+const AUDIT_DOMAIN = 'audit.israelgrowthventure.com';
+
+// Pages that stay inside the audit subdomain SPA
+const AUDIT_INTERNAL_PATHS = ['/', '/payment'];
+
+const isAuditDomain = () =>
+  typeof window !== 'undefined' && window.location.hostname === AUDIT_DOMAIN;
+
+/**
+ * Returns the href a nav link should use.
+ * On audit domain, non-local paths redirect to the main corporate site.
+ */
+const resolveHref = (path) => {
+  if (!isAuditDomain()) return null; // use React Router <Link>
+  if (AUDIT_INTERNAL_PATHS.includes(path)) return null; // stay in SPA
+  return `${MAIN_DOMAIN}${path}`;
+};
+
 const Header = () => {
   const location = useLocation();
   const { t, i18n } = useTranslation();
@@ -35,39 +54,72 @@ const Header = () => {
     return location.pathname === path;
   };
 
+  /**
+   * Renders a nav link: on audit domain non-internal paths become <a href> (full page reload
+   * to main corporate site). On the main domain uses React Router <Link> normally.
+   */
+  const NavLink = ({ path, label, onClick, className, children }) => {
+    const externalHref = resolveHref(path);
+    const content = children || label;
+    if (externalHref) {
+      return (
+        <a
+          href={externalHref}
+          className={className}
+          onClick={onClick}
+        >
+          {content}
+        </a>
+      );
+    }
+    return (
+      <Link to={path} className={className} onClick={onClick}>
+        {content}
+      </Link>
+    );
+  };
+
+  // Logo: on audit domain, clicking the logo goes to main corporate homepage
+  const logoHref = isAuditDomain() ? MAIN_DOMAIN : null;
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo - Minimaliste */}
-          <Link to="/" className="flex items-center">
-            <img src="/igv-logo.png" alt={t('common.logoAlt')} className="h-12" />
-          </Link>
+          {logoHref ? (
+            <a href={logoHref} className="flex items-center">
+              <img src="/igv-logo.png" alt={t('common.logoAlt')} className="h-12" />
+            </a>
+          ) : (
+            <Link to="/" className="flex items-center">
+              <img src="/igv-logo.png" alt={t('common.logoAlt')} className="h-12" />
+            </Link>
+          )}
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
-                to={link.path}
+                path={link.path}
+                label={link.label}
                 className={`text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? 'text-blue-600'
                     : 'text-gray-700 hover:text-blue-600'
                 }`}
-              >
-                {link.label}
-              </Link>
+              />
             ))}
             
             {/* Bouton Mini-Analyse */}
-            <Link
-              to="/mini-analyse"
+            <NavLink
+              path="/mini-analyse"
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg"
             >
               <Sparkles className="w-4 h-4" />
               {t('nav.miniAnalysis')}
-            </Link>
+            </NavLink>
             
             {/* Sélecteur de langue */}
             <div className="relative">
@@ -116,29 +168,28 @@ const Header = () => {
         <div className="lg:hidden bg-white border-t border-gray-200">
           <nav className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
-                to={link.path}
+                path={link.path}
+                label={link.label}
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? 'bg-blue-50 text-blue-600'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
-              >
-                {link.label}
-              </Link>
+              />
             ))}
             
             {/* Bouton Mini-Analyse Mobile */}
-            <Link
-              to="/mini-analyse"
+            <NavLink
+              path="/mini-analyse"
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium"
             >
               <Sparkles className="w-4 h-4" />
               {t('nav.miniAnalysis')}
-            </Link>
+            </NavLink>
             
             {/* S\u00e9lecteur langue mobile */}
             <div className="pt-3 border-t border-gray-200">

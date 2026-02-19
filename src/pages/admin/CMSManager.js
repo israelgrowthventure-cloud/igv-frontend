@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { Upload, Image, Type, AlignLeft, Link2, Trash2, Plus, ChevronDown, ChevronUp, Eye, Edit3, Save, Monitor, Tablet, Smartphone } from 'lucide-react';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com';
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 const SITE_URL = 'https://israelgrowthventure.com';
 
 // ==============================================
@@ -226,7 +226,7 @@ function CMSManager() {
       const res = await axios.get(`${API_URL}/api/pages/${selectedPage}?language=${language}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setContent(res.data.content || {});
+      setContent(res.data.content || res.data || {});
       setHasChanges(false);
     } catch (error) {
       setContent({});
@@ -239,11 +239,10 @@ function CMSManager() {
     setSaving(true);
     try {
       const token = localStorage.getItem('admin_token');
-      await axios.post(`${API_URL}/api/pages/update`, {
+      await axios.post(`${API_URL}/api/pages/update-flat`, {
         page: selectedPage,
         language: language,
-        section: 'main',
-        content: content
+        ...content
       }, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -272,7 +271,7 @@ function CMSManager() {
       formData.append('file', file);
       formData.append('folder', 'cms');
       
-      const res = await axios.post(`${API_URL}/api/media/upload`, formData, {
+      const res = await axios.post(`${API_URL}/api/admin/media/upload`, formData, {
         headers: { 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -643,7 +642,7 @@ function CMSManager() {
               📝 Gérer le Blog & FAQ
             </a>
             <span className="text-gray-400">|</span>
-            <a href="/admin/crm/media" className="text-blue-600 hover:underline flex items-center gap-2">
+            <a href="/admin/media" className="text-blue-600 hover:underline flex items-center gap-2">
               🖼️ Bibliothèque Media
             </a>
           </div>

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import PageRenderer from '../../components/cms/PageRenderer';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 const SITE_URL = 'https://israelgrowthventure.com';
 
 // Pages et leurs sections éditables

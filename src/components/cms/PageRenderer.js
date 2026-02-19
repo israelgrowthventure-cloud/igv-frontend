@@ -219,6 +219,146 @@ const PageRenderer = ({ page, language, content, editable = false, onEdit }) => 
     );
   }
 
+  // Rendu pour ABOUT
+  if (page === 'about') {
+    return (
+      <div className="w-full bg-white">
+        <div className="container mx-auto px-4 py-16 max-w-5xl">
+          <h1
+            className="text-4xl font-bold mb-6 text-gray-900"
+            {...getEditableProps('about_title')}
+          >
+            {content.about_title || 'À Propos d\'IGV'}
+          </h1>
+          <div
+            className="prose prose-lg max-w-none text-gray-700"
+            {...getEditableProps('about_content')}
+            dangerouslySetInnerHTML={{ __html: content.about_content || '<p>Contenu à propos...</p>' }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Rendu pour CONTACT
+  if (page === 'contact') {
+    return (
+      <div className="w-full bg-white">
+        <div className="container mx-auto px-4 py-16 max-w-3xl">
+          <h1
+            className="text-4xl font-bold mb-6 text-gray-900"
+            {...getEditableProps('contact_title')}
+          >
+            {content.contact_title || 'Contactez-nous'}
+          </h1>
+          <p
+            className="text-lg text-gray-600 mb-8"
+            {...getEditableProps('contact_intro')}
+          >
+            {content.contact_intro || 'Nous sommes là pour vous aider.'}
+          </p>
+          <div className="bg-gray-50 rounded-xl p-8">
+            <p className="text-gray-500 text-center">Formulaire de contact</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Rendu pour PACKS
+  if (page === 'packs') {
+    return (
+      <div className="w-full bg-white">
+        <div className="container mx-auto px-4 py-16 max-w-6xl">
+          <h1
+            className="text-4xl font-bold mb-4 text-gray-900 text-center"
+            {...getEditableProps('packs_title')}
+          >
+            {content.packs_title || 'Nos Packs & Offres'}
+          </h1>
+          <p
+            className="text-xl text-center text-gray-600 mb-12"
+            {...getEditableProps('packs_subtitle')}
+          >
+            {content.packs_subtitle || 'Choisissez la formule adaptée à vos besoins'}
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map(i => (
+              <div key={i} className="bg-gray-50 rounded-2xl p-8 text-center">
+                <h3
+                  className="text-xl font-bold mb-2 text-gray-900"
+                  {...getEditableProps(`pack${i}_name`)}
+                >
+                  {content[`pack${i}_name`] || `Pack ${i}`}
+                </h3>
+                <div
+                  className="text-3xl font-bold text-blue-600 mb-4"
+                  {...getEditableProps(`pack${i}_price`)}
+                >
+                  {content[`pack${i}_price`] || 'Sur devis'}
+                </div>
+                <div
+                  className="text-gray-600 text-sm"
+                  {...getEditableProps(`pack${i}_description`)}
+                >
+                  {content[`pack${i}_description`] || 'Description du pack'}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Rendu pour MINI-ANALYSE
+  if (page === 'mini-analyse') {
+    return (
+      <div className="w-full bg-white">
+        <div className="container mx-auto px-4 py-16 max-w-4xl">
+          <h1
+            className="text-4xl font-bold mb-6 text-gray-900 text-center"
+            {...getEditableProps('mini_analyse_title')}
+          >
+            {content.mini_analyse_title || 'Mini-Analyse Gratuite'}
+          </h1>
+          <p
+            className="text-xl text-center text-gray-600 mb-12"
+            {...getEditableProps('mini_analyse_subtitle')}
+          >
+            {content.mini_analyse_subtitle || 'Découvrez le potentiel de votre marché en Israël'}
+          </p>
+          <div
+            className="prose prose-lg max-w-none"
+            {...getEditableProps('mini_analyse_content')}
+            dangerouslySetInnerHTML={{ __html: content.mini_analyse_content || '<p>Contenu de la mini-analyse...</p>' }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Rendu pour FUTURE-COMMERCE
+  if (page === 'future-commerce') {
+    return (
+      <div className="w-full bg-white">
+        <div className="container mx-auto px-4 py-16 max-w-5xl">
+          <h1
+            className="text-4xl font-bold mb-6 text-gray-900 text-center"
+            {...getEditableProps('future_title')}
+          >
+            {content.future_title || 'Commerce du Futur'}
+          </h1>
+          <div
+            className="prose prose-lg max-w-none"
+            {...getEditableProps('future_content')}
+            dangerouslySetInnerHTML={{ __html: content.future_content || '<p>Contenu commerce du futur...</p>' }}
+          />
+        </div>
+      </div>
+    );
+  }
+
   // Rendu par défaut
   return (
     <div className="w-full p-8">

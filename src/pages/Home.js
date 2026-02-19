@@ -7,7 +7,7 @@ import { api } from '../utils/api';
 import axios from 'axios';
 import DecisionBanner from '../components/DecisionBanner';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-backend.onrender.com';
+const API_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 
 const Home = () => {
   const { t, i18n } = useTranslation();

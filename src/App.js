@@ -80,6 +80,9 @@ const MiniAnalysisWorkflowPage = lazy(() => import('./pages/crm/MiniAnalysisWork
 // CMS WYSIWYG Editor (NEW - with PageRenderer)
 const CMSEditor = lazy(() => import('./pages/admin/CMSEditor'));
 
+// CMS Manager (Full WYSIWYG page builder)
+const CMSManager = lazy(() => import('./pages/admin/CMSManager'));
+
 // Blog Manager (NEW)
 const BlogManager = lazy(() => import('./pages/admin/BlogManager'));
 
@@ -281,6 +284,8 @@ function AppContent() {
               <Route path="mini-analyses" element={<MiniAnalysisWorkflowPage />} />
               {/* CMS WYSIWYG Editor - NEW */}
               <Route path="cms" element={<CMSEditor />} />
+              {/* CMS Manager - Full Page Builder */}
+              <Route path="cms-manager" element={<CMSManager />} />
               {/* Blog Manager - NEW */}
               <Route path="blog" element={<BlogManager />} />
               {/* Google Calendar Connect - NEW */}

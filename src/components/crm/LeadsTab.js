@@ -57,8 +57,8 @@ const LeadsTab = ({ data, loading, selectedItem, setSelectedItem, onRefresh, sea
   const handleExportCSV = async () => {
     try {
       setLoadingAction(true);
-      // P1-001 FIX: Correct endpoint path (was /export, should be /export/csv)
-      const response = await api.get('/api/crm/leads/export/csv', { responseType: 'blob' });
+      // MM-05 FIX: Correct endpoint path
+      const response = await api.get('/api/crm/export/leads', { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([response]));
       const link = document.createElement('a');
       link.href = url;

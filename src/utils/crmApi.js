@@ -23,7 +23,7 @@ export const crmApi = {
   deleteLead: (id) => api.delete(`${CRM_PREFIX}/leads/${id}`),
   addLeadNote: (id, noteData) => api.post(`${CRM_PREFIX}/leads/${id}/notes`, noteData),
   convertLeadToContact: (id) => api.post(`${CRM_PREFIX}/leads/${id}/convert-to-contact`),
-  exportLeads: () => api.get(`${CRM_PREFIX}/leads/export/csv`, { responseType: 'blob' }),
+  exportLeads: () => api.get(`${CRM_PREFIX}/export/leads`, { responseType: 'blob' }),
 
   // ==========================================
   // CONTACTS
@@ -56,7 +56,7 @@ export const crmApi = {
   createUser: (data) => api.post(`${CRM_PREFIX}/settings/users`, data),
   updateUser: (userId, data) => api.put(`${CRM_PREFIX}/settings/users/${userId}`, data),
   deleteUser: (userId) => api.delete(`${CRM_PREFIX}/settings/users/${userId}`),
-  changePassword: (data) => api.post(`${CRM_PREFIX}/settings/users/change-password`, data),
+  changePassword: (userId, data) => api.post(`${CRM_PREFIX}/settings/users/${userId}/change-password`, data),
 
   getTags: () => api.get(`${CRM_PREFIX}/settings/tags`),
   createTag: (data) => api.post(`${CRM_PREFIX}/settings/tags`, data),
@@ -67,11 +67,11 @@ export const crmApi = {
   // ==========================================
   // TASKS
   // ==========================================
-  getTasks: (params = {}) => api.get(`${CRM_PREFIX}/tasks`, { params }),
-  getTask: (id) => api.get(`${CRM_PREFIX}/tasks/${id}`),
-  createTask: (data) => api.post(`${CRM_PREFIX}/tasks`, data),
-  updateTask: (id, data) => api.put(`${CRM_PREFIX}/tasks/${id}`, data),
-  deleteTask: (id) => api.delete(`${CRM_PREFIX}/tasks/${id}`),
+  getTasks: (params = {}) => api.get('/api/tasks', { params }),
+  getTask: (id) => api.get(`/api/tasks/${id}`),
+  createTask: (data) => api.post('/api/tasks', data),
+  updateTask: (id, data) => api.put(`/api/tasks/${id}`, data),
+  deleteTask: (id) => api.delete(`/api/tasks/${id}`),
 
   // ==========================================
   // EMAILS
@@ -82,8 +82,8 @@ export const crmApi = {
   // ==========================================
   // ADMIN REQUESTS (Mini-analysis + Pack Rappel)
   // ==========================================
-  getMiniAnalysisRequests: (params = {}) => api.get(`${CRM_PREFIX}/mini-analysis-requests`, { params }),
-  validateMiniAnalysisRequest: (id) => api.post(`${CRM_PREFIX}/mini-analysis-requests/${id}/validate`),
+  getMiniAnalysisRequests: (params = {}) => api.get(`${CRM_PREFIX}/mini-analyses`, { params }),
+  validateMiniAnalysisRequest: (id, statusData) => api.put(`${CRM_PREFIX}/mini-analyses/${id}/status`, statusData),
   
   getPackRappelRequests: (params = {}) => api.get(`${CRM_PREFIX}/pack-rappel-requests`, { params }),
   assignPackRappel: (id, data) => api.put(`${CRM_PREFIX}/pack-rappel-requests/${id}/assign`, data),

@@ -77,7 +77,7 @@ export const ROUTES = {
       nextAction: (id) => `/api/crm/leads/${id}/next-action`,
       missingNextAction: '/api/crm/leads/missing-next-action',
       overdueActions: '/api/crm/leads/overdue-actions',
-      export: '/api/crm/leads/export/csv',
+      export: '/api/crm/export/leads',
     },
     
     // ==========================================
@@ -132,12 +132,12 @@ export const ROUTES = {
     // CRM - TASKS
     // ==========================================
     tasks: {
-      list: '/api/crm/tasks',
-      create: '/api/crm/tasks',
-      detail: (id) => `/api/crm/tasks/${id}`,
-      update: (id) => `/api/crm/tasks/${id}`,
-      delete: (id) => `/api/crm/tasks/${id}`,
-      export: '/api/crm/tasks/export/csv',
+      list: '/api/tasks',
+      create: '/api/tasks',
+      detail: (id) => `/api/tasks/${id}`,
+      update: (id) => `/api/tasks/${id}`,
+      delete: (id) => `/api/tasks/${id}`,
+      export: '/api/tasks/export/csv',
     },
     
     // ==========================================

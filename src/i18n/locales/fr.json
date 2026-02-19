@@ -1750,5 +1750,9 @@
     "title": "Vous envisagez Israël ?",
     "subtitle": "Commencez par une décision claire en 60 minutes.",
     "cta": "Faire le diagnostic"
+  },
+  "booking": {
+    "minNotice48h": "Les audits se réservent avec un délai minimum de 48h.",
+    "error48h": "Ce créneau n'est pas réservable : délai minimum 48h."
   }
 }

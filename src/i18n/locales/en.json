@@ -1728,5 +1728,9 @@
     "title": "Considering Israel?",
     "subtitle": "Start with a clear decision in 60 minutes.",
     "cta": "Get diagnosed"
+  },
+  "booking": {
+    "minNotice48h": "Audits must be booked at least 48 hours in advance.",
+    "error48h": "This slot cannot be booked: minimum 48h notice required."
   }
 }

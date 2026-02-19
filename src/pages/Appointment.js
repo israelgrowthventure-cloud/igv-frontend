@@ -8,6 +8,18 @@ const IGV_BLUE = '#00318D';
 const IGV_BLUE_HOVER = '#002570';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://igv-cms-backend.onrender.com';
 
+/** 48h minimum notice rule — must match backend _HARD_MIN_NOTICE_HOURS */
+const BOOKING_MIN_HOURS = 48;
+
+/**
+ * Returns true when the given slot start is within 48h from now (NOT bookable).
+ * Timezone-safe: uses UTC epoch comparison.
+ */
+const isWithin48h = (isoStart) => {
+  const threshold = new Date(Date.now() + BOOKING_MIN_HOURS * 3600 * 1000);
+  return new Date(isoStart) < threshold;
+};
+
 /**
  * AppointmentPage — Post-payment booking page for the Audit pack.
  * Flow: select slot → fill form → confirm → see Meet link
@@ -24,8 +36,11 @@ const Appointment = () => {
   const [slots, setSlots]               = useState([]);
   const [slotsLoading, setSlotsLoading] = useState(true);
   const [slotsError, setSlotsError]     = useState(false);
+  // Only pre-select if slot is >= 48h away (anti-bypass)
   const [selectedSlot, setSelectedSlot] = useState(
-    preStart && preEnd ? { start: preStart, end: preEnd } : null
+    preStart && preEnd && !isWithin48h(preStart)
+      ? { start: preStart, end: preEnd }
+      : null
   );
 
   // Form
@@ -72,8 +87,10 @@ const Appointment = () => {
     });
   };
 
-  // Group slots by day label
-  const slotsByDay = slots.reduce((acc, slot) => {
+  // Group slots by day label — slots < 48h are filtered out (rule: min 48h notice)
+  const slotsByDay = slots
+    .filter(slot => !isWithin48h(slot.start))
+    .reduce((acc, slot) => {
     const day = new Date(slot.start).toLocaleDateString(getLocale(), {
       weekday: 'long', day: 'numeric', month: 'long'
     });
@@ -95,6 +112,14 @@ const Appointment = () => {
 
     setSubmitting(true);
     setFormError(null);
+
+    // Front-end 48h guard (defence-in-depth before calling API)
+    if (isWithin48h(selectedSlot.start)) {
+      setFormError(t('booking.error48h', "Ce cr\u00e9neau n'est pas r\u00e9servable : d\u00e9lai minimum 48h."));
+      setSubmitting(false);
+      return;
+    }
+
     try {
       const res = await fetch(`${BACKEND_URL}/api/booking/book`, {
         method: 'POST',
@@ -121,8 +146,12 @@ const Appointment = () => {
             t('booking.error409',
               'Ce créneau vient d\'être réservé. Veuillez en choisir un autre.')
           );
-        }
-        throw new Error(err.detail || `HTTP ${res.status}`);
+        }        if (res.status === 400) {
+          throw new Error(
+            err.detail ||
+            t('booking.error48h', "Ce cr\u00e9neau n'est pas r\u00e9servable : d\u00e9lai minimum 48h.")
+          );
+        }        throw new Error(err.detail || `HTTP ${res.status}`);
       }
       const data = await res.json();
       setConfirmation(data);
@@ -210,6 +239,11 @@ const Appointment = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-6">
               {t('booking.selectSlot', '1. Choisissez un créneau')}
             </h2>
+
+            {/* 48h minimum notice banner */}
+            <div className="mb-4 rounded-lg bg-blue-50 border border-blue-200 px-4 py-3 text-sm font-medium text-blue-800">
+              {t('booking.minNotice48h', 'Les audits se réservent avec un délai minimum de 48h.')}
+            </div>
 
             {slotsLoading && (
               <div className="flex items-center justify-center py-16">

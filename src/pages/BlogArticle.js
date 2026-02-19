@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com';
+const API_URL = process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_API_URL || 'https://igv-cms-backend.onrender.com';
 
 const BlogArticle = () => {
   const { t, i18n } = useTranslation();

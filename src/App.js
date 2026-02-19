@@ -226,6 +226,7 @@ function AppContent() {
             <Route path="/future-commerce" element={<Blog />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="/future-commerce/:slug" element={<BlogArticle />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/demande-rappel" element={<DemandeRappel />} />
             <Route path="/sitemap-igv" element={<SitemapView />} />

@@ -159,7 +159,7 @@ export default function AboutPage() {
               '@type': 'Person',
               name: 'Mickael Benmoussa',
               jobTitle: 'Fondateur & Expert en Implantation de Marques en Israël',
-              // image: `${SITE_URL}/images/mickael-benmoussa.jpg`, // ← décommenter après upload
+              image: `${SITE_URL}/images/mickael-benmoussa.png`,
             },
             areaServed: 'IL',
             serviceType: [
@@ -185,15 +185,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── PHOTO + NOM (placeholder — à remplacer dès upload) ── */}
-        {/*
-          TODO : Uploader /public/images/mickael-benmoussa.jpg
-          Puis décommenter ce bloc :
-
+        {/* ── PHOTO + NOM ── */}
         <section className="py-16 bg-white">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <img
-              src="/images/mickael-benmoussa.jpg"
+              src="/images/mickael-benmoussa.png"
               alt="Mickael Benmoussa — Fondateur Israel Growth Venture"
               className="w-40 h-40 rounded-full mx-auto mb-6 object-cover shadow-lg"
             />
@@ -203,7 +199,6 @@ export default function AboutPage() {
             </p>
           </div>
         </section>
-        */}
 
         {/* ── MISSION ── */}
         <section className="py-20 bg-white">

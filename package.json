@@ -46,6 +46,8 @@
     "i18next-browser-languagedetector": "^8.2.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.507.0",
+    "next": "^16.1.6",
+    "next-intl": "^4.8.3",
     "next-themes": "^0.4.6",
     "quill-image-drop-module": "^1.0.3",
     "quill-image-resize-module-react": "^3.0.0",
@@ -69,6 +71,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "craco start",
+    "dev:next": "next dev",
+    "build:next": "next build",
+    "build:next:export": "next build && next export",
     "quality:gate": "powershell -ExecutionPolicy Bypass -File ./scripts/quality-gate.ps1",
     "build": "cross-env CI=false craco build",
     "build:win": "set CI=false && craco build",

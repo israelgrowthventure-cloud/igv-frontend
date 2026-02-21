@@ -16,9 +16,9 @@ const SITE_URL = 'https://israelgrowthventure.com';
 // (titres & sous-titres source : PacksPage.jsx archive)
 // ============================================================
 export const metadata = {
-  title: 'Nos Offres — Franchises, Succursales & Expansion en Israël',
+  title: "Nos Packs — Solutions adaptées à vos besoins d'expansion",
   description:
-    "Choisissez le pack adapté à vos besoins : accompagnement personnalisé pour l'ouverture de franchises et succursales en Israël. Étude de faisabilité, développement réseau et expansion — Israel Growth Venture.",
+    "Nos Packs : analyse de marché pour jusqu'à 3 ouvertures, accompagnement succursales et développement franchise en Israël. Solutions adaptées à vos besoins d'expansion — Israel Growth Venture.",
   alternates: {
     canonical: `${SITE_URL}/packs`,
     languages: {
@@ -37,9 +37,9 @@ export const metadata = {
     'consultant franchise Israël',
   ],
   openGraph: {
-    title: 'Nos Offres — Franchises, Succursales & Expansion en Israël | IGV',
+    title: 'Nos Packs — Solutions adaptées à vos besoins | IGV',
     description:
-      "Choisissez le pack adapté à vos besoins pour développer votre réseau en Israël. Franchises, succursales, expansion — Israel Growth Venture.",
+      "Pack Analyse (jusqu'à 3 ouvertures), Pack Succursales, Pack Franchise — solutions clé en main pour développer votre réseau en Israël.",
     url: `${SITE_URL}/packs`,
     type: 'website',
   },
@@ -95,10 +95,10 @@ export default function PacksPage() {
       <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Nos Offres
+            Nos Packs
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choisissez le pack adapté à vos besoins
+            Solutions adaptées à vos besoins d'expansion
           </p>
         </div>
       </section>

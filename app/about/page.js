@@ -51,10 +51,14 @@ const content = {
       "Le marché israélien étant très difficile d'accès, notre équipe peut guider les clients depuis la création d'un business plan jusqu'à la sélection de l'équipe d'employés. Nous offrons un soutien complet pour assurer le succès de votre expansion.",
     service:
       "Si vous cherchez à établir et développer votre marque ou à étendre votre concept par le biais de franchises ou de succursales, l'équipe Israel Growth Venture est à votre service.",
+    bio: [
+      "Avec plus de 20 ans d'expérience en tant qu'agent immobilier professionnel à Paris et trois nominations comme meilleur agent du réseau Procomm, Mickael a acquis une expertise reconnue dans le domaine.",
+      "Passionné par l'aide aux entreprises à réussir dans ce pays dynamique, il comprend profondément les besoins de ses clients et développe des stratégies personnalisées pour maximiser leur succès.",
+    ],
     values: [
       {
         title: 'Expertise Locale',
-        description: 'Connaissance approfondie du marché israélien et de ses spécificités',
+        description: "Plus de 20 ans d'expérience dans l'immobilier commercial et l'expansion de marques",
       },
       {
         title: 'Accompagnement Complet',
@@ -81,10 +85,14 @@ const content = {
       'Since the Israeli market is very difficult to access, our team can guide clients from creating a business plan to selecting the team of employees. We offer comprehensive support to ensure the success of your expansion.',
     service:
       'If you are looking to establish and grow your brand or expand your concept through franchises or branches, the Israel Growth Venture team is at your service.',
+    bio: [
+      'With over 20 years of experience as a professional real estate agent in Paris and three nominations as best agent in the Procomm network, Mickael has built widely recognized expertise in the field.',
+      "Passionate about helping businesses succeed in this dynamic country, he deeply understands his clients' needs and develops personalized strategies to maximize their success.",
+    ],
     values: [
       {
         title: 'Local Expertise',
-        description: 'In-depth knowledge of the Israeli market and its specificities',
+        description: 'Over 20 years of experience in commercial real estate and brand expansion',
       },
       {
         title: 'Complete Support',
@@ -111,10 +119,14 @@ const content = {
       'מכיוון שהשוק הישראלי קשה מאוד לגישה, הצוות שלנו יכול להדריך לקוחות מיצירת תוכנית עסקית ועד לבחירת צוות העובדים. אנו מציעים תמיכה מקיפה כדי להבטיח את הצלחת ההתרחבות שלכם.',
     service:
       'אם אתם מחפשים להקים ולפתח את המותג שלכם או להרחיב את הקונספט שלכם באמצעות זכיינות או סניפים, צוות Israel Growth Venture לשירותכם.',
+    bio: [
+      'עם ניסיון של למעלה מ-20 שנה כסוכן נדל"ן מקצועי בפריז ושלוש מינויים כסוכן הטוב ביותר ברשת Procomm, מיקאל רכש מומחיות מוכרת בתחום.',
+      'בעל תשוקה לסייע לעסקים להצליח במדינה הדינמית הזו, הוא מבין לעומק את צרכי לקוחותיו ומפתח אסטרטגיות מותאמות אישית למיצוי הצלחתם.',
+    ],
     values: [
       {
         title: 'מומחיות מקומית',
-        description: 'ידע מעמיק של השוק הישראלי והמאפיינים שלו',
+        description: 'למעלה מ-20 שנות ניסיון בנדל"ן מסחרי והרחבת מותגים',
       },
       {
         title: 'תמיכה מלאה',
@@ -185,18 +197,33 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── PHOTO + NOM ── */}
+        {/* ── PORTRAIT MICKAEL ── */}
         <section className="py-16 bg-white">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <img
-              src="/images/mickael-benmoussa.png"
-              alt="Mickael Benmoussa — Fondateur Israel Growth Venture"
-              className="w-40 h-40 rounded-full mx-auto mb-6 object-cover shadow-lg"
-            />
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Mickael Benmoussa</h2>
-            <p className="text-[#00318D] font-medium">
-              Fondateur & Expert en Implantation de Marques en Israël
-            </p>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div className="text-center">
+                  <div className="relative inline-block">
+                    <img
+                      src="/images/mickael-benmoussa.png"
+                      alt="Mickael Benmoussa — Fondateur Israel Growth Venture"
+                      className="w-52 h-52 rounded-full object-cover shadow-xl mx-auto"
+                    />
+                    <div className="absolute -bottom-4 -right-4 bg-[#00318D] text-white px-4 py-2 rounded-xl shadow-lg text-center">
+                      <div className="text-2xl font-bold">20+</div>
+                      <div className="text-xs">Ans d'expérience</div>
+                    </div>
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-1">Mickael Benmoussa</h2>
+                  <p className="text-[#00318D] font-semibold">Fondateur & CEO</p>
+                </div>
+                <div className="space-y-4 text-gray-700 leading-relaxed text-base">
+                  {lang.bio.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

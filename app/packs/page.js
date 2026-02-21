@@ -2,42 +2,45 @@
  * app/packs/page.js — Page Packs / Offres commerciales (Server Component)
  *
  * Migration depuis : src/pages/Packs.js
+ * Contenu source   : igv-website-v2_copy/frontend/src/pages/PacksPage.jsx
  *
- * Offres :
- * - Pack Analyse       : étude préalable de faisabilité
- * - Pack Succursales   : ouverture max 3 succursales en Israël
- * - Pack Franchise     : déploiement réseau franchise, max 3 ouvertures
- * - Contrat Expansion  : accompagnement long terme — 10 000 €
+ * RÈGLE : Aucun prix affiché — contenu chargé dynamiquement via API dans PacksClient.jsx
  */
 
 import PacksClient from './PacksClient';
 
+const SITE_URL = 'https://israelgrowthventure.com';
+
+// ============================================================
+// SEO — Page Nos Offres / Packs
+// (titres & sous-titres source : PacksPage.jsx archive)
+// ============================================================
 export const metadata = {
-  title: 'Nos Packs — Franchises, Succursales & Expansion en Israël',
+  title: 'Nos Offres — Franchises, Succursales & Expansion en Israël',
   description:
-    "Découvrez nos offres d'accompagnement : Pack Analyse (étude préalable), Pack Succursales et Franchise (jusqu'à 3 ouvertures), Contrat Expansion long terme à partir de 10 000 €. Développez votre réseau en Israël.",
+    "Choisissez le pack adapté à vos besoins : accompagnement personnalisé pour l'ouverture de franchises et succursales en Israël. Étude de faisabilité, développement réseau et expansion — Israel Growth Venture.",
   alternates: {
-    canonical: 'https://israelgrowthventure.com/packs',
+    canonical: `${SITE_URL}/packs`,
     languages: {
-      'fr': 'https://israelgrowthventure.com/packs',
-      'en': 'https://israelgrowthventure.com/en/packs',
-      'he': 'https://israelgrowthventure.com/he/packs',
+      fr: `${SITE_URL}/packs`,
+      en: `${SITE_URL}/en/packs`,
+      he: `${SITE_URL}/he/packs`,
     },
   },
   keywords: [
     'pack franchise Israël',
     'pack succursale Israël',
     'accompagnement expansion Israël',
-    'contrat développement commercial Israël',
+    'développement commercial Israël',
     'étude faisabilité Israël',
     'ouverture réseau Israël',
-    'consultant franchise Israël prix',
+    'consultant franchise Israël',
   ],
   openGraph: {
-    title: 'Packs Franchises, Succursales & Expansion en Israël | IGV',
+    title: 'Nos Offres — Franchises, Succursales & Expansion en Israël | IGV',
     description:
-      "Pack Analyse (étude préalable) · Pack Succursales/Franchise (3 ouvertures max) · Contrat Expansion 10 000€. Votre développement commercial en Israël clé en main.",
-    url: 'https://israelgrowthventure.com/packs',
+      "Choisissez le pack adapté à vos besoins pour développer votre réseau en Israël. Franchises, succursales, expansion — Israel Growth Venture.",
+    url: `${SITE_URL}/packs`,
     type: 'website',
   },
 };
@@ -45,18 +48,18 @@ export const metadata = {
 export default function PacksPage() {
   return (
     <>
-      {/* JSON-LD — OfferCatalog pour rich snippets Google */}
+      {/* JSON-LD — OfferCatalog pour rich snippets Google (sans prix) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'OfferCatalog',
-            name: 'Packs Développement Commercial en Israël',
+            name: 'Nos Offres — Développement Commercial en Israël',
             provider: {
               '@type': 'Organization',
               name: 'Israel Growth Venture',
-              url: 'https://israelgrowthventure.com',
+              url: SITE_URL,
             },
             itemListElement: [
               {
@@ -68,30 +71,39 @@ export default function PacksPage() {
               {
                 '@type': 'Offer',
                 name: 'Pack Succursales',
-                description: "Accompagnement pour l'ouverture de succursales en Israël (max 3 ouvertures).",
+                description: "Accompagnement pour l'ouverture de succursales en Israël.",
                 category: 'Développement retail',
               },
               {
                 '@type': 'Offer',
                 name: 'Pack Franchise',
-                description: "Déploiement réseau franchise en Israël (max 3 ouvertures).",
+                description: "Déploiement réseau franchise en Israël.",
                 category: 'Développement franchise',
               },
               {
                 '@type': 'Offer',
                 name: 'Contrat Expansion',
                 description: "Accompagnement long terme pour l'expansion complète de votre réseau en Israël.",
-                priceSpecification: {
-                  '@type': 'PriceSpecification',
-                  price: '10000',
-                  priceCurrency: 'EUR',
-                },
                 category: 'Expansion stratégique',
               },
             ],
           }),
         }}
       />
+
+      {/* Hero SSR — indexé par Google (FR par défaut, PacksClient gère le multilingue) */}
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Nos Offres
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Choisissez le pack adapté à vos besoins
+          </p>
+        </div>
+      </section>
+
+      {/* Contenu dynamique (packs depuis API) */}
       <PacksClient />
     </>
   );

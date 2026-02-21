@@ -96,17 +96,6 @@ const Audit = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const isRTL = i18n.language === 'he';
-  
-  // Redirect from main domain to audit subdomain
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
-      // If on main domain, redirect to audit subdomain
-      if (hostname === 'israelgrowthventure.com' || hostname === 'www.israelgrowthventure.com') {
-        window.location.replace('https://audit.israelgrowthventure.com/');
-      }
-    }
-  }, []);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId) => {
@@ -171,21 +160,62 @@ const Audit = () => {
   return (
     <>
       <Helmet>
-        <title>{t('audit.seo.title')}</title>
-        <meta name="description" content={t('audit.seo.description')} />
+        {/* Titre SEO accrocheur — hardcodé en FR (langue principale IGV) */}
+        <title>{t('audit.seo.title', 'Audit Stratégique d\'Implantation en Israël | Israel Growth Venture')}</title>
+        <meta
+          name="description"
+          content={t('audit.seo.description', 'Obtenez en 60 minutes un diagnostic complet de faisabilité pour implanter votre franchise ou succursale en Israël. Verdict, adaptations marché, stratégie d\'entrée et budget — 900 €.')}
+        />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://audit.israelgrowthventure.com" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={t('audit.seo.title')} />
-        <meta property="og:description" content={t('audit.seo.description')} />
+        {/* Canonical sur le domaine principal */}
+        <link rel="canonical" href="https://israelgrowthventure.com/audit" />
+
+        {/* Open Graph — partages réseaux sociaux */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://audit.israelgrowthventure.com" />
-        
-        {/* Twitter */}
+        <meta property="og:url" content="https://israelgrowthventure.com/audit" />
+        <meta
+          property="og:title"
+          content={t('audit.seo.title', 'Audit Stratégique d\'Implantation en Israël | Israel Growth Venture')}
+        />
+        <meta
+          property="og:description"
+          content={t('audit.seo.description', 'Diagnostic complet de faisabilité pour franchises et succursales souhaitant s\'implanter en Israël. Session 60 min avec un expert IGV — 900 €.')}
+        />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:locale:alternate" content="he_IL" />
+
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={t('audit.seo.title')} />
-        <meta name="twitter:description" content={t('audit.seo.description')} />
+        <meta
+          name="twitter:title"
+          content={t('audit.seo.title', 'Audit Stratégique d\'Implantation en Israël | IGV')}
+        />
+        <meta
+          name="twitter:description"
+          content={t('audit.seo.description', 'Diagnostic 60 min pour franchises et succursales — implantation en Israël. 900 €.')}
+        />
+
+        {/* JSON-LD — Rich snippet Service */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Audit Stratégique d'Implantation en Israël",
+          "description": "Diagnostic complet de faisabilité en 60 minutes pour franchises et succursales souhaitant s'implanter sur le marché israélien.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Israel Growth Venture",
+            "url": "https://israelgrowthventure.com"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "900",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "url": "https://israelgrowthventure.com/audit",
+          "areaServed": "IL"
+        })}</script>
       </Helmet>
 
       <div className="min-h-screen bg-white">

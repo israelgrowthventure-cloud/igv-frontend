@@ -161,21 +161,7 @@ const isAuditDomain = () => {
   return window.location.hostname === 'audit.israelgrowthventure.com';
 };
 
-// Component to handle /audit redirect on main domain
-const AuditRouteHandler = () => {
-  React.useEffect(() => {
-    // If on main domain and accessing /audit, redirect to audit subdomain
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
-      if (hostname === 'israelgrowthventure.com' || hostname === 'www.israelgrowthventure.com') {
-        window.location.replace('https://audit.israelgrowthventure.com/');
-      }
-    }
-  }, []);
-  
-  // Show the audit page (will redirect if needed)
-  return <Audit />;
-};
+// /audit — Page de vente publique de l'Audit Stratégique IGV (indexée par Google)
 
 function AppContent() {
   const location = useLocation();
@@ -216,8 +202,8 @@ function AppContent() {
           <Routes>
             {/* On audit subdomain, serve Audit page at root */}
             <Route path="/" element={onAuditDomain ? <Audit /> : <Home />} />
-            {/* /audit route - redirect on main domain, serve page on audit domain */}
-            <Route path="/audit" element={<AuditRouteHandler />} />
+            {/* /audit — Page de vente publique, indexée, NO redirect */}
+            <Route path="/audit" element={<Audit />} />
             <Route path="/mini-analyse" element={<MiniAnalysis />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

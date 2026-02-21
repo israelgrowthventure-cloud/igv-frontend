@@ -114,3 +114,28 @@ node diagnostic_console.cjs
 
 **Temps total:** ~3h30  
 **Statut final:** 🔴 INCOMPLET - Nécessite debugging additionnel page Users
+
+
+---
+
+# MISSION: BLOCK_AUDIT_BOOKING_UNDER_48H
+# Date: 21/02/2026 - Statut: COMPLETE
+
+## Commits frontend
+
+- 450cf88 : feat(booking): enforce 48h minimum notice - filter slots, banner message, front-end guard, i18n fr/en/he
+
+## Fichiers modifies
+
+- src/pages/Appointment.js : BOOKING_MIN_HOURS=48, isWithin48h(), filtre slotsByDay, guard handleConfirm, banniere bleue, HTTP 400 handler
+- src/i18n/locales/fr.json : booking.minNotice48h + booking.error48h
+- src/i18n/locales/en.json : booking.minNotice48h + booking.error48h
+- src/i18n/locales/he.json : booking.minNotice48h + booking.error48h
+
+## Preuves
+
+- PREUVE 1: GET /availability -> premier creneau 2026-02-24T12h = ~63h (PASS)
+- PREUVE 2: POST /book +1h -> HTTP 400 delai minimum 48h (PASS)
+- PREUVE 3: POST /book +49h -> HTTP 200 (PASS)
+
+Derniere mise a jour: 21/02/2026

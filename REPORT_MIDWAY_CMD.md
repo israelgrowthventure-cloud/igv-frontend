@@ -271,3 +271,17 @@ node .\cp2_ui_screenshot.cjs
 # Exit code: 0 (succès)
 ```
 
+
+---
+
+## 2026-02-21 - MISSION: BLOCK_AUDIT_BOOKING_UNDER_48H
+
+### Commits
+- 450cf88 : feat(booking): enforce 48h minimum notice - filter slots, banner, i18n fr/en/he
+
+### Preuves production
+- GET /api/booking/availability?days=14 -> first slot 2026-02-24T12h (~63h) - PASS
+- POST /api/booking/book +1h -> HTTP 400 - PASS
+- POST /api/booking/book +49h -> HTTP 200 - PASS
+
+### Statut: COMPLETE

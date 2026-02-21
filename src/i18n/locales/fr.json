@@ -857,8 +857,8 @@
     }
   },
   "packs": {
-    "title": "Conseil High-Ticket",
-    "subtitle": "Stratégies d'expansion premium pour marques ambitieuses",
+    "title": "Nos Packs",
+    "subtitle": "Solutions adaptées à vos besoins d'expansion en Israël",
     "audit": {
       "name": "Diagnostic d'implantation",
       "description": "Séance stratégique de 60 minutes pour évaluer votre potentiel sur le marché israélien",
@@ -870,8 +870,8 @@
       ]
     },
     "analyse": {
-      "name": "Diagnostic Stratégique",
-      "description": "Analyse approfondie du potentiel de votre marque sur le marché israelien avec recommandations sur mesure",
+      "name": "Pack Analyse",
+      "description": "Analyse complète du marché israélien pour jusqu'à 3 ouvertures de magasins",
       "features": [
         "Audit de positionnement concurrentiel",
         "Cartographie des opportunités territoriales",
@@ -882,8 +882,8 @@
       "note": "Pour des projets multi-localisations, nous consulter."
     },
     "succursales": {
-      "name": "Accompagnement Succursales",
-      "description": "Service premium de bout en bout pour l'ouverture et le développement de vos points de vente en Israël",
+      "name": "Pack Succursales",
+      "description": "Pack conçu pour vos 3 premières succursales — solution complète de l'analyse à l'ouverture en Israël",
       "features": [
         "Diagnostic stratégique inclus",
         "Recherche et sélection de locaux premium",
@@ -894,8 +894,8 @@
       ]
     },
     "franchise": {
-      "name": "Développement Franchise",
-      "description": "Partenariat stratégique pour structurer et accélérer votre développement en franchise",
+      "name": "Pack Franchise",
+      "description": "Développement complet de votre réseau de franchise en Israël",
       "features": [
         "Diagnostic stratégique inclus",
         "Structuration du dossier franchise (manuels, IP)",

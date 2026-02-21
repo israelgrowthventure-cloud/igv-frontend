@@ -848,8 +848,8 @@
     }
   },
   "packs": {
-    "title": "High-Ticket Consulting",
-    "subtitle": "Premium expansion strategies for ambitious brands",
+    "title": "Our Packs",
+    "subtitle": "Solutions tailored to your expansion needs in Israel",
     "audit": {
       "name": "Implantation Diagnostic",
       "description": "60-minute strategic session to evaluate your potential in the Israeli market",
@@ -861,8 +861,8 @@
       ]
     },
     "analyse": {
-      "name": "Strategic Assessment",
-      "description": "In-depth analysis of your brand's potential in the Israeli market with tailored recommendations",
+      "name": "Analysis Pack",
+      "description": "Comprehensive analysis of the Israeli market for up to 3 store openings",
       "features": [
         "Competitive positioning audit",
         "Territorial opportunity mapping",
@@ -873,8 +873,8 @@
       "note": "For multi-location projects, please contact us."
     },
     "succursales": {
-      "name": "Branch Development",
-      "description": "Premium end-to-end service for opening and developing your retail locations in Israel",
+      "name": "Branches Pack",
+      "description": "Designed for your first 3 branches — complete solution from analysis to opening in Israel",
       "features": [
         "Strategic assessment included",
         "Premium location search and selection",
@@ -885,8 +885,8 @@
       ]
     },
     "franchise": {
-      "name": "Franchise Development",
-      "description": "Strategic partnership to structure and accelerate your franchise expansion",
+      "name": "Franchise Pack",
+      "description": "Full development of your franchise network in Israel",
       "features": [
         "Strategic assessment included",
         "Franchise package structuring (manuals, IP)",

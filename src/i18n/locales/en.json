@@ -864,36 +864,34 @@
       "name": "Analysis Pack",
       "description": "Comprehensive analysis of the Israeli market for up to 3 store openings",
       "features": [
-        "Competitive positioning audit",
-        "Territorial opportunity mapping",
-        "Risk analysis and success factors",
-        "Personalized strategic roadmap",
-        "Debriefing session with an expert"
+        "In-depth market research",
+        "Competitive analysis",
+        "Opportunity identification",
+        "Strategic recommendations",
+        "Support for up to 3 openings"
       ],
-      "note": "For multi-location projects, please contact us."
+      "note": "For more openings, please contact us."
     },
     "succursales": {
       "name": "Branches Pack",
-      "description": "Designed for your first 3 branches — complete solution from analysis to opening in Israel",
+      "description": "Complete solution for opening branches in Israel",
       "features": [
-        "Strategic assessment included",
-        "Premium location search and selection",
-        "Commercial lease negotiation",
-        "Fit-out coordination",
-        "Team recruitment and training",
-        "Launch support and first months"
+        "Market analysis included",
+        "Commercial premises search",
+        "Administrative and legal support",
+        "Opening support",
+        "Post-opening follow-up"
       ]
     },
     "franchise": {
       "name": "Franchise Pack",
-      "description": "Full development of your franchise network in Israel",
+      "description": "Full development of your franchise network",
       "features": [
-        "Strategic assessment included",
-        "Franchise package structuring (manuals, IP)",
-        "Franchisee recruitment strategy",
-        "Partner training",
-        "Deployment support",
-        "Ongoing quality monitoring"
+        "Market analysis included",
+        "Franchise file structuring",
+        "Franchisee recruitment",
+        "Training and support",
+        "Ongoing support"
       ]
     },
     "cta": "Start my project",

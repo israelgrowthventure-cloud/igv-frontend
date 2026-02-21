@@ -873,36 +873,34 @@
       "name": "Pack Analyse",
       "description": "Analyse complète du marché israélien pour jusqu'à 3 ouvertures de magasins",
       "features": [
-        "Audit de positionnement concurrentiel",
-        "Cartographie des opportunités territoriales",
-        "Analyse des risques et facteurs clés de succès",
-        "Feuille de route stratégique personnalisée",
-        "Session de debriefing avec un expert"
+        "Étude de marché approfondie",
+        "Analyse de la concurrence",
+        "Identification des opportunités",
+        "Recommandations stratégiques",
+        "Support jusqu'à 3 ouvertures"
       ],
-      "note": "Pour des projets multi-localisations, nous consulter."
+      "note": "Pour plus d'ouvertures, nous consulter."
     },
     "succursales": {
       "name": "Pack Succursales",
-      "description": "Pack conçu pour vos 3 premières succursales — solution complète de l'analyse à l'ouverture en Israël",
+      "description": "Solution complète pour l'ouverture de succursales en Israël",
       "features": [
-        "Diagnostic stratégique inclus",
-        "Recherche et sélection de locaux premium",
-        "Negociation de baux commerciaux",
-        "Coordination des travaux d'aménagement",
-        "Recrutement et formation des équipes",
-        "Support au lancement et premiers mois"
+        "Analyse de marché incluse",
+        "Recherche de locaux commerciaux",
+        "Support administratif et légal",
+        "Accompagnement à l'ouverture",
+        "Suivi post-ouverture"
       ]
     },
     "franchise": {
       "name": "Pack Franchise",
-      "description": "Développement complet de votre réseau de franchise en Israël",
+      "description": "Développement complet de votre réseau de franchise",
       "features": [
-        "Diagnostic stratégique inclus",
-        "Structuration du dossier franchise (manuels, IP)",
-        "Stratégie de recrutement de franchisés",
-        "Formation des partenaires",
-        "Accompagnement au déploiement",
-        "Suivi qualité continu"
+        "Analyse de marché incluse",
+        "Structuration du dossier franchise",
+        "Recherche de franchisés",
+        "Formation et accompagnement",
+        "Support continu"
       ]
     },
     "cta": "Démarrer mon projet",

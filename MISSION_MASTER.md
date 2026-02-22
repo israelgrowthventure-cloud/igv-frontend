@@ -1,4 +1,32 @@
-# MISSION MASTER — Flow Users PROD
+# MISSION MASTER — Audit First + Dynamic Pricing
+**Date**: 2026-02-22 | **Branche**: feat/nextjs-migration
+**Objectif**: Tunnel Audit First + prix dynamique Pack Analyse
+**Status**: ✅ TERMINÉ — SHA backend: 737d8ac | SHA frontend: 749c232
+
+---
+
+## RÉSUMÉ EXÉCUTION 2026-02-22
+
+### T1A — MASTER_PROMPTS (9 fichiers backend)
+- CTA ajouté en fin de chaque prompt: "Réservez votre Audit Stratégique (60 min) avec Mickael Benmoussa pour valider ce diagnostic : https://israelgrowthventure.com/audit"
+- FR (3 fichiers) + EN (3 fichiers) + HE (3 fichiers)
+
+### T1B — Email mini-analyse
+- Fichier: `igv-backend/mini_analysis_routes.py`
+- Lien /audit ajouté dans les 3 corps d'email (FR/EN/HE)
+
+### T2 — Packs.js (src/pages/Packs.js)
+- Prix dynamique Pack Analyse: ISRAËL 7 000 ₪ / USA-ASIE 4 000 $ / EUROPE 3 000 €
+- "Tarif ajusté selon votre zone géographique." sous le prix
+- Succursales/Franchise: "Accompagnement Premium — Sur devis après audit."
+- CTA UNIQUE: "Réservez dès maintenant votre audit" → /audit (next/link via react-router Link)
+
+### T3 — /audit
+- 900€ déjà visible dans Audit.js (aucune modification nécessaire)
+
+---
+
+# MISSION PRÉCÉDENTE — Flow Users PROD
 **Date**: 2026-01-29  
 **Objectif**: Réparer module USERS (CREATE → ASSIGN → LOGIN → DELETE) avec preuves Playwright  
 **Status**: 🔴 BLOQUÉ - Bug critique frontend page /admin/crm/users

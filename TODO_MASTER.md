@@ -1,4 +1,32 @@
-# TODO MASTER — CMS WYSIWYG REPAIR
+# TODO MASTER — Audit First + Dynamic Pricing
+**Date**: 2026-02-22 | **Branche**: feat/nextjs-migration
+**Statut**: ✅ TOUTES TÂCHES COMPLETÉES
+
+## CHECKLIST 2026-02-22
+
+- [x] **T1A** - Ajout CTA audit dans MASTER_PROMPT_RESTAURATION.txt (FR)
+  - Phrase: "Réservez votre Audit Stratégique (60 min) avec Mickael Benmoussa..."
+  - Lien: https://israelgrowthventure.com/audit
+- [x] **T1A** - Ajout CTA audit dans MASTER_PROMPT_RETAIL_NON_FOOD.txt (FR)
+- [x] **T1A** - Ajout CTA audit dans MASTER_PROMPT_SERVICES_PARAMEDICAL.txt (FR)
+- [x] **T1A** - Ajout CTA audit dans MASTER_PROMPT_*_EN.txt (3 fichiers EN)
+- [x] **T1A** - Ajout CTA audit dans MASTER_PROMPT_*_HE.txt (3 fichiers HE)
+- [x] **T1B** - Lien /audit dans send_mini_analysis_email (FR/EN/HE)
+  - Fichier: igv-backend/mini_analysis_routes.py
+- [x] **T2** - Prix dynamique Pack Analyse via api.detectLocation() + getPricing()
+  - ISRAËL: 7 000 ₪ | USA/ASIE: 4 000 $ | EUROPE/AUTRE: 3 000 €
+- [x] **T2** - "Tarif ajusté selon votre zone géographique." sous le prix
+- [x] **T2** - Succursales/Franchise: "Accompagnement Premium — Sur devis après audit."
+- [x] **T2** - CTA UNIQUE "Réservez dès maintenant votre audit" → /audit
+- [x] **T3** - /audit: 900€ visible (Audit.js line 359 + JSON-LD)
+- [x] **GIT** - feat(audit): commit backend SHA 737d8ac → main
+- [x] **GIT** - feat(pricing): commit frontend SHA 749c232 → feat/nextjs-migration
+- [x] **DEPLOY** - Backend poussé main → Render auto-deploy igv-cms-backend
+- [x] **DEPLOY** - Frontend poussé feat/nextjs-migration → Render auto-deploy
+
+---
+
+# TODO PRÉCÉDENTE — CMS WYSIWYG REPAIR
 **Date début**: 2026-01-30  
 **Mission**: Réparer CMS WYSIWYG - ÉDITER = APERÇU + édition inline + persistance PROD  
 **Statut**: 🔴 EN COURS - ANALYSE

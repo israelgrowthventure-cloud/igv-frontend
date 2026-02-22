@@ -3,6 +3,57 @@
 
 ---
 
+## SESSION 2026-02-22 — Audit First + Dynamic Pricing
+
+### ÉTAT INITIAL
+- Branche: feat/nextjs-migration
+- Backend prompts: 9 fichiers sans CTA audit
+- Email: sans lien /audit
+- Packs.js: prix supprimés, CTAs multi
+
+### MODIFICATIONS
+
+#### T1A — Prompts (9 fichiers)
+```
+Ajout en fin de chaque prompt:
+  FR: "Réservez votre Audit Stratégique (60 min) avec Mickael Benmoussa pour valider ce diagnostic :
+      https://israelgrowthventure.com/audit"
+  EN: "Book your Strategic Audit (60 min) with Mickael Benmoussa to validate this diagnosis:
+      https://israelgrowthventure.com/audit"
+  HE: (version hébraïque)
+```
+
+#### T1B — mini_analysis_routes.py
+```python
+# Ajout dans les 3 corps d'email:
+🎯 Réservez votre Audit Stratégique (60 min) :
+https://israelgrowthventure.com/audit
+```
+
+#### T2 — src/pages/Packs.js
+```jsx
+// Avant: prices supprimés, double CTA
+// Après:
+// - Prix dynamique Pack Analyse (pricing.packs.analyse.label)
+// - "Tarif ajusté selon votre zone géographique."
+// - Succursales/Franchise: "Accompagnement Premium — Sur devis après audit."
+// - CTA: <Link to="/audit">Réservez dès maintenant votre audit</Link>
+```
+
+### COMMITS
+```
+Backend SHA: 737d8ac  feat(audit): add audit CTA to all MASTER_PROMPTS + /audit link in email  [main]
+Frontend SHA: 749c232  feat(pricing): dynamic country-based pricing for Pack Analyse  [feat/nextjs-migration]
+Frontend SHA: 5c218e6  chore: trigger redeploy  [feat/nextjs-migration]
+```
+
+### RÉSULTAT
+- Backend: deployé automatiquement sur Render (main)
+- Frontend: deployé sur feat/nextjs-migration
+- Tests post-deploy: à valider sur https://israelgrowthventure.com/packs
+
+---
+
 ## CP0 — SETUP LOCAL + BASELINE
 
 ### CP0.1 - Repos clonés

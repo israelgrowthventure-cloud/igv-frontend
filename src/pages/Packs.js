@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { Check, Mail, User, Sparkles, Phone } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Check, Mail } from 'lucide-react';
 import { api } from '../utils/api';
 import { getPricing } from '../utils/pricing';
-import { toast } from 'sonner';
 
 const Packs = () => {
   const { t, i18n } = useTranslation();
@@ -54,15 +53,6 @@ const Packs = () => {
     }
   ];
 
-  // Rediriger vers la page de contact expert avec le pack sélectionné
-  const handleContactExpert = (packId, packName) => {
-    navigate(`/contact-expert?pack=${encodeURIComponent(packId)}&packName=${encodeURIComponent(packName)}`);
-  };
-
-  // Rediriger vers la mini-analyse avec le pack pré-sélectionné
-  const handleMiniAnalysis = (packId, packName) => {
-    navigate(`/mini-analyse?pack=${encodeURIComponent(packId)}&packName=${encodeURIComponent(packName)}`);
-  };
 
   return (
     <>
@@ -130,8 +120,34 @@ const Packs = () => {
                     </p>
                   </div>
 
-                  {/* Price REMOVED */}
-                  
+                  {/* Price — dynamic for Pack Analyse only */}
+                  {pack.id === 'analyse' && (
+                    <div className="mb-6">
+                      {loading ? (
+                        <div className={`text-sm ${pack.highlighted ? 'text-blue-200' : 'text-gray-400'}`}>
+                          {t('pricing.detecting', 'Détection...')}
+                        </div>
+                      ) : (
+                        <>
+                          <div className={`text-3xl font-bold ${pack.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                            {pricing?.packs?.analyse?.label || '3 000 €'}
+                          </div>
+                          <p className={`text-xs mt-1 ${pack.highlighted ? 'text-blue-200' : 'text-gray-500'}`}>
+                            Tarif ajusté selon votre zone géographique.
+                          </p>
+                        </>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Premium mention for non-analyse packs */}
+                  {pack.id !== 'analyse' && (
+                    <div className="mb-6">
+                      <p className={`text-sm font-semibold ${pack.highlighted ? 'text-yellow-300' : 'text-blue-700'}`}>
+                        Accompagnement Premium — Sur devis après audit.
+                      </p>
+                    </div>
+                  )}
 
                   {/* Features */}
                   <ul className="space-y-3 mb-8">
@@ -158,49 +174,21 @@ const Packs = () => {
                     </p>
                   )}
 
-                  {/* CTAs - Double bouton pour conversion conseil high-ticket */}
-                  <div className="space-y-3">
-                    {/* Bouton principal : Prendre contact avec un expert */}
-                    <button
-                      onClick={() => handleContactExpert(pack.id, pack.packName)}
-                      className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
+                  {/* CTA UNIQUE — Audit First */}
+                  <div>
+                    <Link
+                      to="/audit"
+                      className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center text-center block ${
                         pack.highlighted
                           ? 'bg-white text-blue-600 hover:bg-gray-100'
                           : 'bg-blue-600 text-white hover:bg-blue-700'
                       }`}
-                      data-testid={`contact-expert-${pack.id}`}
+                      data-testid={`cta-audit-${pack.id}`}
                     >
-                      <User className="w-4 h-4" />
-                      <span>{t('packs.ctaContactExpert', 'Discuter avec un expert')}</span>
-                    </button>
-                    
-                    {/* Bouton secondaire : Démarrer une mini-analyse */}
-                    <button
-                      onClick={() => handleMiniAnalysis(pack.id, pack.packName)}
-                      className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 ${
-                        pack.highlighted
-                          ? 'border-2 border-white text-white hover:bg-white/10'
-                          : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50'
-                      }`}
-                      data-testid={`mini-analysis-${pack.id}`}
-                    >
-                      <Sparkles className="w-4 h-4" />
-                      <span>{t('packs.ctaMiniAnalysis', 'Obtenir ma mini-analyse gratuite')}</span>
-                    </button>
+                      Réservez dès maintenant votre audit
+                    </Link>
                   </div>
                   
-                  {/* Lien supplémentaire pour appeler directement */}
-                  <div className="mt-4 text-center">
-                    <button
-                      onClick={() => navigate('/appointment')}
-                      className={`text-sm flex items-center justify-center gap-2 mx-auto ${
-                        pack.highlighted ? 'text-blue-200 hover:text-white' : 'text-blue-600 hover:text-blue-700'
-                      }`}
-                    >
-                      <Phone className="w-3 h-3" />
-                      {t('packs.orBookCall', 'Ou réserver un appel')}
-                    </button>
-                  </div>
                 </div>
               );
             })}
